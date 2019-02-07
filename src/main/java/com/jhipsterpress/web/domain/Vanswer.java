@@ -20,7 +20,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "vanswer")
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.NONE)
 public class Vanswer implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -42,8 +42,8 @@ public class Vanswer implements Serializable {
     @Column(name = "accepted")
     private Boolean accepted;
 
-    @OneToMany(mappedBy = "vanswer")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @OneToMany(mappedBy = "vanswer", cascade = CascadeType.REMOVE)
+    @Cache(usage = CacheConcurrencyStrategy.NONE)
     private Set<Vthumb> vthumbs = new HashSet<>();
     @ManyToOne(optional = false)
     @NotNull

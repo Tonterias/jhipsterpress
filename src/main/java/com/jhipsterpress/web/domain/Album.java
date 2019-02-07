@@ -39,7 +39,7 @@ public class Album implements Serializable {
     @Column(name = "title", length = 100, nullable = false)
     private String title;
 
-    @OneToMany(mappedBy = "album")
+    @OneToMany(mappedBy = "album", cascade = CascadeType.REMOVE)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Photo> photos = new HashSet<>();
     @ManyToOne(optional = false)

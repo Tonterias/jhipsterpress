@@ -1,3 +1,229 @@
-<div class="footer">
-    <p jhiTranslate="footer">This is your footer</p>
-</div>
+    <!-- Footer - Top Section -->
+    <div class="g-brd-bottom g-brd-secondary-light-v2 g-mb-30">
+      <div class="row align-items-center">
+        <div class="col-md-4 g-hidden-sm-down g-mb-30">
+          <!-- Logo -->
+          <a href="bm-classic-home-2.html">
+            <img class="g-width-150" src="../../../content/images/logo-jhipster.png" alt="Logo">
+          </a>
+          <!-- End Logo -->
+        </div>
+
+        <div class="col-md-4 ml-auto g-mb-30">
+          <!-- Social Icons -->
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item g-mx-2">
+              <a class="u-icon-v2 u-icon-size--sm g-brd-secondary-light-v2 g-color-secondary-dark-v2 g-color-white--hover g-bg-primary--hover g-font-size-default rounded" 
+                 href="https://www.facebook.com/sharer/sharer.php?u=example.org" target="_blank"
+                 data-toggle="tooltip"
+                 data-placement="top"
+                 title="Like Us on Facebook">
+                <i class="fa fa-facebook"></i>
+              </a>
+            </li>
+            <li class="list-inline-item g-mx-2">
+              <a class="u-icon-v2 u-icon-size--sm g-brd-secondary-light-v2 g-color-secondary-dark-v2 g-color-white--hover g-bg-primary--hover g-font-size-default rounded" 
+                 href="https://twitter.com/share?url=example.org" target="_blank"
+                 data-toggle="tooltip"
+                 data-placement="top"
+                 title="Follow Us on Twitter">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li class="list-inline-item g-mx-2">
+              <a class="u-icon-v2 u-icon-size--sm g-brd-secondary-light-v2 g-color-secondary-dark-v2 g-color-white--hover g-bg-primary--hover g-font-size-default rounded" 
+                 href="https://plus.google.com/share?url=example.org" target="_blank"
+                 data-toggle="tooltip"
+                 data-placement="top"
+                 title="Join Our Cirlce on Google Plus">
+                <i class="fa fa-google-plus"></i>
+              </a>
+            </li>
+            <li class="list-inline-item g-mx-2">
+              <a class="u-icon-v2 u-icon-size--sm g-brd-secondary-light-v2 g-color-secondary-dark-v2 g-color-white--hover g-bg-primary--hover g-font-size-default rounded" 
+                 href="https://www.youtube.com" target="_blank"
+                 data-toggle="tooltip"
+                 data-placement="top"
+                 title="Subscribe to Our YouTube Channel">
+                <i class="fa fa-youtube"></i>
+              </a>
+            </li>
+            <!-- 
+            <li class="list-inline-item g-mx-2">
+              <a class="u-icon-v2 u-icon-size--sm g-brd-secondary-light-v2 g-color-secondary-dark-v2 g-color-white--hover g-bg-primary--hover g-font-size-default rounded" href="#!"
+                 data-toggle="tooltip"
+                 data-placement="top"
+                 title="Follow Us on Instagram">
+                <i class="fa fa-instagram"></i>
+              </a>
+            </li>
+            <li class="list-inline-item g-mx-2">
+              <a class="u-icon-v2 u-icon-size--sm g-brd-secondary-light-v2 g-color-secondary-dark-v2 g-color-white--hover g-bg-primary--hover g-font-size-default rounded" href="#!"
+                 data-toggle="tooltip"
+                 data-placement="top"
+                 title="RSS">
+                <i class="fa fa-rss"></i>
+              </a>
+            </li>
+             -->
+          </ul>
+          <!-- End Social Icons -->
+        </div>
+
+        <div class="col-md-4 text-center text-md-right g-mb-30">
+          <!-- Subscribe Form -->
+          <!--<form class="input-group rounded">
+            <input class="form-control g-brd-secondary-light-v2 g-color-secondary-dark-v1 g-placeholder-secondary-dark-v1 g-bg-secondary-light-v3 g-font-weight-400 g-font-size-13 rounded g-px-20 g-py-12" type="email" placeholder="Enter your email address">
+            <span class="input-group-addon g-brd-none g-py-0 g-pr-0">
+              <button class="btn u-btn-white g-color-primary--hover g-font-weight-600 g-font-size-13 text-uppercase rounded g-py-12 g-px-20" (click)="saveNewsletter(email)">Subscribe</button>
+            </span>
+          </form>-->
+			<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+			    <div>
+			        <jhi-alert-error></jhi-alert-error>
+			        <div class="form-group">
+			            <input type="text" class="form-control" name="email" id="field_email"
+			                [(ngModel)]="newsletter.email" required/>
+			            <div [hidden]="!(editForm.controls.email?.dirty && editForm.controls.email?.invalid)">
+			                <small class="form-text text-danger"
+			                [hidden]="!editForm.controls.email?.errors?.required" jhiTranslate="entity.validation.required">
+			                This field is required.
+			                </small>
+			            </div>
+			        </div>
+			    <div>
+			        <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+			            <fa-icon [icon]="'envelope'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.subscribe">Save</span>
+			        </button>
+			    </div>
+			</form>
+          <!-- End Subscribe Form -->
+        </div>
+      </div>
+    </div>
+    <!-- End Footer - Top Section -->
+
+    <!-- Footer - Bottom Section -->
+    <div class="row align-items-center">
+      <div class="col-md-2 g-brd-right--md g-brd-secondary-light-v2 g-mb-30">
+        <!-- Copyright -->
+        	<p class="g-color-secondary-light-v1 g-font-size-12 mb-0">&copy; 2019 JHipsterPress</p>
+        <!-- End Copyright -->
+      </div>
+
+      <div class="col-md-8 g-brd-right--md g-brd-secondary-light-v2 g-mb-30">
+        <!-- Links -->
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item g-pl-0 g-pr-10">
+            <a class="u-link-v5 g-color-secondary-light-v1 g-font-size-12" [routerLink]="['/feedback/new']">Contact Us</a>
+          </li>
+          <a class="u-link-v5 g-color-secondary-light-v1 g-font-size-12" [routerLink]="['/help']">Help</a>
+          </li>
+          <!-- 
+          <li class="list-inline-item g-px-10">
+            <a class="u-link-v5 g-color-secondary-light-v1 g-font-size-12" href="#!">Work with Us</a>
+          </li>
+          <li class="list-inline-item g-px-10">
+            <a class="u-link-v5 g-color-secondary-light-v1 g-font-size-12" href="#!">Advertise</a>
+          </li>
+          
+          <li class="list-inline-item g-px-10">
+            <a class="u-link-v5 g-color-secondary-light-v1 g-font-size-12" href="#!">Your Ad Choices</a>
+          </li>
+           -->
+          <li class="list-inline-item g-px-10">
+            <a class="u-link-v5 g-color-secondary-light-v1 g-font-size-12" [routerLink]="['/privacy']">Privacy</a>
+          </li>
+          <li class="list-inline-item g-px-10">
+            <a class="u-link-v5 g-color-secondary-light-v1 g-font-size-12" [routerLink]="['/terms']">Terms of Use</a>
+          </li>
+          <li class="list-inline-item g-px-10">
+            <a class="u-link-v5 g-color-secondary-light-v1 g-font-size-12" [routerLink]="['/feedback/new']">Send Feedback</a>
+          </li>
+          <li class="list-inline-item g-px-10">
+            <a class="u-link-v5 g-color-secondary-light-v1 g-font-size-24" href="https://github.com/Tonterias/JhipsterPress">
+    	    	<i class="fa fa-github-square"></i>
+        	</a>
+          </li>
+        </ul>
+        <!-- End Links -->
+      </div>
+
+      <div class="col-md-2 g-mb-30">
+        <!-- Large Button Group
+        <div class="btn-group dropup float-md-right">
+          <button class="btn align-items-center g-color-secondary-light-v1 g-bg-transparent g-color-primary--hover g-font-size-12 g-px-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <svg class="g-pos-rel g-top-2" xmlns="http://www.w3.org/2000/svg" height="11" width="27" viewBox="0 0 640 480">
+              <defs>
+                <clipPath id="a">
+                  <path fill-opacity=".67" d="M-85.333 0h682.67v512h-682.67z"/>
+                </clipPath>
+              </defs>
+              <g clip-path="url(#a)" transform="translate(80) scale(.94)">
+                <g stroke-width="1pt">
+                  <path fill="#006" d="M-256 0H768.02v512.01H-256z"/>
+                  <path d="M-256 0v57.244l909.535 454.768H768.02V454.77L-141.515 0H-256zM768.02 0v57.243L-141.515 512.01H-256v-57.243L653.535 0H768.02z" fill="#fff"/>
+                  <path d="M170.675 0v512.01h170.67V0h-170.67zM-256 170.67v170.67H768.02V170.67H-256z" fill="#fff"/>
+                  <path d="M-256 204.804v102.402H768.02V204.804H-256zM204.81 0v512.01h102.4V0h-102.4zM-256 512.01L85.34 341.34h76.324l-341.34 170.67H-256zM-256 0L85.34 170.67H9.016L-256 38.164V0zm606.356 170.67L691.696 0h76.324L426.68 170.67h-76.324zM768.02 512.01L426.68 341.34h76.324L768.02 473.848v38.162z" fill="#c00"/>
+                </g>
+              </g>
+            </svg>
+            English
+            <i class="g-font-size-12 ml-2 fa fa-caret-up"></i>
+          </button>
+          <div class="dropdown-menu g-brd-secondary-light-v2 g-bg-white g-font-size-12">
+            <a class="dropdown-item g-color-secondary-dark-v1 g-color-primary--hover g-bg-secondary--hover g-py-5" href="#!">
+              <svg class="g-pos-rel g-top-1" xmlns="http://www.w3.org/2000/svg" height="11" width="27" viewBox="0 0 640 480">
+                <defs>
+                  <clipPath id="a">
+                    <path fill-opacity=".67" d="M-85.333 0h682.67v512h-682.67z"/>
+                  </clipPath>
+                </defs>
+                <g clip-path="url(#a)" transform="translate(80) scale(.94)">
+                  <g stroke-width="1pt">
+                    <path fill="#006" d="M-256 0H768.02v512.01H-256z"/>
+                    <path d="M-256 0v57.244l909.535 454.768H768.02V454.77L-141.515 0H-256zM768.02 0v57.243L-141.515 512.01H-256v-57.243L653.535 0H768.02z" fill="#fff"/>
+                    <path d="M170.675 0v512.01h170.67V0h-170.67zM-256 170.67v170.67H768.02V170.67H-256z" fill="#fff"/>
+                    <path d="M-256 204.804v102.402H768.02V204.804H-256zM204.81 0v512.01h102.4V0h-102.4zM-256 512.01L85.34 341.34h76.324l-341.34 170.67H-256zM-256 0L85.34 170.67H9.016L-256 38.164V0zm606.356 170.67L691.696 0h76.324L426.68 170.67h-76.324zM768.02 512.01L426.68 341.34h76.324L768.02 473.848v38.162z" fill="#c00"/>
+                  </g>
+                </g>
+              </svg>
+              English
+            </a>
+            <a class="dropdown-item g-color-secondary-dark-v1 g-color-primary--hover g-bg-secondary--hover g-py-5" href="#!">
+              <svg class="g-pos-rel g-top-1" xmlns="http://www.w3.org/2000/svg" height="11" width="27" viewBox="0 0 640 480">
+                <g stroke-width="1pt" fill-rule="evenodd">
+                  <path fill="#fff" d="M0 0h640v480H0z"/>
+                  <path fill="#00267f" d="M0 0h213.33v480H0z"/>
+                  <path fill="#f31830" d="M426.67 0H640v480H426.67z"/>
+                </g>
+              </svg>
+              Spanish
+            </a>
+            <a class="dropdown-item g-color-secondary-dark-v1 g-color-primary--hover g-bg-secondary--hover g-py-5" href="#!">
+              <svg class="g-pos-rel g-top-1" xmlns="http://www.w3.org/2000/svg" height="11" width="27" viewBox="0 0 640 480">
+                <g fill-rule="evenodd" stroke-width="1pt">
+                  <path fill="#fff" d="M0 0h640v480H0z"/>
+                  <path fill="#0039a6" d="M0 160.003h640V480H0z"/>
+                  <path fill="#d52b1e" d="M0 319.997h640V480H0z"/>
+                </g>
+              </svg>
+              Russian
+            </a>
+            <a class="dropdown-item g-color-secondary-dark-v1 g-color-primary--hover g-bg-secondary--hover g-py-5" href="#!">
+              <svg class="g-pos-rel g-top-1" xmlns="http://www.w3.org/2000/svg" height="11" width="27" viewBox="0 0 640 480">
+                <path fill="#ffce00" d="M0 320h640v160.002H0z"/>
+                <path d="M0 0h640v160H0z"/>
+                <path fill="#d00" d="M0 160h640v160H0z"/>
+              </svg>
+              German
+            </a>
+          </div>
+        </div>
+        End Large Button Group -->
+      </div>
+    </div>
+    <!-- End Footer - Bottom Section -->
+  </div>
+</footer>
+<!-- End Footer -->

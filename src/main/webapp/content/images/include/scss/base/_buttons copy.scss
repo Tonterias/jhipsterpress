@@ -1,0 +1,479 @@
+//
+// Buttons
+//
+
+/* General Button Styles
+------------------------------------*/
+// Button Colors
+%g-btn-color-white {
+    color: $g-color-white;
+}
+%g-btn-color-dark {
+    color: $g-color-gray-dark-v2;
+}
+
+// Button Background Colors
+%g-btn-bg-color-transparent {
+    background-color: transparent;
+}
+
+// Button Gradient Text Colors
+%g-btn-gradeint-text-color {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Default (Flat) Buttons
+------------------------------------*/
+/* Button Primary */
+.u-btn-primary {
+    @extend %g-btn-color-white;
+    @include u-button-default($g-color-primary, $g-color-primary);
+}
+
+/* Button White */
+.u-btn-white {
+    @extend %g-btn-color-dark;
+    @include u-button-default($g-color-white, $g-color-white);
+
+    &:hover,
+    &.active {
+        background-color: $g-color-primary !important;
+        border-color: $g-color-primary !important;
+        color: $g-color-white !important;
+    }
+}
+
+/* Button Black */
+.u-btn-black {
+    @extend %g-btn-color-white;
+    @include u-button-default($g-color-black, $g-color-black);
+}
+
+/* Button Dark Gray */
+.u-btn-darkgray {
+    @extend %g-btn-color-white;
+    @include u-button-default($g-color-gray-dark-v2, $g-color-gray-dark-v2);
+}
+
+/* Button Red */
+.u-btn-red {
+    @extend %g-btn-color-white;
+    @include u-button-default($g-color-red, $g-color-red);
+}
+
+/* Button Red Tomato */
+.u-btn-lightred {
+    @extend %g-btn-color-white;
+    @include u-button-default($g-color-lightred, $g-color-lightred);
+}
+
+/* Button Dark Red */
+.u-btn-darkred {
+    @extend %g-btn-color-white;
+    @include u-button-default($g-color-darkred, $g-color-darkred);
+}
+
+/* Button Blue */
+.u-btn-blue {
+    @extend %g-btn-color-white;
+    @include u-button-default($g-color-blue, $g-color-blue);
+}
+
+/* Button Indigo */
+.u-btn-indigo {
+    @extend %g-btn-color-white;
+    @include u-button-default($g-color-indigo, $g-color-indigo);
+}
+
+/* Button Purple */
+.u-btn-purple {
+    @extend %g-btn-color-white;
+    @include u-button-default($g-color-purple, $g-color-purple);
+}
+
+/* Button Dark Purple */
+.u-btn-darkpurple {
+    @extend %g-btn-color-white;
+    @include u-button-default($g-color-darkpurple, $g-color-darkpurple);
+}
+
+/* Button Pink */
+.u-btn-pink {
+    @extend %g-btn-color-white;
+    @include u-button-default($g-color-pink, $g-color-pink);
+}
+
+/* Button Pink 4 */
+// .u-btn-pink4 {
+//   @extend %g-btn-color-white;
+//   @include u-button-default($g-color-pink4, $g-color-pink4);
+// }
+
+/* Button Orange */
+.u-btn-orange {
+    @extend %g-btn-color-white;
+    @include u-button-default($g-color-orange, $g-color-orange);
+}
+
+/* Button Deep Orange */
+.u-btn-deeporange {
+    @extend %g-btn-color-white;
+    @include u-button-default($g-color-deeporange, $g-color-deeporange);
+}
+
+/* Button Yellow */
+.u-btn-yellow {
+    @extend %g-btn-color-dark;
+    @include u-button-default($g-color-yellow, $g-color-yellow);
+}
+
+/* Button Aqua */
+.u-btn-aqua {
+    @extend %g-btn-color-white;
+    @include u-button-default($g-color-aqua, $g-color-aqua);
+}
+
+/* Button Cyan */
+.u-btn-cyan {
+    @extend %g-btn-color-white;
+    @include u-button-default($g-color-cyan, $g-color-cyan);
+}
+
+/* Button Teal */
+.u-btn-teal {
+    @extend %g-btn-color-white;
+    @include u-button-default($g-color-teal, $g-color-teal);
+}
+
+/* Button Brown */
+.u-btn-brown {
+    @extend %g-btn-color-white;
+    @include u-button-default($g-color-brown, $g-color-brown);
+}
+
+/* Button Bluegrey */
+.u-btn-bluegray {
+    @extend %g-btn-color-white;
+    @include u-button-default($g-color-bluegray, $g-color-bluegray);
+}
+
+/* Outline Buttons
+------------------------------------*/
+/* Outline Primary Button */
+.u-btn-outline-primary {
+    @include u-outline-button($g-color-primary);
+}
+
+/* Outline White Button */
+.u-btn-outline-white {
+    @include u-outline-button($g-color-white);
+    &:hover {
+        color: $g-color-main;
+    }
+}
+
+/* Outline Black Button */
+.u-btn-outline-black {
+    @include u-outline-button($g-color-black);
+}
+
+/* Outline Dark Gray Button */
+.u-btn-outline-darkgray {
+    @include u-outline-button($g-color-gray-dark-v2);
+}
+
+/* Outline Red Button */
+.u-btn-outline-red {
+    @include u-outline-button($g-color-red);
+}
+
+/* Outline Red Tomato Button */
+.u-btn-outline-lightred {
+    @include u-outline-button($g-color-lightred);
+}
+
+/* Outline Dark Red Button */
+.u-btn-outline-darkred {
+    @include u-outline-button($g-color-darkred);
+}
+
+/* Outline Blue Button */
+.u-btn-outline-blue {
+    @include u-outline-button($g-color-blue);
+}
+
+/* Outline Indigo Button */
+.u-btn-outline-indigo {
+    @include u-outline-button($g-color-indigo);
+}
+
+/* Outline Purple Button */
+.u-btn-outline-purple {
+    @include u-outline-button($g-color-purple);
+}
+
+/* Outline Dark Purple Button */
+.u-btn-outline-darkpurple {
+    @include u-outline-button($g-color-darkpurple);
+}
+
+/* Outline Pink Button */
+.u-btn-outline-pink {
+    @include u-outline-button($g-color-pink);
+}
+
+/* Outline Orange Button */
+.u-btn-outline-orange {
+    @include u-outline-button($g-color-orange);
+}
+
+/* Outline Deep Orange Button */
+.u-btn-outline-deeporange {
+    @include u-outline-button($g-color-deeporange);
+}
+
+/* Outline Yellow Button */
+.u-btn-outline-yellow {
+    @include u-outline-button($g-color-yellow);
+}
+
+/* Outline Aqua Button */
+.u-btn-outline-aqua {
+    @include u-outline-button($g-color-aqua);
+}
+
+/* Outline Cyan Button */
+.u-btn-outline-cyan {
+    @include u-outline-button($g-color-cyan);
+}
+
+/* Outline Teal Button */
+.u-btn-outline-teal {
+    @include u-outline-button($g-color-teal);
+}
+
+/* Outline Brown Button */
+.u-btn-outline-brown {
+    @include u-outline-button($g-color-brown);
+}
+
+/* Outline Bluegrey Button */
+.u-btn-outline-bluegray {
+    @include u-outline-button($g-color-bluegray);
+}
+
+/* Gradient Buttons
+------------------------------------*/
+/* Gradient Style v1 */
+.u-btn-gradient-v1 {
+    @include u-button-gradient(#4776e6, #8e54e9);
+}
+
+/* Gradient Style v2 */
+.u-btn-gradient-v2 {
+    @include u-button-gradient(#e040fb, #00bcd4);
+}
+
+/* Gradient Outline Buttons
+------------------------------------*/
+/* Gradient Style v1 */
+.u-btn-outline-gradient-v1 {
+    @include u-button-outline-gradient(#4776e6, #8e54e9);
+}
+
+/* Gradient Style v2 */
+.u-btn-outline-gradient-v2 {
+    @include u-button-outline-gradient(#e040fb, #00bcd4);
+}
+
+/* Button Sizes
+------------------------------------*/
+/* Extra Small */
+.btn-xs {
+    // e.g. @include g-button-size ($padding-y, $padding-x, $font-size);
+    @include u-button-size(2px, 7px, 11px);
+}
+
+/* Medium */
+.btn-md {
+    // e.g. @include g-button-size ($padding-y, $padding-x, $font-size);
+    @include u-button-size(8px, 20px, 15px);
+}
+
+/* Extra Large */
+.btn-xl {
+    // e.g. @include g-button-size ($padding-y, $padding-x, $font-size);
+    @include u-button-size(13px, 26px, 18px);
+}
+
+/* Extramly Large */
+.btn-xxl {
+    // e.g. @include g-button-size ($padding-y, $padding-x, $font-size);
+    @include u-button-size(15px, 30px, 21px);
+}
+
+/* Button Border Inset
+------------------------------------*/
+.u-btn-inset {
+    position: relative;
+}
+.u-btn-inset::after {
+    @include absolute(top 2px right 2px bottom 2px left 2px);
+    content: '';
+    border: solid 1px #fff;
+    border-radius: 1px;
+}
+.u-btn-inset--rounded::after {
+    border-radius: 50px;
+}
+
+/* 3D Button Styles
+------------------------------------*/
+.u-btn-3d {
+    border-bottom: solid 3px rgba(0, 0, 0, 0.2);
+}
+.u-btn-3d:hover {
+    border-bottom: solid 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Skew Button Styles
+------------------------------------*/
+.u-btn-skew {
+    transform: skewX(-20deg);
+}
+.u-btn-skew__inner {
+    transform: skewX(20deg);
+    display: block;
+}
+
+/* Button Styles
+------------------------------------*/
+/* General Button Styles */
+.btn {
+    position: relative;
+    transition: 0.2s ease;
+}
+
+/* Button Hovers
+------------------------------------*/
+[class*='u-btn-hover'] {
+    z-index: 1;
+
+    &:hover {
+        text-decoration: none;
+        color: $g-color-white;
+    }
+    &:focus {
+        text-decoration: none;
+    }
+
+    &:after {
+        position: absolute;
+        content: '';
+        z-index: -1;
+        transition: all 0.3s;
+    }
+}
+
+/* Button Hover v1
+------------------------------------*/
+//  Hover v1-1
+.u-btn-hover-v1-1::after {
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 100%;
+}
+.u-btn-hover-v1-1:hover::after {
+    height: 100%;
+}
+
+//  Hover v1-2
+.u-btn-hover-v1-2::after {
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+}
+.u-btn-hover-v1-2:hover::after {
+    width: 100%;
+}
+
+//  Hover v1-3
+.u-btn-hover-v1-3::after {
+    bottom: 0;
+    left: 0;
+    height: 0;
+    width: 100%;
+}
+.u-btn-hover-v1-3:hover::after {
+    height: 100%;
+}
+
+//  Hover v1-4
+.u-btn-hover-v1-4::after {
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+}
+.u-btn-hover-v1-4:hover::after {
+    width: 100%;
+}
+
+//
+// Button Type v1 (Flat)
+//
+
+// Primary
+.my-btn-primary {
+    @include u-button-flat($g-color-primary, $g-color-white, $g-color-white);
+    @include u-button-flat-hover-v1(1, $g-color-primary);
+    @include u-button-flat-hover-v1(2, $g-color-primary);
+    @include u-button-flat-hover-v1(3, $g-color-primary);
+    @include u-button-flat-hover-v1(4, $g-color-primary);
+}
+
+// Darkgray
+.my-btn-darkgray {
+    @include u-button-flat($g-color-gray-dark-v2, $g-color-white, $g-color-white);
+    @include u-button-flat-hover-v1(1, $g-color-gray-dark-v2);
+    @include u-button-flat-hover-v1(2, $g-color-gray-dark-v2);
+    @include u-button-flat-hover-v1(3, $g-color-gray-dark-v2);
+    @include u-button-flat-hover-v1(4, $g-color-gray-dark-v2);
+}
+
+//
+// Button Type v2 (Outline)
+//
+
+//  Primary
+.my-btn-outline-primary {
+    @include u-button-outline($g-color-primary, $g-color-white);
+    @include u-button-outline-hover-v1(1, $g-color-primary);
+    @include u-button-outline-hover-v1(2, $g-color-primary);
+    @include u-button-outline-hover-v1(3, $g-color-primary);
+    @include u-button-outline-hover-v1(4, $g-color-primary);
+}
+
+// Darkgray
+.my-btn-outline-darkgray {
+    @include u-button-outline($g-color-gray-dark-v2, $g-color-white);
+    @include u-button-outline-hover-v1(1, $g-color-gray-dark-v2);
+    @include u-button-outline-hover-v1(2, $g-color-gray-dark-v2);
+    @include u-button-outline-hover-v1(3, $g-color-gray-dark-v2);
+    @include u-button-outline-hover-v1(4, $g-color-gray-dark-v2);
+}
+
+/* Buttons Only Icon
+------------------------------------*/
+.u-btn-only-icon {
+    position: relative;
+    i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+}

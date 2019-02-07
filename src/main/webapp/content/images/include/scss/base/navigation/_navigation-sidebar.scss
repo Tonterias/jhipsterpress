@@ -1,0 +1,18 @@
+/*------------------------------------
+  Sidebar Navigation
+------------------------------------*/
+
+.u-sidebar-navigation {
+    z-index: 3;
+
+    .nav-item {
+        @include px-to-rem(padding, 0 20px);
+
+        &:hover {
+            background-color: rgba($g-color-black, 0.03);
+        }
+        &.active {
+            background-color: rgba($g-color-black, 0.05);
+        }
+    }
+}

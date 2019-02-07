@@ -1,41 +1,1714 @@
-<div class="row">
-    <div class="col-md-3">
-        <span class="hipster img-fluid rounded"></span>
+<div *ngFor="let frontPageConfig of frontpageconfigs">
+<!-- Promo Block -->
+<section class="g-py-50">
+  <div class="container">
+    <!-- News Section -->
+    <div class="row no-gutters">
+      <div class="col-lg-6 g-pr-1--lg g-mb-30 g-mb-2--lg">
+        <!-- Article -->
+        <article class="u-block-hover">
+          <figure class="u-shadow-v25 g-bg-cover g-bg-white-gradient-opacity-v1--after">
+            <img [src]="'data:' + frontPageConfig.topNews1.imageContentType + ';base64,' + frontPageConfig.topNews1.image" class="img-fluid w-100 u-block-hover__main--zoom-v1" alt="post image"/>
+          </figure>
+
+          <!-- <span class="g-hidden-xs-down u-icon-v3 u-icon-size--sm g-font-size-13 g-bg-white rounded-circle g-pos-abs g-top-30 g-right-30">
+            <i class="icon-camera"></i>
+          </span>
+
+          <span class="g-hidden-xs-down g-pos-abs g-top-30 g-left-30">
+            <a class="btn btn-xs u-btn-darkpurple text-uppercase rounded-0" href="#!">Painting</a>
+          </span> -->
+
+          <div class="g-pos-abs g-bottom-30 g-left-30 g-right-30">
+            <small class="g-color-white">
+              <i class="icon-clock g-pos-rel g-top-1 g-mr-2"></i>{{frontPageConfig.topNews1.creationDate | date:'MMM d, y, h:mm a'}}
+            </small>
+
+            <h3 class="h4 g-my-10">
+              <a class="g-color-white g-color-white--hover" [routerLink]="['/post', frontPageConfig.topNews1.id, 'view' ]">{{frontPageConfig.topNews1.headline}}</a>
+            </h3>
+
+            <!-- <ul class="g-hidden-xs-down u-list-inline g-font-size-12 g-color-white">
+              <li class="list-inline-item">
+                <i class="icon-eye g-pos-rel g-top-1 g-mr-2"></i> 264
+              </li>
+              <li class="list-inline-item">/</li>
+              <li class="list-inline-item">
+                <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 g-mr-2"></i> 52
+              </li>
+              <li class="list-inline-item">/</li>
+              <li class="list-inline-item">
+                <i class="icon-share g-pos-rel g-top-1 g-mr-2"></i> 26
+              </li>
+            </ul> -->
+          </div>
+        </article>
+        <!-- End Article -->
+      </div>
+
+      <div class="col-lg-6 g-pl-1--lg g-mb-30 g-mb-2--lg">
+        <!-- Article -->
+        <article class="u-block-hover">
+          <figure class="u-shadow-v25 g-bg-cover g-bg-white-gradient-opacity-v1--after">
+            <img [src]="'data:' + frontPageConfig.topNews2.imageContentType + ';base64,' + frontPageConfig.topNews2.image" class="img-fluid w-100 u-block-hover__main--zoom-v1" alt="post image"/>
+          </figure>
+
+          <!-- <span class="g-hidden-xs-down u-icon-v3 u-icon-size--sm g-font-size-13 g-bg-white rounded-circle g-pos-abs g-top-30 g-right-30">
+            <i class="fa fa-play g-left-2"></i>
+          </span>
+
+          <span class="g-hidden-xs-down g-pos-abs g-top-30 g-left-30">
+            <a class="btn btn-xs u-btn-red text-uppercase rounded-0" href="#!">Startup</a>
+          </span> -->
+
+          <div class="g-pos-abs g-bottom-30 g-left-30 g-right-30">
+            <small class="g-color-white">
+              <i class="icon-clock g-pos-rel g-top-1 g-mr-2"></i> {{frontPageConfig.topNews2.creationDate | date:'MMM d, y, h:mm a'}}
+            </small>
+
+            <h3 class="h4 g-my-10">
+              <a class="g-color-white g-color-white--hover" [routerLink]="['/post', frontPageConfig.topNews2.id, 'view' ]">{{frontPageConfig.topNews2.headline}}</a>
+            </h3>
+
+            <!-- <ul class="g-hidden-xs-down u-list-inline g-font-size-12 g-color-white">
+              <li class="list-inline-item">
+                <i class="icon-eye g-pos-rel g-top-1 g-mr-2"></i> 127
+              </li>
+              <li class="list-inline-item">/</li>
+              <li class="list-inline-item">
+                <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 g-mr-2"></i> 152
+              </li>
+              <li class="list-inline-item">/</li>
+              <li class="list-inline-item">
+                <i class="icon-share g-pos-rel g-top-1 g-mr-2"></i> 32
+              </li>
+            </ul> -->
+          </div>
+        </article>
+        <!-- End Article -->
+      </div>
+
+      <div class="col-lg-4 g-pr-1--lg g-mb-30 g-mb-0--lg">
+        <!-- Article -->
+        <article class="u-block-hover">
+          <figure class="u-shadow-v25 u-bg-overlay g-bg-white-gradient-opacity-v1--after">
+            <img [src]="'data:' + frontPageConfig.topNews3.imageContentType + ';base64,' + frontPageConfig.topNews3.image" class="img-fluid w-100 u-block-hover__main--zoom-v1" alt="post image"/>
+          </figure>
+
+          <div class="w-100 text-center g-absolute-centered g-px-30">
+            <!-- <a class="btn btn-xs u-btn-cyan text-uppercase rounded-0" href="#!">Spa</a> -->
+            <h3 class="h4 g-mt-10">
+              <a class="g-color-white" [routerLink]="['/post', frontPageConfig.topNews3.id, 'view' ]">{{frontPageConfig.topNews3.headline}}</a>
+            </h3>
+            <small class="g-color-white">
+              <i class="icon-clock g-pos-rel g-top-1 g-mr-2"></i> {{frontPageConfig.topNews3.creationDate | date:'MMM d, y, h:mm a'}}
+            </small>
+          </div>
+        </article>
+        <!-- End Article -->
+      </div>
+
+      <div class="col-lg-4 g-px-1--lg g-mb-30 g-mb-0--lg">
+        <!-- Article -->
+        <article class="u-block-hover">
+          <figure class="u-shadow-v25 u-bg-overlay g-bg-white-gradient-opacity-v1--after">
+            <img [src]="'data:' + frontPageConfig.topNews4.imageContentType + ';base64,' + frontPageConfig.topNews4.image" class="img-fluid w-100 u-block-hover__main--zoom-v1" alt="post image"/>
+          </figure>
+
+          <div class="w-100 text-center g-absolute-centered g-px-30">
+            <!-- <a class="btn btn-xs u-btn-pink text-uppercase rounded-0" href="#!">Fashion</a> -->
+            <h3 class="h4 g-mt-10">
+              <a class="g-color-white" [routerLink]="['/post', frontPageConfig.topNews4.id, 'view' ]">{{frontPageConfig.topNews4.headline}}</a>
+            </h3>
+            <small class="g-color-white">
+              <i class="icon-clock g-pos-rel g-top-1 g-mr-2"></i> {{frontPageConfig.topNews4.creationDate | date:'MMM d, y, h:mm a'}}
+            </small>
+          </div>
+        </article>
+        <!-- End Article -->
+      </div>
+
+      <div class="col-lg-4 g-pl-1--lg">
+        <!-- Article -->
+        <article class="u-block-hover">
+          <figure class="u-shadow-v25 u-bg-overlay g-bg-white-gradient-opacity-v1--after">
+            <img [src]="'data:' + frontPageConfig.topNews4.imageContentType + ';base64,' + frontPageConfig.topNews4.image" class="img-fluid w-100 u-block-hover__main--zoom-v1" alt="post image"/>
+          </figure>
+
+          <div class="w-100 text-center g-absolute-centered g-px-30">
+            <!-- <a class="btn btn-xs u-btn-primary text-uppercase rounded-0" href="#!">Tech</a> -->
+            <h3 class="h4 g-mt-10">
+              <a class="g-color-white" [routerLink]="['/post', frontPageConfig.topNews5.id, 'view' ]">{{frontPageConfig.topNews5.headline}}</a>
+            </h3>
+            <small class="g-color-white">
+              <i class="icon-clock g-pos-rel g-top-1 g-mr-2"></i> {{frontPageConfig.topNews5.creationDate | date:'MMM d, y, h:mm a'}}
+            </small>
+          </div>
+        </article>
+        <!-- End Article -->
+      </div>
+        
+
     </div>
-    <div class="col-md-9">
-        <h1 class="display-4" jhiTranslate="home.title">Welcome, Java Hipster!</h1>
-        <p class="lead" jhiTranslate="home.subtitle">This is your homepage</p>
+    
+    <!-- News Section -->
+  </div>
+</section>
+<!-- End Promo Block -->
 
-        <div [ngSwitch]="isAuthenticated()">
-            <div class="alert alert-success" *ngSwitchCase="true">
-                <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message"
-                    [translateValues]="{username: account.login}"> You are logged in as user "{{account.login}}". </span>
+<!-- News Content -->
+<section class="g-pb-100">
+  <div class="container">
+    <!-- News Section 1 -->
+    <div class="row g-mb-60">
+      <!-- Articles Content -->
+      <div class="col-lg-9 g-mb-50 g-mb-0--lg">
+        <!-- Latest News -->
+        <div class="g-mb-50">
+          <div class="u-heading-v3-1 g-mb-30">
+            <h2 class="h5 u-heading-v3__title g-font-primary g-font-weight-700 g-color-gray-dark-v1 text-uppercase g-brd-primary">Latest News</h2>
+          </div>
+
+          <div class="row">
+            <!-- Article (Leftside) -->
+            <div class="col-lg-7 g-mb-50 g-mb-0--lg">
+              <article>
+                <figure class="u-shadow-v25 g-pos-rel g-mb-20">
+                  <a [routerLink]="['/post', frontPageConfig.latestNews1.id, 'view' ]">
+                  	<img [src]="'data:' + frontPageConfig.latestNews1.imageContentType + ';base64,' + frontPageConfig.latestNews1.image" class="img-fluid w-100" alt="post image"/>
+                  </a>
+                  <figcaption class="g-pos-abs g-top-20 g-left-20">
+                    <!-- <a class="btn btn-xs u-btn-teal text-uppercase rounded-0" href="#!">Office</a> -->
+                  </figcaption>
+                </figure>
+
+                <h3 class="h4 g-mb-10">
+                  <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" [routerLink]="['/post', frontPageConfig.latestNews1.id, 'view' ]">{{frontPageConfig.latestNews1.headline}}</a>
+                </h3>
+
+                <ul class="list-inline g-color-gray-dark-v4 g-font-size-12">
+                  <li class="list-inline-item">
+                    <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                    	{{frontPageConfig.latestNews1.blog.user?.firstName}} 
+                    	{{frontPageConfig.latestNews1.blog.user?.lastName}}
+					</a>
+                  </li>
+                  <!-- <li class="list-inline-item">/</li> -->
+                  <li class="list-inline-item">
+                    {{frontPageConfig.latestNews1.creationDate | date:'MMM d, y, h:mm a'}}
+                  </li>
+                  <!-- <li class="list-inline-item">/</li>
+                  <li class="list-inline-item">
+                    <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                      <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 24
+                    </a>
+                  </li> -->
+                </ul>
+              <p class="g-color-gray-dark-v2" [innerHTML]="frontPageConfig.latestNews1.bodytext | slice:0:300"></p>
+              <!-- <a class="g-font-size-12" [routerLink]="['/post', frontPageConfig.latestNews1.id, 'view' ]">Read More..</a> -->
+              </article>
+              
+            </div>
+            <!-- End Article (Leftside) -->
+
+            <!-- Article (Rightside) -->
+            <div class="col-lg-5">
+              <!-- Article -->
+              <article class="media">
+                <a class="d-flex u-shadow-v25 align-self-center mr-3" [routerLink]="['/post', frontPageConfig.latestNews2.id, 'view' ]">
+                  <img [src]="'data:' + frontPageConfig.latestNews2.imageContentType + ';base64,' + frontPageConfig.latestNews2.image" class="g-width-80 g-height-80" alt="post image"/>
+                </a>
+
+                <div class="media-body">
+                  <h3 class="h6">
+                    <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" [routerLink]="['/post', frontPageConfig.latestNews2.id, 'view' ]">{{frontPageConfig.latestNews2.headline}}</a>
+                  </h3>
+
+                  <ul class="u-list-inline g-font-size-12 g-color-gray-dark-v4">
+                    <li class="list-inline-item">
+                      {{frontPageConfig.latestNews2.creationDate | date:'MMM d, y, h:mm a'}}
+                    </li>
+                    <!-- <li class="list-inline-item">/</li>
+                    <li class="list-inline-item">
+                      <a class="g-color-gray-dark-v4 g-text-underline--none--hover" href="#!">
+                        <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 18
+                      </a>
+                    </li> -->
+                  </ul>
+                </div>
+              </article>
+              <!-- End Article -->
+
+              <hr class="g-brd-gray-light-v4 g-my-25">
+
+              <!-- Article -->
+              <article class="media">
+                <a class="d-flex u-shadow-v25 align-self-center mr-3" [routerLink]="['/post', frontPageConfig.latestNews3.id, 'view' ]">
+                  <img [src]="'data:' + frontPageConfig.latestNews3.imageContentType + ';base64,' + frontPageConfig.latestNews3.image" class="g-width-80 g-height-80" alt="post image"/>
+                </a>
+
+                <div class="media-body">
+                  <h3 class="h6">
+                    <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" [routerLink]="['/post', frontPageConfig.latestNews3.id, 'view' ]">{{frontPageConfig.latestNews3.headline}}</a>
+                  </h3>
+
+                  <ul class="u-list-inline g-font-size-12 g-color-gray-dark-v4">
+                    <li class="list-inline-item">
+                      {{frontPageConfig.latestNews3.creationDate | date:'MMM d, y, h:mm a'}}
+                    </li>
+                    <!-- <li class="list-inline-item">/</li>
+                    <li class="list-inline-item">
+                      <a class="g-color-gray-dark-v4 g-text-underline--none--hover" href="#!">
+                        <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 31
+                      </a>
+                    </li> -->
+                  </ul>
+                </div>
+              </article>
+              <!-- End Article -->
+
+              <hr class="g-brd-gray-light-v4 g-my-25">
+
+              <!-- Article -->
+              <article class="media">
+                <a class="d-flex u-shadow-v25 align-self-center mr-3" [routerLink]="['/post', frontPageConfig.latestNews4.id, 'view' ]">
+                  <img [src]="'data:' + frontPageConfig.latestNews4.imageContentType + ';base64,' + frontPageConfig.latestNews4.image" class="g-width-80 g-height-80" alt="post image"/>
+                </a>
+
+                <div class="media-body">
+                  <h3 class="h6">
+                    <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" [routerLink]="['/post', frontPageConfig.latestNews4.id, 'view' ]">{{frontPageConfig.latestNews4.headline}}</a>
+                  </h3>
+
+                  <ul class="u-list-inline g-font-size-12 g-color-gray-dark-v4">
+                    <li class="list-inline-item">
+                      {{frontPageConfig.latestNews4.creationDate | date:'MMM d, y, h:mm a'}}
+                    </li>
+                    <!-- <li class="list-inline-item">/</li>
+                    <li class="list-inline-item">
+                      <a class="g-color-gray-dark-v4 g-text-underline--none--hover" href="#!">
+                        <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 24
+                      </a>
+                    </li> -->
+                  </ul>
+                </div>
+              </article>
+              <!-- End Article -->
+
+              <hr class="g-brd-gray-light-v4 g-my-25">
+
+              <!-- Article -->
+              <article class="media">
+                <a class="d-flex u-shadow-v25 align-self-center mr-3" [routerLink]="['/post', frontPageConfig.latestNews5.id, 'view' ]">
+                  <img [src]="'data:' + frontPageConfig.latestNews5.imageContentType + ';base64,' + frontPageConfig.latestNews5.image" class="g-width-80 g-height-80" alt="post image"/>
+                </a>
+
+                <div class="media-body">
+                  <h3 class="h6">
+                    <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" [routerLink]="['/post', frontPageConfig.latestNews5.id, 'view' ]">{{frontPageConfig.latestNews5.headline}}</a>
+                  </h3>
+
+                  <ul class="u-list-inline g-font-size-12 g-color-gray-dark-v4">
+                    <li class="list-inline-item">
+                      {{frontPageConfig.latestNews5.creationDate | date:'MMM d, y, h:mm a'}}
+                    </li>
+                    <!-- <li class="list-inline-item">/</li>
+                    <li class="list-inline-item">
+                      <a class="g-color-gray-dark-v4 g-text-underline--none--hover" href="#!">
+                        <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 31
+                      </a>
+                    </li> -->
+                  </ul>
+                </div>
+              </article>
+              <!-- End Article -->
+            </div>
+            <!-- End Article (Rightside) -->
+          </div>
+        </div>
+        <!-- End Latest News -->
+
+        <!-- Breaking News -->
+        <div class="g-mb-60">
+          <div class="u-heading-v3-1 g-mb-30">
+            <h2 class="h5 u-heading-v3__title g-font-primary g-font-weight-700 g-color-gray-dark-v1 text-uppercase g-brd-primary">Breaking News</h2>
+          </div>
+
+          <div class="row g-mb-30">
+            <!-- Article Image -->
+            <div class="col-md-5">
+              <figure class="u-shadow-v25 g-pos-rel g-mb-20 g-mb-0--lg" *ngIf="frontPageConfig.breakingNews1.image">
+                <a [routerLink]="['/post', frontPageConfig.breakingNews1.id, 'view' ]">
+                	<img [src]="'data:' + frontPageConfig.breakingNews1.imageContentType + ';base64,' + frontPageConfig.breakingNews1.image" class="img-fluid w-100" alt="post image"/>
+                </a>
+                <figcaption class="g-pos-abs g-top-20 g-left-20">
+                  <!-- <a class="btn btn-xs u-btn-pink text-uppercase rounded-0" href="#!">Internet</a> -->
+                </figcaption>
+              </figure>
+            </div>
+            <!-- End Article Image -->
+
+            <!-- Article Content -->
+            <div class="col-md-7 align-self-center">
+              <h3 class="h4 g-mb-15">
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" [routerLink]="['/post', frontPageConfig.breakingNews1.id, 'view' ]">{{frontPageConfig.breakingNews1.headline}}</a>
+              </h3>
+
+              <ul class="list-inline g-color-gray-dark-v4 g-font-size-12">
+                <!-- <li class="list-inline-item">
+                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                  	{{frontPageConfig.breakingNews1.blog.user?.firstName}}
+					{{frontPageConfig.breakingNews1.blog.user?.lastName}}
+                  </a>
+                </li>
+                <li class="list-inline-item">/</li> -->
+                <li class="list-inline-item">
+                  {{frontPageConfig.breakingNews1.creationDate | date:'MMM d, y, h:mm a'}}
+                </li>
+                <!-- <li class="list-inline-item">/</li>
+                <li class="list-inline-item">
+                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                    <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 38
+                  </a>
+                </li> -->
+              </ul>
+
+              <p class="g-color-gray-dark-v2" [innerHTML]="frontPageConfig.breakingNews1.bodytext | slice:0:300"></p>
+              <!-- <a class="g-font-size-12" [routerLink]="['/post', frontPageConfig.breakingNews1.id, 'view' ]">Read More..</a> -->
+            </div>
+            <!-- End Article Content -->
+          </div>
+        </div>
+        <!-- End Breaking News -->
+
+        <!-- Featured Articles -->
+        <div class="g-mb-60">
+          <div class="u-heading-v3-1 g-mb-30">
+            <h2 class="h5 u-heading-v3__title g-font-primary g-font-weight-700 g-color-gray-dark-v1 text-uppercase g-brd-primary">Featured Articles</h2>
+          </div>
+
+          <div class="row g-mb-60">
+            <div class="col-lg-6 g-mb-30 g-mb-0--lg">
+              <!-- Article -->
+              <article class="g-mb-30">
+                <figure class="u-shadow-v25 g-pos-rel g-mb-20">
+                  <a [routerLink]="['/post', frontPageConfig.featuredArticles1.id, 'view' ]">
+                  	<img [src]="'data:' + frontPageConfig.featuredArticles1.imageContentType + ';base64,' + frontPageConfig.featuredArticles1.image" class="img-fluid w-100" alt="post image"/>
+				  </a>
+                  <!-- <figcaption class="g-pos-abs g-top-20 g-left-20">
+                    <a class="btn btn-xs u-btn-red text-uppercase rounded-0" href="#!">Drons</a>
+                  </figcaption> -->
+                </figure>
+
+                <h3 class="h4 g-mb-10">
+                  <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" [routerLink]="['/post', frontPageConfig.featuredArticles1.id, 'view' ]">{{frontPageConfig.featuredArticles1.headline}}</a>
+                </h3>
+
+                <ul class="list-inline g-color-gray-dark-v4 g-font-size-12">
+                  <!-- <li class="list-inline-item">
+                    <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                    	{{frontPageConfig.featuredArticles1.blog.user?.firstName}}
+						{{frontPageConfig.featuredArticles1.blog.user?.lastName}}
+                    </a>
+                  </li>
+                  <li class="list-inline-item">/</li> -->
+                  <li class="list-inline-item">
+                    {{frontPageConfig.featuredArticles1.creationDate | date:'MMM d, y, h:mm a'}}
+                  </li>
+                  <!-- <li class="list-inline-item">/</li>
+                  <li class="list-inline-item">
+                    <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                      <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 24
+                    </a>
+                  </li> -->
+                </ul>
+
+                <p class="g-color-gray-dark-v2" [innerHTML]="frontPageConfig.featuredArticles1.bodytext | slice:0:300"></p>
+                <!-- <a class="g-font-size-12" href="#!">Read More..</a> -->
+              </article>
+              <!-- End Article -->
+
+              <!-- Article -->
+              <article>
+                <!-- <span class="g-font-size-12">
+                  <a class="u-link-v5 g-color-gray-dark-v4" href="#!">
+                    	{{frontPageConfig.featuredArticles2.blog.user?.firstName}}
+						{{frontPageConfig.featuredArticles2.blog.user?.lastName}}
+                  </a>
+                </span> -->
+                <h3 class="h6">
+                  <a class="g-color-gray-dark-v1" [routerLink]="['/post', frontPageConfig.featuredArticles2.id, 'view' ]">{{frontPageConfig.featuredArticles2.headline}}</a>
+                </h3>
+              </article>
+              <!-- End Article -->
+
+              <hr class="g-brd-gray-light-v4 g-mt-15 g-mb-10">
+
+              <!-- Article -->
+              <article>
+                <!-- <span class="g-font-size-12">
+                  <a class="u-link-v5 g-color-gray-dark-v4" href="#!">
+                    	{{frontPageConfig.featuredArticles3.blog.user?.firstName}}
+						{{frontPageConfig.featuredArticles3.blog.user?.lastName}}
+                  </a>
+                </span> -->
+                <h3 class="h6">
+                  <a class="g-color-gray-dark-v1" [routerLink]="['/post', frontPageConfig.featuredArticles3.id, 'view' ]">{{frontPageConfig.featuredArticles3.headline}}</a>
+                </h3>
+              </article>
+              <!-- End Article -->
+
+              <hr class="g-brd-gray-light-v4 g-mt-15 g-mb-10">
+
+              <!-- Article -->
+              <article>
+                <!-- <span class="g-font-size-12">
+                  <a class="u-link-v5 g-color-gray-dark-v4" href="#!">
+                    	{{frontPageConfig.featuredArticles4.blog.user?.firstName}}
+						{{frontPageConfig.featuredArticles4.blog.user?.lastName}}
+                  </a>
+                </span> -->
+                <h3 class="h6">
+                  <a class="g-color-gray-dark-v1" [routerLink]="['/post', frontPageConfig.featuredArticles4.id, 'view' ]">{{frontPageConfig.featuredArticles4.headline}}</a>
+                </h3>
+              </article>
+              <!-- End Article -->
+
+              <hr class="g-brd-gray-light-v4 g-mt-15 g-mb-10">
+
+              <!-- Article -->
+              <article>
+                <!-- <span class="g-font-size-12">
+                  <a class="u-link-v5 g-color-gray-dark-v4" href="#!">
+                    	{{frontPageConfig.featuredArticles5.blog.user?.firstName}}
+						{{frontPageConfig.featuredArticles5.blog.user?.lastName}}
+                  </a>
+                </span> -->
+                <h3 class="h6">
+                  <a class="g-color-gray-dark-v1" [routerLink]="['/post', frontPageConfig.featuredArticles5.id, 'view' ]">{{frontPageConfig.featuredArticles5.headline}}</a>
+                </h3>
+              </article>
+              <!-- End Article -->
             </div>
 
-            <div class="alert alert-warning" *ngSwitchCase="false">
-                <span jhiTranslate="global.messages.info.authenticated.prefix">If you want to </span>
-                <a class="alert-link" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">sign in</a><span jhiTranslate="global.messages.info.authenticated.suffix">, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").</span>
+            <div class="col-lg-6">
+              <!-- Article -->
+              <article class="g-mb-30">
+                <figure class="u-shadow-v25 g-pos-rel g-mb-20">
+                  <a [routerLink]="['/post', frontPageConfig.featuredArticles6.id, 'view' ]">
+                  	<img [src]="'data:' + frontPageConfig.featuredArticles6.imageContentType + ';base64,' + frontPageConfig.featuredArticles6.image" class="img-fluid w-100" alt="post image"/>
+				  </a>
+                  <!-- <figcaption class="g-pos-abs g-top-20 g-left-20">
+                    <a class="btn btn-xs u-btn-cyan text-uppercase rounded-0" href="#!">Office</a>
+                  </figcaption> -->
+                </figure>
+
+                <h3 class="h4 g-mb-10">
+                  <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" [routerLink]="['/post', frontPageConfig.featuredArticles6.id, 'view' ]">{{frontPageConfig.featuredArticles6.headline}}</a>
+                </h3>
+
+                <ul class="list-inline g-color-gray-dark-v4 g-font-size-12">
+                  <!-- <li class="list-inline-item">
+                    <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                    	{{frontPageConfig.featuredArticles6.blog.user?.firstName}}
+						{{frontPageConfig.featuredArticles6.blog.user?.lastName}}
+                    </a>
+                  </li>
+                  <li class="list-inline-item">/</li> -->
+                  <li class="list-inline-item">
+                    {{frontPageConfig.featuredArticles6.creationDate | date:'MMM d, y, h:mm a'}}
+                  </li>
+                  <!-- <li class="list-inline-item">/</li>
+                  <li class="list-inline-item">
+                    <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                      <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 18
+                    </a>
+                  </li> -->
+                </ul>
+
+                <p class="g-color-gray-dark-v2" [innerHTML]="frontPageConfig.featuredArticles6.bodytext | slice:0:300"></p>
+                <!-- <a class="g-font-size-12" href="#!">Read More..</a> -->
+              </article>
+              <!-- End Article -->
+
+              <!-- Article -->
+              <article>
+                <!-- <span class="g-font-size-12">
+                  <a class="u-link-v5 g-color-gray-dark-v4" href="#!">
+                    	{{frontPageConfig.featuredArticles7.blog.user?.firstName}}
+						{{frontPageConfig.featuredArticles7.blog.user?.lastName}}
+                  </a>
+                </span> -->
+                <h3 class="h6">
+                  <a class="g-color-gray-dark-v1" [routerLink]="['/post', frontPageConfig.featuredArticles7.id, 'view' ]">{{frontPageConfig.featuredArticles7.headline}}</a>
+                </h3>
+              </article>
+              <!-- End Article -->
+
+              <hr class="g-brd-gray-light-v4 g-mt-15 g-mb-10">
+
+              <!-- Article -->
+              <article>
+                <!-- <span class="g-font-size-12">
+                  <a class="u-link-v5 g-color-gray-dark-v4" href="#!">
+                    	{{frontPageConfig.featuredArticles8.blog.user?.firstName}}
+						{{frontPageConfig.featuredArticles8.blog.user?.lastName}}
+                  </a>
+                </span> -->
+                <h3 class="h6">
+                  <a class="g-color-gray-dark-v1" [routerLink]="['/post', frontPageConfig.featuredArticles8.id, 'view' ]">{{frontPageConfig.featuredArticles8.headline}}</a>
+                </h3>
+              </article>
+              <!-- End Article -->
+
+              <hr class="g-brd-gray-light-v4 g-mt-15 g-mb-10">
+
+              <!-- Article -->
+              <article>
+                <!-- <span class="g-font-size-12">
+                  <a class="u-link-v5 g-color-gray-dark-v4" href="#!">
+                    	{{frontPageConfig.featuredArticles9.blog.user?.firstName}}
+						{{frontPageConfig.featuredArticles9.blog.user?.lastName}}
+                  </a>
+                </span> -->
+                <h3 class="h6">
+                  <a class="g-color-gray-dark-v1" [routerLink]="['/post', frontPageConfig.featuredArticles9.id, 'view' ]">{{frontPageConfig.featuredArticles9.headline}}</a>
+                </h3>
+              </article>
+              <!-- End Article -->
+
+              <hr class="g-brd-gray-light-v4 g-mt-15 g-mb-10">
+
+              <!-- Article -->
+              <article>
+                <!-- <span class="g-font-size-12">
+                  <a class="u-link-v5 g-color-gray-dark-v4" href="#!">
+                    	{{frontPageConfig.featuredArticles10.blog.user?.firstName}}
+						{{frontPageConfig.featuredArticles10.blog.user?.lastName}}
+                  </a>
+                </span> -->
+                <h3 class="h6">
+                  <a class="g-color-gray-dark-v1" [routerLink]="['/post', frontPageConfig.featuredArticles10.id, 'view' ]">{{frontPageConfig.featuredArticles10.headline}}</a>
+                </h3>
+              </article>
+              <!-- End Article -->
             </div>
-            <div class="alert alert-warning" *ngSwitchCase="false">
-                <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>&nbsp;
-                <a class="alert-link" routerLink="register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
-            </div>
+          </div>
+        </div>
+        <!-- End Articles -->
+
+        <!-- Recent Videos -->
+        <div class="u-heading-v3-1 g-mb-30">
+          <h2 class="h5 u-heading-v3__title g-font-primary g-font-weight-700 g-color-gray-dark-v1 text-uppercase g-brd-primary">Recent Videos</h2>
         </div>
 
-        <p jhiTranslate="home.question">
-            If you have any question on JHipster:
-        </p>
+        <div class="row">
+          <!-- Article Video -->
+          <div class="col-lg-4 col-sm-6 g-mb-30">
+            <article>
+              <figure class="u-shadow-v25 g-pos-rel g-mb-20">
+              	<iframe class="img-fluid w-100" [src]="saveUrl(frontPageConfig.recentVideos1.linkURL)" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+              </figure>
 
-        <ul>
-            <li><a href="https://www.jhipster.tech/" target="_blank" rel="noopener" jhiTranslate="home.link.homepage">JHipster homepage</a></li>
-            <li><a href="http://stackoverflow.com/tags/jhipster/info" target="_blank" rel="noopener" jhiTranslate="home.link.stackoverflow">JHipster on Stack Overflow</a></li>
-            <li><a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank" rel="noopener" jhiTranslate="home.link.bugtracker">JHipster bug tracker</a></li>
-            <li><a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener" jhiTranslate="home.link.chat">JHipster public chat room</a></li>
-            <li><a href="https://twitter.com/java_hipster" target="_blank" rel="noopener" jhiTranslate="home.link.follow">follow @java_hipster on Twitter</a></li>
-        </ul>
+              <h3 class="g-font-size-16 g-mb-10">
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="{{frontPageConfig.recentVideos1.linkURL}}">{{frontPageConfig.recentVideos1.linkText}}</a>
+              </h3>
+            </article>
+          </div>
+          <!-- End Article Video -->
 
-        <p>
-            <span jhiTranslate="home.like">If you like JHipster, don't forget to give us a star on</span> <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener" jhiTranslate="home.github">GitHub</a>!
-        </p>
+          <!-- Article Video -->
+          <div class="col-lg-4 col-sm-6 g-mb-30">
+            <article>
+              <figure class="u-shadow-v25 g-pos-rel g-mb-20">
+                <iframe class="img-fluid w-100" [src]="saveUrl(frontPageConfig.recentVideos2.linkURL)" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+              </figure>
+              <h3 class="g-font-size-16 g-mb-10">
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="{{frontPageConfig.recentVideos2.linkURL}}">{{frontPageConfig.recentVideos2.linkText}}</a>
+              </h3>
+            </article>
+          </div>
+          <!-- End Article Video -->
+
+          <!-- Article Video -->
+          <div class="col-lg-4 col-sm-6 g-mb-30">
+            <article>
+              <figure class="u-shadow-v25 g-pos-rel g-mb-20">
+                <iframe class="img-fluid w-100" [src]="saveUrl(frontPageConfig.recentVideos3.linkURL)" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+              </figure>
+              <h3 class="g-font-size-16 g-mb-10">
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="{{frontPageConfig.recentVideos3.linkURL}}">{{frontPageConfig.recentVideos3.linkText}}</a>
+              </h3>
+            </article>
+          </div>
+          <!-- End Article Video -->
+
+          <!-- Article Video -->
+          <div class="col-lg-4 col-sm-6 g-mb-30">
+            <article>
+              <figure class="u-shadow-v25 g-pos-rel g-mb-20">
+                <iframe class="img-fluid w-100" [src]="saveUrl(frontPageConfig.recentVideos4.linkURL)" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+              </figure>
+              <h3 class="g-font-size-16 g-mb-10">
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="{{frontPageConfig.recentVideos4.linkURL}}">{{frontPageConfig.recentVideos4.linkText}}</a>
+              </h3>
+            </article>
+          </div>
+          <!-- End Article Video -->
+
+          <!-- Article Video -->
+          <div class="col-lg-4 col-sm-6 g-mb-30">
+            <article>
+              <figure class="u-shadow-v25 g-pos-rel g-mb-20">
+                <iframe class="img-fluid w-100" [src]="saveUrl(frontPageConfig.recentVideos5.linkURL)" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+              </figure>
+              <h3 class="g-font-size-16 g-mb-10">
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="{{frontPageConfig.recentVideos5.linkURL}}">{{frontPageConfig.recentVideos5.linkText}}</a>
+              </h3>
+            </article>
+          </div>
+          <!-- End Article Video -->
+
+          <!-- Article Video -->
+          <div class="col-lg-4 col-sm-6 g-mb-30">
+            <article>
+              <figure class="u-shadow-v25 g-pos-rel g-mb-20">
+                <iframe class="img-fluid w-100" [src]="saveUrl(frontPageConfig.recentVideos6.linkURL)" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+              </figure>
+              <h3 class="g-font-size-16 g-mb-10">
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="{{frontPageConfig.recentVideos6.linkURL}}">{{frontPageConfig.recentVideos6.linkText}}</a>
+              </h3>
+            </article>
+          </div>
+          <!-- End Article Video -->
+        </div>
+        <!-- End Recent Videos -->
+
+        <div id="stickyblock-end"></div>
+      </div>
+      <!-- End Articles Content -->
+
+      <!-- Sidebar -->
+      <div class="col-lg-3">
+      	
+      	<!-- Topic Links -->
+        <div class="g-mb-50">
+          <div class="u-heading-v3-1 g-mb-30">
+            <h2 class="h5 u-heading-v3__title g-font-primary g-font-weight-700 g-color-gray-dark-v1 text-uppercase g-brd-primary">Topics</h2>
+          </div>
+
+          <ul class="list-unstyled">
+            <li class="g-brd-bottom g-brd-gray-light-v4 g-pb-10 g-mb-12" *ngFor="let topic of topics">
+              <h4 class="h6">
+                <i class="fa fa-angle-right g-color-gray-dark-v5 g-mr-5"></i>
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" [routerLink]="['/topic', topic.id, 'view' ]">{{topic.topicName}}</a>
+              </h4>
+            </li>
+          </ul>
+        </div>
+        <!-- End Useful Links -->
+        
+        <!-- Useful Links -->
+        <div class="g-mb-50">
+          <div class="u-heading-v3-1 g-mb-30">
+            <h2 class="h5 u-heading-v3__title g-font-primary g-font-weight-700 g-color-gray-dark-v1 text-uppercase g-brd-primary">Useful Links</h2>
+          </div>
+
+          <ul class="list-unstyled">
+            <li class="g-brd-bottom g-brd-gray-light-v4 g-pb-10 g-mb-12">
+              <h4 class="h6">
+                <i class="fa fa-angle-right g-color-gray-dark-v5 g-mr-5"></i>
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="{{frontPageConfig.usefulLinks1.linkURL}}">{{frontPageConfig.usefulLinks1.linkText}}</a>
+              </h4>
+            </li>
+            <li class="g-brd-bottom g-brd-gray-light-v4 g-pb-10 g-mb-12">
+              <h4 class="h6">
+                <i class="fa fa-angle-right g-color-gray-dark-v5 g-mr-5"></i>
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="{{frontPageConfig.usefulLinks2.linkURL}}">{{frontPageConfig.usefulLinks2.linkText}}</a>
+              </h4>
+            </li>
+            <li class="g-brd-bottom g-brd-gray-light-v4 g-pb-10 g-mb-12">
+              <h4 class="h6">
+                <i class="fa fa-angle-right g-color-gray-dark-v5 g-mr-5"></i>
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="{{frontPageConfig.usefulLinks3.linkURL}}">{{frontPageConfig.usefulLinks3.linkText}}</a>
+              </h4>
+            </li>
+            <li class="g-brd-bottom g-brd-gray-light-v4 g-pb-10 g-mb-12">
+              <h4 class="h6">
+                <i class="fa fa-angle-right g-color-gray-dark-v5 g-mr-5"></i>
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="{{frontPageConfig.usefulLinks4.linkURL}}">{{frontPageConfig.usefulLinks4.linkText}}</a>
+              </h4>
+            </li>
+            <li class="g-brd-bottom g-brd-gray-light-v4 g-pb-10 g-mb-12">
+              <h4 class="h6">
+                <i class="fa fa-angle-right g-color-gray-dark-v5 g-mr-5"></i>
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="{{frontPageConfig.usefulLinks5.linkURL}}">{{frontPageConfig.usefulLinks5.linkText}}</a>
+              </h4>
+            </li>
+            <li class="mb-0">
+              <h4 class="h6">
+                <i class="fa fa-angle-right g-color-gray-dark-v5 g-mr-5"></i>
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="{{frontPageConfig.usefulLinks6.linkURL}}">{{frontPageConfig.usefulLinks6.linkText}}</a>
+              </h4>
+            </li>
+          </ul>
+        </div>
+        <!-- End Useful Links -->
+
+        <!-- Subscribe --
+        <div class="u-shadow-v25 u-bg-overlay g-bg-img-hero g-bg-white-gradient-opacity-v2--after g-py-40 g-px-20 g-mb-50">
+          <div class="u-bg-overlay__inner text-center">
+            <div class="g-mb-40">
+              <h2 class="g-color-white">Vancouver, BC</h2>
+              <p class="g-color-white-opacity-0_8">Unit 25 Suite 3, 925 Prospect PI,<br>Beach Resort, 23001</p>
+            </div>
+
+            <div class="g-mb-30">
+              <h3 class="d-inline-block g-bg-primary-opacity-0_6 g-color-white g-font-weight-600 g-font-size-12 text-uppercase g-py-5 g-px-10">Phone number</h3>
+              <span class="d-block g-color-white g-font-size-18">+01 (0) 333 444 55</span>
+            </div>
+
+            <div class="input-group rounded">
+              <input class="form-control g-brd-none g-font-size-13 g-px-13 g-py-11" type="email" placeholder="Your Email">
+              <div class="input-group-btn">
+                <button class="btn u-btn-primary text-uppercase g-px-20 g-py-11" type="submit">
+                  <i class="icon-envelope g-pos-rel g-top-1"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        -- End Subscribe -->
+
+        <!-- Recent Posts -->
+        <div class="g-mb-30">
+          <div class="u-heading-v3-1 g-mb-30">
+            <h2 class="h5 u-heading-v3__title g-font-primary g-font-weight-700 g-color-gray-dark-v1 text-uppercase g-brd-primary">Recent Posts</h2>
+          </div>
+
+          <!-- Article -->
+          <article class="media g-mb-30">
+            <a class="d-flex u-shadow-v25 mr-3" [routerLink]="['/post', frontPageConfig.recentPosts1.id, 'view' ]">
+              <img [src]="'data:' + frontPageConfig.recentPosts1.imageContentType + ';base64,' + frontPageConfig.recentPosts1.image" class="g-width-60 g-height-60" alt="post image"/>
+            </a>
+
+            <div class="media-body">
+              <h3 class="h6">
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" [routerLink]="['/post', frontPageConfig.recentPosts1.id, 'view' ]">{{frontPageConfig.recentPosts1.headline}}</a>
+              </h3>
+
+              <ul class="u-list-inline g-font-size-12 g-color-gray-dark-v4">
+                <li class="list-inline-item">
+                  {{frontPageConfig.recentPosts1.creationDate | date:'MMM d, y, h:mm a'}}
+                </li>
+                <!-- <li class="list-inline-item">/</li>
+                <li class="list-inline-item">
+                  <a class="g-color-gray-dark-v4 g-text-underline--none--hover" href="#!">
+                    <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 18
+                  </a>
+                </li> -->
+              </ul>
+            </div>
+          </article>
+          <!-- End Article -->
+
+          <!-- Article -->
+          <article class="media g-mb-30">
+            <a class="d-flex u-shadow-v25 mr-3" [routerLink]="['/post', frontPageConfig.recentPosts2.id, 'view' ]">
+              <img [src]="'data:' + frontPageConfig.recentPosts2.imageContentType + ';base64,' + frontPageConfig.recentPosts2.image" class="g-width-60 g-height-60" alt="post image"/>
+            </a>
+
+            <div class="media-body">
+              <h3 class="h6">
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" [routerLink]="['/post', frontPageConfig.recentPosts2.id, 'view' ]">{{frontPageConfig.recentPosts2.headline}}</a>
+              </h3>
+
+              <ul class="u-list-inline g-font-size-12 g-color-gray-dark-v4">
+                <li class="list-inline-item">
+                  {{frontPageConfig.recentPosts2.creationDate | date:'MMM d, y, h:mm a'}}
+                </li>
+                <!-- <li class="list-inline-item">/</li>
+                <li class="list-inline-item">
+                  <a class="g-color-gray-dark-v4 g-text-underline--none--hover" href="#!">
+                    <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 31
+                  </a>
+                </li> -->
+              </ul>
+            </div>
+          </article>
+          <!-- End Article -->
+
+          <!-- Article -->
+          <article class="media g-mb-30">
+            <a class="d-flex u-shadow-v25 mr-3" [routerLink]="['/post', frontPageConfig.recentPosts3.id, 'view' ]">
+              <img [src]="'data:' + frontPageConfig.recentPosts3.imageContentType + ';base64,' + frontPageConfig.recentPosts3.image" class="g-width-60 g-height-60" alt="post image"/>
+            </a>
+
+            <div class="media-body">
+              <h3 class="h6">
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" [routerLink]="['/post', frontPageConfig.recentPosts3.id, 'view' ]">{{frontPageConfig.recentPosts3.headline}}</a>
+              </h3>
+
+              <ul class="u-list-inline g-font-size-12 g-color-gray-dark-v4">
+                <li class="list-inline-item">
+                  {{frontPageConfig.recentPosts3.creationDate | date:'MMM d, y, h:mm a'}}
+                </li>
+                <!-- <li class="list-inline-item">/</li>
+                <li class="list-inline-item">
+                  <a class="g-color-gray-dark-v4 g-text-underline--none--hover" href="#!">
+                    <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 24
+                  </a>
+                </li> -->
+              </ul>
+            </div>
+          </article>
+          <!-- End Article -->
+
+          <!-- Article -->
+          <article class="media">
+            <a class="d-flex u-shadow-v25 mr-3" [routerLink]="['/post', frontPageConfig.recentPosts4.id, 'view' ]">
+              <img [src]="'data:' + frontPageConfig.recentPosts4.imageContentType + ';base64,' + frontPageConfig.recentPosts4.image" class="g-width-60 g-height-60" alt="post image"/>
+            </a>
+
+            <div class="media-body">
+              <h3 class="h6">
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" [routerLink]="['/post', frontPageConfig.recentPosts4.id, 'view' ]">{{frontPageConfig.recentPosts4.headline}}</a>
+              </h3>
+
+              <ul class="u-list-inline g-font-size-12 g-color-gray-dark-v4">
+                <li class="list-inline-item">
+                  {{frontPageConfig.recentPosts4.creationDate | date:'MMM d, y, h:mm a'}}
+                </li>
+                <!-- <li class="list-inline-item">/</li>
+                <li class="list-inline-item">
+                  <a class="g-color-gray-dark-v4 g-text-underline--none--hover" href="#!">
+                    <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 46
+                  </a>
+                </li> -->
+              </ul>
+            </div>
+          </article>
+          <!-- End Article -->
+        </div>
+        <!-- End Recent Posts -->
+
+        <div id="stickyblock-start" class="js-sticky-block g-sticky-block--lg g-pt-20" data-start-point="#stickyblock-start" data-end-point="#stickyblock-end">
+          <!-- Popular Videos
+          <div class="g-mb-50">
+            <article class="g-pos-rel">
+              <figure class="u-shadow-v25 g-bg-img-hero g-min-height-400"></figure>
+
+              <span class="text-center g-pos-abs g-top-20 g-left-0">
+                <a class="btn u-btn-red text-uppercase rounded-0" href="#!">Discover</a>
+                <small class="g-bg-black g-color-white g-pa-5 d-block">July 09, 2017</small>
+              </span>
+
+              <span class="u-icon-v3 g-font-size-default g-bg-white g-color-black g-bg-gray-dark-v2--hover g-color-white--hover g-rounded-50x g-cursor-pointer g-absolute-centered">
+                <i class="fa fa-play g-left-2"></i>
+              </span>
+
+              <header class="g-pos-abs g-bottom-20 g-left-0">
+                <h3 class="h5 g-bg-red-opacity-0_5 g-pa-5-10--sm">
+                  <a class="g-color-white g-color-white--hover" href="#!">Traveling</a>
+                </h3>
+              </header>
+            </article>
+          </div>
+          End Popular Videos -->
+
+          <!-- Social Links -->
+          <div class="g-mb-50">
+            <div class="u-heading-v3-1 g-mb-30">
+              <h2 class="h5 u-heading-v3__title g-font-primary g-font-weight-700 g-color-gray-dark-v1 text-uppercase g-brd-primary">Social Links</h2>
+            </div>
+
+            <ul class="list-unstyled mb-0">
+              <li class="d-flex align-items-center justify-content-between g-mb-20">
+                <a class="d-flex align-items-center u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="#!">
+                  <span class="u-icon-v3 u-icon-size--xs u-shadow-v25 g-font-size-12 g-bg-facebook g-bg-facebook--hover g-color-white rounded-circle g-mr-10" href="#!">
+                    <i class="fa fa-facebook"></i>
+                  </span>
+                  Like
+                </a>
+                <span class="js-counter d-block g-color-gray-dark-v4">103832</span>
+              </li>
+              <li class="d-flex align-items-center justify-content-between g-mb-20">
+                <a class="d-flex align-items-center u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="#!">
+                  <span class="u-icon-v3 u-icon-size--xs u-shadow-v25 g-font-size-12 g-bg-lightred g-bg-lightred--hover g-color-white rounded-circle g-mr-10" href="#!">
+                    <i class="fa fa-google-plus"></i>
+                  </span>
+                  Add to Circle
+                </a>
+                <span class="js-counter d-block g-color-gray-dark-v4">47192</span>
+              </li>
+              <li class="d-flex align-items-center justify-content-between g-mb-20">
+                <a class="d-flex align-items-center u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="#!">
+                  <span class="u-icon-v3 u-icon-size--xs u-shadow-v25 g-font-size-12 g-bg-instagram g-bg-instagram--hover g-color-white rounded-circle g-mr-10" href="#!">
+                    <i class="fa fa-instagram"></i>
+                  </span>
+                  Follow Us
+                </a>
+                <span class="js-counter d-block g-color-gray-dark-v4">38291</span>
+              </li>
+              <li class="d-flex align-items-center justify-content-between g-mb-20">
+                <a class="d-flex align-items-center u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="#!">
+                  <span class="u-icon-v3 u-icon-size--xs u-shadow-v25 g-font-size-12 g-bg-teal g-bg-teal--hover g-color-white rounded-circle g-mr-10" href="#!">
+                    <i class="fa fa-medium"></i>
+                  </span>
+                  Writers
+                </a>
+                <span class="js-counter d-block g-color-gray-dark-v4">23871</span>
+              </li>
+              <li class="d-flex align-items-center justify-content-between">
+                <a class="d-flex align-items-center u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="#!">
+                  <span class="u-icon-v3 u-icon-size--xs u-shadow-v25 g-font-size-12 g-bg-twitter g-bg-twitter--hover g-color-white rounded-circle g-mr-10" href="#!">
+                    <i class="fa fa-twitter"></i>
+                  </span>
+                  Follow Us
+                </a>
+                <span class="js-counter d-block g-color-gray-dark-v4">391743</span>
+              </li>
+            </ul>
+          </div>
+          <!-- End Social Links -->
+        </div>
+      </div>
+      <!-- End Sidebar -->
     </div>
+    <!-- News Section 1 -->
+
+    <!-- News Section 2  Deleted -->
+
+    <!-- News Section 3 -->
+    <div class="row">
+      <!-- Articles Content -->
+      <div class="col-lg-9 g-mb-50 g-mb-0--lg">
+        <!-- Popular News -->
+        <div class="g-mb-60">
+          <div class="u-heading-v3-1 g-mb-30">
+            <h2 class="h5 u-heading-v3__title g-font-primary g-font-weight-700 g-color-gray-dark-v1 text-uppercase g-brd-primary">Popular News</h2>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6 g-mb-50 g-mb-0--lg">
+              <!-- Article -->
+              <article class="g-mb-40">
+                <figure class="u-shadow-v25 g-pos-rel g-mb-20">
+                  <a class="g-color-white g-color-white--hover" [routerLink]="['/post', frontPageConfig.popularNews1.id, 'view' ]">
+                  	<img [src]="'data:' + frontPageConfig.popularNews1.imageContentType + ';base64,' + frontPageConfig.popularNews1.image" class="img-fluid w-100" alt="post image"/>
+				  </a>
+                  <!-- <figcaption class="g-pos-abs g-top-20 g-left-20">
+                    <a class="btn btn-xs u-btn-teal text-uppercase rounded-0" href="#!">Holiday</a>
+                  </figcaption> -->
+                </figure>
+
+                <h3 class="h4 g-mb-10">
+                  <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" [routerLink]="['/post', frontPageConfig.popularNews1.id, 'view' ]">{{frontPageConfig.popularNews1.headline}}</a>
+                </h3>
+
+                <ul class="list-inline g-color-gray-dark-v4 g-font-size-12">
+                  <!-- <li class="list-inline-item">
+                    <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+	                    {{frontPageConfig.popularNews1.blog.user?.firstName}}
+						{{frontPageConfig.popularNews1.blog.user?.lastName}}
+					</a>
+                  </li>
+                  <li class="list-inline-item">/</li> -->
+                  <li class="list-inline-item">
+                    {{frontPageConfig.popularNews1.creationDate | date:'MMM d, y, h:mm a'}}
+                  </li>
+                  <!-- <li class="list-inline-item">/</li>
+                  <li class="list-inline-item">
+                    <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                      <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 24
+                    </a>
+                  </li> -->
+                </ul>
+
+                <p class="g-color-gray-dark-v2" [innerHTML]="frontPageConfig.popularNews1.bodytext | slice:0:300"></p>
+                <!-- <a class="g-font-size-12" href="#!">Read More..</a> -->
+              </article>
+              <!-- Article -->
+
+              <!-- Other Articles -->
+              <article class="media">
+                <figure class="d-flex u-shadow-v25 mr-3 g-pos-rel">
+                  <a class="g-color-white g-color-white--hover" [routerLink]="['/post', frontPageConfig.popularNews2.id, 'view' ]">
+                  	<img [src]="'data:' + frontPageConfig.popularNews2.imageContentType + ';base64,' + frontPageConfig.popularNews2.image" class="g-width-140 g-height-80" alt="post image"/>
+				  </a>
+                  <!-- <figcaption class="g-pos-abs g-top-5 g-left-5">
+                    <a class="btn btn-xs u-btn-darkgray text-uppercase rounded-0" href="#!">
+                      <i class="fa fa-play g-mr-5"></i> 0:46
+                    </a>
+                  </figcaption> -->
+                </figure>
+
+                <div class="media-body">
+                  <h3 class="g-font-size-16">
+                    <a class="g-color-gray-dark-v1" [routerLink]="['/post', frontPageConfig.popularNews2.id, 'view' ]">{{frontPageConfig.popularNews2.headline}}</a>
+                  </h3>
+
+                  <ul class="u-list-inline g-font-size-12 g-color-gray-dark-v4">
+                    <li class="list-inline-item">
+                      {{frontPageConfig.popularNews2.creationDate | date:'MMM d, y, h:mm a'}}
+                    </li>
+                    <!-- <li class="list-inline-item">/</li>
+                    <li class="list-inline-item">
+                      <a class="g-color-gray-dark-v4 g-text-underline--none--hover" href="#!">
+                        <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 31
+                      </a>
+                    </li> -->
+                  </ul>
+                </div>
+              </article>
+              <!-- End Other Articles -->
+
+              <hr class="g-brd-gray-light-v4 g-my-25">
+
+              <!-- Other Articles -->
+              <article class="media">
+                <figure class="d-flex u-shadow-v25 mr-3 g-pos-rel">
+                  <a class="g-color-white g-color-white--hover" [routerLink]="['/post', frontPageConfig.popularNews3.id, 'view' ]">
+                  	<img [src]="'data:' + frontPageConfig.popularNews3.imageContentType + ';base64,' + frontPageConfig.popularNews3.image" class="g-width-140 g-height-80" alt="post image"/>
+				  </a>
+                  <!-- <figcaption class="g-pos-abs g-top-5 g-left-5">
+                    <a class="btn btn-xs u-btn-darkgray text-uppercase rounded-0" href="#!">
+                      <i class="fa fa-play g-mr-5"></i> 2:14
+                    </a>
+                  </figcaption> -->
+                </figure>
+
+                <div class="media-body">
+                  <h3 class="g-font-size-16">
+                    <a class="g-color-gray-dark-v1" [routerLink]="['/post', frontPageConfig.popularNews3.id, 'view' ]">{{frontPageConfig.popularNews3.headline}}</a>
+                  </h3>
+
+                  <ul class="u-list-inline g-font-size-12 g-color-gray-dark-v4">
+                    <li class="list-inline-item">
+                      {{frontPageConfig.popularNews3.creationDate | date:'MMM d, y, h:mm a'}}
+                    </li>
+                    <!-- <li class="list-inline-item">/</li>
+                    <li class="list-inline-item">
+                      <a class="g-color-gray-dark-v4 g-text-underline--none--hover" href="#!">
+                        <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 15
+                      </a>
+                    </li> -->
+                  </ul>
+                </div>
+              </article>
+              <!-- End Other Articles -->
+
+              <hr class="g-brd-gray-light-v4 g-my-25">
+
+              <!-- Other Articles -->
+              <article class="media">
+                <figure class="d-flex u-shadow-v25 mr-3 g-pos-rel">
+                  <a class="g-color-white g-color-white--hover" [routerLink]="['/post', frontPageConfig.popularNews4.id, 'view' ]">
+                  	<img [src]="'data:' + frontPageConfig.popularNews4.imageContentType + ';base64,' + frontPageConfig.popularNews4.image" class="g-width-140 g-height-80" alt="post image"/>
+				  </a>
+                  <!-- <figcaption class="g-pos-abs g-top-5 g-left-5">
+                    <a class="btn btn-xs u-btn-darkgray text-uppercase rounded-0" href="#!">
+                      <i class="fa fa-play g-mr-5"></i> 1:07
+                    </a>
+                  </figcaption> -->
+                </figure>
+
+                <div class="media-body">
+                  <h3 class="g-font-size-16">
+                    <a class="g-color-gray-dark-v1" [routerLink]="['/post', frontPageConfig.popularNews4.id, 'view' ]">{{frontPageConfig.popularNews4.headline}}</a>
+                  </h3>
+
+                  <ul class="u-list-inline g-font-size-12 g-color-gray-dark-v4">
+                    <li class="list-inline-item">
+                      {{frontPageConfig.popularNews4.creationDate | date:'MMM d, y, h:mm a'}}
+                    </li>
+                    <!-- <li class="list-inline-item">/</li>
+                    <li class="list-inline-item">
+                      <a class="g-color-gray-dark-v4 g-text-underline--none--hover" href="#!">
+                        <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 24
+                      </a>
+                    </li> -->
+                  </ul>
+                </div>
+              </article>
+              <!-- End Other Articles -->
+            </div>
+
+            <div class="col-lg-6 g-mb-50 g-mb-0--lg">
+              <!-- Article -->
+              <article class="g-mb-40">
+                <figure class="u-shadow-v25 g-pos-rel g-mb-20">
+                  <a class="g-color-white g-color-white--hover" [routerLink]="['/post', frontPageConfig.popularNews5.id, 'view' ]">
+                  	<img [src]="'data:' + frontPageConfig.popularNews5.imageContentType + ';base64,' + frontPageConfig.popularNews5.image" class="img-fluid w-100" alt="post image"/>
+				  </a>
+
+                  <!-- <figcaption class="g-pos-abs g-top-20 g-left-20">
+                    <a class="btn btn-xs u-btn-red text-uppercase rounded-0" href="#!">School</a>
+                  </figcaption> -->
+                </figure>
+
+                <h3 class="h4 g-mb-10">
+                  <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" [routerLink]="['/post', frontPageConfig.popularNews5.id, 'view' ]">{{frontPageConfig.popularNews5.headline}}</a>
+                </h3>
+
+                <ul class="list-inline g-color-gray-dark-v4 g-font-size-12">
+                  <!-- <li class="list-inline-item">
+                    <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                  <a class="u-link-v5 g-color-gray-dark-v4" href="#!">
+                   	{{frontPageConfig.popularNews5.blog.user?.firstName}}
+					{{frontPageConfig.popularNews5.blog.user?.lastName}}
+                  </a>
+                    </a> -->
+                  </li>
+                  <!-- <li class="list-inline-item">/</li> -->
+                  <li class="list-inline-item">
+                    {{frontPageConfig.popularNews5.creationDate | date:'MMM d, y, h:mm a'}}
+                  </li>
+                  <!-- <li class="list-inline-item">/</li>
+                  <li class="list-inline-item">
+                    <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                      <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 24
+                    </a>
+                  </li> -->
+                </ul>
+
+                <p class="g-color-gray-dark-v2" [innerHTML]="frontPageConfig.popularNews5.bodytext | slice:0:300"></p>
+                <!-- <a class="g-font-size-12" href="#!">Read More..</a> -->
+              </article>
+              <!-- End Article -->
+
+              <!-- Other Articles -->
+              <article class="media">
+                <figure class="d-flex u-shadow-v25 mr-3 g-pos-rel">
+                  <a class="g-color-white g-color-white--hover" [routerLink]="['/post', frontPageConfig.popularNews6.id, 'view' ]">
+                  	<img [src]="'data:' + frontPageConfig.popularNews6.imageContentType + ';base64,' + frontPageConfig.popularNews6.image" class="g-width-140 g-height-80" alt="post image"/>
+				  </a>
+
+                  <!-- <figcaption class="g-pos-abs g-top-5 g-left-5">
+                    <a class="btn btn-xs u-btn-darkgray text-uppercase rounded-0" href="#!">
+                      <i class="fa fa-play g-mr-5"></i> 1:54
+                    </a>
+                  </figcaption> -->
+                </figure>
+
+                <div class="media-body">
+                <h3 class="g-font-size-16">
+                  <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" [routerLink]="['/post', frontPageConfig.popularNews6.id, 'view' ]">{{frontPageConfig.popularNews6.headline}}</a>
+                </h3>
+
+                  <ul class="u-list-inline g-font-size-12 g-color-gray-dark-v4">
+                    <li class="list-inline-item">
+                      {{frontPageConfig.popularNews6.creationDate | date:'MMM d, y, h:mm a'}}
+                    </li>
+                    <!-- <li class="list-inline-item">/</li>
+                    <li class="list-inline-item">
+                      <a class="g-color-gray-dark-v4 g-text-underline--none--hover" href="#!">
+                        <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 42
+                      </a>
+                    </li> -->
+                  </ul>
+                </div>
+              </article>
+              <!-- End Other Articles -->
+
+              <hr class="g-brd-gray-light-v4 g-my-25">
+
+              <!-- Other Articles -->
+              <article class="media">
+                <figure class="d-flex u-shadow-v25 mr-3 g-pos-rel">
+                  <a class="g-color-white g-color-white--hover" [routerLink]="['/post', frontPageConfig.popularNews7.id, 'view' ]">
+                  	<img [src]="'data:' + frontPageConfig.popularNews7.imageContentType + ';base64,' + frontPageConfig.popularNews7.image" class="g-width-140 g-height-80" alt="post image"/>
+				  </a>
+
+                  <!-- <figcaption class="g-pos-abs g-top-5 g-left-5">
+                    <a class="btn btn-xs u-btn-darkgray text-uppercase rounded-0" href="#!">
+                      <i class="fa fa-play g-mr-5"></i> 1:35
+                    </a>
+                  </figcaption> -->
+                </figure>
+
+                <div class="media-body">
+                  <h3 class="g-font-size-16">
+                    <a class="g-color-gray-dark-v1" [routerLink]="['/post', frontPageConfig.popularNews7.id, 'view' ]">{{frontPageConfig.popularNews7.headline}}</a>
+                  </h3>
+
+                  <ul class="u-list-inline g-font-size-12 g-color-gray-dark-v4">
+                    <li class="list-inline-item">
+                      {{frontPageConfig.popularNews7.creationDate | date:'MMM d, y, h:mm a'}}
+                    </li>
+                    <!-- <li class="list-inline-item">/</li>
+                    <li class="list-inline-item">
+                      <a class="g-color-gray-dark-v4 g-text-underline--none--hover" href="#!">
+                        <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 28
+                      </a>
+                    </li> -->
+                  </ul>
+                </div>
+              </article>
+              <!-- End Other Articles -->
+
+              <hr class="g-brd-gray-light-v4 g-my-25">
+
+              <!-- Other Articles -->
+              <article class="media">
+                <figure class="d-flex u-shadow-v25 mr-3 g-pos-rel">
+                  <a class="g-color-white g-color-white--hover" [routerLink]="['/post', frontPageConfig.popularNews8.id, 'view' ]">
+                  	<img [src]="'data:' + frontPageConfig.popularNews8.imageContentType + ';base64,' + frontPageConfig.popularNews8.image" class="g-width-140 g-height-80" alt="post image"/>
+				  </a>
+
+                  <!-- <figcaption class="g-pos-abs g-top-5 g-left-5">
+                    <a class="btn btn-xs u-btn-darkgray text-uppercase rounded-0" href="#!">
+                      <i class="fa fa-play g-mr-5"></i> 0:28
+                    </a>
+                  </figcaption> -->
+                </figure>
+
+                <div class="media-body">
+                  <h3 class="g-font-size-16">
+                    <a class="g-color-gray-dark-v1" [routerLink]="['/post', frontPageConfig.popularNews8.id, 'view' ]">{{frontPageConfig.popularNews8.headline}}</a>
+                  </h3>
+
+                  <ul class="u-list-inline g-font-size-12 g-color-gray-dark-v4">
+                    <li class="list-inline-item">
+                      {{frontPageConfig.popularNews8.creationDate | date:'MMM d, y, h:mm a'}}
+                    </li>
+                    <!-- <li class="list-inline-item">/</li>
+                    <li class="list-inline-item">
+                      <a class="g-color-gray-dark-v4 g-text-underline--none--hover" href="#!">
+                        <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 34
+                      </a>
+                    </li> -->
+                  </ul>
+                </div>
+              </article>
+              <!-- End Other Articles -->
+            </div>
+          </div>
+        </div>
+        <!-- End Popular News -->
+
+        <!-- Weekly News -->
+        <div class="g-mb-60">
+          <div class="u-heading-v3-1 g-mb-30">
+            <h2 class="h5 u-heading-v3__title g-font-primary g-font-weight-700 g-color-gray-dark-v1 text-uppercase g-brd-primary">Weekly News</h2>
+          </div>
+
+          <!-- Articles -->
+          <div class="row g-mb-30">
+            <!-- Article Image -->
+            <div class="col-md-5">
+              <figure class="u-shadow-v25 g-pos-rel g-mb-20 g-mb-0--lg">
+              	<a class="g-color-white g-color-white--hover" [routerLink]="['/post', frontPageConfig.weeklyNews1.id, 'view' ]">
+                	<img [src]="'data:' + frontPageConfig.weeklyNews1.imageContentType + ';base64,' + frontPageConfig.weeklyNews1.image" class="img-fluid w-100" alt="post image"/>
+				</a>
+                <!-- <figcaption class="g-pos-abs g-top-20 g-left-20">
+                  <a class="btn btn-xs u-btn-darkpurple text-uppercase rounded-0" href="#!">Web Design</a>
+                </figcaption> -->
+              </figure>
+            </div>
+            <!-- End Article Image -->
+
+            <!-- Article Content -->
+            <div class="col-md-7 align-self-center">
+              <h3 class="h4 g-mb-15">
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" [routerLink]="['/post', frontPageConfig.weeklyNews1.id, 'view' ]">{{frontPageConfig.weeklyNews1.headline}}</a>
+              </h3>
+
+              <ul class="list-inline g-color-gray-dark-v4 g-font-size-12">
+                <!-- <li class="list-inline-item">
+                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                   	{{frontPageConfig.weeklyNews1.blog.user?.firstName}}
+					{{frontPageConfig.weeklyNews1.blog.user?.lastName}}
+                  </a>
+                </li>
+                <li class="list-inline-item">/</li> -->
+                <li class="list-inline-item">
+                  {{frontPageConfig.weeklyNews1.creationDate | date:'MMM d, y, h:mm a'}}
+                </li>
+                <!-- <li class="list-inline-item">/</li>
+                <li class="list-inline-item">
+                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                    <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 38
+                  </a>
+                </li> -->
+              </ul>
+
+              <p class="g-color-gray-dark-v2" [innerHTML]="frontPageConfig.weeklyNews1.bodytext | slice:0:300"></p>
+              <!-- <a class="g-font-size-12" href="#!">Read More..</a> -->
+            </div>
+            <!-- End Article Content -->
+          </div>
+          <!-- End Articles -->
+
+          <!-- Articles -->
+          <div class="row g-mb-30">
+            <!-- Article Image -->
+            <div class="col-md-5">
+              <figure class="u-shadow-v25 g-pos-rel g-mb-20 g-mb-0--lg">
+              	<a class="g-color-white g-color-white--hover" [routerLink]="['/post', frontPageConfig.weeklyNews2.id, 'view' ]">
+                	<img [src]="'data:' + frontPageConfig.weeklyNews2.imageContentType + ';base64,' + frontPageConfig.weeklyNews2.image" class="img-fluid w-100" alt="post image"/>
+				</a>
+                <!-- <figcaption class="g-pos-abs g-top-20 g-left-20">
+                  <a class="btn btn-xs u-btn-pink text-uppercase rounded-0" href="#!">Music</a>
+                </figcaption> -->
+              </figure>
+            </div>
+            <!-- End Article Image -->
+
+            <!-- Article Content -->
+            <div class="col-md-7 align-self-center">
+              <h3 class="h4 g-mb-15">
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" [routerLink]="['/post', frontPageConfig.weeklyNews2.id, 'view' ]">{{frontPageConfig.weeklyNews2.headline}}</a>
+              </h3>
+
+              <ul class="list-inline g-color-gray-dark-v4 g-font-size-12">
+                <!-- <li class="list-inline-item">
+                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                   	{{frontPageConfig.weeklyNews2.blog.user?.firstName}}
+					{{frontPageConfig.weeklyNews2.blog.user?.lastName}}
+                  </a>
+                </li>
+                <li class="list-inline-item">/</li> -->
+                <li class="list-inline-item">
+                  {{frontPageConfig.weeklyNews2.creationDate | date:'MMM d, y, h:mm a'}}
+                </li>
+                <!-- <li class="list-inline-item">/</li>
+                <li class="list-inline-item">
+                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                    <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 38
+                  </a>
+                </li> -->
+              </ul>
+
+              <p class="g-color-gray-dark-v2" [innerHTML]="frontPageConfig.weeklyNews2.bodytext | slice:0:300"></p>
+              <!-- <a class="g-font-size-12" href="#!">Read More..</a> -->
+            </div>
+            <!-- End Article Content -->
+          </div>
+          <!-- End Articles -->
+
+          <!-- Articles -->
+          <div class="row g-mb-30">
+            <!-- Article Image -->
+            <div class="col-md-5">
+              <figure class="u-shadow-v25 g-pos-rel g-mb-20 g-mb-0--lg">
+              	<a class="g-color-white g-color-white--hover" [routerLink]="['/post', frontPageConfig.weeklyNews3.id, 'view' ]">
+                	<img [src]="'data:' + frontPageConfig.weeklyNews3.imageContentType + ';base64,' + frontPageConfig.weeklyNews3.image" class="img-fluid w-100" alt="post image"/>
+				</a>
+
+                <!-- <figcaption class="g-pos-abs g-top-20 g-left-20">
+                  <a class="btn btn-xs u-btn-darkgray text-uppercase rounded-0" href="#!">Interior Design</a>
+                </figcaption> -->
+              </figure>
+            </div>
+            <!-- End Article Image -->
+
+            <!-- Article Content -->
+            <div class="col-md-7 align-self-center">
+              <h3 class="h4 g-mb-15">
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" [routerLink]="['/post', frontPageConfig.weeklyNews3.id, 'view' ]">{{frontPageConfig.weeklyNews3.headline}}</a>
+              </h3>
+
+              <ul class="list-inline g-color-gray-dark-v4 g-font-size-12">
+                <!-- <li class="list-inline-item">
+                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                   	{{frontPageConfig.weeklyNews3.blog.user?.firstName}}
+					{{frontPageConfig.weeklyNews3.blog.user?.lastName}}
+                  </a>
+                </li>
+                <li class="list-inline-item">/</li> -->
+                <li class="list-inline-item">
+                  {{frontPageConfig.weeklyNews3.creationDate | date:'MMM d, y, h:mm a'}}
+                </li>
+                <!-- <li class="list-inline-item">/</li>
+                <li class="list-inline-item">
+                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                    <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 45
+                  </a>
+                </li> -->
+              </ul>
+
+              <p class="g-color-gray-dark-v2" [innerHTML]="frontPageConfig.weeklyNews3.bodytext | slice:0:300"></p>
+              <!-- <a class="g-font-size-12" href="#!">Read More..</a> -->
+            </div>
+            <!-- End Article Content -->
+          </div>
+          <!-- End Articles -->
+
+          <!-- Articles -->
+          <div class="row">
+            <!-- Article Image -->
+            <div class="col-md-5">
+              <figure class="u-shadow-v25 g-pos-rel g-mb-20 g-mb-0--lg">
+              	<a class="g-color-white g-color-white--hover" [routerLink]="['/post', frontPageConfig.weeklyNews4.id, 'view' ]">
+                	<img [src]="'data:' + frontPageConfig.weeklyNews4.imageContentType + ';base64,' + frontPageConfig.weeklyNews4.image" class="img-fluid w-100" alt="post image"/>
+				</a>
+                <!-- <figcaption class="g-pos-abs g-top-20 g-left-20">
+                  <a class="btn btn-xs u-btn-cyan text-uppercase rounded-0" href="#!">Leisure</a>
+                </figcaption> -->
+              </figure>
+            </div>
+            <!-- End Article Image -->
+
+            <!-- Article Content -->
+            <div class="col-md-7 align-self-center">
+              <h3 class="h4 g-mb-15">
+                <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" [routerLink]="['/post', frontPageConfig.weeklyNews4.id, 'view' ]">{{frontPageConfig.weeklyNews4.headline}}</a>
+              </h3>
+
+              <ul class="list-inline g-color-gray-dark-v4 g-font-size-12">
+                <!-- <li class="list-inline-item">
+                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                   	{{frontPageConfig.weeklyNews4.blog.user?.firstName}}
+					{{frontPageConfig.weeklyNews4.blog.user?.lastName}}
+                  </a>
+                </li>
+                <li class="list-inline-item">/</li> -->
+                <li class="list-inline-item">
+                  {{frontPageConfig.weeklyNews4.creationDate | date:'MMM d, y, h:mm a'}}
+                </li>
+                <!-- <li class="list-inline-item">/</li>
+                <li class="list-inline-item">
+                  <a class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover" href="#!">
+                    <i class="icon-finance-206 u-line-icon-pro align-middle g-pos-rel g-top-1 mr-1"></i> 38
+                  </a>
+                </li> -->
+              </ul>
+
+              <p class="g-color-gray-dark-v2" [innerHTML]="frontPageConfig.weeklyNews4.bodytext | slice:0:300"></p>
+              <!-- <a class="g-font-size-12" href="#!">Read More..</a> -->
+            </div>
+            <!-- End Article Content -->
+          </div>
+          <!-- End Articles -->
+        </div>
+        <!-- End Weekly News -->
+
+        <!-- Pagination Deleted -->
+        
+      </div>
+      <!-- End Articles -->
+
+      <!-- Sidebar -->
+      <div class="col-lg-3">
+        <!-- Popular Tags --
+        <div class="g-mb-20">
+          <div class="u-heading-v3-1 g-mb-30">
+            <h2 class="h5 u-heading-v3__title g-font-primary g-font-weight-700 g-color-gray-dark-v1 text-uppercase g-brd-primary">Popular Tags</h2>
+          </div>
+
+          <ul class="u-list-inline g-font-size-11 text-uppercase mb-0">
+            <li class="list-inline-item g-mb-10">
+              <a class="u-tags-v1 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-black-opacity-0_8 g-color-white--hover rounded g-py-6 g-px-15" href="#!">Web Design</a>
+            </li>
+            <li class="list-inline-item g-mb-10">
+              <a class="u-tags-v1 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-black-opacity-0_8 g-color-white--hover rounded g-py-6 g-px-15" href="#!">Bootstrap</a>
+            </li>
+            <li class="list-inline-item g-mb-10">
+              <a class="u-tags-v1 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-black-opacity-0_8 g-color-white--hover rounded g-py-6 g-px-15" href="#!">SASS</a>
+            </li>
+            <li class="list-inline-item g-mb-10">
+              <a class="u-tags-v1 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-black-opacity-0_8 g-color-white--hover rounded g-py-6 g-px-15" href="#!">Marketing</a>
+            </li>
+            <li class="list-inline-item g-mb-10">
+              <a class="u-tags-v1 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-black-opacity-0_8 g-color-white--hover rounded g-py-6 g-px-15" href="#!">Unify</a>
+            </li>
+            <li class="list-inline-item g-mb-10">
+              <a class="u-tags-v1 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-black-opacity-0_8 g-color-white--hover rounded g-py-6 g-px-15" href="#!">Htmlstream</a>
+            </li>
+            <li class="list-inline-item g-mb-10">
+              <a class="u-tags-v1 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-black-opacity-0_8 g-color-white--hover rounded g-py-6 g-px-15" href="#!">Pixeel</a>
+            </li>
+            <li class="list-inline-item g-mb-10">
+              <a class="u-tags-v1 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-black-opacity-0_8 g-color-white--hover rounded g-py-6 g-px-15" href="#!">Free Themes</a>
+            </li>
+          </ul>
+        </div>
+        !-- End Popular Tags -->
+
+        <div id="stickyblock-start-1" class="js-sticky-block g-sticky-block--lg g-pt-20" data-start-point="#stickyblock-start-1" data-end-point="#stickyblock-end-1">
+          <!-- News Feed --
+          <div class="g-mb-40">
+            <div class="u-heading-v3-1 g-mb-30">
+              <h2 class="h5 u-heading-v3__title g-font-primary g-font-weight-700 g-color-gray-dark-v1 text-uppercase g-brd-primary">News Feed</h2>
+            </div>
+
+            -- Article --
+            <article>
+              <span class="g-font-size-12">
+                <a class="u-link-v5 g-color-gray-dark-v4" href="#!">Jonathan Owen</a>
+              </span>
+              <h3 class="h6">
+                <a class="g-color-gray-dark-v1" href="#!">Architects plan to stop skyscrapers from blocking out sunlight</a>
+              </h3>
+            </article>
+            -- End Article --
+
+            <hr class="g-brd-gray-light-v4 g-mt-15 g-mb-10">
+
+            -- Article --
+            <article>
+              <span class="g-font-size-12">
+                <a class="u-link-v5 g-color-gray-dark-v4" href="#!">James Doe</a>
+              </span>
+              <h3 class="h6">
+                <a class="g-color-gray-dark-v1" href="#!">Cooltex is one of the best technology company of our age and future</a>
+              </h3>
+            </article>
+            -- End Article --
+
+            <hr class="g-brd-gray-light-v4 g-mt-15 g-mb-10">
+
+            -- Article --
+            <article>
+              <span class="g-font-size-12">
+                <a class="u-link-v5 g-color-gray-dark-v4" href="#!">Albert Coolmen</a>
+              </span>
+              <h3 class="h6">
+                <a class="g-color-gray-dark-v1" href="#!">Some text goes here with plain English and much more other texts go there..</a>
+              </h3>
+            </article>
+            -- End Article --
+          </div>
+          -- End News Feed --
+
+          -- Top Authors --
+          <div class="g-mb-40">
+            <div class="u-heading-v3-1 g-mb-30">
+              <h2 class="h5 u-heading-v3__title g-font-primary g-font-weight-700 g-color-gray-dark-v1 text-uppercase g-brd-primary">Top Authors</h2>
+            </div>
+
+            <article class="media g-mb-35">
+              <img class="d-flex u-shadow-v25 g-width-40 g-height-40 rounded-circle mr-3" src="../../content/images/img-temp/100x100/img1.jpg" alt="Image Description">
+              <div class="media-body">
+                <h4 class="g-font-size-16">
+                  <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="#!">Htmlstream</a>
+                  <small class="g-color-gray-dark-v4">@Htmlstream</small>
+                </h4>
+                <p class="g-color-gray-dark-v2">Sed ultrices velit vitae tortor posuere and dial in the details.</p>
+                <a class="btn u-btn-outline-primary g-font-size-11 text-uppercase" href="#!">Follow</a>
+              </div>
+            </article>
+
+            <article class="media g-mb-35">
+              <img class="d-flex u-shadow-v25 g-width-40 g-height-40 rounded-circle mr-3" src="../../content/images/img-temp/100x100/img3.jpg" alt="Image Description">
+              <div class="media-body">
+                <h4 class="g-font-size-16 g-color-gray-dark-v1">
+                  <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="#!">Pixeel</a>
+                  <small class="g-color-gray-dark-v4">@Pixeeluk</small>
+                </h4>
+                <p class="g-color-gray-dark-v2">This is where we sit down, grab a cup of coffee and dial in the details.</p>
+                <a class="btn u-btn-outline-primary g-font-size-11 text-uppercase" href="#!">Follow</a>
+              </div>
+            </article>
+
+            <article class="media">
+              <img class="d-flex u-shadow-v25 g-width-40 g-height-40 rounded-circle mr-3" src="../../content/images/img-temp/100x100/img2.jpg" alt="Image Description">
+              <div class="media-body">
+                <h4 class="g-font-size-16 g-color-gray-dark-v1">
+                  <a class="u-link-v5 g-color-gray-dark-v1 g-color-primary--hover" href="#!">WrapBootstrap</a>
+                  <small class="g-color-gray-dark-v4">@WrapBootstrap</small>
+                </h4>
+                <p class="g-color-gray-dark-v2">Ulvinar leo ultricies ut, grab a cup of coffee and dial in the details.</p>
+                <a class="btn u-btn-outline-primary g-font-size-11 text-uppercase" href="#!">Follow</a>
+              </div>
+            </article>
+          </div>
+          -- End Top Authors --
+        </div>
+      </div>
+      <!-- End Sidebar -->
+    </div>
+    <!-- News Section 3 -->
+  </div>
+</section>
+<!-- End News Content -->
 </div>
+
+<!-- Go To -->
+<a class="js-go-to u-go-to-v2" href="#!"
+   data-type="fixed"
+   data-position='{
+     "bottom": 15,
+     "right": 15
+   }'
+   data-offset-top="400"
+   data-compensation="#js-header"
+   data-show-effect="zoomIn">
+  <i class="hs-icon hs-icon-arrow-top"></i>
+</a>
+<!-- End Go To -->
+</main>
+
+<div class="u-outer-spaces-helper"></div>
+
+<!-- JS Global Compulsory -->
+<script src="../../content/images/vendor/jquery/jquery.min.js"></script>
+<script src="../../content/images/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+<script src="../../content/images/vendor/popper.min.js"></script>
+<script src="../../content/images/vendor/bootstrap/bootstrap.min.js"></script>
+
+<!-- JS Implementing Plugins -->
+<script src="../../content/images/vendor/appear.js"></script>
+<script src="../../content/images/vendor/dzsparallaxer/dzsparallaxer.js"></script>
+<script src="../../content/images/vendor/dzsparallaxer/dzsscroller/scroller.js"></script>
+<script src="../../content/images/vendor/dzsparallaxer/advancedscroller/plugin.js"></script>
+<script src="../../content/images/vendor/hs-megamenu/src/hs.megamenu.js"></script>
+<script src="../../content/images/vendor/slick-carousel/slick/slick.js"></script>
+<script src="../../content/images/vendor/fancybox/jquery.fancybox.min.js"></script>
+
+<!-- JS Unify -->
+<script src="../../content/images/js/hs.core.js"></script>
+<script src="../../content/images/js/components/hs.header.js"></script>
+<script src="../../content/images/js/helpers/hs.hamburgers.js"></script>
+<script src="../../content/images/js/components/hs.dropdown.js"></script>
+<script src="../../content/images/js/components/hs.counter.js"></script>
+<script src="../../content/images/js/components/hs.onscroll-animation.js"></script>
+<script src="../../content/images/js/components/hs.sticky-block.js"></script>
+<script src="../../content/images/js/components/hs.carousel.js"></script>
+<script src="../../content/images/js/components/hs.popup.js"></script>
+<script src="../../content/images/js/components/hs.go-to.js"></script>
+
+<!-- JS Customization -->
+<script src="../../content/images/js/custom.js"></script>
+
+<!-- JS Plugins Init. -->
+<script>
+$(document).on('ready', function () {
+  // initialization of header
+  $.HSCore.components.HSHeader.init($('#js-header'));
+  $.HSCore.helpers.HSHamburgers.init('.hamburger');
+
+  // initialization of MegaMenu
+  $('.js-mega-menu').HSMegaMenu();
+
+  // initialization of HSDropdown component
+  $.HSCore.components.HSDropdown.init($('[data-dropdown-target]'), {
+    afterOpen: function () {
+      $(this).find('input[type="search"]').focus();
+    }
+  });
+
+  // initialization of scroll animation
+  $.HSCore.components.HSOnScrollAnimation.init('[data-animation]');
+
+  // initialization of go to
+  $.HSCore.components.HSGoTo.init('.js-go-to');
+
+  // initialization of counters
+  var counters = $.HSCore.components.HSCounter.init('[class*="js-counter"]');
+
+  // initialization of carousel
+  $.HSCore.components.HSCarousel.init('[class*="js-carousel"]');
+
+  // initialization of popups
+  $.HSCore.components.HSPopup.init('.js-fancybox');
+});
+
+$(window).on('load', function () {
+  // initialization of sticky blocks
+  setTimeout(function() { // important in this case
+    $.HSCore.components.HSStickyBlock.init('.js-sticky-block');
+  }, 1);
+});
+</script>

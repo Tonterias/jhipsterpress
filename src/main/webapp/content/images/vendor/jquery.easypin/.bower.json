@@ -1,0 +1,25 @@
+{
+    "name": "jquery.easypin",
+    "version": "1.0.10",
+    "homepage": "https://github.com/atayahmet/jquery-easypin",
+    "main": "dist/jquery.easypin.js",
+    "authors": ["Ahmet <ahmet.atay@hotmail.com>"],
+    "description": "Simply pinning objects in pictures",
+    "keywords": ["image", "pin", "image", "marker", "enjoy"],
+    "license": "MIT",
+    "ignore": ["**/.*", "node_modules", "bower_components", "test", "tests"],
+    "dependencies": {
+        "jquery.easing": "~1.3.1",
+        "jquery": "~2.1.4"
+    },
+    "_release": "1.0.10",
+    "_resolution": {
+        "type": "version",
+        "tag": "v1.0.10",
+        "commit": "b8afda062075baef6185dd508aebd216c8c84ad3"
+    },
+    "_source": "https://github.com/atayahmet/jquery.easypin.git",
+    "_target": "^1.0.10",
+    "_originalSource": "jquery.easypin",
+    "_direct": true
+}

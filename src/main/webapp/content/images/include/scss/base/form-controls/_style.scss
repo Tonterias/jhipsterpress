@@ -1,0 +1,46 @@
+/*------------------------------------
+  Form Elements
+------------------------------------*/
+.u-form-control {
+    padding: 0.8rem 1rem 0.6rem;
+
+    &::placeholder {
+        color: inherit;
+        opacity: 0.3;
+    }
+    &::-moz-placeholder {
+        color: inherit;
+        opacity: 0.3;
+    }
+    &::-webkit-input-placeholder {
+        color: inherit;
+        opacity: 0.3;
+    }
+
+    &-sm {
+        padding: 0.4rem 0.5rem 0.1rem;
+        font-size: 0.875rem;
+    }
+    &-lg {
+        padding: 0.75rem 1.5rem 0.55rem;
+        font-size: 1.25rem;
+    }
+
+    &-shadow--focus:focus {
+        box-shadow: 0 0 5px rgba($g-color-black, 0.3);
+    }
+}
+
+.u-textarea-expandable {
+    max-height: 42px;
+
+    transition: {
+        property: max-height;
+        duration: 0.2s;
+        timing-function: ease-in;
+    }
+
+    &:focus {
+        max-height: 90px;
+    }
+}

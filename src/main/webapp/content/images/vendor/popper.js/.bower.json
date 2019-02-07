@@ -1,0 +1,13 @@
+{
+    "name": "popper.js",
+    "_cacheHeaders": {
+        "ETag": "W/\"13b6b-15d93a76b28\"",
+        "Content-Type": "application/javascript"
+    },
+    "_release": "e-tag:W/\"13b6b-1",
+    "main": "index.js",
+    "_source": "https://unpkg.com/popper.js",
+    "_target": "*",
+    "_originalSource": "https://unpkg.com/popper.js",
+    "_direct": true
+}

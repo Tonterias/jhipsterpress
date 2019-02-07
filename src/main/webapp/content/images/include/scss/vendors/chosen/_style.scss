@@ -1,0 +1,25 @@
+.chosen-container-single {
+    & .chosen-single div b {
+        position: relative;
+    }
+
+    & .chosen-search input[type='text'] {
+        padding: 0.8rem 1rem 0.6rem;
+        border-color: $g-color-gray-light-v2;
+    }
+
+    &.u-dropdown-sm .chosen-search input[type='text'] {
+        padding: 0.25rem 0.5rem 0.1rem;
+    }
+
+    &.u-dropdown-lg .chosen-search input[type='text'] {
+        padding: 0.75rem 1.5rem 0.55rem;
+    }
+
+    &.u-select-above .chosen-drop {
+        top: auto;
+        bottom: 100%;
+        margin-top: 0;
+        margin-bottom: -1px;
+    }
+}

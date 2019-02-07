@@ -1,2 +1,5 @@
 /* after changing this file run 'npm run webpack:build' */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~font-awesome/css/font-awesome.css';
+@import '~font-awesome/css/font-awesome.min.css';
+@import 'unify.css';

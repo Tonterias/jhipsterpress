@@ -1,0 +1,18 @@
+/*------------------------------------
+  Disabled state v1
+------------------------------------*/
+
+.u-has-disabled-v1 {
+    label,
+    .form-control,
+    .input-group-addon,
+    [class*='u-select'] {
+        background-color: $g-color-white;
+        opacity: 0.5;
+
+        &:disabled {
+            background-color: $g-color-white;
+            opacity: 0.5;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "name": "Image Select",
+    "homepage": "https://github.com/websemantics/Image-Select",
+    "authors": ["Web Semantics, Inc. <hi@websemantics.ca>"],
+    "license": "MIT",
+    "ignore": ["**/.*"],
+    "dependencies": {
+        "semantic": "*",
+        "chosen": "*"
+    },
+    "devDependencies": {
+        "codemirror": "*"
+    },
+    "_release": "492ca0fcf0",
+    "_resolution": {
+        "type": "branch",
+        "branch": "master",
+        "commit": "492ca0fcf062da32f3d0f71e9e8048a1e6341cfe"
+    },
+    "_source": "https://github.com/websemantics/Image-Select.git",
+    "_target": "*",
+    "_originalSource": "image-select",
+    "_direct": true
+}

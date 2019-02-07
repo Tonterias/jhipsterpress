@@ -24,11 +24,11 @@ public interface FollowMapper extends EntityMapper<FollowDTO, Follow> {
     @Mapping(source = "cfollowed.id", target = "cfollowedId")
     @Mapping(source = "cfollowed.image", target = "cfollowedImage")
     @Mapping(source = "cfollowed.imageContentType", target = "cfollowedImageContentType")
-    @Mapping(source = "cfollowed.communityname", target = "cfollowedCommunityname")
+    @Mapping(source = "cfollowed.communityName", target = "cfollowedCommunityname")
     @Mapping(source = "cfollowing.id", target = "cfollowingId")
     @Mapping(source = "cfollowing.image", target = "cfollowingImage")
     @Mapping(source = "cfollowing.imageContentType", target = "cfollowingImageContentType")
-    @Mapping(source = "cfollowing.communityname", target = "cfollowingCommunityname")
+    @Mapping(source = "cfollowing.communityName", target = "cfollowingCommunityname")
     FollowDTO toDto(Follow follow);
 
     @Mapping(source = "followedId", target = "followed")

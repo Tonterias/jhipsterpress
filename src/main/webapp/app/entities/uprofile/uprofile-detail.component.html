@@ -1,0 +1,128 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="uprofile">
+            <h2><span jhiTranslate="jhipsterpressApp.uprofile.detail.title">Uprofile</span> {{uprofile.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{uprofile.creationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.image">Image</span></dt>
+                <dd>
+                    <div *ngIf="uprofile.image">
+                        <a (click)="openFile(uprofile.imageContentType, uprofile.image)">
+                            <img [src]="'data:' + uprofile.imageContentType + ';base64,' + uprofile.image" style="max-width: 100%;" alt="uprofile image"/>
+                        </a>
+                        {{uprofile.imageContentType}}, {{byteSize(uprofile.image)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.gender">Gender</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jhipsterpressApp.Gender.' + uprofile.gender}}">{{uprofile.gender}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.phone">Phone</span></dt>
+                <dd>
+                    <span>{{uprofile.phone}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.bio">Bio</span></dt>
+                <dd>
+                    <span>{{uprofile.bio}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.facebook">Facebook</span></dt>
+                <dd>
+                    <span>{{uprofile.facebook}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.twitter">Twitter</span></dt>
+                <dd>
+                    <span>{{uprofile.twitter}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.linkedin">Linkedin</span></dt>
+                <dd>
+                    <span>{{uprofile.linkedin}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.instagram">Instagram</span></dt>
+                <dd>
+                    <span>{{uprofile.instagram}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.googlePlus">Google Plus</span></dt>
+                <dd>
+                    <span>{{uprofile.googlePlus}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.birthdate">Birthdate</span></dt>
+                <dd>
+                    <span>{{uprofile.birthdate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.civilStatus">Civil Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jhipsterpressApp.CivilStatus.' + uprofile.civilStatus}}">{{uprofile.civilStatus}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.lookingFor">Looking For</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jhipsterpressApp.Gender.' + uprofile.lookingFor}}">{{uprofile.lookingFor}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.purpose">Purpose</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jhipsterpressApp.Purpose.' + uprofile.purpose}}">{{uprofile.purpose}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.physical">Physical</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jhipsterpressApp.Physical.' + uprofile.physical}}">{{uprofile.physical}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.religion">Religion</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jhipsterpressApp.Religion.' + uprofile.religion}}">{{uprofile.religion}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.ethnicGroup">Ethnic Group</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jhipsterpressApp.EthnicGroup.' + uprofile.ethnicGroup}}">{{uprofile.ethnicGroup}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.studies">Studies</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jhipsterpressApp.Studies.' + uprofile.studies}}">{{uprofile.studies}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.sibblings">Sibblings</span></dt>
+                <dd>
+                    <span>{{uprofile.sibblings}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.eyes">Eyes</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jhipsterpressApp.Eyes.' + uprofile.eyes}}">{{uprofile.eyes}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.smoker">Smoker</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jhipsterpressApp.Smoker.' + uprofile.smoker}}">{{uprofile.smoker}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.children">Children</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jhipsterpressApp.Children.' + uprofile.children}}">{{uprofile.children}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.futureChildren">Future Children</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jhipsterpressApp.FutureChildren.' + uprofile.futureChildren}}">{{uprofile.futureChildren}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.pet">Pet</span></dt>
+                <dd>
+                    <span>{{uprofile.pet}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.uprofile.user">User</span></dt>
+                <dd>
+                    {{uprofile.userId}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/uprofile', uprofile.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

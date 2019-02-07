@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Uprofile.
+    -->
+    <changeSet id="20190206093322-1" author="jhipster">
+        <createTable tableName="uprofile">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="creation_date" type="datetime">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="image" type="longblob">
+                <constraints nullable="true" />
+            </column>
+            <column name="image_content_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="gender" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="phone" type="varchar(20)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="bio" type="varchar(7500)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="facebook" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="twitter" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="linkedin" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="instagram" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="google_plus" type="varchar(50)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="birthdate" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="civil_status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="looking_for" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="purpose" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="physical" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="religion" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ethnic_group" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="studies" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="sibblings" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="eyes" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="smoker" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="children" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="future_children" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="pet" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints unique="true" nullable="false" uniqueConstraintName="ux_uprofile_user_id" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="uprofile" columnName="creation_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="uprofile" columnName="birthdate" columnDataType="datetime"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

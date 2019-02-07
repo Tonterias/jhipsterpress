@@ -1,0 +1,22 @@
+{
+    "jhipsterpressApp": {
+        "cceleb": {
+            "home": {
+                "title": "Ccelebs",
+                "createLabel": "Crear nuevo Cceleb",
+                "createOrEditLabel": "Crear o editar Cceleb"
+            },
+            "created": "Un nuevo Cceleb ha sido creado con el identificador {{ param }}",
+            "updated": "Un Cceleb ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Cceleb ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Cceleb {{ id }}?"
+            },
+            "detail": {
+                "title": "Cceleb"
+            },
+            "celebName": "Celeb Name",
+            "community": "Community"
+        }
+    }
+}

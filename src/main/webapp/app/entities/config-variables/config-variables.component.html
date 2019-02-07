@@ -1,0 +1,100 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterpressApp.configVariables.home.title">Config Variables</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-config-variables" [routerLink]="['/config-variables/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jhipsterpressApp.configVariables.home.createLabel">
+            Create new Config Variables
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="configVariables">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="configVarLong1"><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong1">Config Var Long 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="configVarLong2"><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong2">Config Var Long 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="configVarLong3"><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong3">Config Var Long 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="configVarLong4"><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong4">Config Var Long 4</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="configVarLong5"><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong5">Config Var Long 5</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="configVarLong6"><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong6">Config Var Long 6</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="configVarLong7"><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong7">Config Var Long 7</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="configVarLong8"><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong8">Config Var Long 8</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="configVarLong9"><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong9">Config Var Long 9</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="configVarLong10"><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong10">Config Var Long 10</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="configVarLong11"><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong11">Config Var Long 11</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="configVarLong12"><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong12">Config Var Long 12</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="configVarLong13"><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong13">Config Var Long 13</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="configVarLong14"><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong14">Config Var Long 14</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="configVarLong15"><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong15">Config Var Long 15</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="configVarBoolean16"><span jhiTranslate="jhipsterpressApp.configVariables.configVarBoolean16">Config Var Boolean 16</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="configVarBoolean17"><span jhiTranslate="jhipsterpressApp.configVariables.configVarBoolean17">Config Var Boolean 17</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="configVarBoolean18"><span jhiTranslate="jhipsterpressApp.configVariables.configVarBoolean18">Config Var Boolean 18</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="configVarString19"><span jhiTranslate="jhipsterpressApp.configVariables.configVarString19">Config Var String 19</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="configVarString20"><span jhiTranslate="jhipsterpressApp.configVariables.configVarString20">Config Var String 20</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let configVariables of configVariables ;trackBy: trackId">
+                <td><a [routerLink]="['/config-variables', configVariables.id, 'view' ]">{{configVariables.id}}</a></td>
+                <td>{{configVariables.configVarLong1}}</td>
+                <td>{{configVariables.configVarLong2}}</td>
+                <td>{{configVariables.configVarLong3}}</td>
+                <td>{{configVariables.configVarLong4}}</td>
+                <td>{{configVariables.configVarLong5}}</td>
+                <td>{{configVariables.configVarLong6}}</td>
+                <td>{{configVariables.configVarLong7}}</td>
+                <td>{{configVariables.configVarLong8}}</td>
+                <td>{{configVariables.configVarLong9}}</td>
+                <td>{{configVariables.configVarLong10}}</td>
+                <td>{{configVariables.configVarLong11}}</td>
+                <td>{{configVariables.configVarLong12}}</td>
+                <td>{{configVariables.configVarLong13}}</td>
+                <td>{{configVariables.configVarLong14}}</td>
+                <td>{{configVariables.configVarLong15}}</td>
+                <td>{{configVariables.configVarBoolean16}}</td>
+                <td>{{configVariables.configVarBoolean17}}</td>
+                <td>{{configVariables.configVarBoolean18}}</td>
+                <td>{{configVariables.configVarString19}}</td>
+                <td>{{configVariables.configVarString20}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/config-variables', configVariables.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/config-variables', configVariables.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'config-variables', { outlets: { popup: configVariables.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="configVariables && configVariables.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

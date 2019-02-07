@@ -1,0 +1,22 @@
+{
+    "jhipsterpressApp": {
+        "celeb": {
+            "home": {
+                "title": "Celebs",
+                "createLabel": "Crear nuevo Celeb",
+                "createOrEditLabel": "Crear o editar Celeb"
+            },
+            "created": "Un nuevo Celeb ha sido creado con el identificador {{ param }}",
+            "updated": "Un Celeb ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Celeb ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Celeb {{ id }}?"
+            },
+            "detail": {
+                "title": "Celeb"
+            },
+            "celebName": "Celeb Name",
+            "uprofile": "Uprofile"
+        }
+    }
+}

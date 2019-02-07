@@ -1,0 +1,22 @@
+{
+    "jhipsterpressApp": {
+        "cinterest": {
+            "home": {
+                "title": "Cinterests",
+                "createLabel": "Create a new Cinterest",
+                "createOrEditLabel": "Create or edit a Cinterest"
+            },
+            "created": "A new Cinterest is created with identifier {{ param }}",
+            "updated": "A Cinterest is updated with identifier {{ param }}",
+            "deleted": "A Cinterest is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Cinterest {{ id }}?"
+            },
+            "detail": {
+                "title": "Cinterest"
+            },
+            "interestName": "Interest Name",
+            "community": "Community"
+        }
+    }
+}

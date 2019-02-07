@@ -1,0 +1,242 @@
+{
+    "name": "Frontpageconfig",
+    "fields": [
+        {
+            "fieldName": "creationDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "topNews1",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "topNews2",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "topNews3",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "topNews4",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "topNews5",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "latestNews1",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "latestNews2",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "latestNews3",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "latestNews4",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "latestNews5",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "breakingNews1",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "recentPosts1",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "recentPosts2",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "recentPosts3",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "recentPosts4",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "featuredArticles1",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "featuredArticles2",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "featuredArticles3",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "featuredArticles4",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "featuredArticles5",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "featuredArticles6",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "featuredArticles7",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "featuredArticles8",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "featuredArticles9",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "featuredArticles10",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "popularNews1",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "popularNews2",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "popularNews3",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "popularNews4",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "popularNews5",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "popularNews6",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "popularNews7",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "popularNews8",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "weeklyNews1",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "weeklyNews2",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "weeklyNews3",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "weeklyNews4",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "newsFeeds1",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "newsFeeds2",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "newsFeeds3",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "newsFeeds4",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "newsFeeds5",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "newsFeeds6",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "usefulLinks1",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "usefulLinks2",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "usefulLinks3",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "usefulLinks4",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "usefulLinks5",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "usefulLinks6",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "recentVideos1",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "recentVideos2",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "recentVideos3",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "recentVideos4",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "recentVideos5",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "recentVideos6",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190206093336",
+    "entityTableName": "frontpageconfig",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

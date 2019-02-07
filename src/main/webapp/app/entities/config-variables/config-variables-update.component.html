@@ -1,0 +1,124 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-config-variables-heading" jhiTranslate="jhipsterpressApp.configVariables.home.createOrEditLabel">Create or edit a Config Variables</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!configVariables.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="configVariables.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.configVariables.configVarLong1" for="field_configVarLong1">Config Var Long 1</label>
+                    <input type="number" class="form-control" name="configVarLong1" id="field_configVarLong1"
+                        [(ngModel)]="configVariables.configVarLong1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.configVariables.configVarLong2" for="field_configVarLong2">Config Var Long 2</label>
+                    <input type="number" class="form-control" name="configVarLong2" id="field_configVarLong2"
+                        [(ngModel)]="configVariables.configVarLong2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.configVariables.configVarLong3" for="field_configVarLong3">Config Var Long 3</label>
+                    <input type="number" class="form-control" name="configVarLong3" id="field_configVarLong3"
+                        [(ngModel)]="configVariables.configVarLong3" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.configVariables.configVarLong4" for="field_configVarLong4">Config Var Long 4</label>
+                    <input type="number" class="form-control" name="configVarLong4" id="field_configVarLong4"
+                        [(ngModel)]="configVariables.configVarLong4" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.configVariables.configVarLong5" for="field_configVarLong5">Config Var Long 5</label>
+                    <input type="number" class="form-control" name="configVarLong5" id="field_configVarLong5"
+                        [(ngModel)]="configVariables.configVarLong5" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.configVariables.configVarLong6" for="field_configVarLong6">Config Var Long 6</label>
+                    <input type="number" class="form-control" name="configVarLong6" id="field_configVarLong6"
+                        [(ngModel)]="configVariables.configVarLong6" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.configVariables.configVarLong7" for="field_configVarLong7">Config Var Long 7</label>
+                    <input type="number" class="form-control" name="configVarLong7" id="field_configVarLong7"
+                        [(ngModel)]="configVariables.configVarLong7" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.configVariables.configVarLong8" for="field_configVarLong8">Config Var Long 8</label>
+                    <input type="number" class="form-control" name="configVarLong8" id="field_configVarLong8"
+                        [(ngModel)]="configVariables.configVarLong8" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.configVariables.configVarLong9" for="field_configVarLong9">Config Var Long 9</label>
+                    <input type="number" class="form-control" name="configVarLong9" id="field_configVarLong9"
+                        [(ngModel)]="configVariables.configVarLong9" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.configVariables.configVarLong10" for="field_configVarLong10">Config Var Long 10</label>
+                    <input type="number" class="form-control" name="configVarLong10" id="field_configVarLong10"
+                        [(ngModel)]="configVariables.configVarLong10" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.configVariables.configVarLong11" for="field_configVarLong11">Config Var Long 11</label>
+                    <input type="number" class="form-control" name="configVarLong11" id="field_configVarLong11"
+                        [(ngModel)]="configVariables.configVarLong11" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.configVariables.configVarLong12" for="field_configVarLong12">Config Var Long 12</label>
+                    <input type="number" class="form-control" name="configVarLong12" id="field_configVarLong12"
+                        [(ngModel)]="configVariables.configVarLong12" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.configVariables.configVarLong13" for="field_configVarLong13">Config Var Long 13</label>
+                    <input type="number" class="form-control" name="configVarLong13" id="field_configVarLong13"
+                        [(ngModel)]="configVariables.configVarLong13" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.configVariables.configVarLong14" for="field_configVarLong14">Config Var Long 14</label>
+                    <input type="number" class="form-control" name="configVarLong14" id="field_configVarLong14"
+                        [(ngModel)]="configVariables.configVarLong14" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.configVariables.configVarLong15" for="field_configVarLong15">Config Var Long 15</label>
+                    <input type="number" class="form-control" name="configVarLong15" id="field_configVarLong15"
+                        [(ngModel)]="configVariables.configVarLong15" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.configVariables.configVarBoolean16" for="field_configVarBoolean16">Config Var Boolean 16</label>
+                    <input type="checkbox" class="form-control" name="configVarBoolean16" id="field_configVarBoolean16"
+                        [(ngModel)]="configVariables.configVarBoolean16" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.configVariables.configVarBoolean17" for="field_configVarBoolean17">Config Var Boolean 17</label>
+                    <input type="checkbox" class="form-control" name="configVarBoolean17" id="field_configVarBoolean17"
+                        [(ngModel)]="configVariables.configVarBoolean17" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.configVariables.configVarBoolean18" for="field_configVarBoolean18">Config Var Boolean 18</label>
+                    <input type="checkbox" class="form-control" name="configVarBoolean18" id="field_configVarBoolean18"
+                        [(ngModel)]="configVariables.configVarBoolean18" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.configVariables.configVarString19" for="field_configVarString19">Config Var String 19</label>
+                    <input type="text" class="form-control" name="configVarString19" id="field_configVarString19"
+                        [(ngModel)]="configVariables.configVarString19" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.configVariables.configVarString20" for="field_configVarString20">Config Var String 20</label>
+                    <input type="text" class="form-control" name="configVarString20" id="field_configVarString20"
+                        [(ngModel)]="configVariables.configVarString20" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

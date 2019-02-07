@@ -1,0 +1,53 @@
+{
+    "name": "Vthumb",
+    "fields": [
+        {
+            "fieldName": "creationDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "vthumbUp",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "vthumbDown",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "vthumb(id)"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "vquestion",
+            "otherEntityName": "vquestion",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "vthumb"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "vanswer",
+            "otherEntityName": "vanswer",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "vthumb"
+        }
+    ],
+    "changelogDate": "20190206093340",
+    "entityTableName": "vthumb",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

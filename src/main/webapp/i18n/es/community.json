@@ -1,0 +1,37 @@
+{
+    "jhipsterpressApp": {
+        "community": {
+            "home": {
+                "title": "Communities",
+                "createLabel": "Crear nuevo Community",
+                "createOrEditLabel": "Crear o editar Community"
+            },
+            "created": "Un nuevo Community ha sido creado con el identificador {{ param }}",
+            "updated": "Un Community ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Community ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Community {{ id }}?"
+            },
+            "detail": {
+                "title": "Community"
+            },
+            "creationDate": "Creation Date",
+            "communityName": "Community Name",
+            "communityDescription": "Community Description",
+            "image": "Image",
+            "isActive": "Is Active",
+            "blog": "Blog",
+            "csender": "Csender",
+            "creceiver": "Creceiver",
+            "cfollowed": "Cfollowed",
+            "cfollowing": "Cfollowing",
+            "cblockeduser": "Cblockeduser",
+            "cblockinguser": "Cblockinguser",
+            "user": "User",
+            "calbum": "Calbum",
+            "cinterest": "Cinterest",
+            "cactivity": "Cactivity",
+            "cceleb": "Cceleb"
+        }
+    }
+}

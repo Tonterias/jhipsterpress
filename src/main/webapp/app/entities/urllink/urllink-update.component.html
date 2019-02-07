@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-urllink-heading" jhiTranslate="jhipsterpressApp.urllink.home.createOrEditLabel">Create or edit a Urllink</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!urllink.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="urllink.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.urllink.linkText" for="field_linkText">Link Text</label>
+                    <input type="text" class="form-control" name="linkText" id="field_linkText"
+                        [(ngModel)]="urllink.linkText" required/>
+                    <div [hidden]="!(editForm.controls.linkText?.dirty && editForm.controls.linkText?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.linkText?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.urllink.linkURL" for="field_linkURL">Link URL</label>
+                    <input type="text" class="form-control" name="linkURL" id="field_linkURL"
+                        [(ngModel)]="urllink.linkURL" required/>
+                    <div [hidden]="!(editForm.controls.linkURL?.dirty && editForm.controls.linkURL?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.linkURL?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

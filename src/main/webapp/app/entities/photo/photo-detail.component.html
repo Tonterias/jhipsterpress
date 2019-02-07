@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="photo">
+            <h2><span jhiTranslate="jhipsterpressApp.photo.detail.title">Photo</span> {{photo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterpressApp.photo.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{photo.creationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.photo.image">Image</span></dt>
+                <dd>
+                    <div *ngIf="photo.image">
+                        <a (click)="openFile(photo.imageContentType, photo.image)">
+                            <img [src]="'data:' + photo.imageContentType + ';base64,' + photo.image" style="max-width: 100%;" alt="photo image"/>
+                        </a>
+                        {{photo.imageContentType}}, {{byteSize(photo.image)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.photo.album">Album</span></dt>
+                <dd>
+                    <div *ngIf="photo.albumId">
+                        <a [routerLink]="['/album', photo.albumId, 'view']">{{photo.albumTitle}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.photo.calbum">Calbum</span></dt>
+                <dd>
+                    <div *ngIf="photo.calbumId">
+                        <a [routerLink]="['/calbum', photo.calbumId, 'view']">{{photo.calbumTitle}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/photo', photo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

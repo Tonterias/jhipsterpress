@@ -1,0 +1,22 @@
+{
+    "jhipsterpressApp": {
+        "urllink": {
+            "home": {
+                "title": "Urllinks",
+                "createLabel": "Create a new Urllink",
+                "createOrEditLabel": "Create or edit a Urllink"
+            },
+            "created": "A new Urllink is created with identifier {{ param }}",
+            "updated": "A Urllink is updated with identifier {{ param }}",
+            "deleted": "A Urllink is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Urllink {{ id }}?"
+            },
+            "detail": {
+                "title": "Urllink"
+            },
+            "linkText": "Link Text",
+            "linkURL": "Link URL"
+        }
+    }
+}

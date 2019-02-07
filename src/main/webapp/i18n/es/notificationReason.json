@@ -1,0 +1,13 @@
+{
+    "jhipsterpressApp": {
+        "NotificationReason": {
+            "null": "",
+            "FOLLOWING": "FOLLOWING",
+            "UNFOLLOWING": "UNFOLLOWING",
+            "PROPOSAL_RELEASED": "PROPOSAL_RELEASED",
+            "FOLLOWER_STATUS": "FOLLOWER_STATUS",
+            "AUTHORIZE_COMMUNITY_FOLLOWER": "AUTHORIZE_COMMUNITY_FOLLOWER",
+            "UNAUTHORIZE_COMMUNITY_FOLLOWER": "UNAUTHORIZE_COMMUNITY_FOLLOWER"
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "jhipsterpressApp": {
+        "follow": {
+            "home": {
+                "title": "Follows",
+                "createLabel": "Create a new Follow",
+                "createOrEditLabel": "Create or edit a Follow"
+            },
+            "created": "A new Follow is created with identifier {{ param }}",
+            "updated": "A Follow is updated with identifier {{ param }}",
+            "deleted": "A Follow is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Follow {{ id }}?"
+            },
+            "detail": {
+                "title": "Follow"
+            },
+            "creationDate": "Creation Date",
+            "followed": "Followed",
+            "following": "Following",
+            "cfollowed": "Cfollowed",
+            "cfollowing": "Cfollowing"
+        }
+    }
+}

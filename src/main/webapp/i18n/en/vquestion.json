@@ -1,0 +1,27 @@
+{
+    "jhipsterpressApp": {
+        "vquestion": {
+            "home": {
+                "title": "Vquestions",
+                "createLabel": "Create a new Vquestion",
+                "createOrEditLabel": "Create or edit a Vquestion"
+            },
+            "created": "A new Vquestion is created with identifier {{ param }}",
+            "updated": "A Vquestion is updated with identifier {{ param }}",
+            "deleted": "A Vquestion is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Vquestion {{ id }}?"
+            },
+            "detail": {
+                "title": "Vquestion"
+            },
+            "creationDate": "Creation Date",
+            "vquestion": "Vquestion",
+            "vquestionDescription": "Vquestion Description",
+            "vanswer": "Vanswer",
+            "vthumb": "Vthumb",
+            "user": "User",
+            "vtopic": "Vtopic"
+        }
+    }
+}

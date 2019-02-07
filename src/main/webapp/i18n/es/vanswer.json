@@ -1,0 +1,26 @@
+{
+    "jhipsterpressApp": {
+        "vanswer": {
+            "home": {
+                "title": "Vanswers",
+                "createLabel": "Crear nuevo Vanswer",
+                "createOrEditLabel": "Crear o editar Vanswer"
+            },
+            "created": "Un nuevo Vanswer ha sido creado con el identificador {{ param }}",
+            "updated": "Un Vanswer ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Vanswer ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Vanswer {{ id }}?"
+            },
+            "detail": {
+                "title": "Vanswer"
+            },
+            "creationDate": "Creation Date",
+            "urlVanswer": "Url Vanswer",
+            "accepted": "Accepted",
+            "vthumb": "Vthumb",
+            "user": "User",
+            "vquestion": "Vquestion"
+        }
+    }
+}

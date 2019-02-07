@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Post.
+    -->
+    <changeSet id="20190206093315-1" author="jhipster">
+        <createTable tableName="post">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="creation_date" type="datetime">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="publication_date" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="headline" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="leadtext" type="varchar(1000)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="bodytext" type="varchar(65000)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="quote" type="varchar(1000)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="conclusion" type="varchar(2000)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="link_text" type="varchar(1000)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="link_url" type="varchar(1000)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="image" type="longblob">
+                <constraints nullable="true" />
+            </column>
+            <column name="image_content_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="user_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="blog_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="post" columnName="creation_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="post" columnName="publication_date" columnDataType="datetime"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

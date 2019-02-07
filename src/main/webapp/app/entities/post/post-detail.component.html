@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="post">
+            <h2><span jhiTranslate="jhipsterpressApp.post.detail.title">Post</span> {{post.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterpressApp.post.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{post.creationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.post.publicationDate">Publication Date</span></dt>
+                <dd>
+                    <span>{{post.publicationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.post.headline">Headline</span></dt>
+                <dd>
+                    <span>{{post.headline}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.post.leadtext">Leadtext</span></dt>
+                <dd>
+                    <span>{{post.leadtext}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.post.bodytext">Bodytext</span></dt>
+                <dd>
+                    <span>{{post.bodytext}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.post.quote">Quote</span></dt>
+                <dd>
+                    <span>{{post.quote}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.post.conclusion">Conclusion</span></dt>
+                <dd>
+                    <span>{{post.conclusion}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.post.linkText">Link Text</span></dt>
+                <dd>
+                    <span>{{post.linkText}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.post.linkURL">Link URL</span></dt>
+                <dd>
+                    <span>{{post.linkURL}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.post.image">Image</span></dt>
+                <dd>
+                    <div *ngIf="post.image">
+                        <a (click)="openFile(post.imageContentType, post.image)">
+                            <img [src]="'data:' + post.imageContentType + ';base64,' + post.image" style="max-width: 100%;" alt="post image"/>
+                        </a>
+                        {{post.imageContentType}}, {{byteSize(post.image)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.post.user">User</span></dt>
+                <dd>
+                    {{post.userId}}
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.post.blog">Blog</span></dt>
+                <dd>
+                    <div *ngIf="post.blogId">
+                        <a [routerLink]="['/blog', post.blogId, 'view']">{{post.blogTitle}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/post', post.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

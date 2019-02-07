@@ -1,0 +1,627 @@
+D:\BasuraTemporal\Jhipster\jhipsterpress>gradlew test
+
+> Task :test
+
+com.jhipsterpress.web.web.rest.BlockuserResourceIntTest > getAllBlockusersByCblockinguserIsEqualToSomething FAILED
+    java.lang.StackOverflowError
+
+com.jhipsterpress.web.web.rest.BlockuserResourceIntTest > getAllBlockusersByCblockeduserIsEqualToSomething FAILED
+    java.lang.StackOverflowError
+
+com.jhipsterpress.web.web.rest.BlogResourceIntTest > getAllBlogsByTitleIsInShouldWork FAILED
+    javax.persistence.PersistenceException
+        Caused by: org.hibernate.exception.ConstraintViolationException
+            Caused by: org.h2.jdbc.JdbcSQLException
+
+com.jhipsterpress.web.web.rest.BlogResourceIntTest > checkTitleIsRequired FAILED
+    javax.persistence.PersistenceException
+        Caused by: org.hibernate.exception.ConstraintViolationException
+            Caused by: org.h2.jdbc.JdbcSQLException
+
+com.jhipsterpress.web.web.rest.BlogResourceIntTest > equalsVerifier FAILED
+    javax.persistence.PersistenceException
+        Caused by: org.hibernate.exception.ConstraintViolationException
+            Caused by: org.h2.jdbc.JdbcSQLException
+
+com.jhipsterpress.web.web.rest.BlogResourceIntTest > getAllBlogsByPostIsEqualToSomething FAILED
+
+com.jhipsterpress.web.web.rest.BlogResourceIntTest > updateBlog FAILEDnTest
+    javax.persistence.PersistenceException
+        Caused by: org.hibernate.exception.ConstraintViolationExceptionTest
+            Caused by: org.h2.jdbc.JdbcSQLException
+
+com.jhipsterpress.web.web.rest.BlogResourceIntTest > getBlog FAILED
+    java.lang.StackOverflowError
+
+com.jhipsterpress.web.web.rest.BlogResourceIntTest > dtoEqualsVerifier FAILED
+    javax.persistence.PersistenceException
+        Caused by: org.hibernate.exception.ConstraintViolationException
+            Caused by: org.h2.jdbc.JdbcSQLException
+
+com.jhipsterpress.web.web.rest.BlogResourceIntTest > checkCreationDateIsRequired FAILED
+    javax.persistence.PersistenceException
+        Caused by: org.hibernate.exception.ConstraintViolationException
+            Caused by: org.h2.jdbc.JdbcSQLException
+
+com.jhipsterpress.web.web.rest.BlogResourceIntTest > getAllBlogsByCommunityIsEqualToSomething FAILED
+    javax.persistence.PersistenceException
+        Caused by: org.hibernate.exception.ConstraintViolationException
+            Caused by: org.h2.jdbc.JdbcSQLException
+
+com.jhipsterpress.web.web.rest.BlogResourceIntTest > getNonExistingBlog FAILED
+    javax.persistence.PersistenceException
+        Caused by: org.hibernate.exception.ConstraintViolationException
+            Caused by: org.h2.jdbc.JdbcSQLException
+
+com.jhipsterpress.web.web.rest.BlogResourceIntTest > getAllBlogsByTitleIsEqualToSomething FAILED
+    javax.persistence.PersistenceException
+        Caused by: org.hibernate.exception.ConstraintViolationException
+            Caused by: org.h2.jdbc.JdbcSQLException
+
+com.jhipsterpress.web.web.rest.BlogResourceIntTest > createBlogWithExistingId FAILED
+    javax.persistence.PersistenceException
+        Caused by: org.hibernate.exception.ConstraintViolationException
+            Caused by: org.h2.jdbc.JdbcSQLException
+
+com.jhipsterpress.web.web.rest.BlogResourceIntTest > getAllBlogsByCreationDateIsInShouldWork FAILED
+    javax.persistence.PersistenceException
+        Caused by: org.hibernate.exception.ConstraintViolationException
+            Caused by: org.h2.jdbc.JdbcSQLException
+
+com.jhipsterpress.web.web.rest.BlogResourceIntTest > createBlog FAILED
+    javax.persistence.PersistenceException
+        Caused by: org.hibernate.exception.ConstraintViolationException
+            Caused by: org.h2.jdbc.JdbcSQLException
+
+com.jhipsterpress.web.web.rest.BlogResourceIntTest > testEntityFromId FAILED
+    javax.persistence.PersistenceException
+        Caused by: org.hibernate.exception.ConstraintViolationException
+            Caused by: org.h2.jdbc.JdbcSQLException
+
+com.jhipsterpress.web.web.rest.BlogResourceIntTest > deleteBlog FAILED
+    javax.persistence.PersistenceException
+        Caused by: org.hibernate.exception.ConstraintViolationException
+            Caused by: org.h2.jdbc.JdbcSQLException
+
+com.jhipsterpress.web.web.rest.BlogResourceIntTest > updateNonExistingBlog FAILED
+    javax.persistence.PersistenceException
+        Caused by: org.hibernate.exception.ConstraintViolationException
+            Caused by: org.h2.jdbc.JdbcSQLException
+
+com.jhipsterpress.web.web.rest.BlogResourceIntTest > getAllBlogsByCreationDateIsEqualToSomething FAILED
+    javax.persistence.PersistenceException
+        Caused by: org.hibernate.exception.ConstraintViolationException
+            Caused by: org.h2.jdbc.JdbcSQLException
+
+com.jhipsterpress.web.web.rest.CactivityResourceIntTest > getAllCactivitiesByCommunityIsEqualToSomething FAILED
+    javax.persistence.PersistenceException
+        Caused by: org.hibernate.exception.ConstraintViolationException
+            Caused by: org.h2.jdbc.JdbcSQLException
+
+com.jhipsterpress.web.web.rest.CalbumResourceIntTest > getAllCalbumsByTitleIsEqualToSomething FAILED
+    javax.persistence.PersistenceException at CalbumResourceIntTest.java:112
+        Caused by: org.hibernate.exception.ConstraintViolationException at CalbumResourceIntTest.java:112
+            Caused by: org.h2.jdbc.JdbcSQLException at CalbumResourceIntTest.java:112
+
+com.jhipsterpress.web.web.rest.CalbumResourceIntTest > checkTitleIsRequired FAILED
+    javax.persistence.PersistenceException at CalbumResourceIntTest.java:112
+        Caused by: org.hibernate.exception.ConstraintViolationException at CalbumResourceIntTest.java:112
+            Caused by: org.h2.jdbc.JdbcSQLException at CalbumResourceIntTest.java:112
+
+com.jhipsterpress.web.web.rest.CalbumResourceIntTest > equalsVerifier FAILED
+    javax.persistence.PersistenceException at CalbumResourceIntTest.java:112
+        Caused by: org.hibernate.exception.ConstraintViolationException at CalbumResourceIntTest.java:112
+            Caused by: org.h2.jdbc.JdbcSQLException at CalbumResourceIntTest.java:112
+
+com.jhipsterpress.web.web.rest.CalbumResourceIntTest > getAllCalbumsByCreationDateIsNullOrNotNull FAILED
+    javax.persistence.PersistenceException at CalbumResourceIntTest.java:112
+        Caused by: org.hibernate.exception.ConstraintViolationException at CalbumResourceIntTest.java:112
+            Caused by: org.h2.jdbc.JdbcSQLException at CalbumResourceIntTest.java:112
+
+com.jhipsterpress.web.web.rest.CalbumResourceIntTest > getAllCalbumsByCreationDateIsEqualToSomething FAILED
+    java.lang.StackOverflowError at CalbumResourceIntTest.java:112
+
+com.jhipsterpress.web.web.rest.CalbumResourceIntTest > updateCalbum FAILED
+    javax.persistence.PersistenceException at CalbumResourceIntTest.java:112
+        Caused by: org.hibernate.exception.ConstraintViolationException at CalbumResourceIntTest.java:112
+            Caused by: org.h2.jdbc.JdbcSQLException at CalbumResourceIntTest.java:112
+
+com.jhipsterpress.web.web.rest.CalbumResourceIntTest > deleteCalbum FAILED
+    javax.persistence.PersistenceException at CalbumResourceIntTest.java:112
+        Caused by: org.hibernate.exception.ConstraintViolationException at CalbumResourceIntTest.java:112
+            Caused by: org.h2.jdbc.JdbcSQLException at CalbumResourceIntTest.java:112
+
+com.jhipsterpress.web.web.rest.CalbumResourceIntTest > getAllCalbumsByCommunityIsEqualToSomething FAILED
+    javax.persistence.PersistenceException at CalbumResourceIntTest.java:112
+        Caused by: org.hibernate.exception.ConstraintViolationException at CalbumResourceIntTest.java:112
+            Caused by: org.h2.jdbc.JdbcSQLException at CalbumResourceIntTest.java:112
+
+com.jhipsterpress.web.web.rest.CalbumResourceIntTest > updateNonExistingCalbum FAILED
+    javax.persistence.PersistenceException at CalbumResourceIntTest.java:112
+        Caused by: org.hibernate.exception.ConstraintViolationException at CalbumResourceIntTest.java:112
+            Caused by: org.h2.jdbc.JdbcSQLException at CalbumResourceIntTest.java:112
+
+com.jhipsterpress.web.web.rest.CalbumResourceIntTest > createCalbumWithExistingId FAILED
+    java.lang.OutOfMemoryError at CalbumResourceIntTest.java:112
+
+com.jhipsterpress.web.web.rest.CalbumResourceIntTest > getAllCalbumsByPhotoIsEqualToSomething FAILED
+    java.lang.RuntimeException at CalbumResourceIntTest.java:112
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CalbumResourceIntTest > dtoEqualsVerifier FAILED
+    java.lang.OutOfMemoryError at CalbumResourceIntTest.java:112
+
+com.jhipsterpress.web.web.rest.CalbumResourceIntTest > getNonExistingCalbum FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CalbumResourceIntTest > checkCreationDateIsRequired FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CalbumResourceIntTest > getCalbum FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CalbumResourceIntTest > createCalbum FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CalbumResourceIntTest > testEntityFromId FAILED
+    java.lang.RuntimeException at CalbumResourceIntTest.java:112
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CalbumResourceIntTest > getAllCalbumsByTitleIsNullOrNotNull FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CalbumResourceIntTest > getAllCalbumsByCreationDateIsInShouldWork FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CalbumResourceIntTest > getAllCalbums FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CalbumResourceIntTest > getAllCalbumsByTitleIsInShouldWork FAILED
+    java.lang.RuntimeException at CalbumResourceIntTest.java:112
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CcelebResourceIntTest > equalsVerifier FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CcelebResourceIntTest > checkCelebNameIsRequired FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CcelebResourceIntTest > updateCceleb FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CcelebResourceIntTest > deleteCceleb FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CcelebResourceIntTest > getAllCcelebsByCelebNameIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CcelebResourceIntTest > updateNonExistingCceleb FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CcelebResourceIntTest > getAllCcelebsByCelebNameIsInShouldWork FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CcelebResourceIntTest > dtoEqualsVerifier FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CcelebResourceIntTest > getNonExistingCceleb FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CcelebResourceIntTest > getCceleb FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CcelebResourceIntTest > createCcelebWithExistingId FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CcelebResourceIntTest > createCceleb FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CcelebResourceIntTest > testEntityFromId FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CcelebResourceIntTest > getAllCcelebsByCelebNameIsNullOrNotNull FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CcelebResourceIntTest > getAllCcelebsByCommunityIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CcelebResourceIntTest > getAllCcelebs FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CelebResourceIntTest > getNonExistingCeleb FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CelebResourceIntTest > equalsVerifier FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CelebResourceIntTest > createCelebWithExistingId FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CelebResourceIntTest > checkCelebNameIsRequired FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CelebResourceIntTest > getAllCelebsByCelebNameIsInShouldWork FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CelebResourceIntTest > deleteCeleb FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CelebResourceIntTest > getAllCelebs FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CelebResourceIntTest > updateCeleb FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CelebResourceIntTest > createCeleb FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CelebResourceIntTest > updateNonExistingCeleb FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CelebResourceIntTest > dtoEqualsVerifier FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CelebResourceIntTest > getAllCelebsByCelebNameIsNullOrNotNull FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CelebResourceIntTest > getAllCelebsByCelebNameIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CelebResourceIntTest > testEntityFromId FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CelebResourceIntTest > getAllCelebsByUprofileIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CelebResourceIntTest > getCeleb FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CinterestResourceIntTest > equalsVerifier FAILED
+    org.mockito.exceptions.base.MockitoException
+        Caused by: java.lang.IllegalArgumentException
+            Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CinterestResourceIntTest > updateNonExistingCinterest FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CinterestResourceIntTest > getAllCinterestsByCommunityIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CinterestResourceIntTest > deleteCinterest FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CinterestResourceIntTest > updateCinterest FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CinterestResourceIntTest > getAllCinterestsByInterestNameIsInShouldWork FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CinterestResourceIntTest > dtoEqualsVerifier FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CinterestResourceIntTest > getNonExistingCinterest FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CinterestResourceIntTest > getAllCinterestsByInterestNameIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CinterestResourceIntTest > createCinterest FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CinterestResourceIntTest > getAllCinterestsByInterestNameIsNullOrNotNull FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CinterestResourceIntTest > checkInterestNameIsRequired FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CinterestResourceIntTest > getAllCinterests FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CinterestResourceIntTest > testEntityFromId FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CinterestResourceIntTest > createCinterestWithExistingId FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CinterestResourceIntTest > getCinterest FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > equalsVerifier FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > getAllCmessagesByIsDeliveredIsNullOrNotNull FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > updateNonExistingCmessage FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > updateCmessage FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > createCmessage FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > getAllCmessagesByMessageTextIsInShouldWork FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > getAllCmessagesByCreceiverIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > getAllCmessagesByMessageTextIsNullOrNotNull FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > getAllCmessages FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > checkMessageTextIsRequired FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > getCmessage FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > getAllCmessagesByMessageTextIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > getAllCmessagesByIsDeliveredIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > getNonExistingCmessage FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > deleteCmessage FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > dtoEqualsVerifier FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > checkCreationDateIsRequired FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > getAllCmessagesByCsenderIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > getAllCmessagesByIsDeliveredIsInShouldWork FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > getAllCmessagesByCreationDateIsNullOrNotNull FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > testEntityFromId FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > createCmessageWithExistingId FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > getAllCmessagesByCreationDateIsInShouldWork FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CmessageResourceIntTest > getAllCmessagesByCreationDateIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > getAllCommentsByPostIsEqualToSomething FAILED
+    java.lang.RuntimeException at CommentResourceIntTest.java:121
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > equalsVerifier FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > getAllCommentsByCreationDateIsNullOrNotNull FAILED
+    java.lang.RuntimeException at CommentResourceIntTest.java:121
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > getNonExistingComment FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > checkCommentTextIsRequired FAILED
+    java.lang.RuntimeException at CommentResourceIntTest.java:121
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > createComment FAILED
+    java.lang.RuntimeException at CommentResourceIntTest.java:121
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > getAllComments FAILED
+    java.lang.RuntimeException at CommentResourceIntTest.java:121
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > createCommentWithExistingId FAILED
+    java.lang.RuntimeException at CommentResourceIntTest.java:121
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > updateComment FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > getAllCommentsByCommentTextIsNullOrNotNull FAILED
+    java.lang.RuntimeException at CommentResourceIntTest.java:121
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > getAllCommentsByIsOffensiveIsEqualToSomething FAILED
+    java.lang.RuntimeException at CommentResourceIntTest.java:121
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > dtoEqualsVerifier FAILED
+    java.lang.RuntimeException at CommentResourceIntTest.java:121
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > updateNonExistingComment FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > checkCreationDateIsRequired FAILED
+    java.lang.RuntimeException at CommentResourceIntTest.java:121
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > getAllCommentsByUserIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > getAllCommentsByCreationDateIsInShouldWork FAILED
+    java.lang.RuntimeException at CommentResourceIntTest.java:121
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > deleteComment FAILED
+    java.lang.RuntimeException at CommentResourceIntTest.java:121
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > getAllCommentsByIsOffensiveIsInShouldWork FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > getAllCommentsByIsOffensiveIsNullOrNotNull FAILED
+    java.lang.RuntimeException at CommentResourceIntTest.java:121
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > testEntityFromId FAILED
+    java.lang.RuntimeException at CommentResourceIntTest.java:121
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > getAllCommentsByCommentTextIsEqualToSomething FAILED
+    java.lang.RuntimeException at CommentResourceIntTest.java:121
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > getComment FAILED
+    java.lang.RuntimeException at CommentResourceIntTest.java:121
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > getAllCommentsByCreationDateIsEqualToSomething FAILED
+    java.lang.RuntimeException at CommentResourceIntTest.java:121
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommentResourceIntTest > getAllCommentsByCommentTextIsInShouldWork FAILED
+    java.lang.RuntimeException at CommentResourceIntTest.java:121
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByCinterestIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByBlogIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > equalsVerifier FAILED
+    java.lang.RuntimeException at CommunityResourceIntTest.java:136
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunities FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByCalbumIsEqualToSomething FAILED
+    java.lang.RuntimeException at CommunityResourceIntTest.java:136
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByCommunityNameIsNullOrNotNull FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByCommunityDescriptionIsNullOrNotNull FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByCreationDateIsNullOrNotNull FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByUserIsEqualToSomething FAILED
+    java.lang.RuntimeException at CommunityResourceIntTest.java:136
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByCreationDateIsEqualToSomething FAILED
+    java.lang.RuntimeException at CommunityResourceIntTest.java:136
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByCcelebIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getCommunity FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByIsActiveIsInShouldWork FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByCommunityDescriptionIsInShouldWork FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > updateNonExistingCommunity FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > deleteCommunity FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > createCommunityWithExistingId FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > updateCommunity FAILED
+    java.lang.RuntimeException at CommunityResourceIntTest.java:136
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > checkCommunityNameIsRequired FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByCfollowedIsEqualToSomething FAILED
+    java.lang.RuntimeException at CommunityResourceIntTest.java:136
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByIsActiveIsNullOrNotNull FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > dtoEqualsVerifier FAILED
+    java.lang.RuntimeException at CommunityResourceIntTest.java:136
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByCsenderIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > checkCreationDateIsRequired FAILED
+    java.lang.RuntimeException at CommunityResourceIntTest.java:136
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByCreceiverIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByCommunityNameIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByIsActiveIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByCactivityIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByCommunityNameIsInShouldWork FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByCreationDateIsInShouldWork FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByCommunityDescriptionIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByCblockinguserIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getNonExistingCommunity FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByCfollowingIsEqualToSomething FAILED
+    java.lang.RuntimeException at CommunityResourceIntTest.java:136
+        Caused by: java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > createCommunity FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > testEntityFromId FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > getAllCommunitiesByCblockeduserIsEqualToSomething FAILED
+    java.lang.OutOfMemoryError
+
+com.jhipsterpress.web.web.rest.CommunityResourceIntTest > checkCommunityDescriptionIsRequired FAILED
+    java.lang.OutOfMemoryError
+<===========--> 91% EXECUTING [4h 22m 34s]
+> :test > 345 tests completed, 183 failedablesResourceIntTest > updateNonExistingConfigVariables FAILED
+> :test > Executing test com.jhipsterpress...web.rest.ConfigVariablesResourceIntTest
+¿Desea terminar el trabajo por lotes (S/N)? .web.rest.ConfigVariablesResourceIntTest
+^C^C^Cipsterpress.web.web.rest.ConfigVariablesResourceIntTest > getAllConfigVariablesByConfigVarLong7IsGreaterThanOrEqualToSomething FAILED
+D:\BasuraTemporal\Jhipster\jhipsterpress>
+> :test > Executing test com.jhipsterpress...web.rest.ConfigVariablesResourceIntTest
+D:\BasuraTemporal\Jhipster\jhipsterpress>ablesResourceIntTest > getAllConfigVariablesByConfigVarLong6IsInShouldWork FAILED
+> :test > Executing test com.jhipsterpress...web.rest.ConfigVariablesResourceIntTest
+D:\BasuraTemporal\Jhipster\jhipsterpress>s...web.rest.ConfigVariablesResourceIntTest
+> :test > 345 tests completed, 183 failedablesResourceIntTest > getAllConfigVariablesByConfigVarBoolean16IsNullOrNotNull FAILED
+> :test > Executing test com.jhipsterpress...web.rest.ConfigVariablesResourceIntTest
+> :test > Executing test com.jhipsterpress...web.rest.ConfigVariablesResourceIntTest
+> :test > 345 tests completed, 183 failed
+> :test > Executing test com.jhipsterpress...web.rest.ConfigVariablesResourceIntTest

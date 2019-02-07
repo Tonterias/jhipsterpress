@@ -1,0 +1,91 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-vanswer-heading" jhiTranslate="jhipsterpressApp.vanswer.home.createOrEditLabel">Create or edit a Vanswer</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!vanswer.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="vanswer.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.vanswer.creationDate" for="field_creationDate">Creation Date</label>
+                    <div class="d-flex">
+                        <input id="field_creationDate" type="datetime-local" class="form-control" name="creationDate" [(ngModel)]="creationDate" placeholder="YYYY-MM-DD HH:mm"
+                        required/>
+                    </div>
+                    <div [hidden]="!(editForm.controls.creationDate?.dirty && editForm.controls.creationDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.creationDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.creationDate?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.vanswer.urlVanswer" for="field_urlVanswer">Url Vanswer</label>
+                    <input type="text" class="form-control" name="urlVanswer" id="field_urlVanswer"
+                        [(ngModel)]="vanswer.urlVanswer" required minlength="2" maxlength="500"/>
+                    <div [hidden]="!(editForm.controls.urlVanswer?.dirty && editForm.controls.urlVanswer?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.urlVanswer?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.urlVanswer?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
+                        This field is required to be at least 2 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.urlVanswer?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 500 }">
+                        This field cannot be longer than 500 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.vanswer.accepted" for="field_accepted">Accepted</label>
+                    <input type="checkbox" class="form-control" name="accepted" id="field_accepted"
+                        [(ngModel)]="vanswer.accepted" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.vanswer.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" [(ngModel)]="vanswer.userId"  required>
+                        <option *ngIf="!editForm.value.user" [ngValue]="null" selected></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.user?.dirty && editForm.controls.user?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.user?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.vanswer.vquestion" for="field_vquestion">Vquestion</label>
+                    <select class="form-control" id="field_vquestion" name="vquestion" [(ngModel)]="vanswer.vquestionId"  required>
+                        <option *ngIf="!editForm.value.vquestion" [ngValue]="null" selected></option>
+                        <option [ngValue]="vquestionOption.id" *ngFor="let vquestionOption of vquestions; trackBy: trackVquestionById">{{vquestionOption.id}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.vquestion?.dirty && editForm.controls.vquestion?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.vquestion?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+{
+    "jhipsterpressApp": {
+        "post": {
+            "home": {
+                "title": "Posts",
+                "createLabel": "Crear nuevo Post",
+                "createOrEditLabel": "Crear o editar Post"
+            },
+            "created": "Un nuevo Post ha sido creado con el identificador {{ param }}",
+            "updated": "Un Post ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Post ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Post {{ id }}?"
+            },
+            "detail": {
+                "title": "Post"
+            },
+            "creationDate": "Creation Date",
+            "publicationDate": "Publication Date",
+            "headline": "Headline",
+            "leadtext": "Leadtext",
+            "bodytext": "Bodytext",
+            "quote": "Quote",
+            "conclusion": "Conclusion",
+            "linkText": "Link Text",
+            "linkURL": "Link URL",
+            "image": "Image",
+            "comment": "Comment",
+            "user": "User",
+            "blog": "Blog",
+            "tag": "Tag",
+            "topic": "Topic"
+        }
+    }
+}

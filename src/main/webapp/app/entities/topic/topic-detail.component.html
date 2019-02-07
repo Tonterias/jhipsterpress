@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="topic">
+            <h2><span jhiTranslate="jhipsterpressApp.topic.detail.title">Topic</span> {{topic.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterpressApp.topic.topicName">Topic Name</span></dt>
+                <dd>
+                    <span>{{topic.topicName}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.topic.post">Post</span></dt>
+                <dd>
+                    <span *ngFor="let post of topic.posts; let last = last">
+                        <a [routerLink]="['/post', post?.id, 'view' ]">{{post.headline}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/topic', topic.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

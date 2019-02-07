@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterpressApp.community.home.title">Communities</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-community" [routerLink]="['/community/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jhipsterpressApp.community.home.createLabel">
+            Create new Community
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="communities">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="creationDate"><span jhiTranslate="jhipsterpressApp.community.creationDate">Creation Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="communityName"><span jhiTranslate="jhipsterpressApp.community.communityName">Community Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="communityDescription"><span jhiTranslate="jhipsterpressApp.community.communityDescription">Community Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="image"><span jhiTranslate="jhipsterpressApp.community.image">Image</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="isActive"><span jhiTranslate="jhipsterpressApp.community.isActive">Is Active</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="userId"><span jhiTranslate="jhipsterpressApp.community.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let community of communities ;trackBy: trackId">
+                <td><a [routerLink]="['/community', community.id, 'view' ]">{{community.id}}</a></td>
+                <td>{{community.creationDate | date:'medium'}}</td>
+                <td>{{community.communityName}}</td>
+                <td>{{community.communityDescription}}</td>
+                <td>
+                    <a *ngIf="community.image" (click)="openFile(community.imageContentType, community.image)">
+                        <img [src]="'data:' + community.imageContentType + ';base64,' + community.image" style="max-height: 30px;" alt="community image"/>
+                    </a>
+                    <span *ngIf="community.image">{{community.imageContentType}}, {{byteSize(community.image)}}</span>
+                </td>
+                <td>{{community.isActive}}</td>
+                <td>
+                    {{community.userId}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/community', community.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/community', community.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'community', { outlets: { popup: community.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="communities && communities.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

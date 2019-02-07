@@ -1,0 +1,24 @@
+{
+    "jhipsterpressApp": {
+        "photo": {
+            "home": {
+                "title": "Photos",
+                "createLabel": "Crear nuevo Photo",
+                "createOrEditLabel": "Crear o editar Photo"
+            },
+            "created": "Un nuevo Photo ha sido creado con el identificador {{ param }}",
+            "updated": "Un Photo ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Photo ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Photo {{ id }}?"
+            },
+            "detail": {
+                "title": "Photo"
+            },
+            "creationDate": "Creation Date",
+            "image": "Image",
+            "album": "Album",
+            "calbum": "Calbum"
+        }
+    }
+}

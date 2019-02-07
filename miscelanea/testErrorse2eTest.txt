@@ -1,0 +1,233 @@
+D:\BasuraTemporal\Jhipster\jhipsterpress>yarn e2e
+yarn run v1.10.1
+$ protractor src/test/javascript/protractor.conf.js
+[18:37:52] I/launcher - Running 1 instances of WebDriver
+[18:37:52] I/direct - Using ChromeDriver directly...
+[24328:29400:0206/183755.848:ERROR:gpu_process_transport_factory.cc(967)] Lost UI shared context.
+
+DevTools listening on ws://127.0.0.1:53221/devtools/browser/921e18fa-6265-44a6-823a-2d1f0082e0b3
+
+
+  account
+    v should fail to login with bad password (2748ms)
+    v should login successfully with admin account (6988ms)
+    v should be able to update settings
+    v should fail to update password when using incorrect current password (1634ms)
+    v should be able to update password (3188ms)
+
+  administration
+    v should load user management (1738ms)
+    v should load metrics
+    v should load health
+    v should load configuration
+    v should load audits
+    v should load logs (2419ms)
+
+  Activity e2e test
+    v should load Activities
+    v should load create Activity page
+    v should create and save Activities (5799ms)
+    v should delete last Activity (5525ms)
+
+  Album e2e test
+    v should load Albums
+    v should load create Album page
+
+  Blockuser e2e test
+    v should load Blockusers
+    v should load create Blockuser page
+    v should create and save Blockusers (6040ms)
+    v should delete last Blockuser (5401ms)
+
+  Blog e2e test
+    v should load Blogs
+    v should load create Blog page
+
+  Cactivity e2e test
+    v should load Cactivities
+    v should load create Cactivity page
+    v should create and save Cactivities (5698ms)
+    v should delete last Cactivity (5427ms)
+
+  Calbum e2e test
+    v should load Calbums
+    v should load create Calbum page
+
+  Cceleb e2e test
+    v should load Ccelebs
+    v should load create Cceleb page
+    v should create and save Ccelebs (5731ms)
+    v should delete last Cceleb (5438ms)
+
+  Celeb e2e test
+    v should load Celebs
+    v should load create Celeb page
+    v should create and save Celebs (5628ms)
+    v should delete last Celeb (5471ms)
+
+  Cinterest e2e test
+    v should load Cinterests
+    v should load create Cinterest page
+    v should create and save Cinterests (5740ms)
+    v should delete last Cinterest (5461ms)
+
+  Cmessage e2e test
+    v should load Cmessages
+    v should load create Cmessage page
+    v should create and save Cmessages (6208ms)
+    v should delete last Cmessage (5414ms)
+
+  Comment e2e test
+    v should load Comments
+    v should load create Comment page
+
+  Community e2e test
+    v should load Communities
+    v should load create Community page
+
+  ConfigVariables e2e test
+    v should load ConfigVariables
+    v should load create ConfigVariables page
+    v should create and save ConfigVariables (7981ms)
+    v should delete last ConfigVariables (5470ms)
+
+  Feedback e2e test
+    v should load Feedbacks
+    v should load create Feedback page
+    v should create and save Feedbacks (5945ms)
+    v should delete last Feedback (5455ms)
+
+  Follow e2e test
+    v should load Follows
+    v should load create Follow page
+    v should create and save Follows (6104ms)
+    v should delete last Follow (5432ms)
+
+  Frontpageconfig e2e test
+    v should load Frontpageconfigs (1736ms)
+    v should load create Frontpageconfig page
+    v should create and save Frontpageconfigs (11745ms)
+    v should delete last Frontpageconfig (5413ms)
+
+  Interest e2e test
+    v should load Interests
+    v should load create Interest page
+    v should create and save Interests (5671ms)
+    v should delete last Interest (5424ms)
+
+  Message e2e test
+    v should load Messages
+    v should load create Message page
+    v should create and save Messages (6121ms)
+    v should delete last Message (5362ms)
+
+  Newsletter e2e test
+    v should load Newsletters
+    v should load create Newsletter page
+    v should create and save Newsletters (5762ms)
+    v should delete last Newsletter (5443ms)
+
+  Notification e2e test
+    v should load Notifications
+    v should load create Notification page
+
+  Photo e2e test
+    v should load Photos
+    v should load create Photo page
+    v should create and save Photos (6108ms)
+    v should delete last Photo (5424ms)
+
+  Post e2e test
+    v should load Posts
+    v should load create Post page
+
+  Tag e2e test
+    v should load Tags
+    v should load create Tag page
+    1) should create and save Tags
+    2) should delete last Tag
+
+  Topic e2e test
+    v should load Topics
+    v should load create Topic page
+    v should create and save Topics (5771ms)
+    v should delete last Topic (5475ms)
+
+  Uprofile e2e test
+    v should load Uprofiles
+    v should load create Uprofile page
+
+  Urllink e2e test
+    v should load Urllinks
+    v should load create Urllink page
+    v should create and save Urllinks (5720ms)
+    v should delete last Urllink (5442ms)
+
+  Vanswer e2e test
+    v should load Vanswers (1682ms)
+    v should load create Vanswer page
+
+  Vquestion e2e test
+    v should load Vquestions
+    v should load create Vquestion page
+
+  Vthumb e2e test
+    v should load Vthumbs
+    v should load create Vthumb page
+
+  Vtopic e2e test
+    v should load Vtopics
+    v should load create Vtopic page
+
+
+  105 passing (7m)
+  2 failing
+
+  1) Tag e2e test
+       should create and save Tags:
+     WebDriverError: element not interactable
+  (Session info: chrome=71.0.3578.98)
+  (Driver info: chromedriver=2.46.628402 (536cd7adbad73a3783fdc2cab92ab2ba7ec361e1),platform=Windows NT 10.0.17134 x86_64)
+      at Object.checkLegacyResponse (node_modules\selenium-webdriver\lib\error.js:546:15)
+      at parseHttpResponse (node_modules\selenium-webdriver\lib\http.js:509:13)
+      at doSend.then.response (node_modules\selenium-webdriver\lib\http.js:441:30)
+      at <anonymous>
+      at process._tickCallback (internal/process/next_tick.js:188:7)Error
+      at ElementArrayFinder.applyAction_ (node_modules\protractor\built\element.js:459:27)
+      at ElementArrayFinder.(anonymous function).args [as sendKeys] (node_modules\protractor\built\element.js:91:29)
+      at ElementFinder.(anonymous function).args [as sendKeys] (node_modules\protractor\built\element.js:831:22)
+      at TagUpdatePage.<anonymous> (src\test\javascript\e2e\entities\tag\tag.page-object.ts:71:68)
+      at step (node_modules\tslib\tslib.js:133:27)
+      at Object.next (node_modules\tslib\tslib.js:114:57)
+      at D:\BasuraTemporal\Jhipster\jhipsterpress\node_modules\tslib\tslib.js:107:75
+      at new Promise (<anonymous>)
+      at Object.__awaiter (node_modules\tslib\tslib.js:103:16)
+      at TagUpdatePage.setTagNameInput (src\test\javascript\e2e\entities\tag\tag.page-object.ts:68:24)
+
+  2) Tag e2e test
+       should delete last Tag:
+     NoSuchElementError: Index out of bound. Trying to access element at index: -1, but there are only 0 elements that match locator By(css selector, jhi-tag div table .btn-danger)
+      at selenium_webdriver_1.promise.all.then (node_modules\protractor\built\element.js:274:27)
+      at <anonymous>
+      at process._tickCallback (internal/process/next_tick.js:188:7)Error
+      at ElementArrayFinder.applyAction_ (node_modules\protractor\built\element.js:459:27)
+      at ElementArrayFinder.(anonymous function).args [as click] (node_modules\protractor\built\element.js:91:29)
+      at ElementFinder.(anonymous function).args [as click] (node_modules\protractor\built\element.js:831:22)
+      at TagComponentsPage.<anonymous> (src\test\javascript\e2e\entities\tag\tag.page-object.ts:27:76)
+      at step (node_modules\tslib\tslib.js:133:27)
+      at Object.next (node_modules\tslib\tslib.js:114:57)
+      at D:\BasuraTemporal\Jhipster\jhipsterpress\node_modules\tslib\tslib.js:107:75
+      at new Promise (<anonymous>)
+      at Object.__awaiter (node_modules\tslib\tslib.js:103:16)
+      at TagComponentsPage.clickOnLastDeleteButton (src\test\javascript\e2e\entities\tag\tag.page-object.ts:24:24)
+
+
+
+[18:45:29] I/launcher - 0 instance(s) of WebDriver still running
+[18:45:29] I/launcher - chrome #01 failed 2 test(s)
+[18:45:29] I/launcher - overall: 2 failed spec(s)
+[18:45:29] E/launcher - Process exited with error code 1
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+D:\BasuraTemporal\Jhipster\jhipsterpress>

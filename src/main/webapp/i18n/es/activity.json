@@ -1,0 +1,22 @@
+{
+    "jhipsterpressApp": {
+        "activity": {
+            "home": {
+                "title": "Activities",
+                "createLabel": "Crear nuevo Activity",
+                "createOrEditLabel": "Crear o editar Activity"
+            },
+            "created": "Un nuevo Activity ha sido creado con el identificador {{ param }}",
+            "updated": "Un Activity ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Activity ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Activity {{ id }}?"
+            },
+            "detail": {
+                "title": "Activity"
+            },
+            "activityName": "Activity Name",
+            "uprofile": "Uprofile"
+        }
+    }
+}

@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterpressApp.message.home.title">Messages</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-message" [routerLink]="['/message/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jhipsterpressApp.message.home.createLabel">
+            Create new Message
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="messages">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="creationDate"><span jhiTranslate="jhipsterpressApp.message.creationDate">Creation Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="messageText"><span jhiTranslate="jhipsterpressApp.message.messageText">Message Text</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="isDelivered"><span jhiTranslate="jhipsterpressApp.message.isDelivered">Is Delivered</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="senderId"><span jhiTranslate="jhipsterpressApp.message.sender">Sender</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="receiverId"><span jhiTranslate="jhipsterpressApp.message.receiver">Receiver</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let message of messages ;trackBy: trackId">
+                <td><a [routerLink]="['/message', message.id, 'view' ]">{{message.id}}</a></td>
+                <td>{{message.creationDate | date:'medium'}}</td>
+                <td>{{message.messageText}}</td>
+                <td>{{message.isDelivered}}</td>
+                <td>
+                    {{message.senderId}}
+                </td>
+                <td>
+                    {{message.receiverId}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/message', message.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/message', message.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'message', { outlets: { popup: message.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="messages && messages.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

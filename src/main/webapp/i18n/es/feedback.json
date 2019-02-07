@@ -1,0 +1,24 @@
+{
+    "jhipsterpressApp": {
+        "feedback": {
+            "home": {
+                "title": "Feedbacks",
+                "createLabel": "Crear nuevo Feedback",
+                "createOrEditLabel": "Crear o editar Feedback"
+            },
+            "created": "Un nuevo Feedback ha sido creado con el identificador {{ param }}",
+            "updated": "Un Feedback ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Feedback ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Feedback {{ id }}?"
+            },
+            "detail": {
+                "title": "Feedback"
+            },
+            "creationDate": "Creation Date",
+            "name": "Name",
+            "email": "Email",
+            "feedback": "Feedback"
+        }
+    }
+}

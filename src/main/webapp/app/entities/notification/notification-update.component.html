@@ -1,0 +1,98 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-notification-heading" jhiTranslate="jhipsterpressApp.notification.home.createOrEditLabel">Create or edit a Notification</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!notification.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="notification.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.notification.creationDate" for="field_creationDate">Creation Date</label>
+                    <div class="d-flex">
+                        <input id="field_creationDate" type="datetime-local" class="form-control" name="creationDate" [(ngModel)]="creationDate" placeholder="YYYY-MM-DD HH:mm"
+                        required/>
+                    </div>
+                    <div [hidden]="!(editForm.controls.creationDate?.dirty && editForm.controls.creationDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.creationDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.creationDate?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.notification.notificationDate" for="field_notificationDate">Notification Date</label>
+                    <div class="d-flex">
+                        <input id="field_notificationDate" type="datetime-local" class="form-control" name="notificationDate" [(ngModel)]="notificationDate" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.notification.notificationReason" for="field_notificationReason">Notification Reason</label>
+                    <select class="form-control" name="notificationReason" [(ngModel)]="notification.notificationReason" id="field_notificationReason"  required>
+                        <option value="FOLLOWING">{{'jhipsterpressApp.NotificationReason.FOLLOWING' | translate}}</option>
+                        <option value="UNFOLLOWING">{{'jhipsterpressApp.NotificationReason.UNFOLLOWING' | translate}}</option>
+                        <option value="PROPOSAL_RELEASED">{{'jhipsterpressApp.NotificationReason.PROPOSAL_RELEASED' | translate}}</option>
+                        <option value="FOLLOWER_STATUS">{{'jhipsterpressApp.NotificationReason.FOLLOWER_STATUS' | translate}}</option>
+                        <option value="AUTHORIZE_COMMUNITY_FOLLOWER">{{'jhipsterpressApp.NotificationReason.AUTHORIZE_COMMUNITY_FOLLOWER' | translate}}</option>
+                        <option value="UNAUTHORIZE_COMMUNITY_FOLLOWER">{{'jhipsterpressApp.NotificationReason.UNAUTHORIZE_COMMUNITY_FOLLOWER' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.notificationReason?.dirty && editForm.controls.notificationReason?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.notificationReason?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.notification.notificationText" for="field_notificationText">Notification Text</label>
+                    <input type="text" class="form-control" name="notificationText" id="field_notificationText"
+                        [(ngModel)]="notification.notificationText" minlength="2" maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.notificationText?.dirty && editForm.controls.notificationText?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.notificationText?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
+                        This field is required to be at least 2 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.notificationText?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.notification.isDelivered" for="field_isDelivered">Is Delivered</label>
+                    <input type="checkbox" class="form-control" name="isDelivered" id="field_isDelivered"
+                        [(ngModel)]="notification.isDelivered" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.notification.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" [(ngModel)]="notification.userId"  required>
+                        <option *ngIf="!editForm.value.user" [ngValue]="null" selected></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.user?.dirty && editForm.controls.user?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.user?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

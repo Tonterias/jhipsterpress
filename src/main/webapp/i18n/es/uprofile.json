@@ -1,0 +1,48 @@
+{
+    "jhipsterpressApp": {
+        "uprofile": {
+            "home": {
+                "title": "Uprofiles",
+                "createLabel": "Crear nuevo Uprofile",
+                "createOrEditLabel": "Crear o editar Uprofile"
+            },
+            "created": "Un nuevo Uprofile ha sido creado con el identificador {{ param }}",
+            "updated": "Un Uprofile ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Uprofile ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Uprofile {{ id }}?"
+            },
+            "detail": {
+                "title": "Uprofile"
+            },
+            "creationDate": "Creation Date",
+            "image": "Image",
+            "gender": "Gender",
+            "phone": "Phone",
+            "bio": "Bio",
+            "facebook": "Facebook",
+            "twitter": "Twitter",
+            "linkedin": "Linkedin",
+            "instagram": "Instagram",
+            "googlePlus": "Google Plus",
+            "birthdate": "Birthdate",
+            "civilStatus": "Civil Status",
+            "lookingFor": "Looking For",
+            "purpose": "Purpose",
+            "physical": "Physical",
+            "religion": "Religion",
+            "ethnicGroup": "Ethnic Group",
+            "studies": "Studies",
+            "sibblings": "Sibblings",
+            "eyes": "Eyes",
+            "smoker": "Smoker",
+            "children": "Children",
+            "futureChildren": "Future Children",
+            "pet": "Pet",
+            "user": "User",
+            "interest": "Interest",
+            "activity": "Activity",
+            "celeb": "Celeb"
+        }
+    }
+}

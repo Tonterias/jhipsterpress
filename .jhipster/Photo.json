@@ -1,0 +1,42 @@
+{
+    "name": "Photo",
+    "fields": [
+        {
+            "fieldName": "creationDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "image",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "album",
+            "otherEntityName": "album",
+            "otherEntityField": "title",
+            "otherEntityRelationshipName": "photo"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "calbum",
+            "otherEntityName": "calbum",
+            "otherEntityField": "title",
+            "otherEntityRelationshipName": "photo"
+        }
+    ],
+    "changelogDate": "20190206093328",
+    "entityTableName": "photo",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

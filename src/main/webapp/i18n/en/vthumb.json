@@ -1,0 +1,26 @@
+{
+    "jhipsterpressApp": {
+        "vthumb": {
+            "home": {
+                "title": "Vthumbs",
+                "createLabel": "Create a new Vthumb",
+                "createOrEditLabel": "Create or edit a Vthumb"
+            },
+            "created": "A new Vthumb is created with identifier {{ param }}",
+            "updated": "A Vthumb is updated with identifier {{ param }}",
+            "deleted": "A Vthumb is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Vthumb {{ id }}?"
+            },
+            "detail": {
+                "title": "Vthumb"
+            },
+            "creationDate": "Creation Date",
+            "vthumbUp": "Vthumb Up",
+            "vthumbDown": "Vthumb Down",
+            "user": "User",
+            "vquestion": "Vquestion",
+            "vanswer": "Vanswer"
+        }
+    }
+}

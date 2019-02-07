@@ -1,0 +1,376 @@
+
+// TODO: Monolithic Final V5: Websockets Chat IONIC MongDb Microservice! 
+// NOTE: Revisar required en Message, Follow, Blockuser, etc...
+
+entity Blog {
+    creationDate Instant required
+    title String minlength(2) maxlength(100) required
+    image ImageBlob
+}
+  
+entity Post {
+    creationDate Instant required
+    publicationDate Instant
+    headline String minlength(2) maxlength(100) required
+    leadtext String minlength(2) maxlength(1000)
+    bodytext String minlength(2) maxlength(65000) required
+    quote String minlength(2) maxlength(1000)
+    conclusion String minlength(2) maxlength(2000)
+    linkText String minlength(2) maxlength(1000)
+    linkURL String minlength(2) maxlength(1000)
+    image ImageBlob
+}
+
+entity Topic {
+	topicName String minlength(2) maxlength(40) required
+}
+
+entity Tag {
+	tagName String minlength(2) maxlength(40) required
+}
+
+entity Comment {
+    creationDate Instant required
+    commentText String minlength(2) maxlength(65000) required
+    isOffensive Boolean
+}
+
+entity Cmessage {
+    creationDate Instant required
+    messageText String minlength(2) maxlength(8000) required
+    isDelivered Boolean
+}
+
+entity Message {
+    creationDate Instant required
+    messageText String minlength(2) maxlength(8000) required
+    isDelivered Boolean
+}
+
+entity Notification {
+    creationDate Instant required
+    notificationDate Instant
+    notificationReason NotificationReason required
+    notificationText String minlength(2) maxlength(100)
+    isDelivered Boolean
+}
+
+entity Uprofile {
+    creationDate Instant required
+    image ImageBlob
+    gender Gender
+    phone String maxlength(20)
+    bio String maxlength(7500)
+    facebook String maxlength(50)
+    twitter String maxlength(50)
+    linkedin String maxlength(50)
+    instagram String maxlength(50)
+    googlePlus String maxlength(50)
+    birthdate Instant
+    civilStatus CivilStatus
+    lookingFor Gender
+    purpose Purpose
+    physical Physical
+    religion Religion
+    ethnicGroup EthnicGroup
+    studies Studies
+    sibblings Integer min(-1) max(20)
+    eyes Eyes 
+    smoker Smoker
+    children Children
+    futureChildren FutureChildren
+    pet Boolean
+}
+
+entity Community {
+    creationDate Instant required
+    communityName String minlength(2) maxlength(100) required
+    communityDescription String minlength(2) maxlength(7500) required
+    image ImageBlob
+    isActive Boolean
+}
+
+entity Follow {
+    creationDate Instant
+}
+
+entity Blockuser {
+    creationDate Instant
+}
+
+entity Album {
+    creationDate Instant required
+    title String minlength(2) maxlength(100) required
+}
+
+entity Calbum {
+    creationDate Instant required
+    title String minlength(2) maxlength(100) required
+}
+
+entity Photo {
+    creationDate Instant required
+	image ImageBlob
+}
+
+entity Interest {
+    interestName String minlength(2) maxlength(40) required
+}
+
+entity Activity {
+    activityName String minlength(2) maxlength(40) required
+}
+
+entity Celeb {
+    celebName String minlength(2) maxlength(40) required
+}
+
+entity Cinterest {
+    interestName String minlength(2) maxlength(40) required
+}
+
+entity Cactivity {
+    activityName String minlength(2) maxlength(40) required
+}
+
+entity Cceleb {
+    celebName String minlength(2) maxlength(40) required
+}
+
+entity Urllink {
+    linkText String required
+    linkURL String required
+}
+
+entity Frontpageconfig {
+    creationDate Instant required
+    topNews1 Long
+    topNews2 Long
+    topNews3 Long
+    topNews4 Long 
+    topNews5 Long
+    latestNews1 Long
+    latestNews2 Long
+    latestNews3 Long
+    latestNews4 Long
+    latestNews5 Long
+    breakingNews1 Long
+    recentPosts1 Long
+    recentPosts2 Long
+    recentPosts3 Long
+    recentPosts4 Long
+    featuredArticles1 Long
+    featuredArticles2 Long
+    featuredArticles3 Long
+    featuredArticles4 Long
+    featuredArticles5 Long
+    featuredArticles6 Long
+    featuredArticles7 Long
+    featuredArticles8 Long
+    featuredArticles9 Long
+    featuredArticles10 Long
+    popularNews1 Long
+    popularNews2 Long
+    popularNews3 Long
+    popularNews4 Long
+    popularNews5 Long
+    popularNews6 Long
+    popularNews7 Long
+    popularNews8 Long
+    weeklyNews1 Long
+    weeklyNews2 Long
+    weeklyNews3 Long
+    weeklyNews4 Long
+    newsFeeds1 Long
+    newsFeeds2 Long
+    newsFeeds3 Long
+    newsFeeds4 Long
+    newsFeeds5 Long
+    newsFeeds6 Long
+    usefulLinks1 Long
+    usefulLinks2 Long
+    usefulLinks3 Long
+    usefulLinks4 Long
+    usefulLinks5 Long
+    usefulLinks6 Long
+    recentVideos1 Long
+    recentVideos2 Long
+    recentVideos3 Long
+    recentVideos4 Long
+    recentVideos5 Long
+    recentVideos6 Long
+}
+
+entity Vtopic {
+    creationDate Instant required
+    vtopicTitle String minlength(2) maxlength(50) required
+    vtopicDescription String minlength(2) maxlength(250)
+}
+
+entity Vquestion {
+    creationDate Instant required
+    vquestion String minlength(2) maxlength(100) required
+    vquestionDescription String minlength(2) maxlength(250)
+}
+
+entity Vanswer {
+    creationDate Instant required
+    urlVanswer String minlength(2) maxlength(500) required
+    accepted Boolean
+}
+
+entity Vthumb {
+    creationDate Instant required
+    vthumbUp Boolean
+    vthumbDown Boolean
+}
+
+entity Newsletter {
+    creationDate Instant required
+    email String required
+}
+entity Feedback {
+    creationDate Instant required
+    name String minlength(2) maxlength(100) required
+    email String required
+    feedback String minlength(2) maxlength(5000) required
+}
+
+entity ConfigVariables {
+	configVarLong1 Long
+    configVarLong2 Long
+    configVarLong3 Long
+    configVarLong4 Long
+    configVarLong5 Long
+    configVarLong6 Long
+    configVarLong7 Long
+    configVarLong8 Long
+    configVarLong9 Long
+    configVarLong10 Long
+    configVarLong11 Long
+    configVarLong12 Long
+    configVarLong13 Long
+    configVarLong14 Long
+    configVarLong15 Long
+    configVarBoolean16 Boolean
+    configVarBoolean17 Boolean
+    configVarBoolean18 Boolean
+    configVarString19 String
+    configVarString20 String
+}
+
+// ENUMS:
+enum Gender {
+    MALE, FEMALE, OTHER
+}
+
+enum CivilStatus {
+    NA, SINGLE, MARRIED, DIVORCED, WIDOWER, SEPARATED, ENGAGED, OTHER
+}
+
+enum Purpose {
+    NOT_INTERESTED, FRIENDSHIP, MEET_PEOPLE, STABLE_RELATIONSHIP, MARRIAGE, OTHER
+}
+
+enum Physical {
+    NA, THIN, ATHLETIC, NORMAL, CORPULENT, BULKY, OTHER
+}
+
+enum Religion {
+    NA, ATHEIST, AGNOSTIC, CATHOLIC, JEWISH, ISLAMIC, OTHER
+}
+
+enum EthnicGroup {
+    NA, MIXED, WHITE, LATIN, GYPSY, AFRO, HINDU, ARAB, ASIAN, INDIAN, OTHER
+}
+
+enum Studies {
+    NA, PRIMARY, HIGH_SCHOOL, TECHNICAL, COLLEGE, MASTER, DOCTORATE, OTHER
+}
+
+enum Eyes {
+    NA, BLUE, GREEN, BROWN, BLACK, CHESTNUT, OTHER
+}
+
+enum Smoker {
+    NA, YES, NO, OCCASIONALLY
+}
+
+enum Children {
+    NA, YES, NO, GREATER_THAN_18
+}
+
+enum FutureChildren {
+    NA, YES, NO
+}
+
+enum NotificationReason {
+    FOLLOWING, UNFOLLOWING, PROPOSAL_RELEASED, FOLLOWER_STATUS, AUTHORIZE_COMMUNITY_FOLLOWER, UNAUTHORIZE_COMMUNITY_FOLLOWER
+}
+
+// RELATIONSHIPS:
+relationship OneToOne {
+    Uprofile{user(id) required} to User{uprofile}
+}
+
+relationship ManyToOne {
+    Community{user(id) required} to User{community}
+    Notification{user(id) required} to User{notification}
+    Album{user(id) required} to User{album(id) required}
+    Calbum{community(communityName) required} to Community{calbum(id) required}
+    Comment{user(id) required} to User{comment}
+    Post{user(id) required} to User{post}
+    Message{sender(id)} to User{sender(id)}
+    Message{receiver(id)} to User{receiver(id)}
+    Follow{followed(id)} to User{followed(id)}
+    Follow{following(id)} to User{following(id)}
+    Blockuser{blockeduser(id)} to User{blockeduser(id)}
+    Blockuser{blockinguser(id)} to User{blockinguser(id)}
+    Vtopic{user(id) required} to User{vtopic(id) required}
+    Vquestion{user(id) required} to User{vquestion(id) required}
+    Vanswer{user(id) required} to User{vanswer(id) required}
+    Vthumb{user(id) required} to User{vthumb(id) required}
+}
+
+relationship OneToMany {
+    Community to Blog{community(communityName) required}
+    Blog to Post{blog(title) required}
+    Post{comment} to Comment{post(id) required}
+    Community{csender(id)} to Cmessage{csender(id)}
+    Community{creceiver(id)} to Cmessage{creceiver(id)}
+    Community{cfollowed(id)} to Follow{cfollowed(id)}
+    Community{cfollowing(id)} to Follow{cfollowing(id)}
+    Community{cblockeduser(id)} to Blockuser{cblockeduser(id)}
+    Community{cblockinguser(id)} to Blockuser{cblockinguser(id)}
+    Album{photo} to Photo{album(title)}
+    Calbum{photo} to Photo{calbum(title)}
+    Vtopic{vquestion} to Vquestion{vtopic(id) required}
+    Vquestion{vanswer} to Vanswer{vquestion(id) required}
+    Vquestion{vthumb} to Vthumb{vquestion(id)}
+    Vanswer{vthumb} to Vthumb{vanswer(id)}
+}
+
+relationship ManyToMany {
+    Tag{post(headline)} to Post{tag(tagName)}
+    Topic{post(headline)} to Post{topic(topicName)}
+    Cinterest{community} to Community{cinterest(interestName)}
+    Cactivity{community} to Community{cactivity(activityName)}
+    Cceleb{community} to Community{cceleb(celebName)}
+    Interest{uprofile} to Uprofile{interest(interestName)}
+    Activity{uprofile} to Uprofile{activity(activityName)}
+    Celeb{uprofile} to Uprofile{celeb(celebName)}
+}
+
+// SET PAGINATION OPTIONS:
+paginate all with pagination
+// paginate all with infinite-scroll
+
+// SET SERVICE OPTIONS:
+service all with serviceImpl
+//service all with serviceClass
+
+// DTO:
+dto all with mapstruct
+
+// FILTERING:
+filter *

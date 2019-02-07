@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="message">
+            <h2><span jhiTranslate="jhipsterpressApp.message.detail.title">Message</span> {{message.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterpressApp.message.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{message.creationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.message.messageText">Message Text</span></dt>
+                <dd>
+                    <span>{{message.messageText}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.message.isDelivered">Is Delivered</span></dt>
+                <dd>
+                    <span>{{message.isDelivered}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.message.sender">Sender</span></dt>
+                <dd>
+                    {{message.senderId}}
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.message.receiver">Receiver</span></dt>
+                <dd>
+                    {{message.receiverId}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/message', message.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterpressApp.vanswer.home.title">Vanswers</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-vanswer" [routerLink]="['/vanswer/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jhipsterpressApp.vanswer.home.createLabel">
+            Create new Vanswer
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="vanswers">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="creationDate"><span jhiTranslate="jhipsterpressApp.vanswer.creationDate">Creation Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="urlVanswer"><span jhiTranslate="jhipsterpressApp.vanswer.urlVanswer">Url Vanswer</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="accepted"><span jhiTranslate="jhipsterpressApp.vanswer.accepted">Accepted</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="userId"><span jhiTranslate="jhipsterpressApp.vanswer.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="vquestionId"><span jhiTranslate="jhipsterpressApp.vanswer.vquestion">Vquestion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let vanswer of vanswers ;trackBy: trackId">
+                <td><a [routerLink]="['/vanswer', vanswer.id, 'view' ]">{{vanswer.id}}</a></td>
+                <td>{{vanswer.creationDate | date:'medium'}}</td>
+                <td>{{vanswer.urlVanswer}}</td>
+                <td>{{vanswer.accepted}}</td>
+                <td>
+                    {{vanswer.userId}}
+                </td>
+                <td>
+                    <div *ngIf="vanswer.vquestionId">
+                        <a [routerLink]="['../vquestion', vanswer.vquestionId , 'view' ]" >{{vanswer.vquestionId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/vanswer', vanswer.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/vanswer', vanswer.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'vanswer', { outlets: { popup: vanswer.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="vanswers && vanswers.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

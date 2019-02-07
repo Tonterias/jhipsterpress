@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="vquestion">
+            <h2><span jhiTranslate="jhipsterpressApp.vquestion.detail.title">Vquestion</span> {{vquestion.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterpressApp.vquestion.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{vquestion.creationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.vquestion.vquestion">Vquestion</span></dt>
+                <dd>
+                    <span>{{vquestion.vquestion}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.vquestion.vquestionDescription">Vquestion Description</span></dt>
+                <dd>
+                    <span>{{vquestion.vquestionDescription}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.vquestion.user">User</span></dt>
+                <dd>
+                    {{vquestion.userId}}
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.vquestion.vtopic">Vtopic</span></dt>
+                <dd>
+                    <div *ngIf="vquestion.vtopicId">
+                        <a [routerLink]="['/vtopic', vquestion.vtopicId, 'view']">{{vquestion.vtopicId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/vquestion', vquestion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

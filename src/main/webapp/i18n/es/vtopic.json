@@ -1,0 +1,25 @@
+{
+    "jhipsterpressApp": {
+        "vtopic": {
+            "home": {
+                "title": "Vtopics",
+                "createLabel": "Crear nuevo Vtopic",
+                "createOrEditLabel": "Crear o editar Vtopic"
+            },
+            "created": "Un nuevo Vtopic ha sido creado con el identificador {{ param }}",
+            "updated": "Un Vtopic ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Vtopic ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Vtopic {{ id }}?"
+            },
+            "detail": {
+                "title": "Vtopic"
+            },
+            "creationDate": "Creation Date",
+            "vtopicTitle": "Vtopic Title",
+            "vtopicDescription": "Vtopic Description",
+            "vquestion": "Vquestion",
+            "user": "User"
+        }
+    }
+}

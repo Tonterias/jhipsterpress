@@ -1,0 +1,204 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-post-heading" jhiTranslate="jhipsterpressApp.post.home.createOrEditLabel">Create or edit a Post</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!post.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="post.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.post.creationDate" for="field_creationDate">Creation Date</label>
+                    <div class="d-flex">
+                        <input id="field_creationDate" type="datetime-local" class="form-control" name="creationDate" [(ngModel)]="creationDate" placeholder="YYYY-MM-DD HH:mm"
+                        required/>
+                    </div>
+                    <div [hidden]="!(editForm.controls.creationDate?.dirty && editForm.controls.creationDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.creationDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.creationDate?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.post.publicationDate" for="field_publicationDate">Publication Date</label>
+                    <div class="d-flex">
+                        <input id="field_publicationDate" type="datetime-local" class="form-control" name="publicationDate" [(ngModel)]="publicationDate" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.post.headline" for="field_headline">Headline</label>
+                    <input type="text" class="form-control" name="headline" id="field_headline"
+                        [(ngModel)]="post.headline" required minlength="2" maxlength="100"/>
+                    <div [hidden]="!(editForm.controls.headline?.dirty && editForm.controls.headline?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.headline?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.headline?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
+                        This field is required to be at least 2 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.headline?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.post.leadtext" for="field_leadtext">Leadtext</label>
+                    <input type="text" class="form-control" name="leadtext" id="field_leadtext"
+                        [(ngModel)]="post.leadtext" minlength="2" maxlength="1000"/>
+                    <div [hidden]="!(editForm.controls.leadtext?.dirty && editForm.controls.leadtext?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.leadtext?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
+                        This field is required to be at least 2 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.leadtext?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 1000 }">
+                        This field cannot be longer than 1000 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.post.bodytext" for="field_bodytext">Bodytext</label>
+                    <input type="text" class="form-control" name="bodytext" id="field_bodytext"
+                        [(ngModel)]="post.bodytext" required minlength="2" maxlength="65000"/>
+                    <div [hidden]="!(editForm.controls.bodytext?.dirty && editForm.controls.bodytext?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.bodytext?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.bodytext?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
+                        This field is required to be at least 2 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.bodytext?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 65000 }">
+                        This field cannot be longer than 65000 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.post.quote" for="field_quote">Quote</label>
+                    <input type="text" class="form-control" name="quote" id="field_quote"
+                        [(ngModel)]="post.quote" minlength="2" maxlength="1000"/>
+                    <div [hidden]="!(editForm.controls.quote?.dirty && editForm.controls.quote?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.quote?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
+                        This field is required to be at least 2 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.quote?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 1000 }">
+                        This field cannot be longer than 1000 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.post.conclusion" for="field_conclusion">Conclusion</label>
+                    <input type="text" class="form-control" name="conclusion" id="field_conclusion"
+                        [(ngModel)]="post.conclusion" minlength="2" maxlength="2000"/>
+                    <div [hidden]="!(editForm.controls.conclusion?.dirty && editForm.controls.conclusion?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.conclusion?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
+                        This field is required to be at least 2 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.conclusion?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 2000 }">
+                        This field cannot be longer than 2000 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.post.linkText" for="field_linkText">Link Text</label>
+                    <input type="text" class="form-control" name="linkText" id="field_linkText"
+                        [(ngModel)]="post.linkText" minlength="2" maxlength="1000"/>
+                    <div [hidden]="!(editForm.controls.linkText?.dirty && editForm.controls.linkText?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.linkText?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
+                        This field is required to be at least 2 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.linkText?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 1000 }">
+                        This field cannot be longer than 1000 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.post.linkURL" for="field_linkURL">Link URL</label>
+                    <input type="text" class="form-control" name="linkURL" id="field_linkURL"
+                        [(ngModel)]="post.linkURL" minlength="2" maxlength="1000"/>
+                    <div [hidden]="!(editForm.controls.linkURL?.dirty && editForm.controls.linkURL?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.linkURL?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
+                        This field is required to be at least 2 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.linkURL?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 1000 }">
+                        This field cannot be longer than 1000 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.post.image" for="field_image">Image</label>
+                    <div>
+                        <img [src]="'data:' + post.imageContentType + ';base64,' + post.image" style="max-height: 100px;" *ngIf="post.image" alt="post image"/>
+                        <div *ngIf="post.image" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{post.imageContentType}}, {{byteSize(post.image)}}</span>
+                            <button type="button" (click)="clearInputImage('image', 'imageContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_image" (change)="setFileData($event, post, 'image', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="image" id="field_image"
+                        [(ngModel)]="post.image" />
+                    <input type="hidden" class="form-control" name="imageContentType" id="field_imageContentType"
+                        [(ngModel)]="post.imageContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.post.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" [(ngModel)]="post.userId"  required>
+                        <option *ngIf="!editForm.value.user" [ngValue]="null" selected></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.user?.dirty && editForm.controls.user?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.user?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.post.blog" for="field_blog">Blog</label>
+                    <select class="form-control" id="field_blog" name="blog" [(ngModel)]="post.blogId"  required>
+                        <option *ngIf="!editForm.value.blog" [ngValue]="null" selected></option>
+                        <option [ngValue]="blogOption.id" *ngFor="let blogOption of blogs; trackBy: trackBlogById">{{blogOption.title}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.blog?.dirty && editForm.controls.blog?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.blog?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

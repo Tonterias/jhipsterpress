@@ -1,0 +1,22 @@
+{
+    "jhipsterpressApp": {
+        "topic": {
+            "home": {
+                "title": "Topics",
+                "createLabel": "Crear nuevo Topic",
+                "createOrEditLabel": "Crear o editar Topic"
+            },
+            "created": "Un nuevo Topic ha sido creado con el identificador {{ param }}",
+            "updated": "Un Topic ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Topic ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Topic {{ id }}?"
+            },
+            "detail": {
+                "title": "Topic"
+            },
+            "topicName": "Topic Name",
+            "post": "Post"
+        }
+    }
+}

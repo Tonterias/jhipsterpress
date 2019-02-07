@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Interest.
+    -->
+    <changeSet id="20190206093329-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="interest_id"
+                                 baseTableName="interest_uprofile"
+                                 constraintName="fk_interest_uprofile_interest_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="interest"/>
+        <addForeignKeyConstraint baseColumnNames="uprofile_id"
+                                 baseTableName="interest_uprofile"
+                                 constraintName="fk_interest_uprofile_uprofile_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="uprofile"/>
+        
+    </changeSet>
+</databaseChangeLog>

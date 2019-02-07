@@ -1,0 +1,57 @@
+{
+    "name": "Notification",
+    "fields": [
+        {
+            "fieldName": "creationDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "notificationDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "notificationReason",
+            "fieldType": "NotificationReason",
+            "fieldValues": "FOLLOWING,UNFOLLOWING,PROPOSAL_RELEASED,FOLLOWER_STATUS,AUTHORIZE_COMMUNITY_FOLLOWER,UNAUTHORIZE_COMMUNITY_FOLLOWER",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "notificationText",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": 2,
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "isDelivered",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "notification"
+        }
+    ],
+    "changelogDate": "20190206093321",
+    "entityTableName": "notification",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,103 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="configVariables">
+            <h2><span jhiTranslate="jhipsterpressApp.configVariables.detail.title">Config Variables</span> {{configVariables.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong1">Config Var Long 1</span></dt>
+                <dd>
+                    <span>{{configVariables.configVarLong1}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong2">Config Var Long 2</span></dt>
+                <dd>
+                    <span>{{configVariables.configVarLong2}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong3">Config Var Long 3</span></dt>
+                <dd>
+                    <span>{{configVariables.configVarLong3}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong4">Config Var Long 4</span></dt>
+                <dd>
+                    <span>{{configVariables.configVarLong4}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong5">Config Var Long 5</span></dt>
+                <dd>
+                    <span>{{configVariables.configVarLong5}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong6">Config Var Long 6</span></dt>
+                <dd>
+                    <span>{{configVariables.configVarLong6}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong7">Config Var Long 7</span></dt>
+                <dd>
+                    <span>{{configVariables.configVarLong7}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong8">Config Var Long 8</span></dt>
+                <dd>
+                    <span>{{configVariables.configVarLong8}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong9">Config Var Long 9</span></dt>
+                <dd>
+                    <span>{{configVariables.configVarLong9}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong10">Config Var Long 10</span></dt>
+                <dd>
+                    <span>{{configVariables.configVarLong10}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong11">Config Var Long 11</span></dt>
+                <dd>
+                    <span>{{configVariables.configVarLong11}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong12">Config Var Long 12</span></dt>
+                <dd>
+                    <span>{{configVariables.configVarLong12}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong13">Config Var Long 13</span></dt>
+                <dd>
+                    <span>{{configVariables.configVarLong13}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong14">Config Var Long 14</span></dt>
+                <dd>
+                    <span>{{configVariables.configVarLong14}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.configVariables.configVarLong15">Config Var Long 15</span></dt>
+                <dd>
+                    <span>{{configVariables.configVarLong15}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.configVariables.configVarBoolean16">Config Var Boolean 16</span></dt>
+                <dd>
+                    <span>{{configVariables.configVarBoolean16}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.configVariables.configVarBoolean17">Config Var Boolean 17</span></dt>
+                <dd>
+                    <span>{{configVariables.configVarBoolean17}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.configVariables.configVarBoolean18">Config Var Boolean 18</span></dt>
+                <dd>
+                    <span>{{configVariables.configVarBoolean18}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.configVariables.configVarString19">Config Var String 19</span></dt>
+                <dd>
+                    <span>{{configVariables.configVarString19}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.configVariables.configVarString20">Config Var String 20</span></dt>
+                <dd>
+                    <span>{{configVariables.configVarString20}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/config-variables', configVariables.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

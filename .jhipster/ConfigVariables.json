@@ -1,0 +1,95 @@
+{
+    "name": "ConfigVariables",
+    "fields": [
+        {
+            "fieldName": "configVarLong1",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "configVarLong2",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "configVarLong3",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "configVarLong4",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "configVarLong5",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "configVarLong6",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "configVarLong7",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "configVarLong8",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "configVarLong9",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "configVarLong10",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "configVarLong11",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "configVarLong12",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "configVarLong13",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "configVarLong14",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "configVarLong15",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "configVarBoolean16",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "configVarBoolean17",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "configVarBoolean18",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "configVarString19",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "configVarString20",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190206093343",
+    "entityTableName": "config_variables",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

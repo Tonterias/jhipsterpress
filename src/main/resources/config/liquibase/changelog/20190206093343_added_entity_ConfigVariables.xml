@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity ConfigVariables.
+    -->
+    <changeSet id="20190206093343-1" author="jhipster">
+        <createTable tableName="config_variables">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="config_var_long_1" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="config_var_long_2" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="config_var_long_3" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="config_var_long_4" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="config_var_long_5" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="config_var_long_6" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="config_var_long_7" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="config_var_long_8" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="config_var_long_9" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="config_var_long_10" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="config_var_long_11" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="config_var_long_12" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="config_var_long_13" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="config_var_long_14" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="config_var_long_15" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="config_var_boolean_16" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="config_var_boolean_17" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="config_var_boolean_18" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="config_var_string_19" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="config_var_string_20" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

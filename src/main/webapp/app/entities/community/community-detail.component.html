@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="community">
+            <h2><span jhiTranslate="jhipsterpressApp.community.detail.title">Community</span> {{community.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterpressApp.community.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{community.creationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.community.communityName">Community Name</span></dt>
+                <dd>
+                    <span>{{community.communityName}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.community.communityDescription">Community Description</span></dt>
+                <dd>
+                    <span>{{community.communityDescription}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.community.image">Image</span></dt>
+                <dd>
+                    <div *ngIf="community.image">
+                        <a (click)="openFile(community.imageContentType, community.image)">
+                            <img [src]="'data:' + community.imageContentType + ';base64,' + community.image" style="max-width: 100%;" alt="community image"/>
+                        </a>
+                        {{community.imageContentType}}, {{byteSize(community.image)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.community.isActive">Is Active</span></dt>
+                <dd>
+                    <span>{{community.isActive}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.community.user">User</span></dt>
+                <dd>
+                    {{community.userId}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/community', community.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

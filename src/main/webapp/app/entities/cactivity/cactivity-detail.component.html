@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cactivity">
+            <h2><span jhiTranslate="jhipsterpressApp.cactivity.detail.title">Cactivity</span> {{cactivity.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterpressApp.cactivity.activityName">Activity Name</span></dt>
+                <dd>
+                    <span>{{cactivity.activityName}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.cactivity.community">Community</span></dt>
+                <dd>
+                    <span *ngFor="let community of cactivity.communities; let last = last">
+                        <a [routerLink]="['/community', community?.id, 'view' ]">{{community.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cactivity', cactivity.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

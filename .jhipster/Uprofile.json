@@ -1,0 +1,192 @@
+{
+    "name": "Uprofile",
+    "fields": [
+        {
+            "fieldName": "creationDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "image",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "gender",
+            "fieldType": "Gender",
+            "fieldValues": "MALE,FEMALE,OTHER"
+        },
+        {
+            "fieldName": "phone",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "bio",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 7500
+        },
+        {
+            "fieldName": "facebook",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "twitter",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "linkedin",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "instagram",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "googlePlus",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "birthdate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "civilStatus",
+            "fieldType": "CivilStatus",
+            "fieldValues": "NA,SINGLE,MARRIED,DIVORCED,WIDOWER,SEPARATED,ENGAGED,OTHER"
+        },
+        {
+            "fieldName": "lookingFor",
+            "fieldType": "Gender",
+            "fieldValues": "MALE,FEMALE,OTHER"
+        },
+        {
+            "fieldName": "purpose",
+            "fieldType": "Purpose",
+            "fieldValues": "NOT_INTERESTED,FRIENDSHIP,MEET_PEOPLE,STABLE_RELATIONSHIP,MARRIAGE,OTHER"
+        },
+        {
+            "fieldName": "physical",
+            "fieldType": "Physical",
+            "fieldValues": "NA,THIN,ATHLETIC,NORMAL,CORPULENT,BULKY,OTHER"
+        },
+        {
+            "fieldName": "religion",
+            "fieldType": "Religion",
+            "fieldValues": "NA,ATHEIST,AGNOSTIC,CATHOLIC,JEWISH,ISLAMIC,OTHER"
+        },
+        {
+            "fieldName": "ethnicGroup",
+            "fieldType": "EthnicGroup",
+            "fieldValues": "NA,MIXED,WHITE,LATIN,GYPSY,AFRO,HINDU,ARAB,ASIAN,INDIAN,OTHER"
+        },
+        {
+            "fieldName": "studies",
+            "fieldType": "Studies",
+            "fieldValues": "NA,PRIMARY,HIGH_SCHOOL,TECHNICAL,COLLEGE,MASTER,DOCTORATE,OTHER"
+        },
+        {
+            "fieldName": "sibblings",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": -1,
+            "fieldValidateRulesMax": 20
+        },
+        {
+            "fieldName": "eyes",
+            "fieldType": "Eyes",
+            "fieldValues": "NA,BLUE,GREEN,BROWN,BLACK,CHESTNUT,OTHER"
+        },
+        {
+            "fieldName": "smoker",
+            "fieldType": "Smoker",
+            "fieldValues": "NA,YES,NO,OCCASIONALLY"
+        },
+        {
+            "fieldName": "children",
+            "fieldType": "Children",
+            "fieldValues": "NA,YES,NO,GREATER_THAN_18"
+        },
+        {
+            "fieldName": "futureChildren",
+            "fieldType": "FutureChildren",
+            "fieldValues": "NA,YES,NO"
+        },
+        {
+            "fieldName": "pet",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "uprofile"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "interest",
+            "otherEntityName": "interest",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "uprofile"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "activity",
+            "otherEntityName": "activity",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "uprofile"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "celeb",
+            "otherEntityName": "celeb",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "uprofile"
+        }
+    ],
+    "changelogDate": "20190206093322",
+    "entityTableName": "uprofile",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

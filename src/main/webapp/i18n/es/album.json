@@ -1,0 +1,24 @@
+{
+    "jhipsterpressApp": {
+        "album": {
+            "home": {
+                "title": "Albums",
+                "createLabel": "Crear nuevo Album",
+                "createOrEditLabel": "Crear o editar Album"
+            },
+            "created": "Un nuevo Album ha sido creado con el identificador {{ param }}",
+            "updated": "Un Album ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Album ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Album {{ id }}?"
+            },
+            "detail": {
+                "title": "Album"
+            },
+            "creationDate": "Creation Date",
+            "title": "Title",
+            "photo": "Photo",
+            "user": "User"
+        }
+    }
+}

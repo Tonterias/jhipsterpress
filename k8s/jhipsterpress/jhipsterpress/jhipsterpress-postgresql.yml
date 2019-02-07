@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: jhipsterpress-postgresql
+  namespace: default
+  labels:
+    app: jhipsterpress-postgresql
+type: Opaque
+data:
+  postgres-password: YWJvcmUwYWs=
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: jhipsterpress-postgresql
+  namespace: default
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: jhipsterpress-postgresql
+    spec:
+      volumes:
+      - name: data
+        emptyDir: {}
+      containers:
+      - name: postgres
+        image: postgres:10.4
+        env:
+        - name: POSTGRES_USER
+          value: jhipsterpress
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: jhipsterpress-postgresql
+              key: postgres-password
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - name: data
+          mountPath: /var/lib/postgresql/
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jhipsterpress-postgresql
+  namespace: default
+spec:
+  selector:
+    app: jhipsterpress-postgresql
+  ports:
+  - port: 5432

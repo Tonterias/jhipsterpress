@@ -1,0 +1,22 @@
+{
+    "jhipsterpressApp": {
+        "newsletter": {
+            "home": {
+                "title": "Newsletters",
+                "createLabel": "Create a new Newsletter",
+                "createOrEditLabel": "Create or edit a Newsletter"
+            },
+            "created": "A new Newsletter is created with identifier {{ param }}",
+            "updated": "A Newsletter is updated with identifier {{ param }}",
+            "deleted": "A Newsletter is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Newsletter {{ id }}?"
+            },
+            "detail": {
+                "title": "Newsletter"
+            },
+            "creationDate": "Creation Date",
+            "email": "Email"
+        }
+    }
+}

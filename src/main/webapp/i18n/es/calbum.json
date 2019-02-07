@@ -1,0 +1,24 @@
+{
+    "jhipsterpressApp": {
+        "calbum": {
+            "home": {
+                "title": "Calbums",
+                "createLabel": "Crear nuevo Calbum",
+                "createOrEditLabel": "Crear o editar Calbum"
+            },
+            "created": "Un nuevo Calbum ha sido creado con el identificador {{ param }}",
+            "updated": "Un Calbum ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Calbum ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Calbum {{ id }}?"
+            },
+            "detail": {
+                "title": "Calbum"
+            },
+            "creationDate": "Creation Date",
+            "title": "Title",
+            "photo": "Photo",
+            "community": "Community"
+        }
+    }
+}

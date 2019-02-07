@@ -1,0 +1,117 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterpressApp.uprofile.home.title">Uprofiles</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-uprofile" [routerLink]="['/uprofile/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jhipsterpressApp.uprofile.home.createLabel">
+            Create new Uprofile
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="uprofiles">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="creationDate"><span jhiTranslate="jhipsterpressApp.uprofile.creationDate">Creation Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="image"><span jhiTranslate="jhipsterpressApp.uprofile.image">Image</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="gender"><span jhiTranslate="jhipsterpressApp.uprofile.gender">Gender</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="phone"><span jhiTranslate="jhipsterpressApp.uprofile.phone">Phone</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="bio"><span jhiTranslate="jhipsterpressApp.uprofile.bio">Bio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="facebook"><span jhiTranslate="jhipsterpressApp.uprofile.facebook">Facebook</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="twitter"><span jhiTranslate="jhipsterpressApp.uprofile.twitter">Twitter</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="linkedin"><span jhiTranslate="jhipsterpressApp.uprofile.linkedin">Linkedin</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="instagram"><span jhiTranslate="jhipsterpressApp.uprofile.instagram">Instagram</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="googlePlus"><span jhiTranslate="jhipsterpressApp.uprofile.googlePlus">Google Plus</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="birthdate"><span jhiTranslate="jhipsterpressApp.uprofile.birthdate">Birthdate</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="civilStatus"><span jhiTranslate="jhipsterpressApp.uprofile.civilStatus">Civil Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="lookingFor"><span jhiTranslate="jhipsterpressApp.uprofile.lookingFor">Looking For</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="purpose"><span jhiTranslate="jhipsterpressApp.uprofile.purpose">Purpose</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="physical"><span jhiTranslate="jhipsterpressApp.uprofile.physical">Physical</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="religion"><span jhiTranslate="jhipsterpressApp.uprofile.religion">Religion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ethnicGroup"><span jhiTranslate="jhipsterpressApp.uprofile.ethnicGroup">Ethnic Group</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="studies"><span jhiTranslate="jhipsterpressApp.uprofile.studies">Studies</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="sibblings"><span jhiTranslate="jhipsterpressApp.uprofile.sibblings">Sibblings</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="eyes"><span jhiTranslate="jhipsterpressApp.uprofile.eyes">Eyes</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="smoker"><span jhiTranslate="jhipsterpressApp.uprofile.smoker">Smoker</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="children"><span jhiTranslate="jhipsterpressApp.uprofile.children">Children</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="futureChildren"><span jhiTranslate="jhipsterpressApp.uprofile.futureChildren">Future Children</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="pet"><span jhiTranslate="jhipsterpressApp.uprofile.pet">Pet</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="userId"><span jhiTranslate="jhipsterpressApp.uprofile.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let uprofile of uprofiles ;trackBy: trackId">
+                <td><a [routerLink]="['/uprofile', uprofile.id, 'view' ]">{{uprofile.id}}</a></td>
+                <td>{{uprofile.creationDate | date:'medium'}}</td>
+                <td>
+                    <a *ngIf="uprofile.image" (click)="openFile(uprofile.imageContentType, uprofile.image)">
+                        <img [src]="'data:' + uprofile.imageContentType + ';base64,' + uprofile.image" style="max-height: 30px;" alt="uprofile image"/>
+                    </a>
+                    <span *ngIf="uprofile.image">{{uprofile.imageContentType}}, {{byteSize(uprofile.image)}}</span>
+                </td>
+                <td jhiTranslate="{{'jhipsterpressApp.Gender.' + uprofile.gender}}">{{uprofile.gender}}</td>
+                <td>{{uprofile.phone}}</td>
+                <td>{{uprofile.bio}}</td>
+                <td>{{uprofile.facebook}}</td>
+                <td>{{uprofile.twitter}}</td>
+                <td>{{uprofile.linkedin}}</td>
+                <td>{{uprofile.instagram}}</td>
+                <td>{{uprofile.googlePlus}}</td>
+                <td>{{uprofile.birthdate | date:'medium'}}</td>
+                <td jhiTranslate="{{'jhipsterpressApp.CivilStatus.' + uprofile.civilStatus}}">{{uprofile.civilStatus}}</td>
+                <td jhiTranslate="{{'jhipsterpressApp.Gender.' + uprofile.lookingFor}}">{{uprofile.lookingFor}}</td>
+                <td jhiTranslate="{{'jhipsterpressApp.Purpose.' + uprofile.purpose}}">{{uprofile.purpose}}</td>
+                <td jhiTranslate="{{'jhipsterpressApp.Physical.' + uprofile.physical}}">{{uprofile.physical}}</td>
+                <td jhiTranslate="{{'jhipsterpressApp.Religion.' + uprofile.religion}}">{{uprofile.religion}}</td>
+                <td jhiTranslate="{{'jhipsterpressApp.EthnicGroup.' + uprofile.ethnicGroup}}">{{uprofile.ethnicGroup}}</td>
+                <td jhiTranslate="{{'jhipsterpressApp.Studies.' + uprofile.studies}}">{{uprofile.studies}}</td>
+                <td>{{uprofile.sibblings}}</td>
+                <td jhiTranslate="{{'jhipsterpressApp.Eyes.' + uprofile.eyes}}">{{uprofile.eyes}}</td>
+                <td jhiTranslate="{{'jhipsterpressApp.Smoker.' + uprofile.smoker}}">{{uprofile.smoker}}</td>
+                <td jhiTranslate="{{'jhipsterpressApp.Children.' + uprofile.children}}">{{uprofile.children}}</td>
+                <td jhiTranslate="{{'jhipsterpressApp.FutureChildren.' + uprofile.futureChildren}}">{{uprofile.futureChildren}}</td>
+                <td>{{uprofile.pet}}</td>
+                <td>
+                    {{uprofile.userId}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/uprofile', uprofile.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/uprofile', uprofile.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'uprofile', { outlets: { popup: uprofile.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="uprofiles && uprofiles.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

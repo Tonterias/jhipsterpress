@@ -1,0 +1,702 @@
+D:\BasuraTemporal\Jhipster\jhipsterpress>npm test
+
+> jhipsterpress@0.0.0 test D:\BasuraTemporal\Jhipster\jhipsterpress
+> npm run lint && jest --coverage --logHeapUsage -w=2 --config src/test/javascript/jest.conf.js
+
+
+> jhipsterpress@0.0.0 lint D:\BasuraTemporal\Jhipster\jhipsterpress
+> tslint --project tsconfig.json -e 'node_modules/**'
+
+No valid rules have been specified for JavaScript files
+ PASS  src/test/javascript/spec/app/admin/configuration/configuration.service.spec.ts (6.525s, 102 MB heap size)
+ PASS  src/test/javascript/spec/app/core/user/user.service.spec.ts (7.646s, 83 MB heap size)
+ PASS  src/test/javascript/spec/app/admin/audits/audits.service.spec.ts (104 MB heap size)
+ PASS  src/test/javascript/spec/app/account/password/password-strength-bar.component.spec.ts (99 MB heap size)
+ PASS  src/test/javascript/spec/app/admin/metrics/metrics.component.spec.ts (117 MB heap size)
+ PASS  src/test/javascript/spec/app/admin/logs/logs.service.spec.ts (106 MB heap size)
+ PASS  src/test/javascript/spec/app/admin/metrics/metrics.service.spec.ts (129 MB heap size)
+ PASS  src/test/javascript/spec/app/account/sessions/sessions.component.spec.ts (6.927s, 123 MB heap size)
+ PASS  src/test/javascript/spec/app/admin/user-management/user-management-delete-dialog.component.spec.ts (138 MB heap size)
+ PASS  src/test/javascript/spec/app/admin/health/health.component.spec.ts (8.077s, 117 MB heap size)
+ PASS  src/test/javascript/spec/app/admin/user-management/user-management-detail.component.spec.ts (101 MB heap size)
+ PASS  src/test/javascript/spec/app/admin/audits/audits.component.spec.ts (118 MB heap size)
+ PASS  src/test/javascript/spec/app/core/user/account.service.spec.ts (139 MB heap size)
+ PASS  src/test/javascript/spec/app/admin/user-management/user-management.component.spec.ts (163 MB heap size)
+ PASS  src/test/javascript/spec/app/account/register/register.component.spec.ts (169 MB heap size)
+ PASS  src/test/javascript/spec/app/account/password-reset/finish/password-reset-finish.component.spec.ts (183 MB heap size)
+ PASS  src/test/javascript/spec/app/shared/login/login.component.spec.ts (182 MB heap size)
+ PASS  src/test/javascript/spec/app/admin/configuration/configuration.component.spec.ts (132 MB heap size)
+ PASS  src/test/javascript/spec/app/shared/alert/alert-error.component.spec.ts (207 MB heap size)
+ PASS  src/test/javascript/spec/app/admin/logs/logs.component.spec.ts (154 MB heap size)
+ PASS  src/test/javascript/spec/app/account/password/password.component.spec.ts (185 MB heap size)
+ PASS  src/test/javascript/spec/app/admin/user-management/user-management-update.component.spec.ts (163 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/feedback/feedback-detail.component.spec.ts (182 MB heap size)
+ PASS  src/test/javascript/spec/app/account/settings/settings.component.spec.ts (206 MB heap size)
+ PASS  src/test/javascript/spec/app/account/activate/activate.component.spec.ts (206 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/frontpageconfig/frontpageconfig.service.spec.ts (231 MB heap size)
+ PASS  src/test/javascript/spec/app/account/password-reset/init/password-reset-init.component.spec.ts (170 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/uprofile/uprofile.service.spec.ts (272 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/post/post.service.spec.ts (198 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/config-variables/config-variables.service.spec.ts (297 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/notification/notification.service.spec.ts (225 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/community/community.service.spec.ts (226 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/feedback/feedback.service.spec.ts (251 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/vquestion/vquestion.service.spec.ts (258 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/cmessage/cmessage.service.spec.ts (271 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/vtopic/vtopic.service.spec.ts (279 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/comment/comment.service.spec.ts (291 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/message/message.service.spec.ts (300 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/vanswer/vanswer.service.spec.ts (186 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/vthumb/vthumb.service.spec.ts (332 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/blog/blog.service.spec.ts (207 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/newsletter/newsletter.service.spec.ts (351 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/calbum/calbum.service.spec.ts (227 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/photo/photo.service.spec.ts (238 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/album/album.service.spec.ts (258 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/blockuser/blockuser.service.spec.ts (258 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/follow/follow.service.spec.ts (277 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/config-variables/config-variables.component.spec.ts (296 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/frontpageconfig/frontpageconfig.component.spec.ts (245 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/notification/notification.component.spec.ts (324 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/newsletter/newsletter.component.spec.ts (273 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/cactivity/cactivity.component.spec.ts (359 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/community/community.component.spec.ts (305 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/vquestion/vquestion.component.spec.ts (231 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/blockuser/blockuser.component.spec.ts (332 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/cinterest/cinterest.component.spec.ts (270 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/activity/activity.component.spec.ts (368 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/feedback/feedback.component.spec.ts (296 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/interest/interest.component.spec.ts (256 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/uprofile/uprofile.component.spec.ts (328 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/cmessage/cmessage.component.spec.ts (294 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/urllink/urllink.component.spec.ts (362 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/message/message.component.spec.ts (322 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/comment/comment.component.spec.ts (390 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/vanswer/vanswer.component.spec.ts (347 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/calbum/calbum.component.spec.ts (385 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/vtopic/vtopic.component.spec.ts (261 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/vthumb/vthumb.component.spec.ts (287 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/follow/follow.component.spec.ts (248 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/cceleb/cceleb.component.spec.ts (322 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/celeb/celeb.component.spec.ts (275 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/topic/topic.component.spec.ts (358 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/photo/photo.component.spec.ts (306 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/album/album.component.spec.ts (386 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/blog/blog.component.spec.ts (338 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/tag/tag.component.spec.ts (372 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/post/post.component.spec.ts (271 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/urllink/urllink.service.spec.ts (388 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/cinterest/cinterest.service.spec.ts (288 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/cactivity/cactivity.service.spec.ts (403 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/interest/interest.service.spec.ts (304 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/activity/activity.service.spec.ts (418 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/cceleb/cceleb.service.spec.ts (320 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/topic/topic.service.spec.ts (336 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/celeb/celeb.service.spec.ts (262 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/tag/tag.service.spec.ts (351 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/config-variables/config-variables-update.component.spec.ts (275 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/frontpageconfig/frontpageconfig-update.component.spec.ts (369 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/notification/notification-update.component.spec.ts (305 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/newsletter/newsletter-update.component.spec.ts (395 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/vquestion/vquestion-update.component.spec.ts (345 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/blockuser/blockuser-update.component.spec.ts (421 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/cinterest/cinterest-update.component.spec.ts (343 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/cactivity/cactivity-update.component.spec.ts (374 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/community/community-update.component.spec.ts (270 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/feedback/feedback-update.component.spec.ts (285 MB heap size)
+ FAIL  src/test/javascript/spec/app/entities/activity/activity-update.component.spec.ts
+  ? Test suite failed to run
+
+    jest: failed to cache transform results in: C:/Users/usuario/AppData/Local/Temp/jest/jest-transform-cache-9f21bbda802f32f93547c06b8308b683-ba8f3aff845ee3386afef62ece7783cd/ed/celeb.route_ede984f239385eb366324f11e62843d3.map
+    Failure message: EBADF: bad file descriptor, close
+
+      at Object.closeSync (node_modules/graceful-fs/graceful-fs.js:52:27)
+      at Function.writeFileSync [as sync] (node_modules/write-file-atomic/index.js:228:16)
+
+ PASS  src/test/javascript/spec/app/entities/uprofile/uprofile-update.component.spec.ts (346 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/cmessage/cmessage-update.component.spec.ts (500 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/interest/interest-update.component.spec.ts (362 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/vanswer/vanswer-update.component.spec.ts (545 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/urllink/urllink-update.component.spec.ts (555 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/message/message-update.component.spec.ts (338 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/comment/comment-update.component.spec.ts (288 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/vthumb/vthumb-update.component.spec.ts (381 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/cceleb/cceleb-update.component.spec.ts (307 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/vtopic/vtopic-update.component.spec.ts (319 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/calbum/calbum-update.component.spec.ts (414 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/follow/follow-update.component.spec.ts (346 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/topic/topic-update.component.spec.ts (366 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/photo/photo-update.component.spec.ts (479 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/celeb/celeb-update.component.spec.ts (383 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/album/album-update.component.spec.ts (504 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/post/post-update.component.spec.ts (417 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/blog/blog-update.component.spec.ts (523 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/config-variables/config-variables-delete-dialog.component.spec.ts (540 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/tag/tag-update.component.spec.ts (288 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/frontpageconfig/frontpageconfig-delete-dialog.component.spec.ts (565 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/notification/notification-delete-dialog.component.spec.ts (306 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/vquestion/vquestion-delete-dialog.component.spec.ts (323 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/newsletter/newsletter-delete-dialog.component.spec.ts (429 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/community/community-delete-dialog.component.spec.ts (331 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/cinterest/cinterest-delete-dialog.component.spec.ts (446 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/blockuser/blockuser-delete-dialog.component.spec.ts (358 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/cactivity/cactivity-delete-dialog.component.spec.ts (454 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/feedback/feedback-delete-dialog.component.spec.ts (374 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/activity/activity-delete-dialog.component.spec.ts (472 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/uprofile/uprofile-delete-dialog.component.spec.ts (479 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/cmessage/cmessage-delete-dialog.component.spec.ts (400 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/interest/interest-delete-dialog.component.spec.ts (498 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/urllink/urllink-delete-dialog.component.spec.ts (416 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/vanswer/vanswer-delete-dialog.component.spec.ts (516 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/comment/comment-delete-dialog.component.spec.ts (441 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/message/message-delete-dialog.component.spec.ts (532 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/vtopic/vtopic-delete-dialog.component.spec.ts (449 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/cceleb/cceleb-delete-dialog.component.spec.ts (550 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/calbum/calbum-delete-dialog.component.spec.ts (277 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/follow/follow-delete-dialog.component.spec.ts (567 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/vthumb/vthumb-delete-dialog.component.spec.ts (295 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/topic/topic-delete-dialog.component.spec.ts (585 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/album/album-delete-dialog.component.spec.ts (603 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/photo/photo-delete-dialog.component.spec.ts (323 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/celeb/celeb-delete-dialog.component.spec.ts (610 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/post/post-delete-dialog.component.spec.ts (340 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/blog/blog-delete-dialog.component.spec.ts (629 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/tag/tag-delete-dialog.component.spec.ts (347 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/config-variables/config-variables-detail.component.spec.ts (642 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/frontpageconfig/frontpageconfig-detail.component.spec.ts (361 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/notification/notification-detail.component.spec.ts (656 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/newsletter/newsletter-detail.component.spec.ts (385 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/community/community-detail.component.spec.ts (670 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/cinterest/cinterest-detail.component.spec.ts (399 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/cactivity/cactivity-detail.component.spec.ts (412 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/blockuser/blockuser-detail.component.spec.ts (695 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/vquestion/vquestion-detail.component.spec.ts (426 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/cmessage/cmessage-detail.component.spec.ts (708 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/uprofile/uprofile-detail.component.spec.ts (440 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/interest/interest-detail.component.spec.ts (293 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/activity/activity-detail.component.spec.ts (453 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/urllink/urllink-detail.component.spec.ts (307 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/comment/comment-detail.component.spec.ts (466 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/vanswer/vanswer-detail.component.spec.ts (321 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/message/message-detail.component.spec.ts (235 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/cceleb/cceleb-detail.component.spec.ts (334 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/calbum/calbum-detail.component.spec.ts (249 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/vthumb/vthumb-detail.component.spec.ts (348 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/vtopic/vtopic-detail.component.spec.ts (262 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/follow/follow-detail.component.spec.ts (362 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/photo/photo-detail.component.spec.ts (280 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/topic/topic-detail.component.spec.ts (375 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/celeb/celeb-detail.component.spec.ts (293 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/album/album-detail.component.spec.ts (389 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/blog/blog-detail.component.spec.ts (307 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/post/post-detail.component.spec.ts (403 MB heap size)
+ PASS  src/test/javascript/spec/app/entities/tag/tag-detail.component.spec.ts (320 MB heap size)
+------------------------------------------------|----------|----------|----------|----------|-------------------|
+File                                            |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+------------------------------------------------|----------|----------|----------|----------|-------------------|
+All files                                       |    81.23 |    68.11 |    60.48 |    82.05 |                   |
+ app                                            |      100 |      100 |      100 |      100 |                   |
+  app.constants.ts                              |      100 |      100 |      100 |      100 |                   |
+ app/account/activate                           |    93.75 |    71.43 |       80 |       92 |                   |
+  activate.component.html                       |      100 |      100 |      100 |      100 |                   |
+  activate.component.ts                         |    95.24 |    72.73 |    85.71 |    93.75 |                35 |
+  activate.service.ts                           |       90 |    66.67 |    66.67 |     87.5 |                12 |
+ app/account/password                           |    83.33 |    72.09 |       75 |    82.43 |                   |
+  password-strength-bar.component.ts            |    79.17 |    70.97 |    83.33 |    77.78 |... 75,76,77,78,80 |
+  password.component.html                       |      100 |      100 |      100 |      100 |                   |
+  password.component.ts                         |       88 |    77.78 |    71.43 |       90 |             22,23 |
+  password.service.ts                           |       90 |    66.67 |    66.67 |     87.5 |                12 |
+ app/account/password-reset/finish              |    95.56 |    73.08 |    83.33 |    94.87 |                   |
+  password-reset-finish.component.html          |      100 |      100 |      100 |      100 |                   |
+  password-reset-finish.component.ts            |    97.06 |    73.91 |    88.89 |    96.67 |                63 |
+  password-reset-finish.service.ts              |       90 |    66.67 |    66.67 |     87.5 |                12 |
+ app/account/password-reset/init                |    97.14 |    77.78 |       90 |    96.43 |                   |
+  password-reset-init.component.html            |      100 |      100 |      100 |      100 |                   |
+  password-reset-init.component.ts              |      100 |       80 |      100 |      100 |                15 |
+  password-reset-init.service.ts                |       90 |    66.67 |    66.67 |     87.5 |                12 |
+ app/account/register                           |    94.23 |    81.25 |    76.92 |    93.62 |                   |
+  register.component.html                       |      100 |      100 |      100 |      100 |                   |
+  register.component.ts                         |    95.12 |    82.76 |       80 |    94.74 |             38,62 |
+  register.service.ts                           |       90 |    66.67 |    66.67 |     87.5 |                12 |
+ app/account/sessions                           |    95.65 |       75 |    85.71 |    93.94 |                   |
+  session.model.ts                              |      100 |      100 |      100 |      100 |                   |
+  sessions.component.html                       |      100 |      100 |      100 |      100 |                   |
+  sessions.component.ts                         |      100 |    77.78 |      100 |      100 |                17 |
+  sessions.service.ts                           |    84.62 |    66.67 |       50 |    81.82 |             14,18 |
+ app/account/settings                           |    83.87 |    76.92 |    72.73 |    85.19 |                   |
+  settings.component.html                       |      100 |      100 |      100 |      100 |                   |
+  settings.component.ts                         |    83.33 |    76.92 |    72.73 |    84.62 |       23,24,26,27 |
+ app/admin                                      |      100 |      100 |      100 |      100 |                   |
+  admin.route.ts                                |      100 |      100 |      100 |      100 |                   |
+  index.ts                                      |      100 |      100 |      100 |      100 |                   |
+ app/admin/audits                               |    89.58 |    66.67 |    77.27 |    89.41 |                   |
+  audit-data.model.ts                           |       60 |      100 |       50 |    66.67 |                 2 |
+  audit.model.ts                                |      100 |      100 |      100 |      100 |                   |
+  audits.component.html                         |      100 |      100 |      100 |      100 |                   |
+  audits.component.ts                           |    87.69 |    66.67 |    73.33 |     87.1 |... 03,108,114,124 |
+  audits.route.ts                               |      100 |      100 |      100 |      100 |                   |
+  audits.service.ts                             |      100 |    66.67 |      100 |      100 |                11 |
+ app/admin/configuration                        |     79.1 |    54.55 |    78.57 |    77.97 |                   |
+  configuration.component.html                  |      100 |      100 |      100 |      100 |                   |
+  configuration.component.ts                    |      100 |    85.71 |      100 |      100 |                17 |
+  configuration.route.ts                        |      100 |      100 |      100 |      100 |                   |
+  configuration.service.ts                      |     64.1 |       40 |     62.5 |    62.86 |... 56,57,58,61,63 |
+ app/admin/docs                                 |      100 |      100 |       50 |      100 |                   |
+  docs.component.html                           |      100 |      100 |      100 |      100 |                   |
+  docs.component.ts                             |      100 |      100 |       50 |      100 |                   |
+  docs.route.ts                                 |      100 |      100 |      100 |      100 |                   |
+ app/admin/health                               |    86.67 |    72.22 |    71.43 |    86.51 |                   |
+  health-modal.component.html                   |      100 |      100 |      100 |      100 |                   |
+  health-modal.component.ts                     |    45.45 |    38.46 |       20 |    42.11 |... 29,31,35,36,38 |
+  health.component.html                         |      100 |      100 |      100 |      100 |                   |
+  health.component.ts                           |    90.91 |    72.73 |       75 |    89.66 |          51,52,53 |
+  health.route.ts                               |      100 |      100 |      100 |      100 |                   |
+  health.service.ts                             |    96.05 |    81.25 |    90.91 |    95.95 |         16,98,102 |
+ app/admin/logs                                 |      100 |    66.67 |      100 |      100 |                   |
+  log.model.ts                                  |      100 |      100 |      100 |      100 |                   |
+  logs.component.html                           |      100 |      100 |      100 |      100 |                   |
+  logs.component.ts                             |      100 |    66.67 |      100 |      100 |                16 |
+  logs.route.ts                                 |      100 |      100 |      100 |      100 |                   |
+  logs.service.ts                               |      100 |    66.67 |      100 |      100 |                10 |
+ app/admin/metrics                              |    90.48 |       50 |       75 |    88.89 |                   |
+  metrics.component.html                        |      100 |      100 |      100 |      100 |                   |
+  metrics.component.ts                          |    85.19 |    45.45 |     62.5 |    82.61 |       29,30,36,40 |
+  metrics.route.ts                              |      100 |      100 |      100 |      100 |                   |
+  metrics.service.ts                            |      100 |    66.67 |      100 |      100 |                 9 |
+ app/admin/user-management                      |    84.09 |    63.95 |    65.38 |    84.14 |                   |
+  user-management-delete-dialog.component.html  |      100 |      100 |      100 |      100 |                   |
+  user-management-delete-dialog.component.ts    |    94.44 |    72.73 |       80 |    92.31 |                17 |
+  user-management-detail.component.html         |      100 |      100 |      100 |      100 |                   |
+  user-management-detail.component.ts           |      100 |       60 |      100 |      100 |             13,17 |
+  user-management-update.component.html         |      100 |      100 |      100 |      100 |                   |
+  user-management-update.component.ts           |    92.31 |    73.68 |    78.57 |    96.67 |                56 |
+  user-management.component.html                |      100 |      100 |      100 |      100 |                   |
+  user-management.component.ts                  |    80.52 |    63.41 |    59.09 |       80 |... 23,124,125,142 |
+  user-management.route.ts                      |    65.38 |       40 |    28.57 |       65 |... 21,24,25,26,28 |
+ app/core                                       |    95.65 |      100 |       50 |    95.24 |                   |
+  core.module.ts                                |       90 |      100 |       50 |     87.5 |                22 |
+  index.ts                                      |      100 |      100 |      100 |      100 |                   |
+ app/core/auth                                  |    62.42 |       60 |    31.71 |    60.15 |                   |
+  account.service.ts                            |       80 |    78.13 |    56.25 |    78.33 |... 00,104,108,112 |
+  auth-session.service.ts                       |    55.56 |    66.67 |    14.29 |    53.33 |... 18,20,25,28,29 |
+  csrf.service.ts                               |       70 |       40 |    33.33 |    71.43 |               6,9 |
+  state-storage.service.ts                      |    56.52 |    66.67 |    11.11 |    52.38 |... 22,26,30,34,44 |
+  user-route-access-service.ts                  |    33.33 |    40.74 |    16.67 |       30 |... 42,43,45,46,49 |
+ app/core/language                              |    43.59 |       44 |    22.22 |    42.86 |                   |
+  language.constants.ts                         |      100 |      100 |      100 |      100 |                   |
+  language.helper.ts                            |    42.11 |       44 |    22.22 |    41.18 |... 54,59,60,61,63 |
+ app/core/login                                 |    40.48 |       50 |    14.29 |    37.14 |                   |
+  login-modal.service.ts                        |    42.11 |       40 |       20 |     37.5 |... 16,17,19,22,25 |
+  login.service.ts                              |    39.13 |    55.56 |    11.11 |    36.84 |... 22,23,24,31,32 |
+ app/core/user                                  |    79.37 |    82.76 |    58.33 |    77.97 |                   |
+  account.model.ts                              |    27.27 |      100 |       50 |       20 |  3,4,5,6,7,8,9,10 |
+  user.model.ts                                 |      100 |    84.62 |      100 |      100 |       42,43,44,45 |
+  user.service.ts                               |    78.26 |    66.67 |       50 |    76.19 |    16,20,28,29,33 |
+ app/entities/activity                          |    73.13 |    64.52 |    48.48 |    74.23 |                   |
+  activity-delete-dialog.component.html         |      100 |      100 |      100 |      100 |                   |
+  activity-delete-dialog.component.ts           |       60 |    72.73 |    38.46 |    58.62 |... 50,51,54,55,63 |
+  activity-detail.component.html                |      100 |      100 |      100 |      100 |                   |
+  activity-detail.component.ts                  |    92.86 |    66.67 |       80 |       90 |                22 |
+  activity-update.component.html                |      100 |      100 |      100 |      100 |                   |
+  activity-update.component.ts                  |    36.54 |    52.38 |     5.56 |    38.64 |... 78,79,80,81,85 |
+  activity.component.html                       |      100 |      100 |      100 |      100 |                   |
+  activity.component.ts                         |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  activity.route.ts                             |       72 |    28.57 |       20 |    69.57 |... 22,23,24,25,28 |
+  activity.service.ts                           |      100 |    66.67 |      100 |      100 |                16 |
+  index.ts                                      |      100 |      100 |      100 |      100 |                   |
+ app/entities/album                             |    81.53 |    66.67 |    61.64 |    82.55 |                   |
+  album-delete-dialog.component.html            |      100 |      100 |      100 |      100 |                   |
+  album-delete-dialog.component.ts              |       60 |    72.73 |    38.46 |    58.62 |... 50,51,54,55,63 |
+  album-detail.component.html                   |      100 |      100 |      100 |      100 |                   |
+  album-detail.component.ts                     |    92.86 |    66.67 |       80 |       90 |                22 |
+  album-update.component.html                   |      100 |      100 |      100 |      100 |                   |
+  album-update.component.ts                     |       70 |    66.67 |    41.18 |    73.81 |... 41,43,70,74,78 |
+  album.component.html                          |      100 |      100 |      100 |      100 |                   |
+  album.component.ts                            |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  album.route.ts                                |       72 |    28.57 |       20 |    69.57 |... 22,23,24,25,28 |
+  album.service.ts                              |    93.33 |       60 |    93.33 |    92.31 |          63,69,72 |
+  index.ts                                      |      100 |      100 |      100 |      100 |                   |
+ app/entities/blockuser                         |    80.18 |    69.61 |    60.27 |    81.87 |                   |
+  blockuser-delete-dialog.component.html        |      100 |      100 |      100 |      100 |                   |
+  blockuser-delete-dialog.component.ts          |       60 |    72.73 |    38.46 |    61.29 |... 54,55,58,59,67 |
+  blockuser-detail.component.html               |      100 |      100 |      100 |      100 |                   |
+  blockuser-detail.component.ts                 |    92.86 |    66.67 |       80 |       90 |                22 |
+  blockuser-update.component.html               |      100 |      100 |      100 |      100 |                   |
+  blockuser-update.component.ts                 |    64.41 |       68 |    31.82 |       68 |... 55,82,86,90,94 |
+  blockuser.component.html                      |      100 |      100 |      100 |      100 |                   |
+  blockuser.component.ts                        |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  blockuser.service.ts                          |    93.33 |       60 |    93.33 |    92.31 |          63,69,72 |
+ app/entities/blog                              |       80 |    67.77 |    55.56 |     80.6 |                   |
+  blog-delete-dialog.component.html             |      100 |      100 |      100 |      100 |                   |
+  blog-delete-dialog.component.ts               |       60 |    72.73 |    38.46 |    58.62 |... 50,51,54,55,63 |
+  blog-detail.component.html                    |      100 |      100 |      100 |      100 |                   |
+  blog-detail.component.ts                      |       85 |    71.43 |    57.14 |       80 |          23,27,30 |
+  blog-update.component.html                    |      100 |      100 |      100 |      100 |                   |
+  blog-update.component.ts                      |    68.33 |    68.97 |    33.33 |    71.15 |... 58,62,89,93,97 |
+  blog.component.html                           |      100 |      100 |      100 |      100 |                   |
+  blog.component.ts                             |    91.43 |    73.17 |       70 |    92.19 |61,108,112,116,138 |
+  blog.route.ts                                 |       72 |    28.57 |       20 |    69.57 |... 22,23,24,25,28 |
+  blog.service.ts                               |    93.33 |       60 |    93.33 |    92.31 |          63,69,72 |
+  index.ts                                      |      100 |      100 |      100 |      100 |                   |
+ app/entities/cactivity                         |     79.3 |    66.67 |    57.58 |    80.61 |                   |
+  cactivity-delete-dialog.component.html        |      100 |      100 |      100 |      100 |                   |
+  cactivity-delete-dialog.component.ts          |       60 |    72.73 |    38.46 |    61.29 |... 54,55,58,59,67 |
+  cactivity-detail.component.html               |      100 |      100 |      100 |      100 |                   |
+  cactivity-detail.component.ts                 |    92.86 |    66.67 |       80 |       90 |                22 |
+  cactivity-update.component.html               |      100 |      100 |      100 |      100 |                   |
+  cactivity-update.component.ts                 |    63.46 |     61.9 |    38.89 |    65.91 |... 78,79,80,81,85 |
+  cactivity.component.html                      |      100 |      100 |      100 |      100 |                   |
+  cactivity.component.ts                        |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  cactivity.route.ts                            |       72 |    28.57 |       20 |    69.57 |... 22,23,24,25,28 |
+  cactivity.service.ts                          |      100 |    66.67 |      100 |      100 |                16 |
+  index.ts                                      |      100 |      100 |      100 |      100 |                   |
+ app/entities/calbum                            |    81.53 |    66.67 |    61.64 |    82.55 |                   |
+  calbum-delete-dialog.component.html           |      100 |      100 |      100 |      100 |                   |
+  calbum-delete-dialog.component.ts             |       60 |    72.73 |    38.46 |    58.62 |... 50,51,54,55,63 |
+  calbum-detail.component.html                  |      100 |      100 |      100 |      100 |                   |
+  calbum-detail.component.ts                    |    92.86 |    66.67 |       80 |       90 |                22 |
+  calbum-update.component.html                  |      100 |      100 |      100 |      100 |                   |
+  calbum-update.component.ts                    |       70 |    66.67 |    41.18 |    73.81 |... 42,44,71,75,79 |
+  calbum.component.html                         |      100 |      100 |      100 |      100 |                   |
+  calbum.component.ts                           |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  calbum.route.ts                               |       72 |    28.57 |       20 |    69.57 |... 22,23,24,25,28 |
+  calbum.service.ts                             |    93.33 |       60 |    93.33 |    92.31 |          63,69,72 |
+  index.ts                                      |      100 |      100 |      100 |      100 |                   |
+ app/entities/cceleb                            |     79.3 |    66.67 |    57.58 |    80.41 |                   |
+  cceleb-delete-dialog.component.html           |      100 |      100 |      100 |      100 |                   |
+  cceleb-delete-dialog.component.ts             |       60 |    72.73 |    38.46 |    58.62 |... 50,51,54,55,63 |
+  cceleb-detail.component.html                  |      100 |      100 |      100 |      100 |                   |
+  cceleb-detail.component.ts                    |    92.86 |    66.67 |       80 |       90 |                22 |
+  cceleb-update.component.html                  |      100 |      100 |      100 |      100 |                   |
+  cceleb-update.component.ts                    |    63.46 |     61.9 |    38.89 |    65.91 |... 78,79,80,81,85 |
+  cceleb.component.html                         |      100 |      100 |      100 |      100 |                   |
+  cceleb.component.ts                           |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  cceleb.route.ts                               |       72 |    28.57 |       20 |    69.57 |... 22,23,24,25,28 |
+  cceleb.service.ts                             |      100 |    66.67 |      100 |      100 |                16 |
+  index.ts                                      |      100 |      100 |      100 |      100 |                   |
+ app/entities/celeb                             |     79.3 |    66.67 |    57.58 |    80.41 |                   |
+  celeb-delete-dialog.component.html            |      100 |      100 |      100 |      100 |                   |
+  celeb-delete-dialog.component.ts              |       60 |    72.73 |    38.46 |    58.62 |... 50,51,54,55,63 |
+  celeb-detail.component.html                   |      100 |      100 |      100 |      100 |                   |
+  celeb-detail.component.ts                     |    92.86 |    66.67 |       80 |       90 |                22 |
+  celeb-update.component.html                   |      100 |      100 |      100 |      100 |                   |
+  celeb-update.component.ts                     |    63.46 |     61.9 |    38.89 |    65.91 |... 78,79,80,81,85 |
+  celeb.component.html                          |      100 |      100 |      100 |      100 |                   |
+  celeb.component.ts                            |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  celeb.route.ts                                |       72 |    28.57 |       20 |    69.57 |... 22,23,24,25,28 |
+  celeb.service.ts                              |      100 |    66.67 |      100 |      100 |                16 |
+  index.ts                                      |      100 |      100 |      100 |      100 |                   |
+ app/entities/cinterest                         |     79.3 |    66.67 |    57.58 |    80.61 |                   |
+  cinterest-delete-dialog.component.html        |      100 |      100 |      100 |      100 |                   |
+  cinterest-delete-dialog.component.ts          |       60 |    72.73 |    38.46 |    61.29 |... 54,55,58,59,67 |
+  cinterest-detail.component.html               |      100 |      100 |      100 |      100 |                   |
+  cinterest-detail.component.ts                 |    92.86 |    66.67 |       80 |       90 |                22 |
+  cinterest-update.component.html               |      100 |      100 |      100 |      100 |                   |
+  cinterest-update.component.ts                 |    63.46 |     61.9 |    38.89 |    65.91 |... 78,79,80,81,85 |
+  cinterest.component.html                      |      100 |      100 |      100 |      100 |                   |
+  cinterest.component.ts                        |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  cinterest.route.ts                            |       72 |    28.57 |       20 |    69.57 |... 22,23,24,25,28 |
+  cinterest.service.ts                          |      100 |    66.67 |      100 |      100 |                16 |
+  index.ts                                      |      100 |      100 |      100 |      100 |                   |
+ app/entities/cmessage                          |    82.11 |    69.39 |    64.71 |    83.61 |                   |
+  cmessage-delete-dialog.component.html         |      100 |      100 |      100 |      100 |                   |
+  cmessage-delete-dialog.component.ts           |       60 |    72.73 |    38.46 |    58.62 |... 50,51,54,55,63 |
+  cmessage-detail.component.html                |      100 |      100 |      100 |      100 |                   |
+  cmessage-detail.component.ts                  |    92.86 |    66.67 |       80 |       90 |                22 |
+  cmessage-update.component.html                |      100 |      100 |      100 |      100 |                   |
+  cmessage-update.component.ts                  |       70 |    66.67 |    41.18 |    73.81 |... 42,44,71,75,79 |
+  cmessage.component.html                       |      100 |      100 |      100 |      100 |                   |
+  cmessage.component.ts                         |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  cmessage.service.ts                           |    93.33 |       60 |    93.33 |    92.31 |          63,69,72 |
+ app/entities/comment                           |    80.18 |    69.61 |    60.27 |    81.68 |                   |
+  comment-delete-dialog.component.html          |      100 |      100 |      100 |      100 |                   |
+  comment-delete-dialog.component.ts            |       60 |    72.73 |    38.46 |    58.62 |... 50,51,54,55,63 |
+  comment-detail.component.html                 |      100 |      100 |      100 |      100 |                   |
+  comment-detail.component.ts                   |    92.86 |    66.67 |       80 |       90 |                22 |
+  comment-update.component.html                 |      100 |      100 |      100 |      100 |                   |
+  comment-update.component.ts                   |    64.41 |       68 |    31.82 |       68 |... 55,82,86,90,94 |
+  comment.component.html                        |      100 |      100 |      100 |      100 |                   |
+  comment.component.ts                          |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  comment.service.ts                            |    93.33 |       60 |    93.33 |    92.31 |          63,69,72 |
+ app/entities/community                         |    74.59 |    66.42 |    46.39 |    75.38 |                   |
+  community-delete-dialog.component.html        |      100 |      100 |      100 |      100 |                   |
+  community-delete-dialog.component.ts          |       60 |    72.73 |    38.46 |    61.29 |... 54,55,58,59,67 |
+  community-detail.component.html               |      100 |      100 |      100 |      100 |                   |
+  community-detail.component.ts                 |       85 |    71.43 |    57.14 |       80 |          23,27,30 |
+  community-update.component.html               |      100 |      100 |      100 |      100 |                   |
+  community-update.component.ts                 |    54.84 |    64.44 |    18.92 |    57.32 |... 49,150,151,155 |
+  community.component.html                      |      100 |      100 |      100 |      100 |                   |
+  community.component.ts                        |    91.43 |    73.17 |       70 |    92.19 |61,108,112,116,138 |
+  community.route.ts                            |       72 |    28.57 |       20 |    69.57 |... 22,23,24,25,28 |
+  community.service.ts                          |    93.33 |       60 |    93.33 |    92.31 |          63,69,72 |
+  index.ts                                      |      100 |      100 |      100 |      100 |                   |
+ app/entities/config-variables                  |    84.09 |    72.97 |    68.52 |    86.39 |                   |
+  config-variables-delete-dialog.component.html |      100 |      100 |      100 |      100 |                   |
+  config-variables-delete-dialog.component.ts   |       60 |    72.73 |    38.46 |    61.29 |... 57,58,61,62,70 |
+  config-variables-detail.component.html        |      100 |      100 |      100 |      100 |                   |
+  config-variables-detail.component.ts          |    92.86 |    66.67 |       80 |       90 |                22 |
+  config-variables-update.component.html        |      100 |      100 |      100 |      100 |                   |
+  config-variables-update.component.ts          |    78.13 |    77.78 |    63.64 |    83.33 |       20,21,22,49 |
+  config-variables.component.html               |      100 |      100 |      100 |      100 |                   |
+  config-variables.component.ts                 |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  config-variables.service.ts                   |      100 |    66.67 |      100 |      100 |                16 |
+ app/entities/feedback                          |    84.31 |    68.89 |    70.97 |     85.8 |                   |
+  feedback-delete-dialog.component.html         |      100 |      100 |      100 |      100 |                   |
+  feedback-delete-dialog.component.ts           |       60 |    72.73 |    38.46 |    58.62 |... 50,51,54,55,63 |
+  feedback-detail.component.html                |      100 |      100 |      100 |      100 |                   |
+  feedback-detail.component.ts                  |    92.86 |    66.67 |       80 |       90 |                22 |
+  feedback-update.component.html                |      100 |      100 |      100 |      100 |                   |
+  feedback-update.component.ts                  |    77.78 |    61.54 |    63.64 |    82.14 |    23,24,25,26,54 |
+  feedback.component.html                       |      100 |      100 |      100 |      100 |                   |
+  feedback.component.ts                         |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  feedback.service.ts                           |    93.33 |       60 |    93.33 |    92.31 |          63,69,72 |
+ app/entities/follow                            |    80.18 |    69.61 |    60.27 |    81.68 |                   |
+  follow-delete-dialog.component.html           |      100 |      100 |      100 |      100 |                   |
+  follow-delete-dialog.component.ts             |       60 |    72.73 |    38.46 |    58.62 |... 50,51,54,55,63 |
+  follow-detail.component.html                  |      100 |      100 |      100 |      100 |                   |
+  follow-detail.component.ts                    |    92.86 |    66.67 |       80 |       90 |                22 |
+  follow-update.component.html                  |      100 |      100 |      100 |      100 |                   |
+  follow-update.component.ts                    |    64.41 |       68 |    31.82 |       68 |... 55,82,86,90,94 |
+  follow.component.html                         |      100 |      100 |      100 |      100 |                   |
+  follow.component.ts                           |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  follow.service.ts                             |    93.33 |       60 |    93.33 |    92.31 |          63,69,72 |
+ app/entities/frontpageconfig                   |    84.31 |    68.89 |    70.97 |    85.96 |                   |
+  frontpageconfig-delete-dialog.component.html  |      100 |      100 |      100 |      100 |                   |
+  frontpageconfig-delete-dialog.component.ts    |       60 |    72.73 |    38.46 |    61.29 |... 57,58,61,62,70 |
+  frontpageconfig-detail.component.html         |      100 |      100 |      100 |      100 |                   |
+  frontpageconfig-detail.component.ts           |    92.86 |    66.67 |       80 |       90 |                22 |
+  frontpageconfig-update.component.html         |      100 |      100 |      100 |      100 |                   |
+  frontpageconfig-update.component.ts           |    77.78 |    61.54 |    63.64 |    82.14 |    23,24,25,26,55 |
+  frontpageconfig.component.html                |      100 |      100 |      100 |      100 |                   |
+  frontpageconfig.component.ts                  |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  frontpageconfig.service.ts                    |    93.33 |       60 |    93.33 |    92.31 |          66,72,75 |
+ app/entities/interest                          |     79.3 |    66.67 |    57.58 |    80.41 |                   |
+  index.ts                                      |      100 |      100 |      100 |      100 |                   |
+  interest-delete-dialog.component.html         |      100 |      100 |      100 |      100 |                   |
+  interest-delete-dialog.component.ts           |       60 |    72.73 |    38.46 |    58.62 |... 50,51,54,55,63 |
+  interest-detail.component.html                |      100 |      100 |      100 |      100 |                   |
+  interest-detail.component.ts                  |    92.86 |    66.67 |       80 |       90 |                22 |
+  interest-update.component.html                |      100 |      100 |      100 |      100 |                   |
+  interest-update.component.ts                  |    63.46 |     61.9 |    38.89 |    65.91 |... 78,79,80,81,85 |
+  interest.component.html                       |      100 |      100 |      100 |      100 |                   |
+  interest.component.ts                         |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  interest.route.ts                             |       72 |    28.57 |       20 |    69.57 |... 22,23,24,25,28 |
+  interest.service.ts                           |      100 |    66.67 |      100 |      100 |                16 |
+ app/entities/message                           |    82.11 |    69.39 |    64.71 |    83.61 |                   |
+  message-delete-dialog.component.html          |      100 |      100 |      100 |      100 |                   |
+  message-delete-dialog.component.ts            |       60 |    72.73 |    38.46 |    58.62 |... 50,51,54,55,63 |
+  message-detail.component.html                 |      100 |      100 |      100 |      100 |                   |
+  message-detail.component.ts                   |    92.86 |    66.67 |       80 |       90 |                22 |
+  message-update.component.html                 |      100 |      100 |      100 |      100 |                   |
+  message-update.component.ts                   |       70 |    66.67 |    41.18 |    73.81 |... 41,43,70,74,78 |
+  message.component.html                        |      100 |      100 |      100 |      100 |                   |
+  message.component.ts                          |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  message.service.ts                            |    93.33 |       60 |    93.33 |    92.31 |          63,69,72 |
+ app/entities/newsletter                        |    84.31 |    68.89 |    70.97 |    85.96 |                   |
+  newsletter-delete-dialog.component.html       |      100 |      100 |      100 |      100 |                   |
+  newsletter-delete-dialog.component.ts         |       60 |    72.73 |    38.46 |    61.29 |... 54,55,58,59,67 |
+  newsletter-detail.component.html              |      100 |      100 |      100 |      100 |                   |
+  newsletter-detail.component.ts                |    92.86 |    66.67 |       80 |       90 |                22 |
+  newsletter-update.component.html              |      100 |      100 |      100 |      100 |                   |
+  newsletter-update.component.ts                |    77.78 |    61.54 |    63.64 |    82.14 |    23,24,25,26,54 |
+  newsletter.component.html                     |      100 |      100 |      100 |      100 |                   |
+  newsletter.component.ts                       |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  newsletter.service.ts                         |    93.33 |       60 |    93.33 |    92.31 |          63,69,72 |
+ app/entities/notification                      |    81.08 |    66.36 |    64.71 |    82.54 |                   |
+  notification-delete-dialog.component.html     |      100 |      100 |      100 |      100 |                   |
+  notification-delete-dialog.component.ts       |       60 |    72.73 |    38.46 |    61.29 |... 57,58,61,62,70 |
+  notification-detail.component.html            |      100 |      100 |      100 |      100 |                   |
+  notification-detail.component.ts              |    92.86 |    66.67 |       80 |       90 |                22 |
+  notification-update.component.html            |      100 |      100 |      100 |      100 |                   |
+  notification-update.component.ts              |    69.23 |       60 |    41.18 |    72.73 |... 44,46,74,78,82 |
+  notification.component.html                   |      100 |      100 |      100 |      100 |                   |
+  notification.component.ts                     |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  notification.service.ts                       |    89.36 |    56.52 |    93.33 |     87.8 |    67,69,75,76,79 |
+ app/entities/photo                             |    78.63 |    70.34 |    54.32 |    79.62 |                   |
+  photo-delete-dialog.component.html            |      100 |      100 |      100 |      100 |                   |
+  photo-delete-dialog.component.ts              |       60 |    72.73 |    38.46 |    58.62 |... 50,51,54,55,63 |
+  photo-detail.component.html                   |      100 |      100 |      100 |      100 |                   |
+  photo-detail.component.ts                     |       85 |    71.43 |    57.14 |       80 |          23,27,30 |
+  photo-update.component.html                   |      100 |      100 |      100 |      100 |                   |
+  photo-update.component.ts                     |    63.77 |     69.7 |    26.92 |    66.67 |... 01,105,109,113 |
+  photo.component.html                          |      100 |      100 |      100 |      100 |                   |
+  photo.component.ts                            |    91.43 |    73.17 |       70 |    92.19 |61,108,112,116,138 |
+  photo.service.ts                              |    93.33 |       60 |    93.33 |    92.31 |          63,69,72 |
+ app/entities/post                              |    73.94 |    64.43 |    46.39 |    74.44 |                   |
+  index.ts                                      |      100 |      100 |      100 |      100 |                   |
+  post-delete-dialog.component.html             |      100 |      100 |      100 |      100 |                   |
+  post-delete-dialog.component.ts               |       60 |    72.73 |    38.46 |    58.62 |... 50,51,54,55,63 |
+  post-detail.component.html                    |      100 |      100 |      100 |      100 |                   |
+  post-detail.component.ts                      |       85 |    71.43 |    57.14 |       80 |          23,27,30 |
+  post-update.component.html                    |      100 |      100 |      100 |      100 |                   |
+  post-update.component.ts                      |    54.74 |    61.22 |    18.92 |    57.14 |... 52,153,154,158 |
+  post.component.html                           |      100 |      100 |      100 |      100 |                   |
+  post.component.ts                             |    91.43 |    73.17 |       70 |    92.19 |61,108,112,116,138 |
+  post.route.ts                                 |       72 |    28.57 |       20 |    69.57 |... 22,23,24,25,28 |
+  post.service.ts                               |    89.36 |    56.52 |    93.33 |     87.8 |    63,65,71,72,75 |
+ app/entities/tag                               |     79.3 |    66.67 |    57.58 |    80.41 |                   |
+  index.ts                                      |      100 |      100 |      100 |      100 |                   |
+  tag-delete-dialog.component.html              |      100 |      100 |      100 |      100 |                   |
+  tag-delete-dialog.component.ts                |       60 |    72.73 |    38.46 |    58.62 |... 50,51,54,55,63 |
+  tag-detail.component.html                     |      100 |      100 |      100 |      100 |                   |
+  tag-detail.component.ts                       |    92.86 |    66.67 |       80 |       90 |                22 |
+  tag-update.component.html                     |      100 |      100 |      100 |      100 |                   |
+  tag-update.component.ts                       |    63.46 |     61.9 |    38.89 |    65.91 |... 78,79,80,81,85 |
+  tag.component.html                            |      100 |      100 |      100 |      100 |                   |
+  tag.component.ts                              |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  tag.route.ts                                  |       72 |    28.57 |       20 |    69.57 |... 22,23,24,25,28 |
+  tag.service.ts                                |      100 |    66.67 |      100 |      100 |                16 |
+ app/entities/topic                             |     79.3 |    66.67 |    57.58 |    80.41 |                   |
+  index.ts                                      |      100 |      100 |      100 |      100 |                   |
+  topic-delete-dialog.component.html            |      100 |      100 |      100 |      100 |                   |
+  topic-delete-dialog.component.ts              |       60 |    72.73 |    38.46 |    58.62 |... 50,51,54,55,63 |
+  topic-detail.component.html                   |      100 |      100 |      100 |      100 |                   |
+  topic-detail.component.ts                     |    92.86 |    66.67 |       80 |       90 |                22 |
+  topic-update.component.html                   |      100 |      100 |      100 |      100 |                   |
+  topic-update.component.ts                     |    63.46 |     61.9 |    38.89 |    65.91 |... 78,79,80,81,85 |
+  topic.component.html                          |      100 |      100 |      100 |      100 |                   |
+  topic.component.ts                            |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  topic.route.ts                                |       72 |    28.57 |       20 |    69.57 |... 22,23,24,25,28 |
+  topic.service.ts                              |      100 |    66.67 |      100 |      100 |                16 |
+ app/entities/uprofile                          |    73.94 |    64.43 |    46.39 |    74.44 |                   |
+  index.ts                                      |      100 |      100 |      100 |      100 |                   |
+  uprofile-delete-dialog.component.html         |      100 |      100 |      100 |      100 |                   |
+  uprofile-delete-dialog.component.ts           |       60 |    72.73 |    38.46 |    58.62 |... 50,51,54,55,63 |
+  uprofile-detail.component.html                |      100 |      100 |      100 |      100 |                   |
+  uprofile-detail.component.ts                  |       85 |    71.43 |    57.14 |       80 |          23,27,30 |
+  uprofile-update.component.html                |      100 |      100 |      100 |      100 |                   |
+  uprofile-update.component.ts                  |    54.74 |    61.22 |    18.92 |    57.14 |... 52,153,154,158 |
+  uprofile.component.html                       |      100 |      100 |      100 |      100 |                   |
+  uprofile.component.ts                         |    91.43 |    73.17 |       70 |    92.19 |61,108,112,116,138 |
+  uprofile.route.ts                             |       72 |    28.57 |       20 |    69.57 |... 22,23,24,25,28 |
+  uprofile.service.ts                           |    89.36 |    56.52 |    93.33 |     87.8 |    63,65,71,72,75 |
+ app/entities/urllink                           |    84.09 |    72.97 |    68.52 |    86.21 |                   |
+  urllink-delete-dialog.component.html          |      100 |      100 |      100 |      100 |                   |
+  urllink-delete-dialog.component.ts            |       60 |    72.73 |    38.46 |    58.62 |... 50,51,54,55,63 |
+  urllink-detail.component.html                 |      100 |      100 |      100 |      100 |                   |
+  urllink-detail.component.ts                   |    92.86 |    66.67 |       80 |       90 |                22 |
+  urllink-update.component.html                 |      100 |      100 |      100 |      100 |                   |
+  urllink-update.component.ts                   |    78.13 |    77.78 |    63.64 |    83.33 |       20,21,22,49 |
+  urllink.component.html                        |      100 |      100 |      100 |      100 |                   |
+  urllink.component.ts                          |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  urllink.service.ts                            |      100 |    66.67 |      100 |      100 |                16 |
+ app/entities/vanswer                           |    79.84 |    66.97 |    57.69 |    80.91 |                   |
+  index.ts                                      |      100 |      100 |      100 |      100 |                   |
+  vanswer-delete-dialog.component.html          |      100 |      100 |      100 |      100 |                   |
+  vanswer-delete-dialog.component.ts            |       60 |    72.73 |    38.46 |    58.62 |... 50,51,54,55,63 |
+  vanswer-detail.component.html                 |      100 |      100 |      100 |      100 |                   |
+  vanswer-detail.component.ts                   |    92.86 |    66.67 |       80 |       90 |                22 |
+  vanswer-update.component.html                 |      100 |      100 |      100 |      100 |                   |
+  vanswer-update.component.ts                   |    64.41 |       68 |    31.82 |       68 |... 55,82,86,90,94 |
+  vanswer.component.html                        |      100 |      100 |      100 |      100 |                   |
+  vanswer.component.ts                          |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  vanswer.route.ts                              |       72 |    28.57 |       20 |    69.57 |... 22,23,24,25,28 |
+  vanswer.service.ts                            |    93.33 |       60 |    93.33 |    92.31 |          63,69,72 |
+ app/entities/vquestion                         |    79.84 |    66.97 |    57.69 |    81.08 |                   |
+  index.ts                                      |      100 |      100 |      100 |      100 |                   |
+  vquestion-delete-dialog.component.html        |      100 |      100 |      100 |      100 |                   |
+  vquestion-delete-dialog.component.ts          |       60 |    72.73 |    38.46 |    61.29 |... 54,55,58,59,67 |
+  vquestion-detail.component.html               |      100 |      100 |      100 |      100 |                   |
+  vquestion-detail.component.ts                 |    92.86 |    66.67 |       80 |       90 |                22 |
+  vquestion-update.component.html               |      100 |      100 |      100 |      100 |                   |
+  vquestion-update.component.ts                 |    64.41 |       68 |    31.82 |       68 |... 55,82,86,90,94 |
+  vquestion.component.html                      |      100 |      100 |      100 |      100 |                   |
+  vquestion.component.ts                        |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  vquestion.route.ts                            |       72 |    28.57 |       20 |    69.57 |... 22,23,24,25,28 |
+  vquestion.service.ts                          |    93.33 |       60 |    93.33 |    92.31 |          63,69,72 |
+ app/entities/vthumb                            |    78.39 |    69.81 |    56.41 |     79.9 |                   |
+  vthumb-delete-dialog.component.html           |      100 |      100 |      100 |      100 |                   |
+  vthumb-delete-dialog.component.ts             |       60 |    72.73 |    38.46 |    58.62 |... 50,51,54,55,63 |
+  vthumb-detail.component.html                  |      100 |      100 |      100 |      100 |                   |
+  vthumb-detail.component.ts                    |    92.86 |    66.67 |       80 |       90 |                22 |
+  vthumb-update.component.html                  |      100 |      100 |      100 |      100 |                   |
+  vthumb-update.component.ts                    |    60.29 |    68.97 |    25.93 |    63.79 |... 98,102,106,110 |
+  vthumb.component.html                         |      100 |      100 |      100 |      100 |                   |
+  vthumb.component.ts                           |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  vthumb.service.ts                             |    93.33 |       60 |    93.33 |    92.31 |          63,69,72 |
+ app/entities/vtopic                            |    81.53 |    66.67 |    61.64 |    82.55 |                   |
+  index.ts                                      |      100 |      100 |      100 |      100 |                   |
+  vtopic-delete-dialog.component.html           |      100 |      100 |      100 |      100 |                   |
+  vtopic-delete-dialog.component.ts             |       60 |    72.73 |    38.46 |    58.62 |... 50,51,54,55,63 |
+  vtopic-detail.component.html                  |      100 |      100 |      100 |      100 |                   |
+  vtopic-detail.component.ts                    |    92.86 |    66.67 |       80 |       90 |                22 |
+  vtopic-update.component.html                  |      100 |      100 |      100 |      100 |                   |
+  vtopic-update.component.ts                    |       70 |    66.67 |    41.18 |    73.81 |... 41,43,70,74,78 |
+  vtopic.component.html                         |      100 |      100 |      100 |      100 |                   |
+  vtopic.component.ts                           |    93.85 |    72.97 |    77.78 |    94.92 |        60,107,129 |
+  vtopic.route.ts                               |       72 |    28.57 |       20 |    69.57 |... 22,23,24,25,28 |
+  vtopic.service.ts                             |    93.33 |       60 |    93.33 |    92.31 |          63,69,72 |
+ app/shared                                     |    95.35 |      100 |       60 |    94.44 |                   |
+  index.ts                                      |      100 |      100 |      100 |      100 |                   |
+  shared-common.module.ts                       |      100 |      100 |      100 |      100 |                   |
+  shared-libs.module.ts                         |    92.86 |      100 |       50 |    91.67 |                16 |
+  shared.module.ts                              |       90 |      100 |       50 |     87.5 |                17 |
+ app/shared/alert                               |    92.75 |    84.78 |    58.33 |    91.94 |                   |
+  alert-error.component.ts                      |    98.21 |    86.05 |    85.71 |    98.04 |                87 |
+  alert.component.ts                            |    69.23 |    66.67 |       20 |    63.64 |       19,22,26,33 |
+ app/shared/auth                                |       40 |    53.33 |       20 |    35.29 |                   |
+  has-any-authority.directive.ts                |       40 |    53.33 |       20 |    35.29 |... 32,36,37,38,39 |
+ app/shared/constants                           |      100 |      100 |      100 |      100 |                   |
+  error.constants.ts                            |      100 |      100 |      100 |      100 |                   |
+  input.constants.ts                            |      100 |      100 |      100 |      100 |                   |
+  pagination.constants.ts                       |      100 |      100 |      100 |      100 |                   |
+ app/shared/language                            |       75 |      100 |    33.33 |    66.67 |                   |
+  find-language-from-key.pipe.ts                |       75 |      100 |    33.33 |    66.67 |              5,11 |
+ app/shared/login                               |    89.13 |    76.47 |       70 |    92.68 |                   |
+  login.component.html                          |      100 |      100 |      100 |      100 |                   |
+  login.component.ts                            |    88.89 |    76.47 |       70 |     92.5 |          33,57,74 |
+ app/shared/model                               |      100 |      100 |      100 |      100 |                   |
+  activity.model.ts                             |      100 |      100 |      100 |      100 |                   |
+  album.model.ts                                |      100 |      100 |      100 |      100 |                   |
+  blockuser.model.ts                            |      100 |      100 |      100 |      100 |                   |
+  blog.model.ts                                 |      100 |      100 |      100 |      100 |                   |
+  cactivity.model.ts                            |      100 |      100 |      100 |      100 |                   |
+  calbum.model.ts                               |      100 |      100 |      100 |      100 |                   |
+  cceleb.model.ts                               |      100 |      100 |      100 |      100 |                   |
+  celeb.model.ts                                |      100 |      100 |      100 |      100 |                   |
+  cinterest.model.ts                            |      100 |      100 |      100 |      100 |                   |
+  cmessage.model.ts                             |      100 |      100 |      100 |      100 |                   |
+  comment.model.ts                              |      100 |      100 |      100 |      100 |                   |
+  community.model.ts                            |      100 |      100 |      100 |      100 |                   |
+  config-variables.model.ts                     |      100 |      100 |      100 |      100 |                   |
+  feedback.model.ts                             |      100 |      100 |      100 |      100 |                   |
+  follow.model.ts                               |      100 |      100 |      100 |      100 |                   |
+  frontpageconfig.model.ts                      |      100 |      100 |      100 |      100 |                   |
+  interest.model.ts                             |      100 |      100 |      100 |      100 |                   |
+  message.model.ts                              |      100 |      100 |      100 |      100 |                   |
+  newsletter.model.ts                           |      100 |      100 |      100 |      100 |                   |
+  notification.model.ts                         |      100 |      100 |      100 |      100 |                   |
+  photo.model.ts                                |      100 |      100 |      100 |      100 |                   |
+  post.model.ts                                 |      100 |      100 |      100 |      100 |                   |
+  tag.model.ts                                  |      100 |      100 |      100 |      100 |                   |
+  topic.model.ts                                |      100 |      100 |      100 |      100 |                   |
+  uprofile.model.ts                             |      100 |      100 |      100 |      100 |                   |
+  urllink.model.ts                              |      100 |      100 |      100 |      100 |                   |
+  vanswer.model.ts                              |      100 |      100 |      100 |      100 |                   |
+  vquestion.model.ts                            |      100 |      100 |      100 |      100 |                   |
+  vthumb.model.ts                               |      100 |      100 |      100 |      100 |                   |
+  vtopic.model.ts                               |      100 |      100 |      100 |      100 |                   |
+ app/shared/util                                |       84 |    38.46 |    66.67 |    81.82 |                   |
+  datepicker-adapter.ts                         |    71.43 |        0 |    33.33 |    63.64 |       12,13,15,19 |
+  request-util.ts                               |      100 |    83.33 |      100 |      100 |                 5 |
+------------------------------------------------|----------|----------|----------|----------|-------------------|
+
+Summary of all failing tests
+ FAIL  src/test/javascript/spec/app/entities/activity/activity-update.component.spec.ts
+  ? Test suite failed to run
+
+    jest: failed to cache transform results in: C:/Users/usuario/AppData/Local/Temp/jest/jest-transform-cache-9f21bbda802f32f93547c06b8308b683-ba8f3aff845ee3386afef62ece7783cd/ed/celeb.route_ede984f239385eb366324f11e62843d3.map
+    Failure message: EBADF: bad file descriptor, close
+
+      at Object.closeSync (node_modules/graceful-fs/graceful-fs.js:52:27)
+      at Function.writeFileSync [as sync] (node_modules/write-file-atomic/index.js:228:16)
+
+
+Test Suites: 1 failed, 174 passed, 175 total
+Tests:       548 passed, 548 total
+Snapshots:   0 total
+Time:        126.566s
+Ran all test suites.
+npm ERR! Test failed.  See above for more details.
+
+D:\BasuraTemporal\Jhipster\jhipsterpress>

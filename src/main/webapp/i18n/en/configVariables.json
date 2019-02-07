@@ -1,0 +1,40 @@
+{
+    "jhipsterpressApp": {
+        "configVariables": {
+            "home": {
+                "title": "Config Variables",
+                "createLabel": "Create a new Config Variables",
+                "createOrEditLabel": "Create or edit a Config Variables"
+            },
+            "created": "A new Config Variables is created with identifier {{ param }}",
+            "updated": "A Config Variables is updated with identifier {{ param }}",
+            "deleted": "A Config Variables is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Config Variables {{ id }}?"
+            },
+            "detail": {
+                "title": "Config Variables"
+            },
+            "configVarLong1": "Config Var Long 1",
+            "configVarLong2": "Config Var Long 2",
+            "configVarLong3": "Config Var Long 3",
+            "configVarLong4": "Config Var Long 4",
+            "configVarLong5": "Config Var Long 5",
+            "configVarLong6": "Config Var Long 6",
+            "configVarLong7": "Config Var Long 7",
+            "configVarLong8": "Config Var Long 8",
+            "configVarLong9": "Config Var Long 9",
+            "configVarLong10": "Config Var Long 10",
+            "configVarLong11": "Config Var Long 11",
+            "configVarLong12": "Config Var Long 12",
+            "configVarLong13": "Config Var Long 13",
+            "configVarLong14": "Config Var Long 14",
+            "configVarLong15": "Config Var Long 15",
+            "configVarBoolean16": "Config Var Boolean 16",
+            "configVarBoolean17": "Config Var Boolean 17",
+            "configVarBoolean18": "Config Var Boolean 18",
+            "configVarString19": "Config Var String 19",
+            "configVarString20": "Config Var String 20"
+        }
+    }
+}

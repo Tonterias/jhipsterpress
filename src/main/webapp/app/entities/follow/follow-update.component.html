@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-follow-heading" jhiTranslate="jhipsterpressApp.follow.home.createOrEditLabel">Create or edit a Follow</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!follow.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="follow.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.follow.creationDate" for="field_creationDate">Creation Date</label>
+                    <div class="d-flex">
+                        <input id="field_creationDate" type="datetime-local" class="form-control" name="creationDate" [(ngModel)]="creationDate" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.follow.followed" for="field_followed">Followed</label>
+                    <select class="form-control" id="field_followed" name="followed" [(ngModel)]="follow.followedId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.follow.following" for="field_following">Following</label>
+                    <select class="form-control" id="field_following" name="following" [(ngModel)]="follow.followingId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.follow.cfollowed" for="field_cfollowed">Cfollowed</label>
+                    <select class="form-control" id="field_cfollowed" name="cfollowed" [(ngModel)]="follow.cfollowedId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="communityOption.id" *ngFor="let communityOption of communities; trackBy: trackCommunityById">{{communityOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.follow.cfollowing" for="field_cfollowing">Cfollowing</label>
+                    <select class="form-control" id="field_cfollowing" name="cfollowing" [(ngModel)]="follow.cfollowingId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="communityOption.id" *ngFor="let communityOption of communities; trackBy: trackCommunityById">{{communityOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

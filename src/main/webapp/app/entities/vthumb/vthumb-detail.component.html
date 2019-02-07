@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="vthumb">
+            <h2><span jhiTranslate="jhipsterpressApp.vthumb.detail.title">Vthumb</span> {{vthumb.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterpressApp.vthumb.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{vthumb.creationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.vthumb.vthumbUp">Vthumb Up</span></dt>
+                <dd>
+                    <span>{{vthumb.vthumbUp}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.vthumb.vthumbDown">Vthumb Down</span></dt>
+                <dd>
+                    <span>{{vthumb.vthumbDown}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.vthumb.user">User</span></dt>
+                <dd>
+                    {{vthumb.userId}}
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.vthumb.vquestion">Vquestion</span></dt>
+                <dd>
+                    <div *ngIf="vthumb.vquestionId">
+                        <a [routerLink]="['/vquestion', vthumb.vquestionId, 'view']">{{vthumb.vquestionId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.vthumb.vanswer">Vanswer</span></dt>
+                <dd>
+                    <div *ngIf="vthumb.vanswerId">
+                        <a [routerLink]="['/vanswer', vthumb.vanswerId, 'view']">{{vthumb.vanswerId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/vthumb', vthumb.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

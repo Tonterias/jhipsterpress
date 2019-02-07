@@ -1,0 +1,25 @@
+{
+    "jhipsterpressApp": {
+        "cmessage": {
+            "home": {
+                "title": "Cmessages",
+                "createLabel": "Create a new Cmessage",
+                "createOrEditLabel": "Create or edit a Cmessage"
+            },
+            "created": "A new Cmessage is created with identifier {{ param }}",
+            "updated": "A Cmessage is updated with identifier {{ param }}",
+            "deleted": "A Cmessage is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Cmessage {{ id }}?"
+            },
+            "detail": {
+                "title": "Cmessage"
+            },
+            "creationDate": "Creation Date",
+            "messageText": "Message Text",
+            "isDelivered": "Is Delivered",
+            "csender": "Csender",
+            "creceiver": "Creceiver"
+        }
+    }
+}

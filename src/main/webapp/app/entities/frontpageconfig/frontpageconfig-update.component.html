@@ -1,0 +1,316 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-frontpageconfig-heading" jhiTranslate="jhipsterpressApp.frontpageconfig.home.createOrEditLabel">Create or edit a Frontpageconfig</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!frontpageconfig.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="frontpageconfig.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.creationDate" for="field_creationDate">Creation Date</label>
+                    <div class="d-flex">
+                        <input id="field_creationDate" type="datetime-local" class="form-control" name="creationDate" [(ngModel)]="creationDate" placeholder="YYYY-MM-DD HH:mm"
+                        required/>
+                    </div>
+                    <div [hidden]="!(editForm.controls.creationDate?.dirty && editForm.controls.creationDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.creationDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.creationDate?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.topNews1" for="field_topNews1">Top News 1</label>
+                    <input type="number" class="form-control" name="topNews1" id="field_topNews1"
+                        [(ngModel)]="frontpageconfig.topNews1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.topNews2" for="field_topNews2">Top News 2</label>
+                    <input type="number" class="form-control" name="topNews2" id="field_topNews2"
+                        [(ngModel)]="frontpageconfig.topNews2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.topNews3" for="field_topNews3">Top News 3</label>
+                    <input type="number" class="form-control" name="topNews3" id="field_topNews3"
+                        [(ngModel)]="frontpageconfig.topNews3" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.topNews4" for="field_topNews4">Top News 4</label>
+                    <input type="number" class="form-control" name="topNews4" id="field_topNews4"
+                        [(ngModel)]="frontpageconfig.topNews4" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.topNews5" for="field_topNews5">Top News 5</label>
+                    <input type="number" class="form-control" name="topNews5" id="field_topNews5"
+                        [(ngModel)]="frontpageconfig.topNews5" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.latestNews1" for="field_latestNews1">Latest News 1</label>
+                    <input type="number" class="form-control" name="latestNews1" id="field_latestNews1"
+                        [(ngModel)]="frontpageconfig.latestNews1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.latestNews2" for="field_latestNews2">Latest News 2</label>
+                    <input type="number" class="form-control" name="latestNews2" id="field_latestNews2"
+                        [(ngModel)]="frontpageconfig.latestNews2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.latestNews3" for="field_latestNews3">Latest News 3</label>
+                    <input type="number" class="form-control" name="latestNews3" id="field_latestNews3"
+                        [(ngModel)]="frontpageconfig.latestNews3" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.latestNews4" for="field_latestNews4">Latest News 4</label>
+                    <input type="number" class="form-control" name="latestNews4" id="field_latestNews4"
+                        [(ngModel)]="frontpageconfig.latestNews4" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.latestNews5" for="field_latestNews5">Latest News 5</label>
+                    <input type="number" class="form-control" name="latestNews5" id="field_latestNews5"
+                        [(ngModel)]="frontpageconfig.latestNews5" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.breakingNews1" for="field_breakingNews1">Breaking News 1</label>
+                    <input type="number" class="form-control" name="breakingNews1" id="field_breakingNews1"
+                        [(ngModel)]="frontpageconfig.breakingNews1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.recentPosts1" for="field_recentPosts1">Recent Posts 1</label>
+                    <input type="number" class="form-control" name="recentPosts1" id="field_recentPosts1"
+                        [(ngModel)]="frontpageconfig.recentPosts1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.recentPosts2" for="field_recentPosts2">Recent Posts 2</label>
+                    <input type="number" class="form-control" name="recentPosts2" id="field_recentPosts2"
+                        [(ngModel)]="frontpageconfig.recentPosts2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.recentPosts3" for="field_recentPosts3">Recent Posts 3</label>
+                    <input type="number" class="form-control" name="recentPosts3" id="field_recentPosts3"
+                        [(ngModel)]="frontpageconfig.recentPosts3" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.recentPosts4" for="field_recentPosts4">Recent Posts 4</label>
+                    <input type="number" class="form-control" name="recentPosts4" id="field_recentPosts4"
+                        [(ngModel)]="frontpageconfig.recentPosts4" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.featuredArticles1" for="field_featuredArticles1">Featured Articles 1</label>
+                    <input type="number" class="form-control" name="featuredArticles1" id="field_featuredArticles1"
+                        [(ngModel)]="frontpageconfig.featuredArticles1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.featuredArticles2" for="field_featuredArticles2">Featured Articles 2</label>
+                    <input type="number" class="form-control" name="featuredArticles2" id="field_featuredArticles2"
+                        [(ngModel)]="frontpageconfig.featuredArticles2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.featuredArticles3" for="field_featuredArticles3">Featured Articles 3</label>
+                    <input type="number" class="form-control" name="featuredArticles3" id="field_featuredArticles3"
+                        [(ngModel)]="frontpageconfig.featuredArticles3" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.featuredArticles4" for="field_featuredArticles4">Featured Articles 4</label>
+                    <input type="number" class="form-control" name="featuredArticles4" id="field_featuredArticles4"
+                        [(ngModel)]="frontpageconfig.featuredArticles4" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.featuredArticles5" for="field_featuredArticles5">Featured Articles 5</label>
+                    <input type="number" class="form-control" name="featuredArticles5" id="field_featuredArticles5"
+                        [(ngModel)]="frontpageconfig.featuredArticles5" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.featuredArticles6" for="field_featuredArticles6">Featured Articles 6</label>
+                    <input type="number" class="form-control" name="featuredArticles6" id="field_featuredArticles6"
+                        [(ngModel)]="frontpageconfig.featuredArticles6" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.featuredArticles7" for="field_featuredArticles7">Featured Articles 7</label>
+                    <input type="number" class="form-control" name="featuredArticles7" id="field_featuredArticles7"
+                        [(ngModel)]="frontpageconfig.featuredArticles7" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.featuredArticles8" for="field_featuredArticles8">Featured Articles 8</label>
+                    <input type="number" class="form-control" name="featuredArticles8" id="field_featuredArticles8"
+                        [(ngModel)]="frontpageconfig.featuredArticles8" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.featuredArticles9" for="field_featuredArticles9">Featured Articles 9</label>
+                    <input type="number" class="form-control" name="featuredArticles9" id="field_featuredArticles9"
+                        [(ngModel)]="frontpageconfig.featuredArticles9" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.featuredArticles10" for="field_featuredArticles10">Featured Articles 10</label>
+                    <input type="number" class="form-control" name="featuredArticles10" id="field_featuredArticles10"
+                        [(ngModel)]="frontpageconfig.featuredArticles10" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.popularNews1" for="field_popularNews1">Popular News 1</label>
+                    <input type="number" class="form-control" name="popularNews1" id="field_popularNews1"
+                        [(ngModel)]="frontpageconfig.popularNews1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.popularNews2" for="field_popularNews2">Popular News 2</label>
+                    <input type="number" class="form-control" name="popularNews2" id="field_popularNews2"
+                        [(ngModel)]="frontpageconfig.popularNews2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.popularNews3" for="field_popularNews3">Popular News 3</label>
+                    <input type="number" class="form-control" name="popularNews3" id="field_popularNews3"
+                        [(ngModel)]="frontpageconfig.popularNews3" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.popularNews4" for="field_popularNews4">Popular News 4</label>
+                    <input type="number" class="form-control" name="popularNews4" id="field_popularNews4"
+                        [(ngModel)]="frontpageconfig.popularNews4" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.popularNews5" for="field_popularNews5">Popular News 5</label>
+                    <input type="number" class="form-control" name="popularNews5" id="field_popularNews5"
+                        [(ngModel)]="frontpageconfig.popularNews5" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.popularNews6" for="field_popularNews6">Popular News 6</label>
+                    <input type="number" class="form-control" name="popularNews6" id="field_popularNews6"
+                        [(ngModel)]="frontpageconfig.popularNews6" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.popularNews7" for="field_popularNews7">Popular News 7</label>
+                    <input type="number" class="form-control" name="popularNews7" id="field_popularNews7"
+                        [(ngModel)]="frontpageconfig.popularNews7" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.popularNews8" for="field_popularNews8">Popular News 8</label>
+                    <input type="number" class="form-control" name="popularNews8" id="field_popularNews8"
+                        [(ngModel)]="frontpageconfig.popularNews8" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.weeklyNews1" for="field_weeklyNews1">Weekly News 1</label>
+                    <input type="number" class="form-control" name="weeklyNews1" id="field_weeklyNews1"
+                        [(ngModel)]="frontpageconfig.weeklyNews1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.weeklyNews2" for="field_weeklyNews2">Weekly News 2</label>
+                    <input type="number" class="form-control" name="weeklyNews2" id="field_weeklyNews2"
+                        [(ngModel)]="frontpageconfig.weeklyNews2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.weeklyNews3" for="field_weeklyNews3">Weekly News 3</label>
+                    <input type="number" class="form-control" name="weeklyNews3" id="field_weeklyNews3"
+                        [(ngModel)]="frontpageconfig.weeklyNews3" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.weeklyNews4" for="field_weeklyNews4">Weekly News 4</label>
+                    <input type="number" class="form-control" name="weeklyNews4" id="field_weeklyNews4"
+                        [(ngModel)]="frontpageconfig.weeklyNews4" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.newsFeeds1" for="field_newsFeeds1">News Feeds 1</label>
+                    <input type="number" class="form-control" name="newsFeeds1" id="field_newsFeeds1"
+                        [(ngModel)]="frontpageconfig.newsFeeds1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.newsFeeds2" for="field_newsFeeds2">News Feeds 2</label>
+                    <input type="number" class="form-control" name="newsFeeds2" id="field_newsFeeds2"
+                        [(ngModel)]="frontpageconfig.newsFeeds2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.newsFeeds3" for="field_newsFeeds3">News Feeds 3</label>
+                    <input type="number" class="form-control" name="newsFeeds3" id="field_newsFeeds3"
+                        [(ngModel)]="frontpageconfig.newsFeeds3" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.newsFeeds4" for="field_newsFeeds4">News Feeds 4</label>
+                    <input type="number" class="form-control" name="newsFeeds4" id="field_newsFeeds4"
+                        [(ngModel)]="frontpageconfig.newsFeeds4" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.newsFeeds5" for="field_newsFeeds5">News Feeds 5</label>
+                    <input type="number" class="form-control" name="newsFeeds5" id="field_newsFeeds5"
+                        [(ngModel)]="frontpageconfig.newsFeeds5" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.newsFeeds6" for="field_newsFeeds6">News Feeds 6</label>
+                    <input type="number" class="form-control" name="newsFeeds6" id="field_newsFeeds6"
+                        [(ngModel)]="frontpageconfig.newsFeeds6" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.usefulLinks1" for="field_usefulLinks1">Useful Links 1</label>
+                    <input type="number" class="form-control" name="usefulLinks1" id="field_usefulLinks1"
+                        [(ngModel)]="frontpageconfig.usefulLinks1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.usefulLinks2" for="field_usefulLinks2">Useful Links 2</label>
+                    <input type="number" class="form-control" name="usefulLinks2" id="field_usefulLinks2"
+                        [(ngModel)]="frontpageconfig.usefulLinks2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.usefulLinks3" for="field_usefulLinks3">Useful Links 3</label>
+                    <input type="number" class="form-control" name="usefulLinks3" id="field_usefulLinks3"
+                        [(ngModel)]="frontpageconfig.usefulLinks3" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.usefulLinks4" for="field_usefulLinks4">Useful Links 4</label>
+                    <input type="number" class="form-control" name="usefulLinks4" id="field_usefulLinks4"
+                        [(ngModel)]="frontpageconfig.usefulLinks4" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.usefulLinks5" for="field_usefulLinks5">Useful Links 5</label>
+                    <input type="number" class="form-control" name="usefulLinks5" id="field_usefulLinks5"
+                        [(ngModel)]="frontpageconfig.usefulLinks5" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.usefulLinks6" for="field_usefulLinks6">Useful Links 6</label>
+                    <input type="number" class="form-control" name="usefulLinks6" id="field_usefulLinks6"
+                        [(ngModel)]="frontpageconfig.usefulLinks6" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.recentVideos1" for="field_recentVideos1">Recent Videos 1</label>
+                    <input type="number" class="form-control" name="recentVideos1" id="field_recentVideos1"
+                        [(ngModel)]="frontpageconfig.recentVideos1" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.recentVideos2" for="field_recentVideos2">Recent Videos 2</label>
+                    <input type="number" class="form-control" name="recentVideos2" id="field_recentVideos2"
+                        [(ngModel)]="frontpageconfig.recentVideos2" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.recentVideos3" for="field_recentVideos3">Recent Videos 3</label>
+                    <input type="number" class="form-control" name="recentVideos3" id="field_recentVideos3"
+                        [(ngModel)]="frontpageconfig.recentVideos3" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.recentVideos4" for="field_recentVideos4">Recent Videos 4</label>
+                    <input type="number" class="form-control" name="recentVideos4" id="field_recentVideos4"
+                        [(ngModel)]="frontpageconfig.recentVideos4" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.recentVideos5" for="field_recentVideos5">Recent Videos 5</label>
+                    <input type="number" class="form-control" name="recentVideos5" id="field_recentVideos5"
+                        [(ngModel)]="frontpageconfig.recentVideos5" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.frontpageconfig.recentVideos6" for="field_recentVideos6">Recent Videos 6</label>
+                    <input type="number" class="form-control" name="recentVideos6" id="field_recentVideos6"
+                        [(ngModel)]="frontpageconfig.recentVideos6" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

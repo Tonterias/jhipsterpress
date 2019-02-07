@@ -1,0 +1,52 @@
+{
+    "name": "Cmessage",
+    "fields": [
+        {
+            "fieldName": "creationDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "messageText",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "minlength",
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMinlength": 2,
+            "fieldValidateRulesMaxlength": 8000
+        },
+        {
+            "fieldName": "isDelivered",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "csender",
+            "otherEntityName": "community",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "csender"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "creceiver",
+            "otherEntityName": "community",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "creceiver"
+        }
+    ],
+    "changelogDate": "20190206093319",
+    "entityTableName": "cmessage",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

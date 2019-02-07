@@ -1,0 +1,172 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterpressApp.frontpageconfig.home.title">Frontpageconfigs</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-frontpageconfig" [routerLink]="['/frontpageconfig/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jhipsterpressApp.frontpageconfig.home.createLabel">
+            Create new Frontpageconfig
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="frontpageconfigs">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="creationDate"><span jhiTranslate="jhipsterpressApp.frontpageconfig.creationDate">Creation Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="topNews1"><span jhiTranslate="jhipsterpressApp.frontpageconfig.topNews1">Top News 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="topNews2"><span jhiTranslate="jhipsterpressApp.frontpageconfig.topNews2">Top News 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="topNews3"><span jhiTranslate="jhipsterpressApp.frontpageconfig.topNews3">Top News 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="topNews4"><span jhiTranslate="jhipsterpressApp.frontpageconfig.topNews4">Top News 4</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="topNews5"><span jhiTranslate="jhipsterpressApp.frontpageconfig.topNews5">Top News 5</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="latestNews1"><span jhiTranslate="jhipsterpressApp.frontpageconfig.latestNews1">Latest News 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="latestNews2"><span jhiTranslate="jhipsterpressApp.frontpageconfig.latestNews2">Latest News 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="latestNews3"><span jhiTranslate="jhipsterpressApp.frontpageconfig.latestNews3">Latest News 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="latestNews4"><span jhiTranslate="jhipsterpressApp.frontpageconfig.latestNews4">Latest News 4</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="latestNews5"><span jhiTranslate="jhipsterpressApp.frontpageconfig.latestNews5">Latest News 5</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="breakingNews1"><span jhiTranslate="jhipsterpressApp.frontpageconfig.breakingNews1">Breaking News 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="recentPosts1"><span jhiTranslate="jhipsterpressApp.frontpageconfig.recentPosts1">Recent Posts 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="recentPosts2"><span jhiTranslate="jhipsterpressApp.frontpageconfig.recentPosts2">Recent Posts 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="recentPosts3"><span jhiTranslate="jhipsterpressApp.frontpageconfig.recentPosts3">Recent Posts 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="recentPosts4"><span jhiTranslate="jhipsterpressApp.frontpageconfig.recentPosts4">Recent Posts 4</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="featuredArticles1"><span jhiTranslate="jhipsterpressApp.frontpageconfig.featuredArticles1">Featured Articles 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="featuredArticles2"><span jhiTranslate="jhipsterpressApp.frontpageconfig.featuredArticles2">Featured Articles 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="featuredArticles3"><span jhiTranslate="jhipsterpressApp.frontpageconfig.featuredArticles3">Featured Articles 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="featuredArticles4"><span jhiTranslate="jhipsterpressApp.frontpageconfig.featuredArticles4">Featured Articles 4</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="featuredArticles5"><span jhiTranslate="jhipsterpressApp.frontpageconfig.featuredArticles5">Featured Articles 5</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="featuredArticles6"><span jhiTranslate="jhipsterpressApp.frontpageconfig.featuredArticles6">Featured Articles 6</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="featuredArticles7"><span jhiTranslate="jhipsterpressApp.frontpageconfig.featuredArticles7">Featured Articles 7</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="featuredArticles8"><span jhiTranslate="jhipsterpressApp.frontpageconfig.featuredArticles8">Featured Articles 8</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="featuredArticles9"><span jhiTranslate="jhipsterpressApp.frontpageconfig.featuredArticles9">Featured Articles 9</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="featuredArticles10"><span jhiTranslate="jhipsterpressApp.frontpageconfig.featuredArticles10">Featured Articles 10</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="popularNews1"><span jhiTranslate="jhipsterpressApp.frontpageconfig.popularNews1">Popular News 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="popularNews2"><span jhiTranslate="jhipsterpressApp.frontpageconfig.popularNews2">Popular News 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="popularNews3"><span jhiTranslate="jhipsterpressApp.frontpageconfig.popularNews3">Popular News 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="popularNews4"><span jhiTranslate="jhipsterpressApp.frontpageconfig.popularNews4">Popular News 4</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="popularNews5"><span jhiTranslate="jhipsterpressApp.frontpageconfig.popularNews5">Popular News 5</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="popularNews6"><span jhiTranslate="jhipsterpressApp.frontpageconfig.popularNews6">Popular News 6</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="popularNews7"><span jhiTranslate="jhipsterpressApp.frontpageconfig.popularNews7">Popular News 7</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="popularNews8"><span jhiTranslate="jhipsterpressApp.frontpageconfig.popularNews8">Popular News 8</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="weeklyNews1"><span jhiTranslate="jhipsterpressApp.frontpageconfig.weeklyNews1">Weekly News 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="weeklyNews2"><span jhiTranslate="jhipsterpressApp.frontpageconfig.weeklyNews2">Weekly News 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="weeklyNews3"><span jhiTranslate="jhipsterpressApp.frontpageconfig.weeklyNews3">Weekly News 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="weeklyNews4"><span jhiTranslate="jhipsterpressApp.frontpageconfig.weeklyNews4">Weekly News 4</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="newsFeeds1"><span jhiTranslate="jhipsterpressApp.frontpageconfig.newsFeeds1">News Feeds 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="newsFeeds2"><span jhiTranslate="jhipsterpressApp.frontpageconfig.newsFeeds2">News Feeds 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="newsFeeds3"><span jhiTranslate="jhipsterpressApp.frontpageconfig.newsFeeds3">News Feeds 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="newsFeeds4"><span jhiTranslate="jhipsterpressApp.frontpageconfig.newsFeeds4">News Feeds 4</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="newsFeeds5"><span jhiTranslate="jhipsterpressApp.frontpageconfig.newsFeeds5">News Feeds 5</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="newsFeeds6"><span jhiTranslate="jhipsterpressApp.frontpageconfig.newsFeeds6">News Feeds 6</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="usefulLinks1"><span jhiTranslate="jhipsterpressApp.frontpageconfig.usefulLinks1">Useful Links 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="usefulLinks2"><span jhiTranslate="jhipsterpressApp.frontpageconfig.usefulLinks2">Useful Links 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="usefulLinks3"><span jhiTranslate="jhipsterpressApp.frontpageconfig.usefulLinks3">Useful Links 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="usefulLinks4"><span jhiTranslate="jhipsterpressApp.frontpageconfig.usefulLinks4">Useful Links 4</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="usefulLinks5"><span jhiTranslate="jhipsterpressApp.frontpageconfig.usefulLinks5">Useful Links 5</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="usefulLinks6"><span jhiTranslate="jhipsterpressApp.frontpageconfig.usefulLinks6">Useful Links 6</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="recentVideos1"><span jhiTranslate="jhipsterpressApp.frontpageconfig.recentVideos1">Recent Videos 1</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="recentVideos2"><span jhiTranslate="jhipsterpressApp.frontpageconfig.recentVideos2">Recent Videos 2</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="recentVideos3"><span jhiTranslate="jhipsterpressApp.frontpageconfig.recentVideos3">Recent Videos 3</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="recentVideos4"><span jhiTranslate="jhipsterpressApp.frontpageconfig.recentVideos4">Recent Videos 4</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="recentVideos5"><span jhiTranslate="jhipsterpressApp.frontpageconfig.recentVideos5">Recent Videos 5</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="recentVideos6"><span jhiTranslate="jhipsterpressApp.frontpageconfig.recentVideos6">Recent Videos 6</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let frontpageconfig of frontpageconfigs ;trackBy: trackId">
+                <td><a [routerLink]="['/frontpageconfig', frontpageconfig.id, 'view' ]">{{frontpageconfig.id}}</a></td>
+                <td>{{frontpageconfig.creationDate | date:'medium'}}</td>
+                <td>{{frontpageconfig.topNews1}}</td>
+                <td>{{frontpageconfig.topNews2}}</td>
+                <td>{{frontpageconfig.topNews3}}</td>
+                <td>{{frontpageconfig.topNews4}}</td>
+                <td>{{frontpageconfig.topNews5}}</td>
+                <td>{{frontpageconfig.latestNews1}}</td>
+                <td>{{frontpageconfig.latestNews2}}</td>
+                <td>{{frontpageconfig.latestNews3}}</td>
+                <td>{{frontpageconfig.latestNews4}}</td>
+                <td>{{frontpageconfig.latestNews5}}</td>
+                <td>{{frontpageconfig.breakingNews1}}</td>
+                <td>{{frontpageconfig.recentPosts1}}</td>
+                <td>{{frontpageconfig.recentPosts2}}</td>
+                <td>{{frontpageconfig.recentPosts3}}</td>
+                <td>{{frontpageconfig.recentPosts4}}</td>
+                <td>{{frontpageconfig.featuredArticles1}}</td>
+                <td>{{frontpageconfig.featuredArticles2}}</td>
+                <td>{{frontpageconfig.featuredArticles3}}</td>
+                <td>{{frontpageconfig.featuredArticles4}}</td>
+                <td>{{frontpageconfig.featuredArticles5}}</td>
+                <td>{{frontpageconfig.featuredArticles6}}</td>
+                <td>{{frontpageconfig.featuredArticles7}}</td>
+                <td>{{frontpageconfig.featuredArticles8}}</td>
+                <td>{{frontpageconfig.featuredArticles9}}</td>
+                <td>{{frontpageconfig.featuredArticles10}}</td>
+                <td>{{frontpageconfig.popularNews1}}</td>
+                <td>{{frontpageconfig.popularNews2}}</td>
+                <td>{{frontpageconfig.popularNews3}}</td>
+                <td>{{frontpageconfig.popularNews4}}</td>
+                <td>{{frontpageconfig.popularNews5}}</td>
+                <td>{{frontpageconfig.popularNews6}}</td>
+                <td>{{frontpageconfig.popularNews7}}</td>
+                <td>{{frontpageconfig.popularNews8}}</td>
+                <td>{{frontpageconfig.weeklyNews1}}</td>
+                <td>{{frontpageconfig.weeklyNews2}}</td>
+                <td>{{frontpageconfig.weeklyNews3}}</td>
+                <td>{{frontpageconfig.weeklyNews4}}</td>
+                <td>{{frontpageconfig.newsFeeds1}}</td>
+                <td>{{frontpageconfig.newsFeeds2}}</td>
+                <td>{{frontpageconfig.newsFeeds3}}</td>
+                <td>{{frontpageconfig.newsFeeds4}}</td>
+                <td>{{frontpageconfig.newsFeeds5}}</td>
+                <td>{{frontpageconfig.newsFeeds6}}</td>
+                <td>{{frontpageconfig.usefulLinks1}}</td>
+                <td>{{frontpageconfig.usefulLinks2}}</td>
+                <td>{{frontpageconfig.usefulLinks3}}</td>
+                <td>{{frontpageconfig.usefulLinks4}}</td>
+                <td>{{frontpageconfig.usefulLinks5}}</td>
+                <td>{{frontpageconfig.usefulLinks6}}</td>
+                <td>{{frontpageconfig.recentVideos1}}</td>
+                <td>{{frontpageconfig.recentVideos2}}</td>
+                <td>{{frontpageconfig.recentVideos3}}</td>
+                <td>{{frontpageconfig.recentVideos4}}</td>
+                <td>{{frontpageconfig.recentVideos5}}</td>
+                <td>{{frontpageconfig.recentVideos6}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/frontpageconfig', frontpageconfig.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/frontpageconfig', frontpageconfig.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'frontpageconfig', { outlets: { popup: frontpageconfig.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="frontpageconfigs && frontpageconfigs.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

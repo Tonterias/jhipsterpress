@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-blockuser-heading" jhiTranslate="jhipsterpressApp.blockuser.home.createOrEditLabel">Create or edit a Blockuser</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!blockuser.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="blockuser.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.blockuser.creationDate" for="field_creationDate">Creation Date</label>
+                    <div class="d-flex">
+                        <input id="field_creationDate" type="datetime-local" class="form-control" name="creationDate" [(ngModel)]="creationDate" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.blockuser.blockeduser" for="field_blockeduser">Blockeduser</label>
+                    <select class="form-control" id="field_blockeduser" name="blockeduser" [(ngModel)]="blockuser.blockeduserId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.blockuser.blockinguser" for="field_blockinguser">Blockinguser</label>
+                    <select class="form-control" id="field_blockinguser" name="blockinguser" [(ngModel)]="blockuser.blockinguserId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.blockuser.cblockeduser" for="field_cblockeduser">Cblockeduser</label>
+                    <select class="form-control" id="field_cblockeduser" name="cblockeduser" [(ngModel)]="blockuser.cblockeduserId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="communityOption.id" *ngFor="let communityOption of communities; trackBy: trackCommunityById">{{communityOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterpressApp.blockuser.cblockinguser" for="field_cblockinguser">Cblockinguser</label>
+                    <select class="form-control" id="field_cblockinguser" name="cblockinguser" [(ngModel)]="blockuser.cblockinguserId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="communityOption.id" *ngFor="let communityOption of communities; trackBy: trackCommunityById">{{communityOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

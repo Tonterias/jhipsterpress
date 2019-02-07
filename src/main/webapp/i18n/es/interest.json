@@ -1,0 +1,22 @@
+{
+    "jhipsterpressApp": {
+        "interest": {
+            "home": {
+                "title": "Interests",
+                "createLabel": "Crear nuevo Interest",
+                "createOrEditLabel": "Crear o editar Interest"
+            },
+            "created": "Un nuevo Interest ha sido creado con el identificador {{ param }}",
+            "updated": "Un Interest ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Interest ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Interest {{ id }}?"
+            },
+            "detail": {
+                "title": "Interest"
+            },
+            "interestName": "Interest Name",
+            "uprofile": "Uprofile"
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "jhipsterpressApp": {
+        "cactivity": {
+            "home": {
+                "title": "Cactivities",
+                "createLabel": "Crear nuevo Cactivity",
+                "createOrEditLabel": "Crear o editar Cactivity"
+            },
+            "created": "Un nuevo Cactivity ha sido creado con el identificador {{ param }}",
+            "updated": "Un Cactivity ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Cactivity ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Cactivity {{ id }}?"
+            },
+            "detail": {
+                "title": "Cactivity"
+            },
+            "activityName": "Activity Name",
+            "community": "Community"
+        }
+    }
+}

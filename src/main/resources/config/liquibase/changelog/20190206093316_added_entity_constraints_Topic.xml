@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Topic.
+    -->
+    <changeSet id="20190206093316-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="topic_id"
+                                 baseTableName="topic_post"
+                                 constraintName="fk_topic_post_topic_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="topic"/>
+        <addForeignKeyConstraint baseColumnNames="post_id"
+                                 baseTableName="topic_post"
+                                 constraintName="fk_topic_post_post_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="post"/>
+        
+    </changeSet>
+</databaseChangeLog>

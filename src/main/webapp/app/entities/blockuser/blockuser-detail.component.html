@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="blockuser">
+            <h2><span jhiTranslate="jhipsterpressApp.blockuser.detail.title">Blockuser</span> {{blockuser.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterpressApp.blockuser.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{blockuser.creationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.blockuser.blockeduser">Blockeduser</span></dt>
+                <dd>
+                    {{blockuser.blockeduserId}}
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.blockuser.blockinguser">Blockinguser</span></dt>
+                <dd>
+                    {{blockuser.blockinguserId}}
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.blockuser.cblockeduser">Cblockeduser</span></dt>
+                <dd>
+                    <div *ngIf="blockuser.cblockeduserId">
+                        <a [routerLink]="['/community', blockuser.cblockeduserId, 'view']">{{blockuser.cblockeduserId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterpressApp.blockuser.cblockinguser">Cblockinguser</span></dt>
+                <dd>
+                    <div *ngIf="blockuser.cblockinguserId">
+                        <a [routerLink]="['/community', blockuser.cblockinguserId, 'view']">{{blockuser.cblockinguserId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/blockuser', blockuser.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

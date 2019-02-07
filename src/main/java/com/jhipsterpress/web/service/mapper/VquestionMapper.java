@@ -8,7 +8,7 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity Vquestion and its DTO VquestionDTO.
  */
-@Mapper(componentModel = "spring", uses = {UserMapper.class, VtopicMapper.class})
+@Mapper(componentModel = "spring", uses = {UserMapper.class, VtopicMapper.class, VanswerMapper.class})
 public interface VquestionMapper extends EntityMapper<VquestionDTO, Vquestion> {
 
     @Mapping(source = "user.id", target = "userId")

@@ -14,6 +14,9 @@ public interface PostMapper extends EntityMapper<PostDTO, Post> {
     @Mapping(source = "user.id", target = "userId")
     @Mapping(source = "blog.id", target = "blogId")
     @Mapping(source = "blog.title", target = "blogTitle")
+    @Mapping(source = "user.login", target = "userLogin")
+    @Mapping(source = "user.firstName", target = "userFirstName")
+    @Mapping(source = "user.lastName", target = "userLastName")
     PostDTO toDto(Post post);
 
     @Mapping(target = "comments", ignore = true)

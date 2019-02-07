@@ -23,6 +23,8 @@ public class CalbumDTO implements Serializable {
 
     private String communityCommunityName;
 
+    private Long userId;
+    
     public Long getId() {
         return id;
     }
@@ -63,7 +65,15 @@ public class CalbumDTO implements Serializable {
         this.communityCommunityName = communityCommunityName;
     }
 
-    @Override
+    public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -84,14 +94,9 @@ public class CalbumDTO implements Serializable {
         return Objects.hashCode(getId());
     }
 
-    @Override
-    public String toString() {
-        return "CalbumDTO{" +
-            "id=" + getId() +
-            ", creationDate='" + getCreationDate() + "'" +
-            ", title='" + getTitle() + "'" +
-            ", community=" + getCommunityId() +
-            ", community='" + getCommunityCommunityName() + "'" +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "CalbumDTO [id=" + id + ", creationDate=" + creationDate + ", title=" + title + ", communityId="
+				+ communityId + ", communityCommunityName=" + communityCommunityName + ", userId=" + userId + "]";
+	}
 }

@@ -1,7 +1,10 @@
 package com.jhipsterpress.web.service.dto;
 import java.time.Instant;
+
+import javax.persistence.Lob;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -20,9 +23,18 @@ public class CommentDTO implements Serializable {
 
     private Boolean isOffensive;
 
-
     private Long userId;
+    
+    private String commenterFirstName;
+    
+    private String commenterLastName;
+    
+    @Lob
+    private byte[] commenterImage;
+    private String commenterImageContentType;
 
+    private Long uprofileId;
+    
     private Long postId;
 
     public Long getId() {
@@ -73,7 +85,51 @@ public class CommentDTO implements Serializable {
         this.postId = postId;
     }
 
-    @Override
+    public String getCommenterFirstName() {
+		return commenterFirstName;
+	}
+
+	public void setCommenterFirstName(String commenterFirstName) {
+		this.commenterFirstName = commenterFirstName;
+	}
+
+	public String getCommenterLastName() {
+		return commenterLastName;
+	}
+
+	public void setCommenterLastName(String commenterLastName) {
+		this.commenterLastName = commenterLastName;
+	}
+
+	public byte[] getCommenterImage() {
+		return commenterImage;
+	}
+
+	public void setCommenterImage(byte[] commenterImage) {
+		this.commenterImage = commenterImage;
+	}
+
+	public String getCommenterImageContentType() {
+		return commenterImageContentType;
+	}
+
+	public void setCommenterImageContentType(String commenterImageContentType) {
+		this.commenterImageContentType = commenterImageContentType;
+	}
+
+	public Long getUprofileId() {
+		return uprofileId;
+	}
+
+	public void setUprofileId(Long uprofileId) {
+		this.uprofileId = uprofileId;
+	}
+
+	public Boolean getIsOffensive() {
+		return isOffensive;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -94,15 +150,12 @@ public class CommentDTO implements Serializable {
         return Objects.hashCode(getId());
     }
 
-    @Override
-    public String toString() {
-        return "CommentDTO{" +
-            "id=" + getId() +
-            ", creationDate='" + getCreationDate() + "'" +
-            ", commentText='" + getCommentText() + "'" +
-            ", isOffensive='" + isIsOffensive() + "'" +
-            ", user=" + getUserId() +
-            ", post=" + getPostId() +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "CommentDTO [id=" + id + ", creationDate=" + creationDate + ", commentText=" + commentText
+				+ ", isOffensive=" + isOffensive + ", userId=" + userId + ", commenterFirstName=" + commenterFirstName
+				+ ", commenterLastName=" + commenterLastName + ", commenterImage=" + Arrays.toString(commenterImage)
+				+ ", commenterImageContentType=" + commenterImageContentType + ", uprofileId=" + uprofileId
+				+ ", postId=" + postId + "]";
+	}
 }

@@ -2,6 +2,7 @@ package com.jhipsterpress.web.service.dto;
 import java.time.Instant;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 import javax.persistence.Lob;
 
@@ -27,6 +28,8 @@ public class BlogDTO implements Serializable {
     private Long communityId;
 
     private String communityCommunityName;
+    
+    private Long userId;
 
     public Long getId() {
         return id;
@@ -84,7 +87,15 @@ public class BlogDTO implements Serializable {
         this.communityCommunityName = communityCommunityName;
     }
 
-    @Override
+    public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -105,15 +116,10 @@ public class BlogDTO implements Serializable {
         return Objects.hashCode(getId());
     }
 
-    @Override
-    public String toString() {
-        return "BlogDTO{" +
-            "id=" + getId() +
-            ", creationDate='" + getCreationDate() + "'" +
-            ", title='" + getTitle() + "'" +
-            ", image='" + getImage() + "'" +
-            ", community=" + getCommunityId() +
-            ", community='" + getCommunityCommunityName() + "'" +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "BlogDTO [id=" + id + ", creationDate=" + creationDate + ", title=" + title + ", image="
+				+ Arrays.toString(image) + ", imageContentType=" + imageContentType + ", communityId=" + communityId
+				+ ", communityCommunityName=" + communityCommunityName + ", userId=" + userId + "]";
+	}
 }

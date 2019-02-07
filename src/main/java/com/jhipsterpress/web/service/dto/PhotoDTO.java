@@ -2,6 +2,7 @@ package com.jhipsterpress.web.service.dto;
 import java.time.Instant;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 import javax.persistence.Lob;
 
@@ -27,6 +28,10 @@ public class PhotoDTO implements Serializable {
     private Long calbumId;
 
     private String calbumTitle;
+    
+    private Long albumUserId;
+    
+    private Long calbumUserId;
 
     public Long getId() {
         return id;
@@ -92,7 +97,23 @@ public class PhotoDTO implements Serializable {
         this.calbumTitle = calbumTitle;
     }
 
-    @Override
+    public Long getAlbumUserId() {
+		return albumUserId;
+	}
+
+	public void setAlbumUserId(Long albumUserId) {
+		this.albumUserId = albumUserId;
+	}
+
+	public Long getCalbumUserId() {
+		return calbumUserId;
+	}
+
+	public void setCalbumUserId(Long calbumUserId) {
+		this.calbumUserId = calbumUserId;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -113,16 +134,11 @@ public class PhotoDTO implements Serializable {
         return Objects.hashCode(getId());
     }
 
-    @Override
-    public String toString() {
-        return "PhotoDTO{" +
-            "id=" + getId() +
-            ", creationDate='" + getCreationDate() + "'" +
-            ", image='" + getImage() + "'" +
-            ", album=" + getAlbumId() +
-            ", album='" + getAlbumTitle() + "'" +
-            ", calbum=" + getCalbumId() +
-            ", calbum='" + getCalbumTitle() + "'" +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "PhotoDTO [id=" + id + ", creationDate=" + creationDate + ", image=" + Arrays.toString(image)
+				+ ", imageContentType=" + imageContentType + ", albumId=" + albumId + ", albumTitle=" + albumTitle
+				+ ", calbumId=" + calbumId + ", calbumTitle=" + calbumTitle + ", albumUserId=" + albumUserId
+				+ ", calbumUserId=" + calbumUserId + "]";
+	}
 }

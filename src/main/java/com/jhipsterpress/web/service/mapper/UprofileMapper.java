@@ -12,6 +12,8 @@ import org.mapstruct.*;
 public interface UprofileMapper extends EntityMapper<UprofileDTO, Uprofile> {
 
     @Mapping(source = "user.id", target = "userId")
+    @Mapping(source = "user.firstName", target = "userFirstName")
+    @Mapping(source = "user.lastName", target = "userLastName")
     UprofileDTO toDto(Uprofile uprofile);
 
     @Mapping(source = "userId", target = "user")

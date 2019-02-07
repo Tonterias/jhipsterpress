@@ -2,7 +2,10 @@ package com.jhipsterpress.web.service.dto;
 import java.time.Instant;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
+import java.util.Set;
+
 import javax.persistence.Lob;
 
 /**
@@ -50,7 +53,17 @@ public class PostDTO implements Serializable {
     private Long blogId;
 
     private String blogTitle;
-
+    
+    private String userLogin;
+    
+    private String userFirstName;
+    
+    private String userLastName;
+    
+    private Set<CustomTagDTO> tags;
+    
+    private Set<CustomTopicDTO> topics;
+    
     public Long getId() {
         return id;
     }
@@ -171,7 +184,47 @@ public class PostDTO implements Serializable {
         this.blogTitle = blogTitle;
     }
 
-    @Override
+    public String getUserLogin() {
+		return userLogin;
+	}
+
+	public void setUserLogin(String userLogin) {
+		this.userLogin = userLogin;
+	}
+
+	public String getUserFirstName() {
+		return userFirstName;
+	}
+
+	public void setUserFirstName(String userFirstName) {
+		this.userFirstName = userFirstName;
+	}
+
+	public String getUserLastName() {
+		return userLastName;
+	}
+
+	public void setUserLastName(String userLastName) {
+		this.userLastName = userLastName;
+	}
+
+	public Set<CustomTagDTO> getTags() {
+		return tags;
+	}
+
+	public void setTags(Set<CustomTagDTO> tags) {
+		this.tags = tags;
+	}
+
+	public Set<CustomTopicDTO> getTopics() {
+		return topics;
+	}
+
+	public void setTopics(Set<CustomTopicDTO> topics) {
+		this.topics = topics;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -192,23 +245,13 @@ public class PostDTO implements Serializable {
         return Objects.hashCode(getId());
     }
 
-    @Override
-    public String toString() {
-        return "PostDTO{" +
-            "id=" + getId() +
-            ", creationDate='" + getCreationDate() + "'" +
-            ", publicationDate='" + getPublicationDate() + "'" +
-            ", headline='" + getHeadline() + "'" +
-            ", leadtext='" + getLeadtext() + "'" +
-            ", bodytext='" + getBodytext() + "'" +
-            ", quote='" + getQuote() + "'" +
-            ", conclusion='" + getConclusion() + "'" +
-            ", linkText='" + getLinkText() + "'" +
-            ", linkURL='" + getLinkURL() + "'" +
-            ", image='" + getImage() + "'" +
-            ", user=" + getUserId() +
-            ", blog=" + getBlogId() +
-            ", blog='" + getBlogTitle() + "'" +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "PostDTO [id=" + id + ", creationDate=" + creationDate + ", publicationDate=" + publicationDate
+				+ ", headline=" + headline + ", leadtext=" + leadtext + ", bodytext=" + bodytext + ", quote=" + quote
+				+ ", conclusion=" + conclusion + ", linkText=" + linkText + ", linkURL=" + linkURL + ", image="
+				+ Arrays.toString(image) + ", imageContentType=" + imageContentType + ", userId=" + userId + ", blogId="
+				+ blogId + ", blogTitle=" + blogTitle + ", userLogin=" + userLogin + ", userFirstName=" + userFirstName
+				+ ", userLastName=" + userLastName + ", tags=" + tags + ", topics=" + topics + "]";
+	}
 }

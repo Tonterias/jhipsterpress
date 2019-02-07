@@ -8,13 +8,27 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity Follow and its DTO FollowDTO.
  */
-@Mapper(componentModel = "spring", uses = {UserMapper.class, CommunityMapper.class})
+@Mapper(componentModel = "spring", uses = {UserMapper.class, CommunityMapper.class, UprofileMapper.class})
 public interface FollowMapper extends EntityMapper<FollowDTO, Follow> {
 
     @Mapping(source = "followed.id", target = "followedId")
+    @Mapping(source = "followed.uprofile.image", target = "followedImage")
+    @Mapping(source = "followed.uprofile.imageContentType", target = "followedImageContentType")
+    @Mapping(source = "followed.firstName", target = "followedUserFirstName")
+    @Mapping(source = "followed.lastName", target = "followedUserLastName")
     @Mapping(source = "following.id", target = "followingId")
+    @Mapping(source = "following.uprofile.image", target = "followingImage")
+    @Mapping(source = "following.uprofile.imageContentType", target = "followingImageContentType")
+    @Mapping(source = "following.firstName", target = "followingUserFirstName")
+    @Mapping(source = "following.lastName", target = "followingUserLastName")
     @Mapping(source = "cfollowed.id", target = "cfollowedId")
+    @Mapping(source = "cfollowed.image", target = "cfollowedImage")
+    @Mapping(source = "cfollowed.imageContentType", target = "cfollowedImageContentType")
+    @Mapping(source = "cfollowed.communityname", target = "cfollowedCommunityname")
     @Mapping(source = "cfollowing.id", target = "cfollowingId")
+    @Mapping(source = "cfollowing.image", target = "cfollowingImage")
+    @Mapping(source = "cfollowing.imageContentType", target = "cfollowingImageContentType")
+    @Mapping(source = "cfollowing.communityname", target = "cfollowingCommunityname")
     FollowDTO toDto(Follow follow);
 
     @Mapping(source = "followedId", target = "followed")

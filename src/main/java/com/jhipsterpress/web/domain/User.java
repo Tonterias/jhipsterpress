@@ -100,6 +100,10 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<PersistentToken> persistentTokens = new HashSet<>();
 
+    @OneToOne(mappedBy = "user")        
+    @JsonIgnore        
+    private Uprofile uprofile;
+    
     public Long getId() {
         return id;
     }
@@ -213,6 +217,19 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.persistentTokens = persistentTokens;
     }
 
+    public Uprofile getUprofile() {
+		return uprofile;
+	}
+
+	public void setUprofile(Uprofile uprofile) {
+		this.uprofile = uprofile;
+	}
+	
+	public User uprofile(Uprofile uprofile) {		
+		this.uprofile = uprofile;		
+		return this;		
+	}
+	
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -225,8 +242,8 @@ public class User extends AbstractAuditingEntity implements Serializable {
         User user = (User) o;
         return !(user.getId() == null || getId() == null) && Objects.equals(getId(), user.getId());
     }
-
-    @Override
+    
+	@Override
     public int hashCode() {
         return Objects.hashCode(getId());
     }

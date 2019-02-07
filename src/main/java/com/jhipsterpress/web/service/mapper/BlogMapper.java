@@ -13,6 +13,7 @@ public interface BlogMapper extends EntityMapper<BlogDTO, Blog> {
 
     @Mapping(source = "community.id", target = "communityId")
     @Mapping(source = "community.communityName", target = "communityCommunityName")
+    @Mapping(source = "community.user.id", target = "userId")
     BlogDTO toDto(Blog blog);
 
     @Mapping(target = "posts", ignore = true)

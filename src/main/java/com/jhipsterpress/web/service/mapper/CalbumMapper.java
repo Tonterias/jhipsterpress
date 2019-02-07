@@ -8,11 +8,12 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity Calbum and its DTO CalbumDTO.
  */
-@Mapper(componentModel = "spring", uses = {CommunityMapper.class})
+@Mapper(componentModel = "spring", uses = {CommunityMapper.class, UserMapper.class})
 public interface CalbumMapper extends EntityMapper<CalbumDTO, Calbum> {
 
     @Mapping(source = "community.id", target = "communityId")
     @Mapping(source = "community.communityName", target = "communityCommunityName")
+    @Mapping(source = "community.user.id", target = "userId")
     CalbumDTO toDto(Calbum calbum);
 
     @Mapping(target = "photos", ignore = true)

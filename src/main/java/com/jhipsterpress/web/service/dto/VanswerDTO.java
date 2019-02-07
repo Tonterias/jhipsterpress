@@ -3,6 +3,7 @@ import java.time.Instant;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A DTO for the Vanswer entity.
@@ -20,10 +21,11 @@ public class VanswerDTO implements Serializable {
 
     private Boolean accepted;
 
-
     private Long userId;
 
     private Long vquestionId;
+    
+    private Set <VthumbDTO> vthumbs;
 
     public Long getId() {
         return id;
@@ -73,7 +75,15 @@ public class VanswerDTO implements Serializable {
         this.vquestionId = vquestionId;
     }
 
-    @Override
+    public Set<VthumbDTO> getVthumbs() {
+		return vthumbs;
+	}
+
+	public void setVthumbs(Set<VthumbDTO> vthumbs) {
+		this.vthumbs = vthumbs;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -94,15 +104,9 @@ public class VanswerDTO implements Serializable {
         return Objects.hashCode(getId());
     }
 
-    @Override
-    public String toString() {
-        return "VanswerDTO{" +
-            "id=" + getId() +
-            ", creationDate='" + getCreationDate() + "'" +
-            ", urlVanswer='" + getUrlVanswer() + "'" +
-            ", accepted='" + isAccepted() + "'" +
-            ", user=" + getUserId() +
-            ", vquestion=" + getVquestionId() +
-            "}";
-    }
+	@Override
+	public String toString() {
+		return "VanswerDTO [id=" + id + ", creationDate=" + creationDate + ", urlVanswer=" + urlVanswer + ", accepted="
+				+ accepted + ", userId=" + userId + ", vquestionId=" + vquestionId + ", vthumbs=" + vthumbs + "]";
+	}
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Principal } from 'app/core';
+import { AccountService } from 'app/core';
 
 @Component({
     selector: 'jhi-commingsoon',
@@ -8,10 +8,10 @@ import { Principal } from 'app/core';
 export class CommingsoonComponent implements OnInit {
     currentAccount: any;
 
-    constructor(private principal: Principal) {}
+    constructor(private accountService: AccountService) {}
 
     ngOnInit() {
-        this.principal.identity().then(account => {
+        this.accountService.identity().then(account => {
             this.currentAccount = account;
         });
     }

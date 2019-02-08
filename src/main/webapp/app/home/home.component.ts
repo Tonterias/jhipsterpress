@@ -14,7 +14,7 @@ import { TopicService } from '../entities/topic/topic.service';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
 
-import { LoginModalService, Principal, Account } from 'app/core';
+import { LoginModalService, AccountService, Account } from 'app/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { SafeResourceUrl } from '@angular/platform-browser';
 
@@ -44,15 +44,15 @@ export class HomeComponent implements OnInit, OnDestroy {
     id: number;
 
     constructor(
-        private frontpageconfigService: FrontpageconfigService,
-        private topicService: TopicService,
-        private jhiAlertService: JhiAlertService,
-        private eventManager: JhiEventManager,
-        private parseLinks: JhiParseLinks,
-        private activatedRoute: ActivatedRoute,
-        private principal: Principal,
-        private loginModalService: LoginModalService,
-        private _sanitizer: DomSanitizer
+        protected frontpageconfigService: FrontpageconfigService,
+        protected topicService: TopicService,
+        protected jhiAlertService: JhiAlertService,
+        protected eventManager: JhiEventManager,
+        protected parseLinks: JhiParseLinks,
+        protected activatedRoute: ActivatedRoute,
+        protected accountService: AccountService,
+        protected loginModalService: LoginModalService,
+        protected _sanitizer: DomSanitizer
     ) {
         this.frontpageconfigs = [];
         this.itemsPerPage = ITEMS_PER_PAGE;
@@ -121,7 +121,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.loadAll();
-        this.principal.identity().then(account => {
+        this.accountService.identity().then(account => {
             this.currentAccount = account;
         });
         this.topicService.query().subscribe(
@@ -149,7 +149,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     registerAuthenticationSuccess() {
         this.eventManager.subscribe('authenticationSuccess', message => {
-            this.principal.identity().then(account => {
+            this.accountService.identity().then(account => {
                 this.account = account;
             });
         });
@@ -163,19 +163,19 @@ export class HomeComponent implements OnInit, OnDestroy {
         return result;
     }
 
-    private paginateFrontpageconfigs(data: ICustomFrontpageconfig, headers: HttpHeaders) {
+    protected paginateFrontpageconfigs(data: ICustomFrontpageconfig, headers: HttpHeaders) {
         // this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = 1;
         this.frontpageconfigs.push(data);
         console.log('CONSOLOG: M:paginateFrontpageconfigs & O: this.frontpageconfigs : ', this.frontpageconfigs);
     }
 
-    private onError(errorMessage: string) {
+    protected onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
     }
 
     isAuthenticated() {
-        return this.principal.isAuthenticated();
+        return this.accountService.isAuthenticated();
     }
 
     login() {

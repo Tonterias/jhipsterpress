@@ -1,14 +1,36 @@
 <div>
     <h2 id="page-heading">
         <span jhiTranslate="jhipsterpressApp.activity.home.title">Activities</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-activity" [routerLink]="['/activity/new']">
+        <button style="margin:5px;" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-activity" 
+        (click)="myActivities()">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="jhipsterpressApp.activity.home.createLabel">
+            <span  jhiTranslate="jhipsterpressApp.activity.home.myLabel">
+            My Activities
+            </span>
+        </button>
+        <button style="margin:5px;" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-activity" [routerLink]="['/activity/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="jhipsterpressApp.activity.home.createLabel">
             Create new Activity
             </span>
         </button>
     </h2>
     <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jhipsterpressApp.activity.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
     <br/>
     <div class="table-responsive" *ngIf="activities">
         <table class="table table-striped">
@@ -31,14 +53,16 @@
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                         </button>
-                        <button type="submit"
+						<button *ngIf="owner === activity?.userId || owner === activity?.userId || isAdmin == true"
+                        		type="submit"
                                 [routerLink]="['/activity', activity.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                         </button>
-                        <button type="submit"
-                                [routerLink]="['/', 'activity', { outlets: { popup: activity.id + '/delete'} }]"
+                        <button *ngIf="owner === activity?.userId || owner === activity?.userId || isAdmin == true"
+                        		type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'activity/'+ activity.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">

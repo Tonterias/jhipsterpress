@@ -4,7 +4,10 @@
             "home": {
                 "title": "Activities",
                 "createLabel": "Create a new Activity",
-                "createOrEditLabel": "Create or edit a Activity"
+                "myLabel": "My Activities",
+                "noticeLabel": "Choose one of the following or risk to be alone in a new Activity category!",
+                "createOrEditLabel": "Create or edit a Activity",
+                "search": "Search for Activity"
             },
             "created": "A new Activity is created with identifier {{ param }}",
             "updated": "A Activity is updated with identifier {{ param }}",
@@ -16,7 +19,8 @@
                 "title": "Activity"
             },
             "activityName": "Activity Name",
-            "uprofile": "Uprofile"
+            "community": "Community",
+            "uprofile": "Profile"
         }
     }
 }

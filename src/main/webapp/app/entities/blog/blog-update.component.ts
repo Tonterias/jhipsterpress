@@ -10,6 +10,7 @@ import { IBlog } from 'app/shared/model/blog.model';
 import { BlogService } from './blog.service';
 import { ICommunity } from 'app/shared/model/community.model';
 import { CommunityService } from 'app/entities/community';
+import { AccountService } from 'app/core';
 
 @Component({
     selector: 'jhi-blog-update',
@@ -22,11 +23,14 @@ export class BlogUpdateComponent implements OnInit {
     communities: ICommunity[];
     creationDate: string;
 
+    currentAccount: any;
+
     constructor(
         protected dataUtils: JhiDataUtils,
         protected jhiAlertService: JhiAlertService,
         protected blogService: BlogService,
         protected communityService: CommunityService,
+        protected accountService: AccountService,
         protected elementRef: ElementRef,
         protected activatedRoute: ActivatedRoute
     ) {}
@@ -35,7 +39,23 @@ export class BlogUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ blog }) => {
             this.blog = blog;
-            this.creationDate = this.blog.creationDate != null ? this.blog.creationDate.format(DATE_TIME_FORMAT) : null;
+            this.creationDate = moment().format(DATE_TIME_FORMAT);
+            this.blog.creationDate = moment(this.creationDate);
+        });
+        this.accountService.identity().then(account => {
+            this.currentAccount = account;
+            console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount);
+            const query = {};
+            if (this.currentAccount.id != null) {
+                query['userId.equals'] = this.currentAccount.id;
+            }
+            this.communityService.query(query).subscribe(
+                (res: HttpResponse<ICommunity[]>) => {
+                    this.communities = res.body;
+                    console.log('CONSOLOG: M:ngOnInit & O: this.blog : ', this.communities);
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
         });
         this.communityService
             .query()
@@ -69,6 +89,7 @@ export class BlogUpdateComponent implements OnInit {
     save() {
         this.isSaving = true;
         this.blog.creationDate = this.creationDate != null ? moment(this.creationDate, DATE_TIME_FORMAT) : null;
+        console.log('CONSOLOG: M:save & O: this.blog : ', this.blog);
         if (this.blog.id !== undefined) {
             this.subscribeToSaveResponse(this.blogService.update(this.blog));
         } else {

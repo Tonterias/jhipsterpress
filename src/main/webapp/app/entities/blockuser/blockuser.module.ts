@@ -6,6 +6,8 @@ import { JhiLanguageHelper } from 'app/core';
 import { JhipsterpressSharedModule } from 'app/shared';
 import {
     BlockuserComponent,
+    BlockinguserComponent,
+    BlockeduserComponent,
     BlockuserDetailComponent,
     BlockuserUpdateComponent,
     BlockuserDeletePopupComponent,
@@ -20,6 +22,8 @@ const ENTITY_STATES = [...blockuserRoute, ...blockuserPopupRoute];
     imports: [JhipsterpressSharedModule, RouterModule.forChild(ENTITY_STATES)],
     declarations: [
         BlockuserComponent,
+        BlockinguserComponent,
+        BlockeduserComponent,
         BlockuserDetailComponent,
         BlockuserUpdateComponent,
         BlockuserDeleteDialogComponent,

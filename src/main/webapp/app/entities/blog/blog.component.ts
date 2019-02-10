@@ -6,10 +6,12 @@ import { filter, map } from 'rxjs/operators';
 import { JhiEventManager, JhiParseLinks, JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 
 import { IBlog } from 'app/shared/model/blog.model';
-import { AccountService } from 'app/core';
-
-import { ITEMS_PER_PAGE } from 'app/shared';
 import { BlogService } from './blog.service';
+import { ICommunity } from 'app/shared/model/community.model';
+import { CommunityService } from '../community/community.service';
+
+import { AccountService } from 'app/core';
+import { ITEMS_PER_PAGE } from 'app/shared';
 
 @Component({
     selector: 'jhi-blog',
@@ -18,20 +20,26 @@ import { BlogService } from './blog.service';
 export class BlogComponent implements OnInit, OnDestroy {
     currentAccount: any;
     blogs: IBlog[];
+    communities: ICommunity[];
     error: any;
     success: any;
     eventSubscriber: Subscription;
+    currentSearch: string;
     routeData: any;
     links: any;
     totalItems: any;
+    queryCount: any;
     itemsPerPage: any;
     page: any;
     predicate: any;
     previousPage: any;
     reverse: any;
+    owner: any;
+    isAdmin: boolean;
 
     constructor(
         protected blogService: BlogService,
+        protected communityService: CommunityService,
         protected parseLinks: JhiParseLinks,
         protected jhiAlertService: JhiAlertService,
         protected accountService: AccountService,
@@ -50,6 +58,20 @@ export class BlogComponent implements OnInit, OnDestroy {
     }
 
     loadAll() {
+        if (this.currentSearch) {
+            this.blogService
+                .query({
+                    page: this.page - 1,
+                    query: this.currentSearch,
+                    size: this.itemsPerPage,
+                    sort: this.sort()
+                })
+                .subscribe(
+                    (res: HttpResponse<IBlog[]>) => this.paginateBlogs(res.body, res.headers),
+                    (res: HttpErrorResponse) => this.onError(res.message)
+                );
+            return;
+        }
         this.blogService
             .query({
                 page: this.page - 1,
@@ -60,6 +82,10 @@ export class BlogComponent implements OnInit, OnDestroy {
                 (res: HttpResponse<IBlog[]>) => this.paginateBlogs(res.body, res.headers),
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
+        this.currentSearch =
+            this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
+                ? this.activatedRoute.snapshot.params['search']
+                : '';
     }
 
     loadPage(page: number) {
@@ -74,6 +100,7 @@ export class BlogComponent implements OnInit, OnDestroy {
             queryParams: {
                 page: this.page,
                 size: this.itemsPerPage,
+                search: this.currentSearch,
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
             }
         });
@@ -82,9 +109,27 @@ export class BlogComponent implements OnInit, OnDestroy {
 
     clear() {
         this.page = 0;
+        this.currentSearch = '';
         this.router.navigate([
             '/blog',
             {
+                page: this.page,
+                sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
+            }
+        ]);
+        this.loadAll();
+    }
+
+    search(query) {
+        if (!query) {
+            return this.clear();
+        }
+        this.page = 0;
+        this.currentSearch = query;
+        this.router.navigate([
+            '/blog',
+            {
+                search: this.currentSearch,
                 page: this.page,
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
             }
@@ -96,6 +141,8 @@ export class BlogComponent implements OnInit, OnDestroy {
         this.loadAll();
         this.accountService.identity().then(account => {
             this.currentAccount = account;
+            this.owner = account.id;
+            this.isAdmin = this.accountService.hasAnyAuthority(['ROLE_ADMIN']);
         });
         this.registerChangeInBlogs();
     }
@@ -128,10 +175,57 @@ export class BlogComponent implements OnInit, OnDestroy {
         return result;
     }
 
+    myBlogs() {
+        const query = {
+            page: this.page - 1,
+            size: this.itemsPerPage,
+            sort: this.sort()
+        };
+        if (this.currentAccount.id != null) {
+            query['userId.equals'] = this.currentAccount.id;
+        }
+        this.communityService
+            .query(query)
+            .subscribe(
+                (res: HttpResponse<ICommunity[]>) => this.paginateCommunities(res.body, res.headers),
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+    }
+
+    private communitiesBlogs() {
+        const query = {
+            page: this.page - 1,
+            size: this.itemsPerPage,
+            sort: this.sort()
+        };
+        if (this.communities != null) {
+            const arrayCommmunities = [];
+            this.communities.forEach(community => {
+                arrayCommmunities.push(community.id);
+            });
+            query['communityId.in'] = arrayCommmunities;
+        }
+        this.blogService
+            .query(query)
+            .subscribe(
+                (res: HttpResponse<IBlog[]>) => this.paginateBlogs(res.body, res.headers),
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+    }
+
     protected paginateBlogs(data: IBlog[], headers: HttpHeaders) {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.blogs = data;
+    }
+
+    private paginateCommunities(data: ICommunity[], headers: HttpHeaders) {
+        this.links = this.parseLinks.parse(headers.get('link'));
+        this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
+        this.queryCount = this.totalItems;
+        this.communities = data;
+        this.communitiesBlogs();
+        console.log('CONSOLOG: M:paginateBlogs & O: this.communities : ', this.communities);
     }
 
     protected onError(errorMessage: string) {

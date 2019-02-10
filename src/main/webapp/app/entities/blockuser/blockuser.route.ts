@@ -8,6 +8,8 @@ import { filter, map } from 'rxjs/operators';
 import { Blockuser } from 'app/shared/model/blockuser.model';
 import { BlockuserService } from './blockuser.service';
 import { BlockuserComponent } from './blockuser.component';
+import { BlockinguserComponent } from './blockinguser.component';
+import { BlockeduserComponent } from './blockeduser.component';
 import { BlockuserDetailComponent } from './blockuser-detail.component';
 import { BlockuserUpdateComponent } from './blockuser-update.component';
 import { BlockuserDeletePopupComponent } from './blockuser-delete-dialog.component';
@@ -40,6 +42,32 @@ export const blockuserRoute: Routes = [
             authorities: ['ROLE_USER'],
             defaultSort: 'id,asc',
             pageTitle: 'jhipsterpressApp.blockuser.home.title'
+        },
+        canActivate: [UserRouteAccessService]
+    },
+    {
+        path: 'blockinguser',
+        component: BlockinguserComponent,
+        resolve: {
+            pagingParams: JhiResolvePagingParams
+        },
+        data: {
+            authorities: ['ROLE_USER'],
+            defaultSort: 'id,asc',
+            pageTitle: 'jhipsterpressApp.blockuser.home.titleBlockingusers'
+        },
+        canActivate: [UserRouteAccessService]
+    },
+    {
+        path: 'blockeduser',
+        component: BlockeduserComponent,
+        resolve: {
+            pagingParams: JhiResolvePagingParams
+        },
+        data: {
+            authorities: ['ROLE_USER'],
+            defaultSort: 'id,asc',
+            pageTitle: 'jhipsterpressApp.blockuser.home.titleBlockedusers'
         },
         canActivate: [UserRouteAccessService]
     },

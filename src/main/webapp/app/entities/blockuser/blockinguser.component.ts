@@ -2,26 +2,27 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
 import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 
 import { IBlockuser } from 'app/shared/model/blockuser.model';
-import { AccountService } from 'app/core';
+import { BlockuserService } from './blockuser.service';
+import { IUprofile } from 'app/shared/model/uprofile.model';
+import { UprofileService } from '../uprofile/uprofile.service';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
-import { BlockuserService } from './blockuser.service';
+import { AccountService } from 'app/core';
 
 @Component({
     selector: 'jhi-blockuser',
-    templateUrl: './blockuser.component.html'
+    templateUrl: './blockinguser.component.html'
 })
-export class BlockuserComponent implements OnInit, OnDestroy {
+export class BlockinguserComponent implements OnInit, OnDestroy {
     currentAccount: any;
     blockusers: IBlockuser[];
+    uprofiles: IUprofile[];
     error: any;
     success: any;
     eventSubscriber: Subscription;
-    currentSearch: string;
     routeData: any;
     links: any;
     totalItems: any;
@@ -36,9 +37,11 @@ export class BlockuserComponent implements OnInit, OnDestroy {
     owner: any;
     isAdmin: boolean;
     zipZeroResults: any;
+    blockedUserId: number;
 
     constructor(
         protected blockuserService: BlockuserService,
+        protected uprofileService: UprofileService,
         protected parseLinks: JhiParseLinks,
         protected jhiAlertService: JhiAlertService,
         protected accountService: AccountService,
@@ -54,46 +57,31 @@ export class BlockuserComponent implements OnInit, OnDestroy {
             this.predicate = data.pagingParams.predicate;
         });
         this.activatedRoute.queryParams.subscribe(params => {
-            if (params.blockeduserIdEquals != null) {
-                this.nameParamBlockUser = 'blockinguserId.equals';
-                this.valueParamBlockUser = params.blockeduserIdEquals;
+            if (params.blockinguserIdEquals != null) {
+                this.nameParamBlockUser = 'blockeduserId.equals';
+                this.valueParamBlockUser = params.blockinguserIdEquals;
             }
-            if (params.cblockinguserIdEquals != null) {
-                this.nameParamBlockUser = 'cblockinguserId.equals';
-                this.valueParamBlockUser = params.cblockinguserIdEquals;
+            if (params.cblockedUserIdEquals != null) {
+                this.nameParamBlockUser = 'cblockeduserId.equals';
+                this.valueParamBlockUser = params.cblockeduserIdEquals;
             }
         });
-        this.currentSearch =
-            this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
-                ? this.activatedRoute.snapshot.params['search']
-                : '';
     }
 
     loadAll() {
-        if (this.currentSearch) {
-            this.blockuserService
-                .query({
-                    page: this.page - 1,
-                    query: this.currentSearch,
-                    size: this.itemsPerPage,
-                    sort: this.sort()
-                })
-                .subscribe(
-                    (res: HttpResponse<IBlockuser[]>) => this.paginateBlockusers(res.body, res.headers),
-                    (res: HttpErrorResponse) => this.onError(res.message)
-                );
-            return;
-        }
+        const query = {
+            page: this.page - 1,
+            size: this.itemsPerPage,
+            sort: this.sort()
+        };
+        query[this.nameParamBlockUser] = this.blockedUserId;
         this.blockuserService
-            .query({
-                page: this.page - 1,
-                size: this.itemsPerPage,
-                sort: this.sort()
-            })
+            .query(query)
             .subscribe(
                 (res: HttpResponse<IBlockuser[]>) => this.paginateBlockusers(res.body, res.headers),
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
+        console.log('CONSOLOG: M:loadAll & O: this.query : ', query);
     }
 
     loadPage(page: number) {
@@ -108,7 +96,6 @@ export class BlockuserComponent implements OnInit, OnDestroy {
             queryParams: {
                 page: this.page,
                 size: this.itemsPerPage,
-                search: this.currentSearch,
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
             }
         });
@@ -117,27 +104,9 @@ export class BlockuserComponent implements OnInit, OnDestroy {
 
     clear() {
         this.page = 0;
-        this.currentSearch = '';
         this.router.navigate([
             '/blockuser',
             {
-                page: this.page,
-                sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
-            }
-        ]);
-        this.loadAll();
-    }
-
-    search(query) {
-        if (!query) {
-            return this.clear();
-        }
-        this.page = 0;
-        this.currentSearch = query;
-        this.router.navigate([
-            '/blockuser',
-            {
-                search: this.currentSearch,
                 page: this.page,
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
             }
@@ -146,11 +115,29 @@ export class BlockuserComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.loadAll();
         this.accountService.identity().then(account => {
             this.currentAccount = account;
             this.owner = account.id;
+            //            this.accountService.hasAnyAuthority(['ROLE_ADMIN']).then(result => {
+            //                this.isAdmin = result;
             this.isAdmin = this.accountService.hasAnyAuthority(['ROLE_ADMIN']);
+            const query = {};
+            if (this.currentAccount.id != null) {
+                query['id.equals'] = this.valueParamBlockUser;
+            }
+            this.uprofileService.query(query).subscribe(
+                (res: HttpResponse<IUprofile[]>) => {
+                    this.uprofiles = res.body;
+                    console.log('CONSOLOG: M:ngOnInit & O: this.uprofiles : ', this.uprofiles);
+                    this.uprofiles.forEach(profile => {
+                        this.blockedUserId = profile.userId;
+                        console.log('CONSOLOG: M:ngOnInit & O: this.blockingUserId : ', this.blockedUserId);
+                        this.loadAll();
+                    });
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+            //            });
         });
         this.registerChangeInBlockusers();
     }
@@ -175,17 +162,17 @@ export class BlockuserComponent implements OnInit, OnDestroy {
         return result;
     }
 
-    protected paginateBlockusers(data: IBlockuser[], headers: HttpHeaders) {
+    private paginateBlockusers(data: IBlockuser[], headers: HttpHeaders) {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.queryCount = this.totalItems;
         this.blockusers = data;
-        console.log('CONSOLOG: M:paginateBlockusers & O: this.blockusers : ', this.blockusers);
-        console.log('CONSOLOG: M:paginateBlockusers & O: this.owner : ', this.owner);
-        console.log('CONSOLOG: M:paginateBlockusers & O: this.isAdmin : ', this.isAdmin);
+        console.log('CONSOLOG: M:paginateBlockusers & O: this.follows : ', this.blockusers);
+        console.log('CONSOLOG: M:paginateBlockusers & O: this.follows : ', this.owner);
+        console.log('CONSOLOG: M:paginateBlockusers & O: this.follows : ', this.isAdmin);
     }
 
-    protected onError(errorMessage: string) {
+    private onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
     }
 }

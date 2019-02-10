@@ -3,8 +3,10 @@
         "blog": {
             "home": {
                 "title": "Blogs",
+                "myLabel": "My Blog",
                 "createLabel": "Create a new Blog",
-                "createOrEditLabel": "Create or edit a Blog"
+                "createOrEditLabel": "Create or edit a Blog",
+                "search": "Search for Blog"
             },
             "created": "A new Blog is created with identifier {{ param }}",
             "updated": "A Blog is updated with identifier {{ param }}",
@@ -13,7 +15,8 @@
                 "question": "Are you sure you want to delete Blog {{ id }}?"
             },
             "detail": {
-                "title": "Blog"
+                "title": "Blog",
+                "blogposts": "Blogs Posts"
             },
             "creationDate": "Creation Date",
             "title": "Title",

@@ -2,23 +2,25 @@
     "jhipsterpressApp": {
         "calbum": {
             "home": {
-                "title": "Calbums",
-                "createLabel": "Crear nuevo Calbum",
-                "createOrEditLabel": "Crear o editar Calbum"
+                "title": "Album Comunitario",
+                "createLabel": "Crear nuevo Album Comunitario",
+                "myLabel": "Mi Album Comunitario",
+                "createOrEditLabel": "Crear o editar Album Comunitario",
+                "search": "Buscar un Album Comunitario"
             },
-            "created": "Un nuevo Calbum ha sido creado con el identificador {{ param }}",
-            "updated": "Un Calbum ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Calbum ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Album Comunitario ha sido creado con el identificador {{ param }}",
+            "updated": "Un Album Comunitario ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Album Comunitario ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Calbum {{ id }}?"
+                "question": "¿Seguro que quiere eliminar el Album Comunitario {{ id }}?"
             },
             "detail": {
-                "title": "Calbum"
+                "title": "Album Comunitario"
             },
-            "creationDate": "Creation Date",
-            "title": "Title",
-            "photo": "Photo",
-            "community": "Community"
+            "creationDate": "Fecha creación",
+            "title": "Título",
+            "photo": "Foto",
+            "community": "Comunidad"
         }
     }
 }

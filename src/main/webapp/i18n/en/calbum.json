@@ -2,18 +2,20 @@
     "jhipsterpressApp": {
         "calbum": {
             "home": {
-                "title": "Calbums",
-                "createLabel": "Create a new Calbum",
-                "createOrEditLabel": "Create or edit a Calbum"
+                "title": "Community Albums",
+                "createLabel": "Create a new Community Album",
+                "myLabel": "My Community Albums",
+                "createOrEditLabel": "Create or edit a Community Album",
+                "search": "Search for Community Album"
             },
-            "created": "A new Calbum is created with identifier {{ param }}",
-            "updated": "A Calbum is updated with identifier {{ param }}",
-            "deleted": "A Calbum is deleted with identifier {{ param }}",
+            "created": "A new Community Album is created with identifier {{ param }}",
+            "updated": "A Community Album is updated with identifier {{ param }}",
+            "deleted": "A Community Album is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Calbum {{ id }}?"
+                "question": "Are you sure you want to delete Community Album {{ id }}?"
             },
             "detail": {
-                "title": "Calbum"
+                "title": "Community Album"
             },
             "creationDate": "Creation Date",
             "title": "Title",

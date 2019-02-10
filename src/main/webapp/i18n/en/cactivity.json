@@ -2,18 +2,21 @@
     "jhipsterpressApp": {
         "cactivity": {
             "home": {
-                "title": "Cactivities",
-                "createLabel": "Create a new Cactivity",
-                "createOrEditLabel": "Create or edit a Cactivity"
+                "title": "Community Activities",
+                "createLabel": "Create a new Community Activity",
+                "myLabel": "My Community Activities",
+                "noticeLabel": "Choose one of the following or risk to be alone in a new Community Activity category!",
+                "createOrEditLabel": "Create or edit a Community Activity",
+                "search": "Search for Community Activity"
             },
-            "created": "A new Cactivity is created with identifier {{ param }}",
-            "updated": "A Cactivity is updated with identifier {{ param }}",
-            "deleted": "A Cactivity is deleted with identifier {{ param }}",
+            "created": "A new Community Activity is created with identifier {{ param }}",
+            "updated": "A Community Activity is updated with identifier {{ param }}",
+            "deleted": "A Community Activity is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Cactivity {{ id }}?"
+                "question": "Are you sure you want to delete Community Activity {{ id }}?"
             },
             "detail": {
-                "title": "Cactivity"
+                "title": "Community Activity"
             },
             "activityName": "Activity Name",
             "community": "Community"

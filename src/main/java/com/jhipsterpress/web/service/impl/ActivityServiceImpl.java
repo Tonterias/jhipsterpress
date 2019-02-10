@@ -27,10 +27,14 @@ public class ActivityServiceImpl implements ActivityService {
     private final ActivityRepository activityRepository;
 
     private final ActivityMapper activityMapper;
+    
+//    private final ActivitySearchRepository activitySearchRepository;
 
+//    public ActivityServiceImpl(ActivityRepository activityRepository, ActivityMapper activityMapper, ActivitySearchRepository activitySearchRepository) {
     public ActivityServiceImpl(ActivityRepository activityRepository, ActivityMapper activityMapper) {
         this.activityRepository = activityRepository;
         this.activityMapper = activityMapper;
+//        this.activitySearchRepository = activitySearchRepository;
     }
 
     /**
@@ -94,4 +98,22 @@ public class ActivityServiceImpl implements ActivityService {
     public void delete(Long id) {
         log.debug("Request to delete Activity : {}", id);        activityRepository.deleteById(id);
     }
+//
+//
+//    /**
+//     * Search for the activity corresponding to the query.
+//     *
+//     * @param query the query of the search
+//     * @param pageable the pagination information
+//     * @return the list of entities
+//     */
+//    @Override
+//    @Transactional(readOnly = true)
+//    public Page<ActivityDTO> search(String query, Pageable pageable) {
+//        log.debug("Request to search for a page of Activities for query {}", query);
+////        return activitySearchRepository.search(queryStringQuery(query), pageable)
+////            .map(activityMapper::toDto);
+//        return activityRepository.findAllWithEagerRelationships(queryStringQuery(query), pageable)
+//                .map(activityMapper::toDto);
+//    }
 }

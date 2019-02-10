@@ -105,7 +105,7 @@ export class ActivityUpdateComponent implements OnInit {
     loadAll() {
         if (this.currentSearch) {
             this.activityService
-                .search({
+                .query({
                     page: this.page - 1,
                     query: this.currentSearch,
                     size: this.itemsPerPage,

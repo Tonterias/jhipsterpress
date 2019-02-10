@@ -29,16 +29,13 @@ export class ActivityService {
     }
 
     query(req?: any): Observable<EntityArrayResponseType> {
+        console.log('CONSOLOG: M:ActivityService: & O: this.req : ', req);
         const options = createRequestOption(req);
+        console.log('CONSOLOG: M:ActivityService: & O: this.options : ', options);
         return this.http.get<IActivity[]>(this.resourceUrl, { params: options, observe: 'response' });
     }
 
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
-    }
-
-    search(req?: any): Observable<EntityArrayResponseType> {
-        const options = createRequestOption(req);
-        return this.http.get<IActivity[]>(this.resourceSearchUrl, { params: options, observe: 'response' });
     }
 }

@@ -4,7 +4,9 @@
             "home": {
                 "title": "Albums",
                 "createLabel": "Create a new Album",
-                "createOrEditLabel": "Create or edit a Album"
+                "myLabel": "My Album",
+                "createOrEditLabel": "Create or edit a Album",
+                "search": "Search for Album"
             },
             "created": "A new Album is created with identifier {{ param }}",
             "updated": "A Album is updated with identifier {{ param }}",

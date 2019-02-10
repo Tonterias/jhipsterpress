@@ -3,8 +3,10 @@
         "album": {
             "home": {
                 "title": "Albums",
-                "createLabel": "Crear nuevo Album",
-                "createOrEditLabel": "Crear o editar Album"
+                "createLabel": "Crear un nuevo Album",
+                "myLabel": "Mis Albums",
+                "createOrEditLabel": "Crear o editar Album",
+                "search": "Buscar un Album"
             },
             "created": "Un nuevo Album ha sido creado con el identificador {{ param }}",
             "updated": "Un Album ha sido actualizado con el identificador {{ param }}",
@@ -16,8 +18,8 @@
                 "title": "Album"
             },
             "creationDate": "Creation Date",
-            "title": "Title",
-            "photo": "Photo",
+            "title": "Título",
+            "photo": "Foto",
             "user": "User"
         }
     }

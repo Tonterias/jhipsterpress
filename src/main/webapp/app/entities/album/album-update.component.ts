@@ -9,22 +9,27 @@ import { JhiAlertService } from 'ng-jhipster';
 import { IAlbum } from 'app/shared/model/album.model';
 import { AlbumService } from './album.service';
 import { IUser, UserService } from 'app/core';
+import { AccountService } from 'app/core';
 
 @Component({
     selector: 'jhi-album-update',
     templateUrl: './album-update.component.html'
 })
 export class AlbumUpdateComponent implements OnInit {
-    album: IAlbum;
+    private _album: IAlbum;
     isSaving: boolean;
 
     users: IUser[];
+    user: IUser;
     creationDate: string;
+
+    currentAccount: any;
 
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected albumService: AlbumService,
         protected userService: UserService,
+        protected accountService: AccountService,
         protected activatedRoute: ActivatedRoute
     ) {}
 
@@ -32,7 +37,14 @@ export class AlbumUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ album }) => {
             this.album = album;
-            this.creationDate = this.album.creationDate != null ? this.album.creationDate.format(DATE_TIME_FORMAT) : null;
+            this.creationDate = moment().format(DATE_TIME_FORMAT);
+            //            this.creationDate = this.album.creationDate != null ? this.album.creationDate.format(DATE_TIME_FORMAT) : null;
+            this.album.creationDate = moment(this.creationDate);
+        });
+        console.log('CONSOLOG: M:ngOnInit & O: this.isSaving : ', this.isSaving);
+        this.accountService.identity().then(account => {
+            this.currentAccount = account;
+            this.myUser();
         });
         this.userService
             .query()
@@ -51,10 +63,23 @@ export class AlbumUpdateComponent implements OnInit {
         this.isSaving = true;
         this.album.creationDate = this.creationDate != null ? moment(this.creationDate, DATE_TIME_FORMAT) : null;
         if (this.album.id !== undefined) {
+            console.log('CONSOLOG: M:save & O: this.album : ', this.album);
             this.subscribeToSaveResponse(this.albumService.update(this.album));
         } else {
+            console.log('CONSOLOG: M:save & O: this.album : ', this.album);
             this.subscribeToSaveResponse(this.albumService.create(this.album));
         }
+    }
+
+    protected myUser() {
+        this.userService.findById(this.currentAccount.id).subscribe(
+            (res: HttpResponse<IUser>) => {
+                this.album.userId = res.body.id;
+                console.log('CONSOLOG: M:myUser & O: res.body : ', res.body);
+                console.log('CONSOLOG: M:myUser & O: this.album.userId : ', this.album.userId);
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
     }
 
     protected subscribeToSaveResponse(result: Observable<HttpResponse<IAlbum>>) {
@@ -76,5 +101,14 @@ export class AlbumUpdateComponent implements OnInit {
 
     trackUserById(index: number, item: IUser) {
         return item.id;
+    }
+
+    get album() {
+        return this._album;
+    }
+
+    set album(album: IAlbum) {
+        this._album = album;
+        this.creationDate = moment(album.creationDate).format(DATE_TIME_FORMAT);
     }
 }

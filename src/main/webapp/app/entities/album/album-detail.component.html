@@ -24,12 +24,43 @@
                     class="btn btn-info">
                 <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
             </button>
-
+			<!-- 
             <button type="button"
                     [routerLink]="['/album', album.id, 'edit']"
                     class="btn btn-primary">
                 <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
             </button>
+             -->
         </div>
+        
+                
+	    <h2 id="page-heading">
+	        <span jhiTranslate="jhipsterpressApp.photo.home.title">Photos</span>
+	    </h2>
+	    <jhi-alert></jhi-alert>
+	    <br/>
+        <!-- Profile Content -->
+		<div class="col-lg-9" *ngIf="photos?.length; else zipZeroResults"> 
+            <!-- User Contacts -->
+            <div class="row g-mb-40">
+              <div class="col-md-4 g-mb-30 g-mb-0--md" *ngFor="let photo of photos ;trackBy: trackId">
+                <!-- Figure -->
+                <figure class="g-bg-white g-brd-around g-brd-gray-light-v4 g-brd-cyan--hover g-transition-0_2 text-center">
+                  <div class="g-py-40 g-px-20">
+                    <!-- Figure Image -->
+                    <a *ngIf="photo.image" [routerLink]="['/photo', photo.id, 'view' ]">
+                    	<img class="g-width-100 g-height-100 rounded-circle g-mb-20" [src]="'data:' + photo.imageContentType + ';base64,' + photo.image" alt="image"/>
+                    </a>
+                  </div>
+                  <hr class="g-brd-gray-light-v4 g-my-0">
+                </figure>
+                <!-- End Figure -->
+              </div>
+          </div>
+          </div>
+          <ng-template #zipZeroResults>
+            <h2 id="page-heading">Nought, nil, nada, nothing, zero, zilch, zip...</h2>
+          </ng-template>
+          <!-- End Profile Content -->
     </div>
 </div>

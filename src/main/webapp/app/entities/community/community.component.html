@@ -1,15 +1,102 @@
 <div>
     <h2 id="page-heading">
         <span jhiTranslate="jhipsterpressApp.community.home.title">Communities</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-community" [routerLink]="['/community/new']">
+        <button style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="myCommunities()">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="jhipsterpressApp.community.home.createLabel">
+            <span  jhiTranslate="jhipsterpressApp.community.home.myLabel">
+            My Communities
+            </span>
+        </button>
+        <button style="margin:5px;" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-community" [routerLink]="['/community/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="jhipsterpressApp.community.home.createLabel">
             Create new Community
             </span>
         </button>
     </h2>
     <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jhipsterpressApp.community.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
     <br/>
+    
+ 		
+	  <!-- User Blocks v16 https://htmlstream.com/public/preview/unify-v2.5.1/unify-main/shortcodes/shortcode-blocks-users.html-->
+      <section class="g-bg-secondary g-py-100">
+        <div class="container" *ngFor="let community of communities ;trackBy: trackId">
+          <div id="shortcode16">
+            <div class="shortcode-html">
+              <!-- Users -->
+              <div class="row g-mb-70">
+                <div class="col-md-12 g-mb-30">
+                  <!-- Listing - Agents -->
+                  <div class="u-shadow-v11 text-center">
+                    <div class="g-bg-white g-pa-20">
+                      <div class="g-width-130 g-height-130 mx-auto mb-4">
+				        <!-- Figure Image -->
+			        	<a *ngIf="community.image" [routerLink]="['/community', community.id, 'view' ]">
+		                    <img [src]="'data:' + community.imageContentType + ';base64,' + community.image" style="max-width: 100%;" alt="community image"/>
+		                </a>
+				        <!-- Figure Image -->
+                      </div>
+                      <div class="mb-3">
+                         <h2 class="h3 mb-4"><a class="u-link-v5 g-color-main g-color-primary--hover" [routerLink]="['/community', community.id, 'view' ]">{{community.communityName}}</a></h2>
+                      </div>
+                      <span class="d-block g-font-weight-500 g-font-size-13">{{community.communityDescription}}</span>
+                      <span class="d-block g-font-weight-500 g-font-size-13">{{community.creationDate | date:'longDate'}}</span>
+                    </div>
+					
+					<!-- Figure List -->
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/community', community.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button *ngIf="owner === community.userId || isAdmin == true"
+            					type="submit"
+                                [routerLink]="['/community', community.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button *ngIf="owner === community.userId || isAdmin == true"
+            					type="submit"
+                                [routerLink]="['/', 'community', { outlets: { popup: community.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+			        </div>
+			        <!-- End Figure List -->
+                  <!-- End Listing - Agents -->
+                </div>
+
+              </div>
+              <!-- End Users -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <!-- End User Blocks v16 -->
+          
     <div class="table-responsive" *ngIf="communities">
         <table class="table table-striped">
             <thead>
@@ -48,13 +135,15 @@
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                         </button>
-                        <button type="submit"
+                        <button *ngIf="owner === community.userId || isAdmin == true"
+            					type="submit"
                                 [routerLink]="['/community', community.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                         </button>
-                        <button type="submit"
+                        <button *ngIf="owner === community.userId || isAdmin == true"
+            					type="submit"
                                 [routerLink]="['/', 'community', { outlets: { popup: community.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"

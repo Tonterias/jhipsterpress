@@ -6,6 +6,7 @@ import { filter, map } from 'rxjs/operators';
 import * as moment from 'moment';
 import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 import { JhiAlertService, JhiDataUtils } from 'ng-jhipster';
+
 import { ICommunity } from 'app/shared/model/community.model';
 import { CommunityService } from './community.service';
 import { IUser, UserService } from 'app/core';
@@ -15,6 +16,8 @@ import { ICactivity } from 'app/shared/model/cactivity.model';
 import { CactivityService } from 'app/entities/cactivity';
 import { ICceleb } from 'app/shared/model/cceleb.model';
 import { CcelebService } from 'app/entities/cceleb';
+
+import { AccountService } from 'app/core';
 
 @Component({
     selector: 'jhi-community-update',
@@ -33,6 +36,8 @@ export class CommunityUpdateComponent implements OnInit {
     ccelebs: ICceleb[];
     creationDate: string;
 
+    currentAccount: any;
+
     constructor(
         protected dataUtils: JhiDataUtils,
         protected jhiAlertService: JhiAlertService,
@@ -41,44 +46,64 @@ export class CommunityUpdateComponent implements OnInit {
         protected cinterestService: CinterestService,
         protected cactivityService: CactivityService,
         protected ccelebService: CcelebService,
+        protected accountService: AccountService,
         protected elementRef: ElementRef,
         protected activatedRoute: ActivatedRoute
     ) {}
 
+    //    ngOnInit() {
+    //        this.isSaving = false;
+    //        this.activatedRoute.data.subscribe(({ community }) => {
+    //            this.community = community;
+    //            this.creationDate = this.community.creationDate != null ? this.community.creationDate.format(DATE_TIME_FORMAT) : null;
+    //        });
+    //        this.userService
+    //            .query()
+    //            .pipe(
+    //                filter((mayBeOk: HttpResponse<IUser[]>) => mayBeOk.ok),
+    //                map((response: HttpResponse<IUser[]>) => response.body)
+    //            )
+    //            .subscribe((res: IUser[]) => (this.users = res), (res: HttpErrorResponse) => this.onError(res.message));
+    //        this.cinterestService
+    //            .query()
+    //            .pipe(
+    //                filter((mayBeOk: HttpResponse<ICinterest[]>) => mayBeOk.ok),
+    //                map((response: HttpResponse<ICinterest[]>) => response.body)
+    //            )
+    //            .subscribe((res: ICinterest[]) => (this.cinterests = res), (res: HttpErrorResponse) => this.onError(res.message));
+    //        this.cactivityService
+    //            .query()
+    //            .pipe(
+    //                filter((mayBeOk: HttpResponse<ICactivity[]>) => mayBeOk.ok),
+    //                map((response: HttpResponse<ICactivity[]>) => response.body)
+    //            )
+    //            .subscribe((res: ICactivity[]) => (this.cactivities = res), (res: HttpErrorResponse) => this.onError(res.message));
+    //        this.ccelebService
+    //            .query()
+    //            .pipe(
+    //                filter((mayBeOk: HttpResponse<ICceleb[]>) => mayBeOk.ok),
+    //                map((response: HttpResponse<ICceleb[]>) => response.body)
+    //            )
+    //            .subscribe((res: ICceleb[]) => (this.ccelebs = res), (res: HttpErrorResponse) => this.onError(res.message));
+    //    }
     ngOnInit() {
         this.isSaving = false;
+        this.accountService.identity().then(account => {
+            this.currentAccount = account;
+            console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount.id : ', this.currentAccount.id);
+            this.userService.findById(this.currentAccount.id).subscribe(
+                (res: HttpResponse<IUser>) => {
+                    this.community.userId = res.body.id;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+        });
         this.activatedRoute.data.subscribe(({ community }) => {
             this.community = community;
-            this.creationDate = this.community.creationDate != null ? this.community.creationDate.format(DATE_TIME_FORMAT) : null;
+            this.creationDate = moment().format(DATE_TIME_FORMAT);
+            this.community.creationDate = moment(this.creationDate);
+            console.log('CONSOLOG: M:ngOnInit & O: this.community : ', this.community);
         });
-        this.userService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<IUser[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IUser[]>) => response.body)
-            )
-            .subscribe((res: IUser[]) => (this.users = res), (res: HttpErrorResponse) => this.onError(res.message));
-        this.cinterestService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<ICinterest[]>) => mayBeOk.ok),
-                map((response: HttpResponse<ICinterest[]>) => response.body)
-            )
-            .subscribe((res: ICinterest[]) => (this.cinterests = res), (res: HttpErrorResponse) => this.onError(res.message));
-        this.cactivityService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<ICactivity[]>) => mayBeOk.ok),
-                map((response: HttpResponse<ICactivity[]>) => response.body)
-            )
-            .subscribe((res: ICactivity[]) => (this.cactivities = res), (res: HttpErrorResponse) => this.onError(res.message));
-        this.ccelebService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<ICceleb[]>) => mayBeOk.ok),
-                map((response: HttpResponse<ICceleb[]>) => response.body)
-            )
-            .subscribe((res: ICceleb[]) => (this.ccelebs = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     byteSize(field) {
@@ -104,6 +129,8 @@ export class CommunityUpdateComponent implements OnInit {
     save() {
         this.isSaving = true;
         this.community.creationDate = this.creationDate != null ? moment(this.creationDate, DATE_TIME_FORMAT) : null;
+        this.community.userId = this.currentAccount.id;
+        console.log('CONSOLOG: M:save & O: this.this.community : ', this.community);
         if (this.community.id !== undefined) {
             this.subscribeToSaveResponse(this.communityService.update(this.community));
         } else {

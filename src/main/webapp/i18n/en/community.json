@@ -4,7 +4,9 @@
             "home": {
                 "title": "Communities",
                 "createLabel": "Create a new Community",
-                "createOrEditLabel": "Create or edit a Community"
+                "myLabel": "My Communities",
+                "createOrEditLabel": "Create or edit a Community",
+                "search": "Search for Community"
             },
             "created": "A new Community is created with identifier {{ param }}",
             "updated": "A Community is updated with identifier {{ param }}",
@@ -13,7 +15,9 @@
                 "question": "Are you sure you want to delete Community {{ id }}?"
             },
             "detail": {
-                "title": "Community"
+                "title": "Community",
+                "founder": "Blog Founder",
+                "cblog": "Communities' Blogs"
             },
             "creationDate": "Creation Date",
             "communityName": "Community Name",
@@ -21,17 +25,19 @@
             "image": "Image",
             "isActive": "Is Active",
             "blog": "Blog",
-            "csender": "Csender",
-            "creceiver": "Creceiver",
-            "cfollowed": "Cfollowed",
-            "cfollowing": "Cfollowing",
-            "cblockeduser": "Cblockeduser",
-            "cblockinguser": "Cblockinguser",
+            "follow": "Follow",
+            "unfollow": "UnFollow",
+            "csender": "Community Sender",
+            "creceiver": "Community Receiver",
+            "cfollowed": "Community Followed",
+            "cfollowing": "Community Following",
+            "cblockeduser": "Community Blocked User",
+            "cblockinguser": "Community Blocking User",
             "user": "User",
-            "calbum": "Calbum",
-            "cinterest": "Cinterest",
-            "cactivity": "Cactivity",
-            "cceleb": "Cceleb"
+            "calbum": "Community Album",
+            "cinterest": "Community Interest",
+            "cactivity": "Community Activity",
+            "cceleb": "Community Celeb"
         }
     }
 }

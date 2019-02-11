@@ -58,8 +58,8 @@
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="jhipsterpressApp.feedback.feedback" for="field_feedback">Feedback</label>
-                    <input type="text" class="form-control" name="feedback" id="field_feedback"
-                        [(ngModel)]="feedback.feedback" required minlength="2" maxlength="5000"/>
+                    <textarea type="text" rows="10" cols="50" class="form-control" name="feedback" id="field_feedback"
+                        [(ngModel)]="feedback.feedback" required minlength="2" maxlength="65000">
                     <div [hidden]="!(editForm.controls.feedback?.dirty && editForm.controls.feedback?.invalid)">
                         <small class="form-text text-danger"
                         [hidden]="!editForm.controls.feedback?.errors?.required" jhiTranslate="entity.validation.required">
@@ -74,6 +74,7 @@
                         This field cannot be longer than 5000 characters.
                         </small>
                     </div>
+                    </textarea>
                 </div>
 
             </div>

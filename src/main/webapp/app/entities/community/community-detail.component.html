@@ -1,13 +1,25 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="community">
-            <h2><span jhiTranslate="jhipsterpressApp.community.detail.title">Community</span> {{community.id}}</h2>
+            <h2><span>{{community.communityname}}</span>
+	            <button *ngIf="isFollowing === true" style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="unFollowing()">
+				    <span jhiTranslate="jhipsterpressApp.community.unfollow">
+				    UnFollow
+				    </span>
+				</button>
+				<button *ngIf="isFollowing === false" style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="following()">
+				    <span jhiTranslate="jhipsterpressApp.community.follow">
+				    Follow
+				    </span>
+				</button>
+            </h2>
+            
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
                 <dt><span jhiTranslate="jhipsterpressApp.community.creationDate">Creation Date</span></dt>
                 <dd>
-                    <span>{{community.creationDate}}</span>
+                    <span>{{community.creationDate | date:'longDate'}}</span>
                 </dd>
                 <dt><span jhiTranslate="jhipsterpressApp.community.communityName">Community Name</span></dt>
                 <dd>
@@ -34,19 +46,139 @@
                 <dd>
                     {{community.userId}}
                 </dd>
+                
+                <!-- Interests -->
+				<div class="g-mb-30">
+					<h6 class="g-color-gray-dark-v1">
+						<button id="jh-create-entity"
+							*ngIf="owner === community.userId" 
+							class="btn btn-primary float-right jh-create-entity create-interest"
+							[routerLink]="['/cinterest/new']" [queryParams]="{ 'communityIdEquals': community.id }">
+							<fa-icon [icon]="'plus'"></fa-icon>
+						</button>
+						<strong class="g-mr-5">Interests:</strong> 
+						<span *ngFor="let cinterest of cinterests">
+						    <a (click)="removeCommunityCinterest(cinterest.id, community.id)"  class="u-tags-v1 g-font-size-12 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-red-opacity-0_8 g-color-red--hover rounded g-py-6 g-px-15 g-mr-5">
+								<fa-icon [icon]="'times'"></fa-icon>
+							</a>
+							<a [routerLink]="['/cinterest', cinterest.id, 'view' ]" class="u-tags-v1 g-font-size-12 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-black-opacity-0_8 g-color-white--hover rounded g-py-6 g-px-15 g-mr-5" href="#!">
+								{{cinterest.interestName}}
+							</a>
+						</span>
+					</h6>
+				</div>
+				<!-- End Interests -->
+				
+				<!-- Activities -->
+				<div class="g-mb-30">
+				  <h6 class="g-color-gray-dark-v1">
+				            <button id="jh-create-entity" 
+				            	*ngIf="owner === community.userId" 
+				                class="btn btn-primary float-right jh-create-entity create-interest" 
+				                [routerLink]="['/cactivity/new']" [queryParams]="{ 'communityIdEquals': community.id }">
+				            <fa-icon [icon]="'plus'"></fa-icon>
+				        </button>
+					    <strong class="g-mr-5">Activities:</strong>
+					    <span *ngFor="let cactivity of cactivities">
+						    <a (click)="removeCommunityCactivity(cactivity.id, community.id)"  class="u-tags-v1 g-font-size-12 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-red-opacity-0_8 g-color-red--hover rounded g-py-6 g-px-15 g-mr-5">
+								<fa-icon [icon]="'times'"></fa-icon>
+							</a>
+							<a [routerLink]="['/cactivity', cactivity.id, 'view' ]" class="u-tags-v1 g-font-size-12 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-black-opacity-0_8 g-color-white--hover rounded g-py-6 g-px-15 g-mr-5" href="#!">
+								{{cactivity.activityName}}
+							</a>
+					    </span>
+				  </h6>
+				</div>
+				<!-- End Activities -->
+				
+				<!-- Celebs -->
+				<div class="g-mb-30">
+				  <h6 class="g-color-gray-dark-v1">
+				            <button id="jh-create-entity" 
+				           		*ngIf="owner === community.userId" 
+				                class="btn btn-primary float-right jh-create-entity create-interest" 
+				                [routerLink]="['/cceleb/new']" [queryParams]="{ 'communityIdEquals': community.id }">
+				            <fa-icon [icon]="'plus'"></fa-icon>
+				        </button>
+					    <strong class="g-mr-5">Celebs:</strong>
+					    <span  *ngFor="let cceleb of ccelebs">
+							<a (click)="removeCommunityCceleb(cceleb.id, community.id)"  class="u-tags-v1 g-font-size-12 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-red-opacity-0_8 g-color-red--hover rounded g-py-6 g-px-15 g-mr-5">
+								<fa-icon [icon]="'times'"></fa-icon>
+							</a>
+							<a [routerLink]="['/cceleb', cceleb.id, 'view' ]" class="u-tags-v1 g-font-size-12 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-black-opacity-0_8 g-color-white--hover rounded g-py-6 g-px-15 g-mr-5" href="#!">
+								{{cceleb.celebName}}
+							</a>					        
+					    </span>
+				  </h6>
+				</div>
+				<!-- End Celebs -->
+				
+				                
+				<!-- Messages http://localhost:9000/api/messages?communityId.equals=1-->
+				<a [routerLink]="['/cmessage/new']" [queryParams]="{ 'communityIdEquals': community.id }" class="list-group-item justify-content-between active">
+				  <span><i class="icon-settings g-pos-rel g-top-1 g-mr-8"></i> Send a Message</span>
+				  <span class="u-label g-font-size-11 g-bg-cyan g-rounded-20 g-px-8"></span>
+				</a>
             </dl>
+            
+            <br/>
+            
+            <div>
+
+			<!-- AQUI IBA TODA LA PARTE DE LOS SEGUIDORES DE LA COMUNIDAD!!!!!!!!!!!!!!!!!!!!!! JHP08 -->	
+            <br/>
+
+    	    <a [routerLink]="['/follower']" [queryParams]="{ 'cfollowingIdEquals': community.id }" class="list-group-item list-group-item-action justify-content-between">
+                <h3><span><i class="icon-notebook g-pos-rel g-top-1 g-mr-8"></i> Followers</span></h3>
+            </a>
+	            
+            <h3><span jhiTranslate="jhipsterpressApp.community.detail.cblog">Communities' Blogs</span></h3>
+            
+			<div class="table-responsive" *ngIf="blogs">
+		        <table class="table table-striped">
+		            <thead>
+		            <th><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+		            <th><span jhiTranslate="jhipsterpressApp.blog.creationDate">Creation Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+		            <th><span jhiTranslate="jhipsterpressApp.blog.title">Title</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+		            <th><span jhiTranslate="jhipsterpressApp.blog.image">Image</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+		            <th></th>
+		            </tr>
+		            </thead>
+		            <tbody>
+		            <tr *ngFor="let blog of blogs">
+		                <td><a [routerLink]="['/blog', blog.id, 'view' ]">{{blog.id}}</a></td>
+		                <td>{{blog.creationDate | date:'MMM d, y, h:mm a'}}</td>
+		                <td><a [routerLink]="['/blog', blog.id, 'view' ]">{{blog.title}}</a></td>
+		                <td>
+		                    <a *ngIf="blog.image" (click)="openFile(blog.imageContentType, blog.image)">
+		                        <img [src]="'data:' + blog.imageContentType + ';base64,' + blog.image" style="max-height: 30px;" alt="blog image"/>
+		                    </a>
+		                    <!-- <span *ngIf="blog.image">{{blog.imageContentType}}, {{byteSize(blog.image)}}</span>  -->
+		                </td>
+		            </tr>
+		            </tbody>
+		        </table>
+
+			        <div class="row justify-content-center">
+			            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+			        </div>
+			        <div class="row justify-content-center">
+			            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+			        </div>
+		    </div>
 
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
                 <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
             </button>
-
+			<!--
             <button type="button"
                     [routerLink]="['/community', community.id, 'edit']"
                     class="btn btn-primary">
                 <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
             </button>
+             -->
         </div>
     </div>
 </div>

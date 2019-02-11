@@ -86,25 +86,10 @@
                     <input type="checkbox" class="form-control" name="isActive" id="field_isActive"
                         [(ngModel)]="community.isActive" />
                 </div>
-
+					<input type="text" class="form-control" id="id" name="id" [(ngModel)]="community.userId" />
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="jhipsterpressApp.community.user" for="field_user">User</label>
-                    <select class="form-control" id="field_user" name="user" [(ngModel)]="community.userId"  required>
-                        <option *ngIf="!editForm.value.user" [ngValue]="null" selected></option>
-                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
-                    </select>
-                </div>
-                <div [hidden]="!(editForm.controls.user?.dirty && editForm.controls.user?.invalid)">
-                    <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.user?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                    </small>
-                </div>
-                <div [hidden]="!(editForm.controls.calbum?.dirty && editForm.controls.calbum?.invalid)">
-                    <small class="form-text text-danger"
-                        [hidden]="!editForm.controls.calbum?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                    </small>
+                    
                 </div>
             </div>
             <div>

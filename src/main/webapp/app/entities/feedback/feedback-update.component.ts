@@ -23,7 +23,8 @@ export class FeedbackUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ feedback }) => {
             this.feedback = feedback;
-            this.creationDate = this.feedback.creationDate != null ? this.feedback.creationDate.format(DATE_TIME_FORMAT) : null;
+            this.creationDate = moment().format(DATE_TIME_FORMAT);
+            this.feedback.creationDate = moment(this.creationDate);
         });
     }
 

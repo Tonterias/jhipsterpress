@@ -62,10 +62,9 @@ export const feedbackRoute: Routes = [
             feedback: FeedbackResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: [],
             pageTitle: 'jhipsterpressApp.feedback.home.title'
-        },
-        canActivate: [UserRouteAccessService]
+        }
     },
     {
         path: ':id/edit',

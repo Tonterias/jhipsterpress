@@ -21,6 +21,7 @@ export class CommunityComponent implements OnInit, OnDestroy {
     error: any;
     success: any;
     eventSubscriber: Subscription;
+    currentSearch: string;
     routeData: any;
     links: any;
     totalItems: any;
@@ -29,6 +30,8 @@ export class CommunityComponent implements OnInit, OnDestroy {
     predicate: any;
     previousPage: any;
     reverse: any;
+    owner: any;
+    isAdmin: boolean;
 
     constructor(
         protected communityService: CommunityService,
@@ -47,13 +50,32 @@ export class CommunityComponent implements OnInit, OnDestroy {
             this.reverse = data.pagingParams.ascending;
             this.predicate = data.pagingParams.predicate;
         });
+        this.currentSearch =
+            this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
+                ? this.activatedRoute.snapshot.params['search']
+                : '';
     }
 
     loadAll() {
+        if (this.currentSearch) {
+            this.communityService
+                .query({
+                    page: this.page - 1,
+                    query: this.currentSearch,
+                    size: this.itemsPerPage,
+                    sort: this.sort()
+                })
+                .subscribe(
+                    (res: HttpResponse<ICommunity[]>) => this.paginateCommunities(res.body, res.headers),
+                    (res: HttpErrorResponse) => this.onError(res.message)
+                );
+            return;
+        }
         this.communityService
             .query({
                 page: this.page - 1,
                 size: this.itemsPerPage,
+                search: this.currentSearch,
                 sort: this.sort()
             })
             .subscribe(
@@ -82,9 +104,27 @@ export class CommunityComponent implements OnInit, OnDestroy {
 
     clear() {
         this.page = 0;
+        this.currentSearch = '';
         this.router.navigate([
             '/community',
             {
+                page: this.page,
+                sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
+            }
+        ]);
+        this.loadAll();
+    }
+
+    search(query) {
+        if (!query) {
+            return this.clear();
+        }
+        this.page = 0;
+        this.currentSearch = query;
+        this.router.navigate([
+            '/community',
+            {
+                search: this.currentSearch,
                 page: this.page,
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
             }
@@ -96,6 +136,8 @@ export class CommunityComponent implements OnInit, OnDestroy {
         this.loadAll();
         this.accountService.identity().then(account => {
             this.currentAccount = account;
+            this.owner = account.id;
+            this.isAdmin = this.accountService.hasAnyAuthority(['ROLE_ADMIN']);
         });
         this.registerChangeInCommunities();
     }
@@ -128,10 +170,28 @@ export class CommunityComponent implements OnInit, OnDestroy {
         return result;
     }
 
+    myCommunities() {
+        const query = {
+            page: this.page - 1,
+            size: this.itemsPerPage,
+            sort: this.sort()
+        };
+        if (this.currentAccount.id != null) {
+            query['userId.equals'] = this.currentAccount.id;
+        }
+        this.communityService
+            .query(query)
+            .subscribe(
+                (res: HttpResponse<ICommunity[]>) => this.paginateCommunities(res.body, res.headers),
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+    }
+
     protected paginateCommunities(data: ICommunity[], headers: HttpHeaders) {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.communities = data;
+        console.log('CONSOLOG: M:paginateCommunities & O: this.communities : ', this.communities);
     }
 
     protected onError(errorMessage: string) {

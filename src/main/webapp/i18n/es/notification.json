@@ -2,25 +2,26 @@
     "jhipsterpressApp": {
         "notification": {
             "home": {
-                "title": "Notifications",
-                "createLabel": "Crear nuevo Notification",
-                "createOrEditLabel": "Crear o editar Notification"
+                "title": "Notificaciones",
+                "createLabel": "Crear nueva Notificación",
+                "createOrEditLabel": "Crear o editar Notificación",
+                "search": "Buscar una Notificación"
             },
-            "created": "Un nuevo Notification ha sido creado con el identificador {{ param }}",
-            "updated": "Un Notification ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Notification ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva Notificación ha sido creada con el identificador {{ param }}",
+            "updated": "Una Notificación ha sido actualizada con el identificador {{ param }}",
+            "deleted": "Una Notificación ha sido eliminada con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Notification {{ id }}?"
+                "question": "¿Seguro que quiere eliminar la Notificación {{ id }}?"
             },
             "detail": {
-                "title": "Notification"
+                "title": "Notificación"
             },
-            "creationDate": "Creation Date",
-            "notificationDate": "Notification Date",
-            "notificationReason": "Notification Reason",
-            "notificationText": "Notification Text",
-            "isDelivered": "Is Delivered",
-            "user": "User"
+            "creationDate": "Fecha de Creación",
+            "notificationDate": "Fecha de la Notificación",
+            "notificationReason": "Razón de la Notificación",
+            "notificationText": "Texto de la Notificación",
+            "isDelivered": "¿Ha sido Entregada?",
+            "user": "Usuario"
         }
     }
 }

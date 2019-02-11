@@ -1,14 +1,31 @@
 <div>
     <h2 id="page-heading">
         <span jhiTranslate="jhipsterpressApp.notification.home.title">Notifications</span>
+        <!-- 
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-notification" [routerLink]="['/notification/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="jhipsterpressApp.notification.home.createLabel">
+            <span class="hidden-sm-down" jhiTranslate="jhipsterpressApp.notification.home.createLabel">
             Create new Notification
             </span>
         </button>
+         -->
     </h2>
     <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jhipsterpressApp.notification.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
     <br/>
     <div class="table-responsive" *ngIf="notifications">
         <table class="table table-striped">
@@ -30,27 +47,30 @@
                 <td>{{notification.creationDate | date:'medium'}}</td>
                 <td>{{notification.notificationDate | date:'medium'}}</td>
                 <td jhiTranslate="{{'jhipsterpressApp.NotificationReason.' + notification.notificationReason}}">{{notification.notificationReason}}</td>
-                <td>{{notification.notificationText}}</td>
+                <td [innerHTML]="notification.notificationText"></td>
                 <td>{{notification.isDelivered}}</td>
                 <td>
                     {{notification.userId}}
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
-                        <button type="submit"
+                        <button *ngIf="owner === notification.userId || isAdmin == true" 
+                        		type="submit"
                                 [routerLink]="['/notification', notification.id, 'view' ]"
                                 class="btn btn-info btn-sm">
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                         </button>
+                        <!-- 
                         <button type="submit"
                                 [routerLink]="['/notification', notification.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                         </button>
+                         -->
                         <button type="submit"
-                                [routerLink]="['/', 'notification', { outlets: { popup: notification.id + '/delete'} }]"
+                                [routerLink]="[{ outlets: { popup: 'notification/'+ notification.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">

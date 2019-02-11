@@ -19,7 +19,7 @@
                 </dd>
                 <dt><span jhiTranslate="jhipsterpressApp.notification.notificationText">Notification Text</span></dt>
                 <dd>
-                    <span>{{notification.notificationText}}</span>
+                    <span [innerHTML]="notification.notificationText"></span>
                 </dd>
                 <dt><span jhiTranslate="jhipsterpressApp.notification.isDelivered">Is Delivered</span></dt>
                 <dd>
@@ -36,12 +36,13 @@
                     class="btn btn-info">
                 <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
             </button>
-
+			<!--
             <button type="button"
                     [routerLink]="['/notification', notification.id, 'edit']"
                     class="btn btn-primary">
                 <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
             </button>
+             -->
         </div>
     </div>
 </div>

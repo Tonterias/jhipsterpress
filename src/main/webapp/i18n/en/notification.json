@@ -4,7 +4,8 @@
             "home": {
                 "title": "Notifications",
                 "createLabel": "Create a new Notification",
-                "createOrEditLabel": "Create or edit a Notification"
+                "createOrEditLabel": "Create or edit a Notification",
+                "search": "Search for Notification"
             },
             "created": "A new Notification is created with identifier {{ param }}",
             "updated": "A Notification is updated with identifier {{ param }}",

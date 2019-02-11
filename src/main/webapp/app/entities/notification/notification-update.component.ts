@@ -33,17 +33,24 @@ export class NotificationUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ notification }) => {
             this.notification = notification;
-            this.creationDate = this.notification.creationDate != null ? this.notification.creationDate.format(DATE_TIME_FORMAT) : null;
+            this.creationDate = moment().format(DATE_TIME_FORMAT);
+            this.notification.creationDate = moment(this.creationDate);
             this.notificationDate =
                 this.notification.notificationDate != null ? this.notification.notificationDate.format(DATE_TIME_FORMAT) : null;
         });
-        this.userService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<IUser[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IUser[]>) => response.body)
-            )
-            .subscribe((res: IUser[]) => (this.users = res), (res: HttpErrorResponse) => this.onError(res.message));
+        this.userService.query().subscribe(
+            (res: HttpResponse<IUser[]>) => {
+                this.users = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        //        this.userService
+        //            .query()
+        //            .pipe(
+        //                filter((mayBeOk: HttpResponse<IUser[]>) => mayBeOk.ok),
+        //                map((response: HttpResponse<IUser[]>) => response.body)
+        //            )
+        //            .subscribe((res: IUser[]) => (this.users = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     previousState() {
@@ -55,6 +62,7 @@ export class NotificationUpdateComponent implements OnInit {
         this.notification.creationDate = this.creationDate != null ? moment(this.creationDate, DATE_TIME_FORMAT) : null;
         this.notification.notificationDate = this.notificationDate != null ? moment(this.notificationDate, DATE_TIME_FORMAT) : null;
         if (this.notification.id !== undefined) {
+            console.log('CONSOLOG: M:save.update & O: this.notification : ', this.notification);
             this.subscribeToSaveResponse(this.notificationService.update(this.notification));
         } else {
             this.subscribeToSaveResponse(this.notificationService.create(this.notification));

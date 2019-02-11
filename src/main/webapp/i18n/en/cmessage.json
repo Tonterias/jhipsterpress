@@ -2,24 +2,26 @@
     "jhipsterpressApp": {
         "cmessage": {
             "home": {
-                "title": "Cmessages",
-                "createLabel": "Create a new Cmessage",
-                "createOrEditLabel": "Create or edit a Cmessage"
+                "title": "Community Messages",
+                "createLabel": "Create a new Community Message",
+                "myLabel": "My Community Messages",
+                "createOrEditLabel": "Create or edit a Community Message",
+                "search": "Search for Community Message"
             },
-            "created": "A new Cmessage is created with identifier {{ param }}",
-            "updated": "A Cmessage is updated with identifier {{ param }}",
-            "deleted": "A Cmessage is deleted with identifier {{ param }}",
+            "created": "A new Community Message is created with identifier {{ param }}",
+            "updated": "A Community Message is updated with identifier {{ param }}",
+            "deleted": "A Community Message is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Cmessage {{ id }}?"
+                "question": "Are you sure you want to delete Community Message {{ id }}?"
             },
             "detail": {
-                "title": "Cmessage"
+                "title": "Community Message"
             },
             "creationDate": "Creation Date",
             "messageText": "Message Text",
             "isDelivered": "Is Delivered",
-            "csender": "Csender",
-            "creceiver": "Creceiver"
+            "csender": "Community Sender",
+            "creceiver": "Community Receiver"
         }
     }
 }

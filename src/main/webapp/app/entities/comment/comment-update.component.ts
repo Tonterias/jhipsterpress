@@ -37,8 +37,21 @@ export class CommentUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ comment }) => {
             this.comment = comment;
-            this.creationDate = this.comment.creationDate != null ? this.comment.creationDate.format(DATE_TIME_FORMAT) : null;
+            this.creationDate = moment().format(DATE_TIME_FORMAT);
+            this.comment.creationDate = moment(this.creationDate);
         });
+        //        this.userService.query().subscribe(
+        //                (res: HttpResponse<IUser[]>) => {
+        //                    this.users = res.body;
+        //                },
+        //                (res: HttpErrorResponse) => this.onError(res.message)
+        //            );
+        //            this.postService.query().subscribe(
+        //                (res: HttpResponse<IPost[]>) => {
+        //                    this.posts = res.body;
+        //                },
+        //                (res: HttpErrorResponse) => this.onError(res.message)
+        //            );
         this.userService
             .query()
             .pipe(

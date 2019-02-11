@@ -2,23 +2,25 @@
     "jhipsterpressApp": {
         "comment": {
             "home": {
-                "title": "Comments",
-                "createLabel": "Crear nuevo Comment",
-                "createOrEditLabel": "Crear o editar Comment"
+                "title": "Commentarios",
+                "createLabel": "Crear nuevo Commentario",
+                "myLabel": "Mis Commentarios",
+                "createOrEditLabel": "Crear o editar Commentario",
+                "search": "Buscar Commentario"
             },
-            "created": "Un nuevo Comment ha sido creado con el identificador {{ param }}",
-            "updated": "Un Comment ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Comment ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Commentario ha sido creado con el identificador {{ param }}",
+            "updated": "Un Commentario ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Commentario ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Comment {{ id }}?"
+                "question": "¿Seguro que quiere eliminar el Commentario {{ id }}?"
             },
             "detail": {
-                "title": "Comment"
+                "title": "Commentario"
             },
-            "creationDate": "Creation Date",
-            "commentText": "Comment Text",
-            "isOffensive": "Is Offensive",
-            "user": "User",
+            "creationDate": "Fecha de Creación",
+            "commentText": "Texto del Commentario",
+            "isOffensive": "Es Ofensivo?",
+            "user": "Usuario",
             "post": "Post"
         }
     }

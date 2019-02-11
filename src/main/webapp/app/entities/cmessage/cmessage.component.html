@@ -1,14 +1,37 @@
 <div>
     <h2 id="page-heading">
         <span jhiTranslate="jhipsterpressApp.cmessage.home.title">Cmessages</span>
+        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="myCmessages()">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jhipsterpressApp.cmessage.home.myLabel">
+            My Messages
+            </span>
+        </button>
+        <!-- 
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cmessage" [routerLink]="['/cmessage/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span  jhiTranslate="jhipsterpressApp.cmessage.home.createLabel">
             Create new Cmessage
             </span>
         </button>
+         -->
     </h2>
     <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jhipsterpressApp.cmessage.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
     <br/>
     <div class="table-responsive" *ngIf="cmessages">
         <table class="table table-striped">
@@ -27,7 +50,7 @@
             <tr *ngFor="let cmessage of cmessages ;trackBy: trackId">
                 <td><a [routerLink]="['/cmessage', cmessage.id, 'view' ]">{{cmessage.id}}</a></td>
                 <td>{{cmessage.creationDate | date:'medium'}}</td>
-                <td>{{cmessage.messageText}}</td>
+                <td [innerHTML]="cmessage.messageText"></td>
                 <td>{{cmessage.isDelivered}}</td>
                 <td>
                     <div *ngIf="cmessage.csenderId">
@@ -47,12 +70,14 @@
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                         </button>
+                        <!-- 
                         <button type="submit"
                                 [routerLink]="['/cmessage', cmessage.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                         </button>
+                         -->
                         <button type="submit"
                                 [routerLink]="['/', 'cmessage', { outlets: { popup: cmessage.id + '/delete'} }]"
                                 replaceUrl="true"

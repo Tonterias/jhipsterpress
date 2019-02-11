@@ -21,6 +21,7 @@ export class CommentComponent implements OnInit, OnDestroy {
     error: any;
     success: any;
     eventSubscriber: Subscription;
+    currentSearch: string;
     routeData: any;
     links: any;
     totalItems: any;
@@ -29,6 +30,8 @@ export class CommentComponent implements OnInit, OnDestroy {
     predicate: any;
     previousPage: any;
     reverse: any;
+    owner: any;
+    isAdmin: boolean;
 
     constructor(
         protected commentService: CommentService,
@@ -46,9 +49,27 @@ export class CommentComponent implements OnInit, OnDestroy {
             this.reverse = data.pagingParams.ascending;
             this.predicate = data.pagingParams.predicate;
         });
+        this.currentSearch =
+            this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
+                ? this.activatedRoute.snapshot.params['search']
+                : '';
     }
 
     loadAll() {
+        if (this.currentSearch) {
+            this.commentService
+                .query({
+                    page: this.page - 1,
+                    query: this.currentSearch,
+                    size: this.itemsPerPage,
+                    sort: this.sort()
+                })
+                .subscribe(
+                    (res: HttpResponse<IComment[]>) => this.paginateComments(res.body, res.headers),
+                    (res: HttpErrorResponse) => this.onError(res.message)
+                );
+            return;
+        }
         this.commentService
             .query({
                 page: this.page - 1,
@@ -73,6 +94,7 @@ export class CommentComponent implements OnInit, OnDestroy {
             queryParams: {
                 page: this.page,
                 size: this.itemsPerPage,
+                search: this.currentSearch,
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
             }
         });
@@ -81,9 +103,27 @@ export class CommentComponent implements OnInit, OnDestroy {
 
     clear() {
         this.page = 0;
+        this.currentSearch = '';
         this.router.navigate([
             '/comment',
             {
+                page: this.page,
+                sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
+            }
+        ]);
+        this.loadAll();
+    }
+
+    search(query) {
+        if (!query) {
+            return this.clear();
+        }
+        this.page = 0;
+        this.currentSearch = query;
+        this.router.navigate([
+            '/comment',
+            {
+                search: this.currentSearch,
                 page: this.page,
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
             }
@@ -95,6 +135,8 @@ export class CommentComponent implements OnInit, OnDestroy {
         this.loadAll();
         this.accountService.identity().then(account => {
             this.currentAccount = account;
+            this.owner = account.id;
+            this.isAdmin = this.accountService.hasAnyAuthority(['ROLE_ADMIN']);
         });
         this.registerChangeInComments();
     }
@@ -119,10 +161,28 @@ export class CommentComponent implements OnInit, OnDestroy {
         return result;
     }
 
+    myComments() {
+        const query = {
+            page: this.page - 1,
+            size: this.itemsPerPage,
+            sort: this.sort()
+        };
+        query['userId.equals'] = this.owner;
+        this.commentService
+            .query(query)
+            .subscribe(
+                (res: HttpResponse<IComment[]>) => this.paginateComments(res.body, res.headers),
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+    }
+
     protected paginateComments(data: IComment[], headers: HttpHeaders) {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.comments = data;
+        console.log('CONSOLOG: M:paginateComments & O: this.owner : ', this.owner);
+        console.log('CONSOLOG: M:paginateComments & O: this.isAdmin : ', this.isAdmin);
+        console.log('CONSOLOG: M:paginateComments & O: this.comments : ', this.comments);
     }
 
     protected onError(errorMessage: string) {

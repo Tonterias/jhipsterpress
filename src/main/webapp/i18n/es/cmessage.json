@@ -2,24 +2,26 @@
     "jhipsterpressApp": {
         "cmessage": {
             "home": {
-                "title": "Cmessages",
-                "createLabel": "Crear nuevo Cmessage",
-                "createOrEditLabel": "Crear o editar Cmessage"
+                "title": "Mensaje Comunitario",
+                "createLabel": "Crear nuevo Mensaje Comunitario",
+                "myLabel": "Mis Mensajes Comunitarios",
+                "createOrEditLabel": "Crear o editar Mensaje Comunitario",
+                "search": "Buscar un Mensaje Comunitario"
             },
-            "created": "Un nuevo Cmessage ha sido creado con el identificador {{ param }}",
-            "updated": "Un Cmessage ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Cmessage ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Mensaje Comunitario ha sido creado con el identificador {{ param }}",
+            "updated": "Un Mensaje Comunitario ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Mensaje Comunitario ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Cmessage {{ id }}?"
+                "question": "¿Seguro que quiere eliminar el Mensaje Comunitario {{ id }}?"
             },
             "detail": {
-                "title": "Cmessage"
+                "title": "Mensaje Comunitario"
             },
-            "creationDate": "Creation Date",
-            "messageText": "Message Text",
-            "isDelivered": "Is Delivered",
-            "csender": "Csender",
-            "creceiver": "Creceiver"
+            "creationDate": "Fecha Creación",
+            "messageText": "Texto del Mensaje Comunitario",
+            "isDelivered": "Enviado",
+            "csender": "Comunidad Emisora",
+            "creceiver": "Comunidad Receptora"
         }
     }
 }

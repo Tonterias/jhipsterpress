@@ -44,6 +44,19 @@ export const cmessageRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
+        path: 'cmessage?communityId.equals=:id',
+        component: CmessageComponent,
+        resolve: {
+            pagingParams: JhiResolvePagingParams
+        },
+        data: {
+            authorities: ['ROLE_USER'],
+            defaultSort: 'id,asc',
+            pageTitle: 'jhipsterPressApp.cmessage.home.title'
+        },
+        canActivate: [UserRouteAccessService]
+    },
+    {
         path: ':id/view',
         component: CmessageDetailComponent,
         resolve: {

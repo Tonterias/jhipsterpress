@@ -2,24 +2,27 @@
     "jhipsterpressApp": {
         "message": {
             "home": {
-                "title": "Messages",
-                "createLabel": "Crear nuevo Message",
-                "createOrEditLabel": "Crear o editar Message"
+                "title": "Mensajes",
+                "createLabel": "Crear nuevo Mensaje",
+                "blockedByuser": "Sus mensajes han sido bloqueados por el usuario",
+                "myLabel": "Mis Mensajes",
+                "createOrEditLabel": "Crear o editar Mensaje",
+                "search": "Buscar un Mensaje"
             },
-            "created": "Un nuevo Message ha sido creado con el identificador {{ param }}",
-            "updated": "Un Message ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Message ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Mensaje ha sido creado con el identificador {{ param }}",
+            "updated": "Un Mensaje ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Mensaje ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Message {{ id }}?"
+                "question": "¿Seguro que quiere eliminar el Mensaje {{ id }}?"
             },
             "detail": {
-                "title": "Message"
+                "title": "Mensaje"
             },
-            "creationDate": "Creation Date",
-            "messageText": "Message Text",
-            "isDelivered": "Is Delivered",
-            "sender": "Sender",
-            "receiver": "Receiver"
+            "creationDate": "Fecha de Creación",
+            "messageText": "Texto del Mensaje",
+            "isDelivered": "¿Ha sido Entregado?",
+            "sender": "Emisor",
+            "receiver": "Receptor"
         }
     }
 }

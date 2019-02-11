@@ -44,6 +44,19 @@ export const messageRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
+        path: 'message?uprofileId.equals=:id',
+        component: MessageComponent,
+        resolve: {
+            pagingParams: JhiResolvePagingParams
+        },
+        data: {
+            authorities: ['ROLE_USER'],
+            defaultSort: 'id,asc',
+            pageTitle: 'jhipsterPressApp.message.home.title'
+        },
+        canActivate: [UserRouteAccessService]
+    },
+    {
         path: ':id/view',
         component: MessageDetailComponent,
         resolve: {

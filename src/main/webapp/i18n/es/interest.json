@@ -2,21 +2,25 @@
     "jhipsterpressApp": {
         "interest": {
             "home": {
-                "title": "Interests",
-                "createLabel": "Crear nuevo Interest",
-                "createOrEditLabel": "Crear o editar Interest"
+                "title": "Intereses",
+                "createLabel": "Crear nuevo Interés",
+                "myLabel": "Mis Intereses",
+                "noticeLabel": "Escoge un interés existente o corre el riesgo de estar solo en una nueva categoría de Interés!",
+                "createOrEditLabel": "Crear o editar un Interés",
+                "search": "Buscar un Interés"
             },
-            "created": "Un nuevo Interest ha sido creado con el identificador {{ param }}",
-            "updated": "Un Interest ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Interest ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Interés ha sido creado con el identificador {{ param }}",
+            "updated": "Un Interés ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Interés ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Interest {{ id }}?"
+                "question": "¿Seguro que quiere eliminar el Interés {{ id }}?"
             },
             "detail": {
-                "title": "Interest"
+                "title": "Interés"
             },
-            "interestName": "Interest Name",
-            "uprofile": "Uprofile"
+            "interestName": "Nombre del Interés",
+            "community": "Comunidad",
+            "uprofile": "Perfil"
         }
     }
 }

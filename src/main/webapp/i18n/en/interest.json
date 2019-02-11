@@ -4,7 +4,10 @@
             "home": {
                 "title": "Interests",
                 "createLabel": "Create a new Interest",
-                "createOrEditLabel": "Create or edit a Interest"
+                "myLabel": "My Interests",
+                "noticeLabel": "Choose one of the following or risk to be alone in a new Interest category!",
+                "createOrEditLabel": "Create or edit a Interest",
+                "search": "Search for Interest"
             },
             "created": "A new Interest is created with identifier {{ param }}",
             "updated": "A Interest is updated with identifier {{ param }}",
@@ -16,7 +19,8 @@
                 "title": "Interest"
             },
             "interestName": "Interest Name",
-            "uprofile": "Uprofile"
+            "community": "Community",
+            "uprofile": "Profile"
         }
     }
 }

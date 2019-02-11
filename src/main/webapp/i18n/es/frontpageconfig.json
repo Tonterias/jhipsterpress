@@ -2,20 +2,21 @@
     "jhipsterpressApp": {
         "frontpageconfig": {
             "home": {
-                "title": "Frontpageconfigs",
-                "createLabel": "Crear nuevo Frontpageconfig",
-                "createOrEditLabel": "Crear o editar Frontpageconfig"
+                "title": "Front Page Config",
+                "createLabel": "Crear nuevo Front Page Config",
+                "createOrEditLabel": "Crear o editar Front Page Config",
+                "search": "Buscar un Front Page Config"
             },
-            "created": "Un nuevo Frontpageconfig ha sido creado con el identificador {{ param }}",
-            "updated": "Un Frontpageconfig ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Frontpageconfig ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Front Page Config ha sido creado con el identificador {{ param }}",
+            "updated": "Un Front Page Config ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Front Page Config ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Frontpageconfig {{ id }}?"
+                "question": "¿Seguro que quiere eliminar el Front Page Config {{ id }}?"
             },
             "detail": {
-                "title": "Frontpageconfig"
+                "title": "Front Page Config"
             },
-            "creationDate": "Creation Date",
+            "creationDate": "Fecha de Creación",
             "topNews1": "Top News 1",
             "topNews2": "Top News 2",
             "topNews3": "Top News 3",

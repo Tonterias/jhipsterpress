@@ -5,11 +5,15 @@ import { Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 
-import { IMessage } from 'app/shared/model/message.model';
-import { AccountService } from 'app/core';
+import * as moment from 'moment';
+import { Observable } from 'rxjs';
+import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 
-import { ITEMS_PER_PAGE } from 'app/shared';
+import { IMessage } from 'app/shared/model/message.model';
 import { MessageService } from './message.service';
+
+import { AccountService } from 'app/core';
+import { ITEMS_PER_PAGE } from 'app/shared';
 
 @Component({
     selector: 'jhi-message',
@@ -21,6 +25,7 @@ export class MessageComponent implements OnInit, OnDestroy {
     error: any;
     success: any;
     eventSubscriber: Subscription;
+    currentSearch: string;
     routeData: any;
     links: any;
     totalItems: any;
@@ -29,6 +34,8 @@ export class MessageComponent implements OnInit, OnDestroy {
     predicate: any;
     previousPage: any;
     reverse: any;
+    isSaving: boolean;
+    creationDate: string;
 
     constructor(
         protected messageService: MessageService,
@@ -46,19 +53,43 @@ export class MessageComponent implements OnInit, OnDestroy {
             this.reverse = data.pagingParams.ascending;
             this.predicate = data.pagingParams.predicate;
         });
+        this.currentSearch =
+            this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
+                ? this.activatedRoute.snapshot.params['search']
+                : '';
     }
 
     loadAll() {
-        this.messageService
-            .query({
-                page: this.page - 1,
-                size: this.itemsPerPage,
-                sort: this.sort()
-            })
-            .subscribe(
-                (res: HttpResponse<IMessage[]>) => this.paginateMessages(res.body, res.headers),
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
+        if (this.currentSearch) {
+            this.messageService
+                .query({
+                    page: this.page - 1,
+                    query: this.currentSearch,
+                    size: this.itemsPerPage,
+                    sort: this.sort()
+                })
+                .subscribe(
+                    (res: HttpResponse<IMessage[]>) => this.paginateMessages(res.body, res.headers),
+                    (res: HttpErrorResponse) => this.onError(res.message)
+                );
+            return;
+        }
+        const query = {
+            page: this.page - 1,
+            size: this.itemsPerPage,
+            sort: this.sort()
+        };
+        if (this.currentAccount.id != null) {
+            query['receiverId.equals'] = this.currentAccount.id;
+            query['isDelivered.equals'] = 'false';
+        }
+        this.messageService.query(query).subscribe(
+            (res: HttpResponse<IMessage[]>) => {
+                this.messages = res.body;
+                console.log('CONSOLOG: M:myUserMessages & O: this.messages : ', this.messages);
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
     }
 
     loadPage(page: number) {
@@ -73,6 +104,7 @@ export class MessageComponent implements OnInit, OnDestroy {
             queryParams: {
                 page: this.page,
                 size: this.itemsPerPage,
+                search: this.currentSearch,
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
             }
         });
@@ -81,6 +113,7 @@ export class MessageComponent implements OnInit, OnDestroy {
 
     clear() {
         this.page = 0;
+        this.currentSearch = '';
         this.router.navigate([
             '/message',
             {
@@ -91,12 +124,78 @@ export class MessageComponent implements OnInit, OnDestroy {
         this.loadAll();
     }
 
-    ngOnInit() {
+    search(query) {
+        if (!query) {
+            return this.clear();
+        }
+        this.page = 0;
+        this.currentSearch = query;
+        this.router.navigate([
+            '/message',
+            {
+                search: this.currentSearch,
+                page: this.page,
+                sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
+            }
+        ]);
         this.loadAll();
+    }
+
+    ngOnInit() {
         this.accountService.identity().then(account => {
             this.currentAccount = account;
+            console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount);
+            this.myMessages();
         });
         this.registerChangeInMessages();
+    }
+
+    myMessages() {
+        const query = {
+            page: this.page - 1,
+            size: this.itemsPerPage,
+            sort: this.sort()
+        };
+        console.log('CONSOLOG: M:myMessages & O: query : ', query, this.itemsPerPage);
+        if (this.currentAccount.id != null) {
+            query['receiverId.equals'] = this.currentAccount.id;
+        }
+        this.messageService.query(query).subscribe(
+            (res: HttpResponse<IMessage[]>) => {
+                this.messages = res.body;
+                console.log('CONSOLOG: M:myMessages & O: this.messages : ', this.messages);
+                this.isDeliveredUpdate(this.messages);
+                this.paginateMessages(res.body, res.headers);
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+    }
+
+    isDeliveredUpdate(messages: IMessage[]) {
+        this.isSaving = true;
+        this.messages.forEach(message => {
+            //            console.log('CONSOLOG: M:isDeliveredUpdate & O: messages PRE-Date : ', message);
+            this.creationDate = moment(message.creationDate).format(DATE_TIME_FORMAT);
+            //            console.log('CONSOLOG: M:isDeliveredUpdate & O: this.creationDate : ', this.creationDate);
+            //            console.log('CONSOLOG: M:isDeliveredUpdate & O: messages POST-Date : ', message);
+            message.isDelivered = true;
+            //            this.notificationService.update(notification);
+            this.subscribeToSaveResponse(this.messageService.update(message));
+            //            this.subscribeToSaveResponse(this.notificationService.update(notification));
+            //            console.log('CONSOLOG: M:isDeliveredUpdate & O: message : ', message);
+        });
+    }
+
+    private subscribeToSaveResponse(result: Observable<HttpResponse<IMessage>>) {
+        result.subscribe((res: HttpResponse<IMessage>) => this.onSaveSuccess(), (res: HttpErrorResponse) => this.onSaveError());
+    }
+
+    private onSaveSuccess() {
+        this.isSaving = false;
+    }
+
+    private onSaveError() {
+        this.isSaving = false;
     }
 
     ngOnDestroy() {
@@ -123,6 +222,7 @@ export class MessageComponent implements OnInit, OnDestroy {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.messages = data;
+        console.log('CONSOLOG: M:paginateMessages & O: this.messages : ', this.messages);
     }
 
     protected onError(errorMessage: string) {

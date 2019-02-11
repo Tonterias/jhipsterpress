@@ -1,14 +1,112 @@
-<div>
+<!-- News Content -->
+<div class="container g-pt-100 g-pb-50">
     <h2 id="page-heading">
         <span jhiTranslate="jhipsterpressApp.post.home.title">Posts</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-post" [routerLink]="['/post/new']">
+        <button style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-post" (click)="myPosts()">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jhipsterpressApp.post.home.myLabel">
+            My Posts
+            </span>
+        </button>
+        <button style="margin:5px;" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-post" [routerLink]="['/post/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span  jhiTranslate="jhipsterpressApp.post.home.createLabel">
             Create new Post
             </span>
         </button>
     </h2>
+	<!-- User Blocks v16 https://htmlstream.com/public/preview/unify-v2.5.1/unify-main/shortcodes/shortcode-blocks-users.html-->
+      <section class="g-bg-secondary g-py-100">
+        <div class="container" *ngFor="let post of posts ;trackBy: trackId">
+          <div id="shortcode16">
+            <div class="shortcode-html">
+              <!-- Users -->
+              <div class="row g-mb-70">
+                <div class="col-md-12 g-mb-30">
+                  <!-- Listing - Agents -->
+                  <div class="u-shadow-v11 text-center">
+                    <div class="g-bg-white g-pa-20">
+                      <div class="mx-auto mb-4">
+				        <!-- Figure Image -->
+				        <a *ngIf="post.image" (click)="openFile(post.imageContentType, post.image)">
+		                    <img [src]="'data:' + post.imageContentType + ';base64,' + post.image" alt="post image"/>
+		                </a>
+				        <!-- Figure Image -->
+                      </div>
+                      <div class="mb-3">
+                        <h2 class="h3 mb-4"><a class="u-link-v5 g-color-main g-color-primary--hover" [routerLink]="['/post', post.id, 'view' ]">{{post.headline}}</a></h2>
+	        			<p class="g-font-size-13">{{post.publicationDate | date:'MMM d, y, h:mm a'}}</p>
+	        			<p>{{post.leadtext}}</p>
+	        			<a [routerLink]="['/topic', topic.id, 'view' ]" 
+	        				*ngFor="let topic of post.topics"
+	        				class="u-tags-v1 g-font-size-12 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-black-opacity-0_8 g-color-white--hover rounded g-py-6 g-px-15 g-mr-5">
+	        					{{topic.topicName}}
+	        				</a>
+                      </div>
+						<!-- Info -->
+	                    <div class="btn-group flex-btn-group-container">
+	                        <button type="submit"
+	                                [routerLink]="['/post', post.id, 'view' ]"
+	                                class="btn btn-info btn-sm">
+	                            <fa-icon [icon]="'eye'"></fa-icon>
+	                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+	                        </button>
+	                        <button *ngIf="owner === post.userId || isAdmin == true"
+	                        		type="submit"
+	                                [routerLink]="['/post', post.id, 'edit']"
+	                                class="btn btn-primary btn-sm">
+	                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+	                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+	                        </button>
+	                        <button *ngIf="owner === post.userId || isAdmin == true"
+	                        		type="submit"
+	                                [routerLink]="['/', 'post', { outlets: { popup: post.id + '/delete'} }]"
+	                                replaceUrl="true"
+	                                queryParamsHandling="merge"
+	                                class="btn btn-danger btn-sm">
+	                            <fa-icon [icon]="'times'"></fa-icon>
+	                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+	                        </button>
+	                    </div>
+				        <!-- End Info -->
+                    </div>
+                  <!-- End Listing - Agents -->
+                </div>
+              </div>
+              <!-- End Users -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End User Blocks v16 -->
+</div>
+
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterpressApp.post.home.title">Posts</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-post" [routerLink]="['/post/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down" jhiTranslate="jhipsterpressApp.post.home.createLabel">
+            Create new Post
+            </span>
+        </button>
+    </h2>
     <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jhipsterpressApp.post.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
     <br/>
     <div class="table-responsive" *ngIf="posts">
         <table class="table table-striped">
@@ -64,17 +162,19 @@
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                         </button>
-                        <button type="submit"
-                                [routerLink]="['/post', post.id, 'edit']"
-                                class="btn btn-primary btn-sm">
+	                        <button *ngIf="owner === post.userId || isAdmin == true"
+	                        		type="submit"
+                                	[routerLink]="['/post', post.id, 'edit']"
+                                	class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                         </button>
-                        <button type="submit"
-                                [routerLink]="['/', 'post', { outlets: { popup: post.id + '/delete'} }]"
-                                replaceUrl="true"
-                                queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
+	                        <button *ngIf="owner === post.userId || isAdmin == true"
+	                        		type="submit"
+                                	[routerLink]="['/', 'post', { outlets: { popup: post.id + '/delete'} }]"
+                                	replaceUrl="true"
+                                	queryParamsHandling="merge"
+                                	class="btn btn-danger btn-sm">
                             <fa-icon [icon]="'times'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
                         </button>

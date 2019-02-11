@@ -4,7 +4,9 @@
             "home": {
                 "title": "Posts",
                 "createLabel": "Create a new Post",
-                "createOrEditLabel": "Create or edit a Post"
+                "myLabel": "My Posts",
+                "createOrEditLabel": "Create or edit a Post",
+                "search": "Search for Post"
             },
             "created": "A new Post is created with identifier {{ param }}",
             "updated": "A Post is updated with identifier {{ param }}",
@@ -23,7 +25,7 @@
             "quote": "Quote",
             "conclusion": "Conclusion",
             "linkText": "Link Text",
-            "linkURL": "Link URL",
+            "linkURL": "Link URL: https://example.com/",
             "image": "Image",
             "comment": "Comment",
             "user": "User",

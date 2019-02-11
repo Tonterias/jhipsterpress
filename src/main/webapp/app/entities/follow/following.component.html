@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterpressApp.follow.home.titleFollowing">Following</span>
+        <!-- 
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-follow" [routerLink]="['/follow/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="jhipsterpressApp.follow.home.createLabel">
+            Create new Follow
+            </span>
+        </button>
+        -->
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+     
+    <!-- Profile Content -->
+	<div class="col-lg-9" *ngIf="follows?.length; else zipZeroResults"> 
+	  <!-- User Contacts -->
+	  <div class="row g-mb-40">
+	    <div class="col-md-4 g-mb-30 g-mb-0--md" *ngFor="let follow of follows ;trackBy: trackId">
+	      <!-- Figure -->
+	      <figure class="g-bg-white g-brd-around g-brd-gray-light-v4 g-brd-cyan--hover g-transition-0_2 text-center">
+	        <div class="g-py-40 g-px-20">
+	          <!-- Figure Image -->
+	          <a *ngIf="follow.cfollowingImage" [routerLink]="['/community', follow.cfollowingId, 'view' ]">
+                  <img class="g-width-100 g-height-100 rounded-circle g-mb-20" [src]="'data:' + follow.cfollowingImageContentType + ';base64,' + follow.cfollowingImage" alt="image"/>
+              </a>
+              <a *ngIf="follow.followingImage" [routerLink]="['/uprofileuid']" [queryParams]="{ 'userIdEquals': follow.followingId }">
+                  <img class="g-width-100 g-height-100 rounded-circle g-mb-20" [src]="'data:' + follow.followingImageContentType + ';base64,' + follow.followingImage" alt="image"/>
+              </a>
+	          <!-- Figure Image -->
+	
+	          <!-- Figure Info -->
+
+			  <a *ngIf="follow.cfollowingId" [routerLink]="['/community', follow.cfollowingId, 'view' ]">
+	          	<h4 class="h5 g-mb-5">{{follow.cfollowingCommunityname}}</h4>
+	          </a>
+	          <a *ngIf="follow.followingId" [routerLink]="['/uprofileuid']" [queryParams]="{ 'userIdEquals': follow.followingId }">
+	          	<h4 class="h5 g-mb-5">{{follow.followingUserFirstName}} {{follow.followingUserLastName}}</h4>
+	          </a>
+	          
+	          <!--
+	          <div class="d-block">
+	            <span class="g-color-cyan g-font-size-default g-mr-3">
+	              <i class="icon-user"></i>
+	            </span>
+	            <em class="g-color-gray-dark-v4 g-font-style-normal g-font-size-default">Employee</em>
+	          </div>
+	          -- End Figure Info -->
+	        </div>
+	
+	        <hr class="g-brd-gray-light-v4 g-my-0">
+	
+	        <!-- Figure List --
+	        <ul class="row list-inline g-py-20 g-ma-0">
+	          <li class="col g-brd-right g-brd-gray-light-v4">
+	            <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-bg-transparent g-color-cyan--hover" href="#!">
+	              <i class="icon-speech"></i>
+	            </a>
+	          </li>
+	          <li class="col g-brd-right g-brd-gray-light-v4">
+	            <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-bg-transparent g-color-red--hover" href="#!">
+	              <i class="icon-envelope-letter"></i>
+	            </a>
+	          </li>
+	          <li class="col">
+	            <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-bg-transparent g-color-purple--hover" href="#!">
+	              <i class="icon-screen-smartphone"></i>
+	            </a>
+	          </li>
+	        </ul>
+	        -- End Figure List -->
+	      </figure>
+	      <!-- End Figure -->
+	    </div>
+	</div>
+	</div>
+	<ng-template #zipZeroResults>
+	  <h2 id="page-heading">Nought, nil, nada, nothing, zero, zilch, zip...</h2>
+	</ng-template>
+	<!-- End Profile Content -->
+	
+    <div *ngIf="follows && follows.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

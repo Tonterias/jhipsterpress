@@ -6,6 +6,8 @@ import { JhiLanguageHelper } from 'app/core';
 import { JhipsterpressSharedModule } from 'app/shared';
 import {
     FollowComponent,
+    FollowingComponent,
+    FollowerComponent,
     FollowDetailComponent,
     FollowUpdateComponent,
     FollowDeletePopupComponent,
@@ -18,8 +20,23 @@ const ENTITY_STATES = [...followRoute, ...followPopupRoute];
 
 @NgModule({
     imports: [JhipsterpressSharedModule, RouterModule.forChild(ENTITY_STATES)],
-    declarations: [FollowComponent, FollowDetailComponent, FollowUpdateComponent, FollowDeleteDialogComponent, FollowDeletePopupComponent],
-    entryComponents: [FollowComponent, FollowUpdateComponent, FollowDeleteDialogComponent, FollowDeletePopupComponent],
+    declarations: [
+        FollowComponent,
+        FollowingComponent,
+        FollowerComponent,
+        FollowDetailComponent,
+        FollowUpdateComponent,
+        FollowDeleteDialogComponent,
+        FollowDeletePopupComponent
+    ],
+    entryComponents: [
+        FollowComponent,
+        FollowingComponent,
+        FollowerComponent,
+        FollowUpdateComponent,
+        FollowDeleteDialogComponent,
+        FollowDeletePopupComponent
+    ],
     providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

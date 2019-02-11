@@ -2,29 +2,31 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
 import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 
 import { IFollow } from 'app/shared/model/follow.model';
-import { AccountService } from 'app/core';
-
-import { ITEMS_PER_PAGE } from 'app/shared';
 import { FollowService } from './follow.service';
+import { IUprofile } from 'app/shared/model/uprofile.model';
+import { UprofileService } from '../uprofile/uprofile.service';
+
+import { AccountService } from 'app/core';
+import { ITEMS_PER_PAGE } from 'app/shared';
 
 @Component({
     selector: 'jhi-follow',
-    templateUrl: './follow.component.html'
+    templateUrl: './follower.component.html'
 })
-export class FollowComponent implements OnInit, OnDestroy {
+export class FollowerComponent implements OnInit, OnDestroy {
     currentAccount: any;
     follows: IFollow[];
+    uprofiles: IUprofile[];
     error: any;
     success: any;
     eventSubscriber: Subscription;
-    currentSearch: string;
     routeData: any;
     links: any;
     totalItems: any;
+    queryCount: any;
     itemsPerPage: any;
     page: any;
     predicate: any;
@@ -32,9 +34,14 @@ export class FollowComponent implements OnInit, OnDestroy {
     reverse: any;
     nameParamFollows: any;
     valueParamFollows: any;
+    zipZeroResults: any;
+    followingId: number;
+    userQuery: boolean;
+    communityQuery: boolean;
 
     constructor(
         protected followService: FollowService,
+        protected uprofileService: UprofileService,
         protected parseLinks: JhiParseLinks,
         protected jhiAlertService: JhiAlertService,
         protected accountService: AccountService,
@@ -50,46 +57,33 @@ export class FollowComponent implements OnInit, OnDestroy {
             this.predicate = data.pagingParams.predicate;
         });
         this.activatedRoute.queryParams.subscribe(params => {
-            if (params.followedIdEquals != null) {
-                this.nameParamFollows = 'followedId.equals';
-                this.valueParamFollows = params.followedIdEquals;
-            }
             if (params.followingIdEquals != null) {
                 this.nameParamFollows = 'followingId.equals';
                 this.valueParamFollows = params.followingIdEquals;
+                this.userQuery = true;
+            }
+            if (params.cfollowingIdEquals != null) {
+                this.nameParamFollows = 'cfollowingId.equals';
+                this.valueParamFollows = params.cfollowingIdEquals;
+                this.communityQuery = true;
             }
         });
-        this.currentSearch =
-            this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
-                ? this.activatedRoute.snapshot.params['search']
-                : '';
     }
 
     loadAll() {
-        if (this.currentSearch) {
-            this.followService
-                .query({
-                    page: this.page - 1,
-                    query: this.currentSearch,
-                    size: this.itemsPerPage,
-                    sort: this.sort()
-                })
-                .subscribe(
-                    (res: HttpResponse<IFollow[]>) => this.paginateFollows(res.body, res.headers),
-                    (res: HttpErrorResponse) => this.onError(res.message)
-                );
-            return;
-        }
+        const query = {
+            page: this.page - 1,
+            size: this.itemsPerPage,
+            sort: this.sort()
+        };
+        query[this.nameParamFollows] = this.followingId;
         this.followService
-            .query({
-                page: this.page - 1,
-                size: this.itemsPerPage,
-                sort: this.sort()
-            })
+            .query(query)
             .subscribe(
                 (res: HttpResponse<IFollow[]>) => this.paginateFollows(res.body, res.headers),
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
+        console.log('CONSOLOG: M:loadAll & O: this.query : ', query);
     }
 
     loadPage(page: number) {
@@ -104,7 +98,6 @@ export class FollowComponent implements OnInit, OnDestroy {
             queryParams: {
                 page: this.page,
                 size: this.itemsPerPage,
-                search: this.currentSearch,
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
             }
         });
@@ -113,27 +106,9 @@ export class FollowComponent implements OnInit, OnDestroy {
 
     clear() {
         this.page = 0;
-        this.currentSearch = '';
         this.router.navigate([
             '/follow',
             {
-                page: this.page,
-                sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
-            }
-        ]);
-        this.loadAll();
-    }
-
-    search(query) {
-        if (!query) {
-            return this.clear();
-        }
-        this.page = 0;
-        this.currentSearch = query;
-        this.router.navigate([
-            '/follow',
-            {
-                search: this.currentSearch,
                 page: this.page,
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
             }
@@ -142,10 +117,34 @@ export class FollowComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.loadAll();
-        this.accountService.identity().then(account => {
-            this.currentAccount = account;
-        });
+        if (this.userQuery === true) {
+            console.log('CONSOLOG: M:ngOnInit & O: ENTRO EN this.userQuery === true');
+            this.accountService.identity().then(account => {
+                this.currentAccount = account;
+                const query = {};
+                if (this.currentAccount.id != null) {
+                    query['id.equals'] = this.valueParamFollows;
+                }
+                this.uprofileService.query(query).subscribe(
+                    (res: HttpResponse<IUprofile[]>) => {
+                        this.uprofiles = res.body;
+                        console.log('CONSOLOG: M:ngOnInit & O: this.uprofiles : ', this.uprofiles);
+                        this.uprofiles.forEach(profile => {
+                            this.followingId = profile.userId;
+                            console.log('CONSOLOG: M:ngOnInit & O: this.followingId : ', this.followingId);
+                            this.loadAll();
+                        });
+                    },
+                    (res: HttpErrorResponse) => this.onError(res.message)
+                );
+            });
+        }
+        if (this.communityQuery === true) {
+            console.log('CONSOLOG: M:ngOnInit & O: ENTRO EN this.communityQuery === true');
+            this.followingId = this.valueParamFollows;
+            console.log('CONSOLOG: M:ngOnInit & O: this.valueParamFollows : ', this.valueParamFollows);
+            this.loadAll();
+        }
         this.registerChangeInFollows();
     }
 
@@ -169,13 +168,15 @@ export class FollowComponent implements OnInit, OnDestroy {
         return result;
     }
 
-    protected paginateFollows(data: IFollow[], headers: HttpHeaders) {
+    private paginateFollows(data: IFollow[], headers: HttpHeaders) {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
+        this.queryCount = this.totalItems;
         this.follows = data;
+        console.log('CONSOLOG: M:paginateFollows & O: this.follows : ', this.follows);
     }
 
-    protected onError(errorMessage: string) {
+    private onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
     }
 }

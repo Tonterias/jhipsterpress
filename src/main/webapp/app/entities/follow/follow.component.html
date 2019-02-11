@@ -1,14 +1,29 @@
 <div>
     <h2 id="page-heading">
         <span jhiTranslate="jhipsterpressApp.follow.home.title">Follows</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-follow" [routerLink]="['/follow/new']">
+        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-follow" [routerLink]="['/follow/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="jhipsterpressApp.follow.home.createLabel">
+            <span class="hidden-sm-down"  jhiTranslate="jhipsterpressApp.follow.home.createLabel">
             Create new Follow
             </span>
         </button>
     </h2>
     <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jhipsterpressApp.follow.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
     <br/>
     <div class="table-responsive" *ngIf="follows">
         <table class="table table-striped">
@@ -26,7 +41,7 @@
             <tbody>
             <tr *ngFor="let follow of follows ;trackBy: trackId">
                 <td><a [routerLink]="['/follow', follow.id, 'view' ]">{{follow.id}}</a></td>
-                <td>{{follow.creationDate | date:'medium'}}</td>
+                <td>{{follow.creationDate | date:'MMM d, y, h:mm a'}}</td>
                 <td>
                     {{follow.followedId}}
                 </td>
@@ -51,6 +66,7 @@
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                         </button>
+                        <!-- 
                         <button type="submit"
                                 [routerLink]="['/follow', follow.id, 'edit']"
                                 class="btn btn-primary btn-sm">
@@ -65,11 +81,14 @@
                             <fa-icon [icon]="'times'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
                         </button>
+                         -->
                     </div>
                 </td>
             </tr>
             </tbody>
         </table>
+        </div>
+    </div>
     </div>
     <div *ngIf="follows && follows.length">
         <div class="row justify-content-center">

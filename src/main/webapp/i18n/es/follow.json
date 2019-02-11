@@ -3,8 +3,11 @@
         "follow": {
             "home": {
                 "title": "Follows",
+                "titleFollowing": "Following",
+                "titleFollower": "Followers",
                 "createLabel": "Crear nuevo Follow",
-                "createOrEditLabel": "Crear o editar Follow"
+                "createOrEditLabel": "Crear o editar Follow",
+                "search": "Search for Follow"
             },
             "created": "Un nuevo Follow ha sido creado con el identificador {{ param }}",
             "updated": "Un Follow ha sido actualizado con el identificador {{ param }}",
@@ -15,11 +18,11 @@
             "detail": {
                 "title": "Follow"
             },
-            "creationDate": "Creation Date",
-            "followed": "Followed",
+            "creationDate": "Fecha de Creación",
+            "followed": "Follower",
             "following": "Following",
-            "cfollowed": "Cfollowed",
-            "cfollowing": "Cfollowing"
+            "cfollowed": "Comunidad Follower",
+            "cfollowing": "Comunidad following"
         }
     }
 }

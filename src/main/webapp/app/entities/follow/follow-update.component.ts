@@ -37,22 +37,35 @@ export class FollowUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ follow }) => {
             this.follow = follow;
-            this.creationDate = this.follow.creationDate != null ? this.follow.creationDate.format(DATE_TIME_FORMAT) : null;
+            this.creationDate = moment().format(DATE_TIME_FORMAT);
+            this.follow.creationDate = moment(this.creationDate);
         });
-        this.userService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<IUser[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IUser[]>) => response.body)
-            )
-            .subscribe((res: IUser[]) => (this.users = res), (res: HttpErrorResponse) => this.onError(res.message));
-        this.communityService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<ICommunity[]>) => mayBeOk.ok),
-                map((response: HttpResponse<ICommunity[]>) => response.body)
-            )
-            .subscribe((res: ICommunity[]) => (this.communities = res), (res: HttpErrorResponse) => this.onError(res.message));
+        this.userService.query().subscribe(
+            (res: HttpResponse<IUser[]>) => {
+                this.users = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        this.communityService.query().subscribe(
+            (res: HttpResponse<ICommunity[]>) => {
+                this.communities = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        //        this.userService
+        //            .query()
+        //            .pipe(
+        //                filter((mayBeOk: HttpResponse<IUser[]>) => mayBeOk.ok),
+        //                map((response: HttpResponse<IUser[]>) => response.body)
+        //            )
+        //            .subscribe((res: IUser[]) => (this.users = res), (res: HttpErrorResponse) => this.onError(res.message));
+        //        this.communityService
+        //            .query()
+        //            .pipe(
+        //                filter((mayBeOk: HttpResponse<ICommunity[]>) => mayBeOk.ok),
+        //                map((response: HttpResponse<ICommunity[]>) => response.body)
+        //            )
+        //            .subscribe((res: ICommunity[]) => (this.communities = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     previousState() {

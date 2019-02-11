@@ -8,6 +8,8 @@ import { filter, map } from 'rxjs/operators';
 import { Follow } from 'app/shared/model/follow.model';
 import { FollowService } from './follow.service';
 import { FollowComponent } from './follow.component';
+import { FollowingComponent } from './following.component';
+import { FollowerComponent } from './follower.component';
 import { FollowDetailComponent } from './follow-detail.component';
 import { FollowUpdateComponent } from './follow-update.component';
 import { FollowDeletePopupComponent } from './follow-delete-dialog.component';
@@ -40,6 +42,32 @@ export const followRoute: Routes = [
             authorities: ['ROLE_USER'],
             defaultSort: 'id,asc',
             pageTitle: 'jhipsterpressApp.follow.home.title'
+        },
+        canActivate: [UserRouteAccessService]
+    },
+    {
+        path: 'following',
+        component: FollowingComponent,
+        resolve: {
+            pagingParams: JhiResolvePagingParams
+        },
+        data: {
+            authorities: ['ROLE_USER'],
+            defaultSort: 'id,asc',
+            pageTitle: 'jhipsterpressApp.follow.home.titleFollowing'
+        },
+        canActivate: [UserRouteAccessService]
+    },
+    {
+        path: 'follower',
+        component: FollowerComponent,
+        resolve: {
+            pagingParams: JhiResolvePagingParams
+        },
+        data: {
+            authorities: ['ROLE_USER'],
+            defaultSort: 'id,asc',
+            pageTitle: 'jhipsterpressApp.follow.home.titleFollower'
         },
         canActivate: [UserRouteAccessService]
     },

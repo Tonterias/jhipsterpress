@@ -2,21 +2,24 @@
     "jhipsterpressApp": {
         "cinterest": {
             "home": {
-                "title": "Cinterests",
-                "createLabel": "Crear nuevo Cinterest",
-                "createOrEditLabel": "Crear o editar Cinterest"
+                "title": "Intereses Comunitarios",
+                "createLabel": "Crear nuevo Interés Comunitario",
+                "myLabel": "Mi Interés Comunitario",
+                "noticeLabel": "Escoge un interés existente o corre el riesgo de estar solo en una nueva categoría de Interés Comunitario!",
+                "createOrEditLabel": "Crear o editar un Interés Comunitario",
+                "search": "Buscar un Interés Comunitario"
             },
-            "created": "Un nuevo Cinterest ha sido creado con el identificador {{ param }}",
-            "updated": "Un Cinterest ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Cinterest ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Interés Comunitario ha sido creado con el identificador {{ param }}",
+            "updated": "Un Interés Comunitario ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Interés Comunitario ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Cinterest {{ id }}?"
+                "question": "¿Seguro que quiere eliminar el Interés Comunitario {{ id }}?"
             },
             "detail": {
-                "title": "Cinterest"
+                "title": "Interés Comunitario"
             },
-            "interestName": "Interest Name",
-            "community": "Community"
+            "interestName": "Nombre del Interés Comunitario",
+            "community": "Comunidad"
         }
     }
 }

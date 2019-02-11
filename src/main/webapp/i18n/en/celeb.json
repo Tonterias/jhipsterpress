@@ -4,7 +4,10 @@
             "home": {
                 "title": "Celebs",
                 "createLabel": "Create a new Celeb",
-                "createOrEditLabel": "Create or edit a Celeb"
+                "myLabel": "My Celebs",
+                "noticeLabel": "Choose one of the following or risk to be alone in a new Celeb category!",
+                "createOrEditLabel": "Create or edit a Celeb",
+                "search": "Search for Celeb"
             },
             "created": "A new Celeb is created with identifier {{ param }}",
             "updated": "A Celeb is updated with identifier {{ param }}",
@@ -16,7 +19,8 @@
                 "title": "Celeb"
             },
             "celebName": "Celeb Name",
-            "uprofile": "Uprofile"
+            "community": "Community",
+            "uprofile": "Profile"
         }
     }
 }

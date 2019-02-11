@@ -1,14 +1,35 @@
 <div>
     <h2 id="page-heading">
         <span jhiTranslate="jhipsterpressApp.celeb.home.title">Celebs</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-celeb" [routerLink]="['/celeb/new']">
+        <button style="margin:5px;" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-celeb" (click)="myCelebs()">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="jhipsterpressApp.celeb.home.createLabel">
+            <span  jhiTranslate="jhipsterpressApp.celeb.home.myLabel">
+            My Celebs
+            </span>
+        </button>
+        <button style="margin:5px;" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-celeb" [routerLink]="['/celeb/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="jhipsterpressApp.celeb.home.createLabel">
             Create new Celeb
             </span>
         </button>
     </h2>
     <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jhipsterpressApp.celeb.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
     <br/>
     <div class="table-responsive" *ngIf="celebs">
         <table class="table table-striped">
@@ -31,13 +52,15 @@
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                         </button>
-                        <button type="submit"
+                        <button *ngIf="owner === celeb?.userId || owner === celeb?.userId || isAdmin == true"
+                        		type="submit"
                                 [routerLink]="['/celeb', celeb.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                         </button>
-                        <button type="submit"
+                        <button *ngIf="owner === celeb?.userId || owner === celeb?.userId || isAdmin == true"
+                        		type="submit"
                                 [routerLink]="['/', 'celeb', { outlets: { popup: celeb.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"

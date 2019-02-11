@@ -2,18 +2,21 @@
     "jhipsterpressApp": {
         "cinterest": {
             "home": {
-                "title": "Cinterests",
-                "createLabel": "Create a new Cinterest",
-                "createOrEditLabel": "Create or edit a Cinterest"
+                "title": "Community Interests",
+                "createLabel": "Create a new Community Interest",
+                "myLabel": "My Community Interest",
+                "noticeLabel": "Choose one of the following or risk to be alone in a new Community Interest category!",
+                "createOrEditLabel": "Create or edit a Community Interest",
+                "search": "Search for Community Interest"
             },
-            "created": "A new Cinterest is created with identifier {{ param }}",
-            "updated": "A Cinterest is updated with identifier {{ param }}",
-            "deleted": "A Cinterest is deleted with identifier {{ param }}",
+            "created": "A new Community Interest is created with identifier {{ param }}",
+            "updated": "A Community Interest is updated with identifier {{ param }}",
+            "deleted": "A Community Interest is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Cinterest {{ id }}?"
+                "question": "Are you sure you want to delete Community Interest {{ id }}?"
             },
             "detail": {
-                "title": "Cinterest"
+                "title": "Community Interest"
             },
             "interestName": "Interest Name",
             "community": "Community"

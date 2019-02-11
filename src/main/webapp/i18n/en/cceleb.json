@@ -2,18 +2,21 @@
     "jhipsterpressApp": {
         "cceleb": {
             "home": {
-                "title": "Ccelebs",
-                "createLabel": "Create a new Cceleb",
-                "createOrEditLabel": "Create or edit a Cceleb"
+                "title": "Community Celebs",
+                "createLabel": "Create a new Community Celeb",
+                "myLabel": "My Community Celeb",
+                "noticeLabel": "Choose one of the following or risk to be alone in a new Interest category!",
+                "createOrEditLabel": "Create or edit a Community Celeb",
+                "search": "Search for Community Celeb"
             },
-            "created": "A new Cceleb is created with identifier {{ param }}",
-            "updated": "A Cceleb is updated with identifier {{ param }}",
-            "deleted": "A Cceleb is deleted with identifier {{ param }}",
+            "created": "A new Community Celeb is created with identifier {{ param }}",
+            "updated": "A Community Celeb is updated with identifier {{ param }}",
+            "deleted": "A Community Celeb is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Cceleb {{ id }}?"
+                "question": "Are you sure you want to delete Community Celeb {{ id }}?"
             },
             "detail": {
-                "title": "Cceleb"
+                "title": "Community Celeb"
             },
             "celebName": "Celeb Name",
             "community": "Community"

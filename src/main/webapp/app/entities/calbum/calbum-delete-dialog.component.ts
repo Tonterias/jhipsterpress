@@ -14,7 +14,7 @@ import { CalbumService } from './calbum.service';
 export class CalbumDeleteDialogComponent {
     calbum: ICalbum;
 
-    constructor(protected calbumService: CalbumService, public activeModal: NgbActiveModal, protected eventManager: JhiEventManager) {}
+    constructor(protected calbumService: CalbumService, protected activeModal: NgbActiveModal, protected eventManager: JhiEventManager) {}
 
     clear() {
         this.activeModal.dismiss('cancel');

@@ -23,7 +23,8 @@ export class NewsletterUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ newsletter }) => {
             this.newsletter = newsletter;
-            this.creationDate = this.newsletter.creationDate != null ? this.newsletter.creationDate.format(DATE_TIME_FORMAT) : null;
+            this.creationDate = moment().format(DATE_TIME_FORMAT);
+            this.newsletter.creationDate = moment(this.creationDate);
         });
     }
 

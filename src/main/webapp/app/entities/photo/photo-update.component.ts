@@ -6,12 +6,17 @@ import { filter, map } from 'rxjs/operators';
 import * as moment from 'moment';
 import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 import { JhiAlertService, JhiDataUtils } from 'ng-jhipster';
+
 import { IPhoto } from 'app/shared/model/photo.model';
 import { PhotoService } from './photo.service';
 import { IAlbum } from 'app/shared/model/album.model';
 import { AlbumService } from 'app/entities/album';
 import { ICalbum } from 'app/shared/model/calbum.model';
 import { CalbumService } from 'app/entities/calbum';
+import { ICommunity } from 'app/shared/model/community.model';
+import { CommunityService } from 'app/entities/community';
+
+import { AccountService } from 'app/core';
 
 @Component({
     selector: 'jhi-photo-update',
@@ -22,9 +27,10 @@ export class PhotoUpdateComponent implements OnInit {
     isSaving: boolean;
 
     albums: IAlbum[];
-
+    communities: ICommunity[];
     calbums: ICalbum[];
     creationDate: string;
+    currentAccount: any;
 
     constructor(
         protected dataUtils: JhiDataUtils,
@@ -32,6 +38,8 @@ export class PhotoUpdateComponent implements OnInit {
         protected photoService: PhotoService,
         protected albumService: AlbumService,
         protected calbumService: CalbumService,
+        protected communityService: CommunityService,
+        protected accountService: AccountService,
         protected elementRef: ElementRef,
         protected activatedRoute: ActivatedRoute
     ) {}
@@ -40,22 +48,28 @@ export class PhotoUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ photo }) => {
             this.photo = photo;
-            this.creationDate = this.photo.creationDate != null ? this.photo.creationDate.format(DATE_TIME_FORMAT) : null;
+            this.creationDate = moment().format(DATE_TIME_FORMAT);
+            this.photo.creationDate = moment(this.creationDate);
         });
-        this.albumService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<IAlbum[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IAlbum[]>) => response.body)
-            )
-            .subscribe((res: IAlbum[]) => (this.albums = res), (res: HttpErrorResponse) => this.onError(res.message));
-        this.calbumService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<ICalbum[]>) => mayBeOk.ok),
-                map((response: HttpResponse<ICalbum[]>) => response.body)
-            )
-            .subscribe((res: ICalbum[]) => (this.calbums = res), (res: HttpErrorResponse) => this.onError(res.message));
+        this.accountService.identity().then(account => {
+            this.currentAccount = account;
+            this.myCommunities(this.currentAccount);
+            this.myAlbums(this.currentAccount);
+        });
+        //        this.albumService
+        //            .query()
+        //            .pipe(
+        //                filter((mayBeOk: HttpResponse<IAlbum[]>) => mayBeOk.ok),
+        //                map((response: HttpResponse<IAlbum[]>) => response.body)
+        //            )
+        //            .subscribe((res: IAlbum[]) => (this.albums = res), (res: HttpErrorResponse) => this.onError(res.message));
+        //        this.calbumService
+        //            .query()
+        //            .pipe(
+        //                filter((mayBeOk: HttpResponse<ICalbum[]>) => mayBeOk.ok),
+        //                map((response: HttpResponse<ICalbum[]>) => response.body)
+        //            )
+        //            .subscribe((res: ICalbum[]) => (this.calbums = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     byteSize(field) {
@@ -86,6 +100,54 @@ export class PhotoUpdateComponent implements OnInit {
         } else {
             this.subscribeToSaveResponse(this.photoService.create(this.photo));
         }
+    }
+
+    protected myCommunities(currentAccount) {
+        const query = {};
+        if (this.currentAccount.id != null) {
+            query['userId.equals'] = this.currentAccount.id;
+        }
+        this.communityService.query(query).subscribe(
+            (res: HttpResponse<ICommunity[]>) => {
+                this.communities = res.body;
+                console.log('CONSOLOG: M:myCommunities & O: res.body : ', res.body);
+                this.communitiesCalbums(this.communities);
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        console.log('CONSOLOG: M:myCommunities & O: this.currentAccount.id : ', this.currentAccount.id);
+    }
+
+    protected communitiesCalbums(communities) {
+        const query = {};
+        if (this.communities != null) {
+            const arrayCommmunities = [];
+            this.communities.forEach(community => {
+                arrayCommmunities.push(community.id);
+            });
+            query['communityId.in'] = arrayCommmunities;
+        }
+        this.calbumService.query(query).subscribe(
+            (res: HttpResponse<ICalbum[]>) => {
+                this.calbums = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+    }
+
+    protected myAlbums(currentAccount) {
+        const query = {};
+        if (this.currentAccount.id != null) {
+            query['userId.equals'] = this.currentAccount.id;
+        }
+        this.albumService.query(query).subscribe(
+            (res: HttpResponse<IAlbum[]>) => {
+                this.albums = res.body;
+                console.log('CONSOLOG: M:myAlbums & O: res.body : ', res.body);
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        console.log('CONSOLOG: M:myAlbums & O: this.currentAccount.id : ', this.currentAccount.id);
     }
 
     protected subscribeToSaveResponse(result: Observable<HttpResponse<IPhoto>>) {

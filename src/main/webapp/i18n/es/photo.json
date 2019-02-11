@@ -2,23 +2,25 @@
     "jhipsterpressApp": {
         "photo": {
             "home": {
-                "title": "Photos",
-                "createLabel": "Crear nuevo Photo",
-                "createOrEditLabel": "Crear o editar Photo"
+                "title": "Fotos",
+                "createLabel": "Crear nueva Foto",
+                "myLabel": "Mis Fotos",
+                "createOrEditLabel": "Crear o editar Foto",
+                "search": "Buscar una Foto"
             },
-            "created": "Un nuevo Photo ha sido creado con el identificador {{ param }}",
-            "updated": "Un Photo ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Photo ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva Foto ha sido creada con el identificador {{ param }}",
+            "updated": "Una Foto ha sido actualizada con el identificador {{ param }}",
+            "deleted": "Una Foto ha sido eliminada con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Photo {{ id }}?"
+                "question": "¿Seguro que quiere eliminar la Foto {{ id }}?"
             },
             "detail": {
-                "title": "Photo"
+                "title": "Foto"
             },
-            "creationDate": "Creation Date",
-            "image": "Image",
+            "creationDate": "Fecha de Creación",
+            "image": "Imagen",
             "album": "Album",
-            "calbum": "Calbum"
+            "calbum": "Album Comunitario"
         }
     }
 }

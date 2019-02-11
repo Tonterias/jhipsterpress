@@ -4,7 +4,9 @@
             "home": {
                 "title": "Photos",
                 "createLabel": "Create a new Photo",
-                "createOrEditLabel": "Create or edit a Photo"
+                "myLabel": "My Photos",
+                "createOrEditLabel": "Create or edit a Photo",
+                "search": "Search for Photo"
             },
             "created": "A new Photo is created with identifier {{ param }}",
             "updated": "A Photo is updated with identifier {{ param }}",
@@ -18,7 +20,7 @@
             "creationDate": "Creation Date",
             "image": "Image",
             "album": "Album",
-            "calbum": "Calbum"
+            "calbum": "Community Album"
         }
     }
 }

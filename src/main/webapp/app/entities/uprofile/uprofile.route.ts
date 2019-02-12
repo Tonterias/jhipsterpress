@@ -44,6 +44,19 @@ export const uprofileRoute: Routes = [
         canActivate: [UserRouteAccessService]
     },
     {
+        path: 'uprofileuid',
+        component: UprofileDetailComponent,
+        resolve: {
+            pagingParams: JhiResolvePagingParams
+        },
+        data: {
+            authorities: ['ROLE_USER'],
+            //            defaultSort: 'id,asc',
+            pageTitle: 'jhipsterpressApp.uprofile.home.title'
+        },
+        canActivate: [UserRouteAccessService]
+    },
+    {
         path: ':id/view',
         component: UprofileDetailComponent,
         resolve: {

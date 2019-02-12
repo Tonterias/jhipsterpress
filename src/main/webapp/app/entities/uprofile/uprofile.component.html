@@ -1,15 +1,94 @@
 <div>
     <h2 id="page-heading">
         <span jhiTranslate="jhipsterpressApp.uprofile.home.title">Uprofiles</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-uprofile" [routerLink]="['/uprofile/new']">
+		<button style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="myProfile()">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="jhipsterpressApp.uprofile.home.createLabel">
+            <span  jhiTranslate="jhipsterpressApp.uprofile.home.myLabel">
+            My Profile
+            </span>
+        </button>
+        <button style="margin:5px;" *ngIf="hasProfile === false" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-uprofile" [routerLink]="['/uprofile/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="jhipsterpressApp.uprofile.home.createLabel">
             Create new Uprofile
             </span>
         </button>
     </h2>
     <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jhipsterpressApp.uprofile.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
     <br/>
+
+  <!-- Profile Content -->
+	<div class="col-lg-9" *ngIf="uprofiles">
+	  <!-- User Contacts -->
+	  <div class="row g-mb-40">
+	    <div class="col-md-4 g-mb-30 g-mb-0--md" *ngFor="let uprofile of uprofiles ;trackBy: trackId">
+	      <!-- Figure -->
+	      <figure class="g-bg-white g-brd-around g-brd-gray-light-v4 g-brd-cyan--hover g-transition-0_2 text-center">
+	        <div class="g-py-40 g-px-20">
+	          <!-- Figure Image -->
+	          <a *ngIf="uprofile.image" [routerLink]="['/uprofile', uprofile.id, 'view' ]">
+                  <img class="g-width-100 g-height-100 rounded-circle g-mb-20" 
+                  [src]="'data:' + uprofile.imageContentType + ';base64,' + uprofile.image" alt="uprofile image"/>
+              </a>
+	          <!-- Figure Image -->
+	
+	          <!-- Figure Info -->
+	          <a [routerLink]="['/uprofile', uprofile.id, 'view' ]">
+	          	<h4 class="h5 g-mb-5">{{uprofile.userFirstName}} {{uprofile.userLastName}}</h4>
+	          </a>
+	          <div class="d-block">
+	            <span class="g-color-cyan g-font-size-default g-mr-3">
+	              <!-- <i class="icon-user"></i>  -->
+	            </span>
+	            <!-- <em class="g-color-gray-dark-v4 g-font-style-normal g-font-size-default">Employee</em> -->
+	          </div>
+	          <!-- End Figure Info -->
+	        </div>
+	
+	        <hr class="g-brd-gray-light-v4 g-my-0">
+	
+	        <!-- Figure List --
+	        <ul class="row list-inline g-py-20 g-ma-0">
+	          <li class="col g-brd-right g-brd-gray-light-v4">
+	            <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-bg-transparent g-color-cyan--hover" href="#!">
+	              <i class="icon-speech"></i>
+	            </a>
+	          </li>
+	          <li class="col g-brd-right g-brd-gray-light-v4">
+	            <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-bg-transparent g-color-red--hover" href="#!">
+	              <i class="icon-envelope-letter"></i>
+	            </a>
+	          </li>
+	          <li class="col">
+	            <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-bg-transparent g-color-purple--hover" href="#!">
+	              <i class="icon-screen-smartphone"></i>
+	            </a>
+	          </li>
+	        </ul>
+	        -- End Figure List -->
+	      </figure>
+	      <!-- End Figure -->
+	    </div>
+	</div>
+	<!-- End Profile Content -->
+	</div>
+	<br/>
+ 
     <div class="table-responsive" *ngIf="uprofiles">
         <table class="table table-striped">
             <thead>
@@ -86,12 +165,14 @@
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                         </button>
-                        <button type="submit"
+                        <button *ngIf="owner === uprofile.userId || isAdmin == true"
+                        		type="submit"
                                 [routerLink]="['/uprofile', uprofile.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                         </button>
+                        <!-- 
                         <button type="submit"
                                 [routerLink]="['/', 'uprofile', { outlets: { popup: uprofile.id + '/delete'} }]"
                                 replaceUrl="true"
@@ -100,6 +181,7 @@
                             <fa-icon [icon]="'times'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
                         </button>
+                         -->
                     </div>
                 </td>
             </tr>

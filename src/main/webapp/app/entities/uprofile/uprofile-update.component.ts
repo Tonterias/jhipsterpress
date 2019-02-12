@@ -6,6 +6,7 @@ import { filter, map } from 'rxjs/operators';
 import * as moment from 'moment';
 import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 import { JhiAlertService, JhiDataUtils } from 'ng-jhipster';
+
 import { IUprofile } from 'app/shared/model/uprofile.model';
 import { UprofileService } from './uprofile.service';
 import { IUser, UserService } from 'app/core';
@@ -16,6 +17,8 @@ import { ActivityService } from 'app/entities/activity';
 import { ICeleb } from 'app/shared/model/celeb.model';
 import { CelebService } from 'app/entities/celeb';
 
+import { AccountService } from 'app/core';
+
 @Component({
     selector: 'jhi-uprofile-update',
     templateUrl: './uprofile-update.component.html'
@@ -25,6 +28,7 @@ export class UprofileUpdateComponent implements OnInit {
     isSaving: boolean;
 
     users: IUser[];
+    user: IUser;
 
     interests: IInterest[];
 
@@ -34,6 +38,8 @@ export class UprofileUpdateComponent implements OnInit {
     creationDate: string;
     birthdate: string;
 
+    currentAccount: any;
+
     constructor(
         protected dataUtils: JhiDataUtils,
         protected jhiAlertService: JhiAlertService,
@@ -42,6 +48,7 @@ export class UprofileUpdateComponent implements OnInit {
         protected interestService: InterestService,
         protected activityService: ActivityService,
         protected celebService: CelebService,
+        protected accountService: AccountService,
         protected elementRef: ElementRef,
         protected activatedRoute: ActivatedRoute
     ) {}
@@ -50,37 +57,50 @@ export class UprofileUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ uprofile }) => {
             this.uprofile = uprofile;
-            this.creationDate = this.uprofile.creationDate != null ? this.uprofile.creationDate.format(DATE_TIME_FORMAT) : null;
+            console.log('CONSOLOG: M:ngOnInit & O: this.uprofile : ', this.uprofile);
+            this.creationDate = moment().format(DATE_TIME_FORMAT);
+            this.uprofile.creationDate = moment(this.creationDate);
             this.birthdate = this.uprofile.birthdate != null ? this.uprofile.birthdate.format(DATE_TIME_FORMAT) : null;
+            this.accountService.identity().then(account => {
+                this.currentAccount = account;
+                console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount);
+                this.userService.findById(this.currentAccount.id).subscribe(
+                    (res: HttpResponse<IUser>) => {
+                        this.uprofile.userId = res.body.id;
+                        console.log('CONSOLOG: M:ngOnInit & O: this.user : ', this.user);
+                    },
+                    (res: HttpErrorResponse) => this.onError(res.message)
+                );
+            });
         });
-        this.userService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<IUser[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IUser[]>) => response.body)
-            )
-            .subscribe((res: IUser[]) => (this.users = res), (res: HttpErrorResponse) => this.onError(res.message));
-        this.interestService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<IInterest[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IInterest[]>) => response.body)
-            )
-            .subscribe((res: IInterest[]) => (this.interests = res), (res: HttpErrorResponse) => this.onError(res.message));
-        this.activityService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<IActivity[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IActivity[]>) => response.body)
-            )
-            .subscribe((res: IActivity[]) => (this.activities = res), (res: HttpErrorResponse) => this.onError(res.message));
-        this.celebService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<ICeleb[]>) => mayBeOk.ok),
-                map((response: HttpResponse<ICeleb[]>) => response.body)
-            )
-            .subscribe((res: ICeleb[]) => (this.celebs = res), (res: HttpErrorResponse) => this.onError(res.message));
+        //        this.userService
+        //            .query()
+        //            .pipe(
+        //                filter((mayBeOk: HttpResponse<IUser[]>) => mayBeOk.ok),
+        //                map((response: HttpResponse<IUser[]>) => response.body)
+        //            )
+        //            .subscribe((res: IUser[]) => (this.users = res), (res: HttpErrorResponse) => this.onError(res.message));
+        //        this.interestService
+        //            .query()
+        //            .pipe(
+        //                filter((mayBeOk: HttpResponse<IInterest[]>) => mayBeOk.ok),
+        //                map((response: HttpResponse<IInterest[]>) => response.body)
+        //            )
+        //            .subscribe((res: IInterest[]) => (this.interests = res), (res: HttpErrorResponse) => this.onError(res.message));
+        //        this.activityService
+        //            .query()
+        //            .pipe(
+        //                filter((mayBeOk: HttpResponse<IActivity[]>) => mayBeOk.ok),
+        //                map((response: HttpResponse<IActivity[]>) => response.body)
+        //            )
+        //            .subscribe((res: IActivity[]) => (this.activities = res), (res: HttpErrorResponse) => this.onError(res.message));
+        //        this.celebService
+        //            .query()
+        //            .pipe(
+        //                filter((mayBeOk: HttpResponse<ICeleb[]>) => mayBeOk.ok),
+        //                map((response: HttpResponse<ICeleb[]>) => response.body)
+        //            )
+        //            .subscribe((res: ICeleb[]) => (this.celebs = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     byteSize(field) {

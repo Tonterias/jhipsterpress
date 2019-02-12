@@ -2,47 +2,53 @@
     "jhipsterpressApp": {
         "uprofile": {
             "home": {
-                "title": "Uprofiles",
-                "createLabel": "Crear nuevo Uprofile",
-                "createOrEditLabel": "Crear o editar Uprofile"
+                "title": "Perfil",
+                "createLabel": "Crear nuevo Perfil",
+                "myLabel": "Mi Perfil",
+                "createOrEditLabel": "Crear o editar Perfil",
+                "search": "Buscar por Perfil"
             },
-            "created": "Un nuevo Uprofile ha sido creado con el identificador {{ param }}",
-            "updated": "Un Uprofile ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Uprofile ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Perfil ha sido creado con el identificador {{ param }}",
+            "updated": "Un Perfil ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Perfil ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Uprofile {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Perfil {{ id }}?"
             },
             "detail": {
-                "title": "Uprofile"
+                "title": "Perfil"
             },
-            "creationDate": "Creation Date",
-            "image": "Image",
-            "gender": "Gender",
-            "phone": "Phone",
-            "bio": "Bio",
+            "creationDate": "Fecha de Creación",
+            "image": "Imagen",
+            "gender": "Género",
+            "phone": "Teléfono",
+            "bio": "Biografía",
             "facebook": "Facebook",
             "twitter": "Twitter",
             "linkedin": "Linkedin",
             "instagram": "Instagram",
             "googlePlus": "Google Plus",
-            "birthdate": "Birthdate",
-            "civilStatus": "Civil Status",
-            "lookingFor": "Looking For",
-            "purpose": "Purpose",
-            "physical": "Physical",
-            "religion": "Religion",
-            "ethnicGroup": "Ethnic Group",
-            "studies": "Studies",
-            "sibblings": "Sibblings",
-            "eyes": "Eyes",
-            "smoker": "Smoker",
-            "children": "Children",
-            "futureChildren": "Future Children",
-            "pet": "Pet",
-            "user": "User",
-            "interest": "Interest",
-            "activity": "Activity",
-            "celeb": "Celeb"
+            "birthdate": "Cumpleaños",
+            "civilStatus": "Estado Civil",
+            "lookingFor": "Buscando...",
+            "purpose": "Propósito",
+            "physical": "Físico",
+            "religion": "Religión",
+            "ethnicGroup": "Group Étinco",
+            "follow": "Follow",
+            "unfollow": "UnFollow",
+            "blockuser": "Bloquear",
+            "unblockuser": "Desbloquear",
+            "studies": "Estudios",
+            "sibblings": "Hermanos",
+            "eyes": "Ojos",
+            "smoker": "Fumador",
+            "children": "Hijos",
+            "futureChildren": "Deseas más hijos",
+            "pet": "Mascota",
+            "user": "Usuario",
+            "interest": "Intereses",
+            "activity": "Actividades",
+            "celeb": "Celebridades"
         }
     }
 }

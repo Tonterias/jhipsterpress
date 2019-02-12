@@ -2,18 +2,20 @@
     "jhipsterpressApp": {
         "uprofile": {
             "home": {
-                "title": "Uprofiles",
-                "createLabel": "Create a new Uprofile",
-                "createOrEditLabel": "Create or edit a Uprofile"
+                "title": "Profiles",
+                "createLabel": "Create a new Profile",
+                "myLabel": "My Profile",
+                "createOrEditLabel": "Create or edit a Profile",
+                "search": "Search for Uprofile"
             },
-            "created": "A new Uprofile is created with identifier {{ param }}",
-            "updated": "A Uprofile is updated with identifier {{ param }}",
-            "deleted": "A Uprofile is deleted with identifier {{ param }}",
+            "created": "A new Profile is created with identifier {{ param }}",
+            "updated": "A Profile is updated with identifier {{ param }}",
+            "deleted": "A Profile is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Uprofile {{ id }}?"
+                "question": "Are you sure you want to delete Profile {{ id }}?"
             },
             "detail": {
-                "title": "Uprofile"
+                "title": "Profile"
             },
             "creationDate": "Creation Date",
             "image": "Image",
@@ -32,6 +34,10 @@
             "physical": "Physical",
             "religion": "Religion",
             "ethnicGroup": "Ethnic Group",
+            "follow": "Follow",
+            "unfollow": "UnFollow",
+            "blockuser": "BlockUser",
+            "unblockuser": "UnBlockUser",
             "studies": "Studies",
             "sibblings": "Sibblings",
             "eyes": "Eyes",
@@ -40,9 +46,9 @@
             "futureChildren": "Future Children",
             "pet": "Pet",
             "user": "User",
-            "interest": "Interest",
-            "activity": "Activity",
-            "celeb": "Celeb"
+            "interest": "Interests",
+            "activity": "Activities",
+            "celeb": "Celebs"
         }
     }
 }

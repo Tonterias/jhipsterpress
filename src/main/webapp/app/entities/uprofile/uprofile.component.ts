@@ -6,10 +6,10 @@ import { filter, map } from 'rxjs/operators';
 import { JhiEventManager, JhiParseLinks, JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 
 import { IUprofile } from 'app/shared/model/uprofile.model';
-import { AccountService } from 'app/core';
-
-import { ITEMS_PER_PAGE } from 'app/shared';
 import { UprofileService } from './uprofile.service';
+
+import { AccountService } from 'app/core';
+import { ITEMS_PER_PAGE } from 'app/shared';
 
 @Component({
     selector: 'jhi-uprofile',
@@ -21,6 +21,7 @@ export class UprofileComponent implements OnInit, OnDestroy {
     error: any;
     success: any;
     eventSubscriber: Subscription;
+    currentSearch: string;
     routeData: any;
     links: any;
     totalItems: any;
@@ -29,6 +30,9 @@ export class UprofileComponent implements OnInit, OnDestroy {
     predicate: any;
     previousPage: any;
     reverse: any;
+    owner: any;
+    isAdmin: boolean;
+    hasProfile: boolean;
 
     constructor(
         protected uprofileService: UprofileService,
@@ -47,9 +51,27 @@ export class UprofileComponent implements OnInit, OnDestroy {
             this.reverse = data.pagingParams.ascending;
             this.predicate = data.pagingParams.predicate;
         });
+        this.currentSearch =
+            this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
+                ? this.activatedRoute.snapshot.params['search']
+                : '';
     }
 
     loadAll() {
+        if (this.currentSearch) {
+            this.uprofileService
+                .query({
+                    page: this.page - 1,
+                    query: this.currentSearch,
+                    size: this.itemsPerPage,
+                    sort: this.sort()
+                })
+                .subscribe(
+                    (res: HttpResponse<IUprofile[]>) => this.paginateUprofiles(res.body, res.headers),
+                    (res: HttpErrorResponse) => this.onError(res.message)
+                );
+            return;
+        }
         this.uprofileService
             .query({
                 page: this.page - 1,
@@ -74,6 +96,7 @@ export class UprofileComponent implements OnInit, OnDestroy {
             queryParams: {
                 page: this.page,
                 size: this.itemsPerPage,
+                search: this.currentSearch,
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
             }
         });
@@ -82,9 +105,27 @@ export class UprofileComponent implements OnInit, OnDestroy {
 
     clear() {
         this.page = 0;
+        this.currentSearch = '';
         this.router.navigate([
             '/uprofile',
             {
+                page: this.page,
+                sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
+            }
+        ]);
+        this.loadAll();
+    }
+
+    search(query) {
+        if (!query) {
+            return this.clear();
+        }
+        this.page = 0;
+        this.currentSearch = query;
+        this.router.navigate([
+            '/uprofile',
+            {
+                search: this.currentSearch,
                 page: this.page,
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
             }
@@ -96,6 +137,24 @@ export class UprofileComponent implements OnInit, OnDestroy {
         this.loadAll();
         this.accountService.identity().then(account => {
             this.currentAccount = account;
+            this.owner = account.id;
+            this.isAdmin = this.accountService.hasAnyAuthority(['ROLE_ADMIN']);
+            this.hasProfile = false;
+            console.log('CONSOLOG: M:myProfile & O: this.hasProfile:', this.hasProfile);
+            const query = {};
+            if (this.currentAccount.id != null) {
+                query['userId.equals'] = this.currentAccount.id;
+            }
+            this.uprofileService.query(query).subscribe(
+                (res: HttpResponse<IUprofile[]>) => {
+                    if (res.body.length !== 0) {
+                        this.hasProfile = true;
+                        console.log('CONSOLOG: M:ngOnInit & O: uprofileService-res.body:', res.body);
+                        console.log('CONSOLOG: M:ngOnInit & O: this.hasProfile:', this.hasProfile);
+                    }
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
         });
         this.registerChangeInUprofiles();
     }
@@ -128,10 +187,37 @@ export class UprofileComponent implements OnInit, OnDestroy {
         return result;
     }
 
+    myProfile() {
+        this.hasProfile = false;
+        console.log('CONSOLOG: M:myProfile & O: this.hasProfile:', this.hasProfile);
+        const query = {
+            page: this.page - 1,
+            size: this.itemsPerPage,
+            sort: this.sort()
+        };
+        if (this.currentAccount.id != null) {
+            query['userId.equals'] = this.currentAccount.id;
+        }
+        this.uprofileService.query(query).subscribe(
+            (res: HttpResponse<IUprofile[]>) => {
+                if (res.body.length !== 0) {
+                    this.hasProfile = true;
+                    console.log('CONSOLOG: M:myProfile & O: res.body:', res.body);
+                    console.log('CONSOLOG: M:myProfile & O: this.hasProfile:', this.hasProfile);
+                }
+                this.paginateUprofiles(res.body, res.headers);
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+    }
+
     protected paginateUprofiles(data: IUprofile[], headers: HttpHeaders) {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.uprofiles = data;
+        console.log('CONSOLOG: M:paginateProfiles & O: this.owner : ', this.owner);
+        console.log('CONSOLOG: M:paginateProfiles & O: this.isAdmin : ', this.isAdmin);
+        console.log('CONSOLOG: M:paginateProfiles & O: this.uprofiles : ', this.uprofiles);
     }
 
     protected onError(errorMessage: string) {

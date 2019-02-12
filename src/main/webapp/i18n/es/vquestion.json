@@ -2,26 +2,27 @@
     "jhipsterpressApp": {
         "vquestion": {
             "home": {
-                "title": "Vquestions",
-                "createLabel": "Crear nuevo Vquestion",
-                "createOrEditLabel": "Crear o editar Vquestion"
+                "title": "Preguntas",
+                "createLabel": "Crear nueva Pregunta",
+                "createOrEditLabel": "Crear o editar Pregunta",
+                "search": "Buscar una Pregunta"
             },
-            "created": "Un nuevo Vquestion ha sido creado con el identificador {{ param }}",
-            "updated": "Un Vquestion ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Vquestion ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva Pregunta ha sido creada con el identificador {{ param }}",
+            "updated": "Una Pregunta ha sido actualizada con el identificador {{ param }}",
+            "deleted": "Una Pregunta ha sido eliminada con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Vquestion {{ id }}?"
+                "question": "¿Seguro que quiere eliminar la Pregunta {{ id }}?"
             },
             "detail": {
-                "title": "Vquestion"
+                "title": "Pregunta"
             },
-            "creationDate": "Creation Date",
-            "vquestion": "Vquestion",
-            "vquestionDescription": "Vquestion Description",
-            "vanswer": "Vanswer",
-            "vthumb": "Vthumb",
-            "user": "User",
-            "vtopic": "Vtopic"
+            "creationDate": "Fecha de Creación",
+            "vquestion": "Pregunta",
+            "vquestionDescription": "Descripción de la Pregunta",
+            "vanswer": "Respuesta",
+            "vthumb": "Pulgares",
+            "user": "Usuario",
+            "vtopic": "Tema"
         }
     }
 }

@@ -15,6 +15,7 @@ export class TopicDetailComponent implements OnInit {
     ngOnInit() {
         this.activatedRoute.data.subscribe(({ topic }) => {
             this.topic = topic;
+            console.log('CONSOLOG: M:ngOnInit & O: this.topic : ', this.topic);
         });
     }
 

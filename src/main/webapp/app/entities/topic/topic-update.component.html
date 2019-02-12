@@ -1,7 +1,60 @@
 <div class="row justify-content-center">
     <div class="col-8">
-        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-topic-heading" jhiTranslate="jhipsterpressApp.topic.home.createOrEditLabel">Create or edit a Topic</h2>
+	    <div class="col-sm-12">
+	    	<h2 id="jhi-topic-heading" jhiTranslate="jhipsterpressApp.topic.home.search">Search for an Topic</h2>
+	            <form name="searchForm" class="form-inline">
+	                <div class="input-group w-100 mt-3">
+	                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jhipsterpressApp.topic.home.search' | translate }}">
+	                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+	                        <fa-icon [icon]="'search'"></fa-icon>
+	                    </button>
+	                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+	                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+	                    </button>
+	                </div>
+	            </form>
+	        </div>
+	    </div>
+	    <br/>
+	    <div class="table-responsive" *ngIf="topics">
+	        <table class="table table-striped">
+	            <thead>
+	            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+	            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+	            <th jhiSortBy="topicName"><span jhiTranslate="jhipsterpressApp.topic.topicName">Topic Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+	            <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr *ngFor="let topic of topics ;trackBy: trackId">
+	                <td><a [routerLink]="['/topic', topic.id, 'view' ]">{{topic.id}}</a></td>
+	                <td>{{topic.topicName}}</td>
+	                <td class="text-right">
+	                    <div class="btn-group flex-btn-group-container">
+	                    	<button id="jh-create-entity" 
+							        class="btn btn-primary float-right jh-create-entity create-topic"
+							        (click)="addExistingTopic2Post(topic.id)">
+								<fa-icon [icon]="'plus'"></fa-icon>
+							</button>
+	                    </div>
+	                </td>
+	            </tr>
+	            </tbody>
+	        </table>
+	        <h4 *ngIf="topics.length>0; else zipZeroResults" jhiTranslate="jhipsterpressApp.topic.home.noticeLabel">Choose one of the following or risk to be alone in a new category!!</h4>
+	    </div>
+	    <div *ngIf="topics && topics.length">
+	        <div class="row justify-content-center">
+	            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+	        </div>
+	        <div class="row justify-content-center">
+	            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+	        </div>
+	    </div>
+	</div>
+
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm" *ngIf="isCreateDisabled">
+            <h2 id="jhi-topic-heading" jhiTranslate="jhipsterpressApp.topic.home.createLabel">Create or edit a Topic</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!topic.id">
@@ -46,4 +99,7 @@
             </div>
         </form>
     </div>
+    <ng-template #zipZeroResults>
+	  <h2 id="page-heading">Nought, nil, nada, nothing, zero, zilch, zip...</h2>
+	</ng-template>
 </div>

@@ -4,7 +4,9 @@
             "home": {
                 "title": "Topics",
                 "createLabel": "Create a new Topic",
-                "createOrEditLabel": "Create or edit a Topic"
+                "noticeLabel": "Choose one of the following or risk to be alone in a new Topic category!",
+                "createOrEditLabel": "Create or edit a Topic",
+                "search": "Search for Topic"
             },
             "created": "A new Topic is created with identifier {{ param }}",
             "updated": "A Topic is updated with identifier {{ param }}",

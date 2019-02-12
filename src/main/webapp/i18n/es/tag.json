@@ -2,20 +2,22 @@
     "jhipsterpressApp": {
         "tag": {
             "home": {
-                "title": "Tags",
-                "createLabel": "Crear nuevo Tag",
-                "createOrEditLabel": "Crear o editar Tag"
+                "title": "Etiquetas",
+                "createLabel": "Crear nueva Etiqueta",
+                "noticeLabel": "Escoge un interés existente o corre el riesgo de estar solo en una nueva categoría de Etiqueta!",
+                "createOrEditLabel": "Crear o editar Etiqueta",
+                "search": "Buscar una Etiqueta"
             },
-            "created": "Un nuevo Tag ha sido creado con el identificador {{ param }}",
-            "updated": "Un Tag ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Tag ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva Etiqueta ha sido creada con el identificador {{ param }}",
+            "updated": "Una Etiqueta ha sido actualizada con el identificador {{ param }}",
+            "deleted": "Una Etiqueta ha sido eliminada con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Tag {{ id }}?"
+                "question": "¿Seguro que quiere eliminar la Etiqueta {{ id }}?"
             },
             "detail": {
-                "title": "Tag"
+                "title": "Etiqueta"
             },
-            "tagName": "Tag Name",
+            "tagName": "Etiqueta",
             "post": "Post"
         }
     }

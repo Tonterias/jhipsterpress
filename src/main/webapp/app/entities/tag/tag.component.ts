@@ -6,10 +6,10 @@ import { filter, map } from 'rxjs/operators';
 import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 
 import { ITag } from 'app/shared/model/tag.model';
-import { AccountService } from 'app/core';
-
-import { ITEMS_PER_PAGE } from 'app/shared';
 import { TagService } from './tag.service';
+
+import { AccountService } from 'app/core';
+import { ITEMS_PER_PAGE } from 'app/shared';
 
 @Component({
     selector: 'jhi-tag',
@@ -21,6 +21,7 @@ export class TagComponent implements OnInit, OnDestroy {
     error: any;
     success: any;
     eventSubscriber: Subscription;
+    currentSearch: string;
     routeData: any;
     links: any;
     totalItems: any;
@@ -46,9 +47,27 @@ export class TagComponent implements OnInit, OnDestroy {
             this.reverse = data.pagingParams.ascending;
             this.predicate = data.pagingParams.predicate;
         });
+        this.currentSearch =
+            this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
+                ? this.activatedRoute.snapshot.params['search']
+                : '';
     }
 
     loadAll() {
+        if (this.currentSearch) {
+            this.tagService
+                .query({
+                    page: this.page - 1,
+                    query: this.currentSearch,
+                    size: this.itemsPerPage,
+                    sort: this.sort()
+                })
+                .subscribe(
+                    (res: HttpResponse<ITag[]>) => this.paginateTags(res.body, res.headers),
+                    (res: HttpErrorResponse) => this.onError(res.message)
+                );
+            return;
+        }
         this.tagService
             .query({
                 page: this.page - 1,
@@ -73,6 +92,7 @@ export class TagComponent implements OnInit, OnDestroy {
             queryParams: {
                 page: this.page,
                 size: this.itemsPerPage,
+                search: this.currentSearch,
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
             }
         });
@@ -81,9 +101,27 @@ export class TagComponent implements OnInit, OnDestroy {
 
     clear() {
         this.page = 0;
+        this.currentSearch = '';
         this.router.navigate([
             '/tag',
             {
+                page: this.page,
+                sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
+            }
+        ]);
+        this.loadAll();
+    }
+
+    search(query) {
+        if (!query) {
+            return this.clear();
+        }
+        this.page = 0;
+        this.currentSearch = query;
+        this.router.navigate([
+            '/tag',
+            {
+                search: this.currentSearch,
                 page: this.page,
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
             }

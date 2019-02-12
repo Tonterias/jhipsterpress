@@ -2,25 +2,26 @@
     "jhipsterpressApp": {
         "vanswer": {
             "home": {
-                "title": "Vanswers",
-                "createLabel": "Crear nuevo Vanswer",
-                "createOrEditLabel": "Crear o editar Vanswer"
+                "title": "Respuestas",
+                "createLabel": "Crear nueva Respuesta",
+                "createOrEditLabel": "Crear o editar Respuesta",
+                "search": "Buscar una Respuesta"
             },
-            "created": "Un nuevo Vanswer ha sido creado con el identificador {{ param }}",
-            "updated": "Un Vanswer ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Vanswer ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva Respuesta ha sido creada con el identificador {{ param }}",
+            "updated": "Una Respuesta ha sido actualizada con el identificador {{ param }}",
+            "deleted": "Una Respuesta ha sido eliminada con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Vanswer {{ id }}?"
+                "question": "¿Seguro que quiere eliminar la Respuesta {{ id }}?"
             },
             "detail": {
-                "title": "Vanswer"
+                "title": "Respuesta"
             },
-            "creationDate": "Creation Date",
-            "urlVanswer": "Url Vanswer",
-            "accepted": "Accepted",
-            "vthumb": "Vthumb",
-            "user": "User",
-            "vquestion": "Vquestion"
+            "creationDate": "Fecha de Creación",
+            "urlVanswer": "Url Respuesta",
+            "accepted": "Aceptada",
+            "vthumb": "Pulgares",
+            "user": "Usario",
+            "vquestion": "Pregunta"
         }
     }
 }

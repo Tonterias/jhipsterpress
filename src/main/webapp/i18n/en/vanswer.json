@@ -2,25 +2,26 @@
     "jhipsterpressApp": {
         "vanswer": {
             "home": {
-                "title": "Vanswers",
-                "createLabel": "Create a new Vanswer",
-                "createOrEditLabel": "Create or edit a Vanswer"
+                "title": "Answers",
+                "createLabel": "Create a new Answer",
+                "createOrEditLabel": "Create or edit a Answer",
+                "search": "Search for Answers"
             },
-            "created": "A new Vanswer is created with identifier {{ param }}",
-            "updated": "A Vanswer is updated with identifier {{ param }}",
-            "deleted": "A Vanswer is deleted with identifier {{ param }}",
+            "created": "A new Answer is created with identifier {{ param }}",
+            "updated": "A Answer is updated with identifier {{ param }}",
+            "deleted": "A Answer is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Vanswer {{ id }}?"
+                "question": "Are you sure you want to delete Answer {{ id }}?"
             },
             "detail": {
-                "title": "Vanswer"
+                "title": "Answer"
             },
             "creationDate": "Creation Date",
-            "urlVanswer": "Url Vanswer",
+            "urlVanswer": "Url Answer",
             "accepted": "Accepted",
-            "vthumb": "Vthumb",
+            "vthumb": "Thumb",
             "user": "User",
-            "vquestion": "Vquestion"
+            "vquestion": "Question"
         }
     }
 }

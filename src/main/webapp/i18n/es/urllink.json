@@ -2,20 +2,21 @@
     "jhipsterpressApp": {
         "urllink": {
             "home": {
-                "title": "Urllinks",
-                "createLabel": "Crear nuevo Urllink",
-                "createOrEditLabel": "Crear o editar Urllink"
+                "title": "Url Links",
+                "createLabel": "Crear nueva Url Link",
+                "createOrEditLabel": "Crear o editar Url Link",
+                "search": "Buscar una Url Link"
             },
-            "created": "Un nuevo Urllink ha sido creado con el identificador {{ param }}",
-            "updated": "Un Urllink ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Urllink ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva Url Link ha sido creada con el identificador {{ param }}",
+            "updated": "Una Url Link ha sido actualizada con el identificador {{ param }}",
+            "deleted": "Una Url Link ha sido eliminada con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Urllink {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Url Link {{ id }}?"
             },
             "detail": {
-                "title": "Urllink"
+                "title": "Url Link"
             },
-            "linkText": "Link Text",
+            "linkText": "Texto Link",
             "linkURL": "Link URL"
         }
     }

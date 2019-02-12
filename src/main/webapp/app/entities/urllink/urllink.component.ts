@@ -21,6 +21,7 @@ export class UrllinkComponent implements OnInit, OnDestroy {
     error: any;
     success: any;
     eventSubscriber: Subscription;
+    currentSearch: string;
     routeData: any;
     links: any;
     totalItems: any;
@@ -46,9 +47,28 @@ export class UrllinkComponent implements OnInit, OnDestroy {
             this.reverse = data.pagingParams.ascending;
             this.predicate = data.pagingParams.predicate;
         });
+        this.currentSearch =
+            this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
+                ? this.activatedRoute.snapshot.params['search']
+                : '';
     }
 
     loadAll() {
+        if (this.currentSearch) {
+            this.urllinkService
+                .query({
+                    page: this.page - 1,
+                    query: this.currentSearch,
+                    size: this.itemsPerPage,
+                    search: this.currentSearch,
+                    sort: this.sort()
+                })
+                .subscribe(
+                    (res: HttpResponse<IUrllink[]>) => this.paginateUrllinks(res.body, res.headers),
+                    (res: HttpErrorResponse) => this.onError(res.message)
+                );
+            return;
+        }
         this.urllinkService
             .query({
                 page: this.page - 1,
@@ -81,9 +101,27 @@ export class UrllinkComponent implements OnInit, OnDestroy {
 
     clear() {
         this.page = 0;
+        this.currentSearch = '';
         this.router.navigate([
             '/urllink',
             {
+                page: this.page,
+                sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
+            }
+        ]);
+        this.loadAll();
+    }
+
+    search(query) {
+        if (!query) {
+            return this.clear();
+        }
+        this.page = 0;
+        this.currentSearch = query;
+        this.router.navigate([
+            '/urllink',
+            {
+                search: this.currentSearch,
                 page: this.page,
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
             }
@@ -123,6 +161,7 @@ export class UrllinkComponent implements OnInit, OnDestroy {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.urllinks = data;
+        console.log('CONSOLOG: M:ngOnInit & O: this.urllinks:', this.urllinks);
     }
 
     protected onError(errorMessage: string) {

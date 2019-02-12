@@ -20,6 +20,7 @@ export class UrllinkUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ urllink }) => {
             this.urllink = urllink;
+            console.log('CONSOLOG: M:ngOnInit & O: this.urllink:', this.urllink);
         });
     }
 

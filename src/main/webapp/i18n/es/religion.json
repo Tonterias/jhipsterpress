@@ -2,13 +2,13 @@
     "jhipsterpressApp": {
         "Religion": {
             "null": "",
-            "NA": "NA",
-            "ATHEIST": "ATHEIST",
-            "AGNOSTIC": "AGNOSTIC",
-            "CATHOLIC": "CATHOLIC",
-            "JEWISH": "JEWISH",
-            "ISLAMIC": "ISLAMIC",
-            "OTHER": "OTHER"
+            "NA": "No Aplica",
+            "ATHEIST": "Ateo",
+            "AGNOSTIC": "Agnóstico",
+            "CATHOLIC": "Católico",
+            "JEWISH": "Judio",
+            "ISLAMIC": "Musulmán",
+            "OTHER": "Otras"
         }
     }
 }

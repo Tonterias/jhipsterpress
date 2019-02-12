@@ -28,7 +28,6 @@ export class CalbumComponent implements OnInit, OnDestroy {
     routeData: any;
     links: any;
     totalItems: any;
-    queryCount: any;
     itemsPerPage: any;
     page: any;
     predicate: any;
@@ -213,7 +212,6 @@ export class CalbumComponent implements OnInit, OnDestroy {
     private paginateCommunities(data: ICommunity[], headers: HttpHeaders) {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
-        this.queryCount = this.totalItems;
         this.communities = data;
         this.communitiesBlogs();
     }

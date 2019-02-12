@@ -1,39 +1,114 @@
 <div class="row justify-content-center">
-    <div class="col-8">
-        <div *ngIf="vtopic">
-            <h2><span jhiTranslate="jhipsterpressApp.vtopic.detail.title">Vtopic</span> {{vtopic.id}}</h2>
-            <hr>
-            <jhi-alert-error></jhi-alert-error>
-            <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="jhipsterpressApp.vtopic.creationDate">Creation Date</span></dt>
-                <dd>
-                    <span>{{vtopic.creationDate}}</span>
-                </dd>
-                <dt><span jhiTranslate="jhipsterpressApp.vtopic.vtopicTitle">Vtopic Title</span></dt>
-                <dd>
-                    <span>{{vtopic.vtopicTitle}}</span>
-                </dd>
-                <dt><span jhiTranslate="jhipsterpressApp.vtopic.vtopicDescription">Vtopic Description</span></dt>
-                <dd>
-                    <span>{{vtopic.vtopicDescription}}</span>
-                </dd>
-                <dt><span jhiTranslate="jhipsterpressApp.vtopic.user">User</span></dt>
-                <dd>
-                    {{vtopic.userId}}
-                </dd>
-            </dl>
+	<div class="col-8">
+		<div *ngIf="vtopic">
+			<h2>
+				<span jhiTranslate="jhipsterpressApp.vtopic.detail.title">Vtopic</span>
+				{{vtopic.id}}
+			</h2>
+			<hr>
+			<jhi-alert-error></jhi-alert-error>
+			<dl class="row-md jh-entity-details">
+				<dt>
+					<span jhiTranslate="jhipsterpressApp.vtopic.creationDate">Creation
+						Date</span>
+				</dt>
+				<dd>
+					<span>{{vtopic.creationDate | date:'MMM d, y, h:mm a'}}</span>
+				</dd>
+				<dt>
+					<span jhiTranslate="jhipsterpressApp.vtopic.vtopictitle">Vtopictitle</span>
+				</dt>
+				<dd>
+					<span>{{vtopic.vtopictitle}}</span>
+				</dd>
+				<dt>
+					<span jhiTranslate="jhipsterpressApp.vtopic.vtopicdesc">Vtopicdesc</span>
+				</dt>
+				<dd>
+					<span>{{vtopic.vtopicdesc}}</span>
+				</dd>
+				<dt>
+					<span jhiTranslate="jhipsterpressApp.vtopic.user">User</span>
+				</dt>
+				<dd>{{vtopic.userId}}</dd>
+			</dl>
 
-            <button type="submit"
-                    (click)="previousState()"
-                    class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
-            </button>
+			<h3>
+				<span jhiTranslate="jhipsterpressApp.vtopic.vquestion">
+					VQquestion
+				</span>
+				<button id="jh-create-entity"
+					class="btn btn-primary float-left jh-create-entity create-tag"
+					[routerLink]="['/vquestion/new']" [queryParams]="{ 'vtopicIdEquals': vtopic.id }">
+					<fa-icon [icon]="'plus'"></fa-icon>
+				</button>
+			</h3>
 
+			<div id="accordion" class="u-accordion u-accordion-color-primary"
+				role="tablist" aria-multiselectable="true"
+				*ngFor="let vquestion of vquestions; let i = index">
+				<!-- Card -->
+				<div class="card rounded-0 g-brd-none">
+				<!-- ngFor="let value of values; let i = index" -->
+				<!-- (click)="agregar(i)" -->
+					<div id="accordion-heading" (click)="accordionAddItem(i)"
+						class="u-accordion__header g-pa-0" role="tab">
+						<h5 class="mb-0 text-uppercase g-font-size-default g-font-weight-700 g-pa-20a mb-0">
+							<a class="d-block g-color-main g-text-underline--none--hover"
+								data-toggle="collapse"
+								data-parent="#accordion" aria-expanded="true"
+								aria-controls="accordion-body"> 
+								<span class="u-accordion__control-icon d-inline-block g-brd-right g-brd-gray-light-v4 g-color-primary text-center g-pa-20">
+									<i class="fa fa-plus"></i> 
+									<i class="fa fa-minus"></i>
+								</span> 
+								<span class="d-inline-block g-pa-15">{{vquestion.vquestion}}</span>
+						     </a>							
+								<span class="u-icon-v1 g-mr-15 g-mb-15">
+								  <i class="fa fa-thumbs-up" (click)="registerQuestionThumbUp(vquestion.id)" style="float:left; margin-left:3px;"></i>
+								  <div style="font-size: 18px; float: left; margin-top: 6px; margin-left: 4px;">{{vquestion.vthumbs | thumbcounter:'vthumbup':true}}</div>
+								</span>
+								<span class="u-icon-v1 g-mr-15 g-mb-15" style="float:left;">
+								  <i class="fa fa-thumbs-down" (click)="registerQuestionThumbDown(vquestion.id)" style="float:left; margin-left:3px;"></i>
+								  <div style="font-size: 18px; float: left; margin-top: 6px; margin-left: 4px;">{{vquestion.vthumbs | thumbcounter:'vthumbdown':true}}</div>
+								</span>
+						        <button id="jh-create-entity"
+									class="btn btn-primary float-right jh-create-entity create-tag"
+									[routerLink]="['/vanswer/new']" [queryParams]="{ 'vquestionIdEquals': vquestion.id }">
+									<fa-icon [icon]="'plus'"></fa-icon>
+								</button>
+						</h5>
+					</div>
+					<!-- [ngStyle]="{display: mostrar(i) ? 'block' : 'none' }" -->
+					<div id="accordion-body"
+							[ngStyle]="{display: accordionShowItem(i) ? 'block' : 'none' }"
+							role="tabpanel" 
+							aria-labelledby="accordion-heading">
+						<div *ngFor="let vanswer of vquestion.vanswers" class="u-accordion__body g-bg-gray-light-v5 g-px-50 g-py-30">
+							<a href="http://{{vanswer.urlvanser}}" target="_blank">{{vanswer.urlvanser}}</a>
+								<span class="u-icon-v1 g-mr-15 g-mb-15">
+								  <i class="fa fa-thumbs-up" (click)="registerAnswerThumbUp(vanswer.id)" style="float:left; margin-left:7px;"> </i>
+								  <span style="margin-left: 5px; font-size:18px;">{{vanswer.vthumbs | thumbcounter:'vthumbup':true}}</span>
+								</span>
+								<span class="u-icon-v1 g-mr-15 g-mb-15">
+								  <i class="fa fa-thumbs-down" (click)="registerAnswerThumbDown(vanswer.id)" style="float:left; margin-left:7px;"> </i> 
+								  <span style="margin-left: 5px; font-size:18px;">{{vanswer.vthumbs | thumbcounter:'vthumbdown':true}}</span>
+								</span>
+							</div>
+					</div>
+				</div>
+			</div>
+			<button type="submit" (click)="previousState()" class="btn btn-info">
+				<fa-icon [icon]="'arrow-left'"></fa-icon>
+				&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+			</button>
+			<!--
             <button type="button"
                     [routerLink]="['/vtopic', vtopic.id, 'edit']"
                     class="btn btn-primary">
                 <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
             </button>
-        </div>
-    </div>
+            -->
+		</div>
+	</div>
 </div>

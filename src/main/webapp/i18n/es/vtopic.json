@@ -2,24 +2,25 @@
     "jhipsterpressApp": {
         "vtopic": {
             "home": {
-                "title": "Vtopics",
-                "createLabel": "Crear nuevo Vtopic",
-                "createOrEditLabel": "Crear o editar Vtopic"
+                "title": "Temas de las Preguntas",
+                "createLabel": "Crear un nuevo Tema",
+                "createOrEditLabel": "Crear o editar Tema",
+                "search": "Buscar un Tema"
             },
-            "created": "Un nuevo Vtopic ha sido creado con el identificador {{ param }}",
-            "updated": "Un Vtopic ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Vtopic ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Tema ha sido creado con el identificador {{ param }}",
+            "updated": "Un Tema ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Tema ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Vtopic {{ id }}?"
+                "question": "¿Seguro que quiere eliminar el Tema {{ id }}?"
             },
             "detail": {
-                "title": "Vtopic"
+                "title": "Tema"
             },
-            "creationDate": "Creation Date",
-            "vtopicTitle": "Vtopic Title",
-            "vtopicDescription": "Vtopic Description",
-            "vquestion": "Vquestion",
-            "user": "User"
+            "creationDate": "Fecha de creación",
+            "vtopicTitle": "Tema",
+            "vtopicDescription": "Descripción del Tema",
+            "vquestion": "Pregunta",
+            "user": "Usuario"
         }
     }
 }

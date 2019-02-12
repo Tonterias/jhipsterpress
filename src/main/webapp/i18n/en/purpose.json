@@ -2,12 +2,12 @@
     "jhipsterpressApp": {
         "Purpose": {
             "null": "",
-            "NOT_INTERESTED": "NOT_INTERESTED",
-            "FRIENDSHIP": "FRIENDSHIP",
-            "MEET_PEOPLE": "MEET_PEOPLE",
-            "STABLE_RELATIONSHIP": "STABLE_RELATIONSHIP",
-            "MARRIAGE": "MARRIAGE",
-            "OTHER": "OTHER"
+            "NOT_INTERESTED": "Not Interested",
+            "FRIENDSHIP": "Friendship",
+            "MEET_PEOPLE": "Meet People",
+            "STABLE_RELATIONSHIP": "Stable Relationship",
+            "MARRIAGE": "Marriage",
+            "OTHER": "Other"
         }
     }
 }

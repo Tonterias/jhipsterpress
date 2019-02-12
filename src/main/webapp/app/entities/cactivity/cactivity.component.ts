@@ -28,7 +28,6 @@ export class CactivityComponent implements OnInit, OnDestroy {
     routeData: any;
     links: any;
     totalItems: any;
-    queryCount: any;
     itemsPerPage: any;
     page: any;
     predicate: any;
@@ -202,7 +201,6 @@ export class CactivityComponent implements OnInit, OnDestroy {
     protected paginateCactivities(data: ICactivity[], headers: HttpHeaders) {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
-        this.queryCount = this.totalItems;
         this.cactivities = data;
         console.log('CONSOLOG: M:paginateActivities & O: this.activities : ', this.cactivities);
         console.log('CONSOLOG: M:paginateActivities & O: this.owner : ', this.owner);

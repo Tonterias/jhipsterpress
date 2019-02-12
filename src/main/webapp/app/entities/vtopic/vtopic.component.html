@@ -3,13 +3,94 @@
         <span jhiTranslate="jhipsterpressApp.vtopic.home.title">Vtopics</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-vtopic" [routerLink]="['/vtopic/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="jhipsterpressApp.vtopic.home.createLabel">
+            <span class="hidden-sm-down" jhiTranslate="jhipsterpressApp.vtopic.home.createLabel">
             Create new Vtopic
             </span>
         </button>
     </h2>
     <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jhipsterpressApp.vtopic.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
     <br/>
+
+    <!-- Product Blocks -->
+    <section class="g-bg-secondary g-pt-100 g-pb-70">
+      <div class="container">
+
+        <div class="row" >
+          <div class="col-md-6 col-lg-4 g-mb-30" *ngFor="let vtopic of vtopics ;trackBy: trackId">
+            <!-- Article -->
+            <article class="u-shadow-v19 media g-bg-white rounded g-pa-20 g-pb-10">
+
+              <div class="media-body">
+                <!-- Article Info -->
+                <div class="g-mb-20">
+                  <h3 class="g-color-black g-font-size-17">
+                      <a class="g-color-black g-color-primary--hover g-text-underline--none--hover" [routerLink]="['/vtopic', vtopic.id, 'view' ]"> {{vtopic.vtopicTitle}}</a>
+                    </h3>
+                  <div class="js-rating g-font-size-11 g-color-primary g-mb-10" data-rating="3" data-spacing="1" data-backward-icons-classes="fa fa-star g-opacity-0_5"></div>
+                  <p class="g-color-gray-dark-v4">{{vtopic.vtopicDescription}}</p>
+                </div>
+                <!-- End Article Info -->
+
+                <!-- Article Author -->
+                <ul class="list-inline g-color-gray-dark-v5 g-font-size-12">
+                  <li class="list-inline-item">
+                    <time datetime="2013-01-02">{{vtopic.creationDate | date:'mediumDate'}}</time>
+                  </li>
+                </ul>
+                <!-- End Article Author -->
+
+                <hr class="g-brd-gray-light-v4 g-my-20">
+
+                <!-- Figure Footer -->
+                <ul class="list-inline g-mb-0">
+              	    <button type="submit"
+                              [routerLink]="['/vtopic', vtopic.id, 'view' ]"
+                              class="btn btn-info btn-sm">
+                          <fa-icon [icon]="'eye'"></fa-icon>
+                          <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                      </button>
+                      <button type="submit"
+                              [routerLink]="['/vtopic', vtopic.id, 'edit']"
+                              class="btn btn-primary btn-sm">
+                          <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                          <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                      </button>
+                      <button type="submit"
+                              [routerLink]="['/', { outlets: { popup: 'vtopic/'+ vtopic.id + '/delete'} }]"
+                              replaceUrl="true"
+                              queryParamsHandling="merge"
+                              class="btn btn-danger btn-sm">
+                          <fa-icon [icon]="'times'"></fa-icon>
+                          <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                      </button>
+                </ul>
+                <!-- End Figure Footer -->
+              </div>
+              <!-- End Article Content -->
+            </article>
+            <!-- End Article -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- End Product Blocks -->
+    
     <div class="table-responsive" *ngIf="vtopics">
         <table class="table table-striped">
             <thead>

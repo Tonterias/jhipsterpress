@@ -20,7 +20,6 @@ export class CalbumDetailComponent implements OnInit {
     routeData: any;
     links: any;
     totalItems: any;
-    queryCount: any;
     itemsPerPage: any;
     page: any;
     predicate: any;

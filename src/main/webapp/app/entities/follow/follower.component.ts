@@ -26,7 +26,6 @@ export class FollowerComponent implements OnInit, OnDestroy {
     routeData: any;
     links: any;
     totalItems: any;
-    queryCount: any;
     itemsPerPage: any;
     page: any;
     predicate: any;
@@ -171,7 +170,6 @@ export class FollowerComponent implements OnInit, OnDestroy {
     private paginateFollows(data: IFollow[], headers: HttpHeaders) {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
-        this.queryCount = this.totalItems;
         this.follows = data;
         console.log('CONSOLOG: M:paginateFollows & O: this.follows : ', this.follows);
     }

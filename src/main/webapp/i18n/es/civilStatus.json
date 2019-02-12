@@ -2,14 +2,14 @@
     "jhipsterpressApp": {
         "CivilStatus": {
             "null": "",
-            "NA": "NA",
-            "SINGLE": "SINGLE",
-            "MARRIED": "MARRIED",
-            "DIVORCED": "DIVORCED",
-            "WIDOWER": "WIDOWER",
-            "SEPARATED": "SEPARATED",
-            "ENGAGED": "ENGAGED",
-            "OTHER": "OTHER"
+            "NA": "No Aplica",
+            "SINGLE": "Soltero",
+            "MARRIED": "Casado",
+            "DIVORCED": "Divorciado",
+            "WIDOWER": "Viudo",
+            "SEPARATED": "Separado",
+            "PAIRED_UP": "Comprometido",
+            "OTHER": "Otros"
         }
     }
 }

@@ -2,13 +2,13 @@
     "jhipsterpressApp": {
         "Eyes": {
             "null": "",
-            "NA": "NA",
-            "BLUE": "BLUE",
-            "GREEN": "GREEN",
-            "BROWN": "BROWN",
-            "BLACK": "BLACK",
-            "CHESTNUT": "CHESTNUT",
-            "OTHER": "OTHER"
+            "NA": "No Aplica",
+            "BLUE": "Azules",
+            "GREEN": "Verdes",
+            "BROWN": "Marrones",
+            "BLACK": "Negros",
+            "CHESTNUT": "Castaños",
+            "OTHER": "Otros"
         }
     }
 }

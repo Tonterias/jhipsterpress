@@ -8,9 +8,10 @@ import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 import { IFrontpageconfig } from 'app/shared/model/frontpageconfig.model';
 import { FrontpageconfigService } from '../entities/frontpageconfig/frontpageconfig.service';
 import { ICustomFrontpageconfig } from 'app/shared/model/customfrontpageconfig.model';
-
 import { ITopic } from 'app/shared/model/topic.model';
 import { TopicService } from '../entities/topic/topic.service';
+import { IConfigVariables } from 'app/shared/model/config-variables.model';
+import { ConfigVariablesService } from '../entities/config-variables/config-variables.service';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
 
@@ -29,6 +30,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     modalRef: NgbModalRef;
 
     frontpageconfigs: ICustomFrontpageconfig[];
+    configVariables: IConfigVariables[];
+    configVariable: IConfigVariables;
     topics: ITopic[];
 
     currentAccount: any;
@@ -37,7 +40,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     links: any;
     page: any;
     predicate: any;
-    queryCount: any;
     reverse: any;
     totalItems: number;
     currentSearch: string;
@@ -45,6 +47,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     constructor(
         protected frontpageconfigService: FrontpageconfigService,
+        protected configVariablesService: ConfigVariablesService,
         protected topicService: TopicService,
         protected jhiAlertService: JhiAlertService,
         protected eventManager: JhiEventManager,
@@ -74,7 +77,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     loadAll() {
         this.frontpageconfigService
-            .findIncludingPosts(1)
+            .findIncludingPosts(this.configVariable.configVarLong1)
             .subscribe(
                 (res: HttpResponse<ICustomFrontpageconfig>) => this.paginateFrontpageconfigs(res.body, res.headers),
                 (res: HttpErrorResponse) => this.onError(res.message)
@@ -120,7 +123,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.loadAll();
+        //        this.loadAll();
         this.accountService.identity().then(account => {
             this.currentAccount = account;
         });
@@ -128,6 +131,14 @@ export class HomeComponent implements OnInit, OnDestroy {
             (res: HttpResponse<ITopic[]>) => {
                 this.topics = res.body;
                 console.log('CONSOLOG: M:communitiesBlogs & O: this.blogs : ', this.topics);
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        this.configVariablesService.query().subscribe(
+            (res: HttpResponse<IConfigVariables[]>) => {
+                this.configVariable = res.body[0];
+                console.log('CONSOLOG: M:communitiesBlogs & O: this.configVariable : ', this.configVariable.configVarLong1);
+                this.loadAll();
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

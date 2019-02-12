@@ -2,10 +2,10 @@
     "jhipsterpressApp": {
         "Children": {
             "null": "",
-            "NA": "NA",
-            "YES": "YES",
-            "NO": "NO",
-            "GREATER_THAN_18": "GREATER_THAN_18"
+            "NA": "Not Aplicable",
+            "YES": "Yes",
+            "NO": "No",
+            "GREATER_THAN_18": "Older than 18"
         }
     }
 }

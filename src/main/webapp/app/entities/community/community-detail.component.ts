@@ -63,7 +63,6 @@ export class CommunityDetailComponent implements OnInit {
     routeData: any;
     links: any;
     totalItems: any;
-    queryCount: any;
     itemsPerPage: any;
     page: any = 1;
     predicate: any = 'id';
@@ -348,7 +347,6 @@ export class CommunityDetailComponent implements OnInit {
     private paginateBlogs(data: IBlog[], headers: HttpHeaders) {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
-        this.queryCount = this.totalItems;
         this.blogs = data;
         console.log('CONSOLOG: M:paginateBlogs & O: this.blogs : ', this.blogs);
     }

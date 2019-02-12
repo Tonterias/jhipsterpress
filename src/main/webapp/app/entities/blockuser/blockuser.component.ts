@@ -25,7 +25,6 @@ export class BlockuserComponent implements OnInit, OnDestroy {
     routeData: any;
     links: any;
     totalItems: any;
-    queryCount: any;
     itemsPerPage: any;
     page: any;
     predicate: any;
@@ -178,7 +177,6 @@ export class BlockuserComponent implements OnInit, OnDestroy {
     protected paginateBlockusers(data: IBlockuser[], headers: HttpHeaders) {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
-        this.queryCount = this.totalItems;
         this.blockusers = data;
         console.log('CONSOLOG: M:paginateBlockusers & O: this.blockusers : ', this.blockusers);
         console.log('CONSOLOG: M:paginateBlockusers & O: this.owner : ', this.owner);

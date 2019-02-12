@@ -17,18 +17,16 @@ import { ITEMS_PER_PAGE } from 'app/shared';
 })
 export class BlogDetailComponent implements OnInit, OnDestroy {
     blog: IBlog;
-    //    currentAccount: any;
+
     post: any;
     posts: IPost[];
 
     error: any;
     success: any;
     eventSubscriber: Subscription;
-    //    currentSearch: string;
     routeData: any;
     links: any;
     totalItems: any;
-    queryCount: any;
     itemsPerPage: any;
     page: any = 1;
     predicate: any = 'id';
@@ -207,7 +205,6 @@ export class BlogDetailComponent implements OnInit, OnDestroy {
         console.log('!!!!!!!!!!!!!', data, headers);
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
-        this.queryCount = this.totalItems;
         this.posts = data;
     }
 

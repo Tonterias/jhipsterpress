@@ -2,9 +2,9 @@
     "jhipsterpressApp": {
         "FutureChildren": {
             "null": "",
-            "NA": "NA",
-            "YES": "YES",
-            "NO": "NO"
+            "NA": "Not Aplicable",
+            "YES": "Yes",
+            "NO": "No"
         }
     }
 }

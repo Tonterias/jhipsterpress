@@ -2,23 +2,24 @@
     "jhipsterpressApp": {
         "vtopic": {
             "home": {
-                "title": "Vtopics",
-                "createLabel": "Create a new Vtopic",
-                "createOrEditLabel": "Create or edit a Vtopic"
+                "title": "Questions' Topics",
+                "createLabel": "Create a new Question Topic",
+                "createOrEditLabel": "Create or edit a Question Topic",
+                "search": "Search for Question Topic"
             },
-            "created": "A new Vtopic is created with identifier {{ param }}",
-            "updated": "A Vtopic is updated with identifier {{ param }}",
-            "deleted": "A Vtopic is deleted with identifier {{ param }}",
+            "created": "A new Question Topic is created with identifier {{ param }}",
+            "updated": "A Question Topic is updated with identifier {{ param }}",
+            "deleted": "A Question Topic is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Vtopic {{ id }}?"
+                "question": "Are you sure you want to delete Question Topic {{ id }}?"
             },
             "detail": {
-                "title": "Vtopic"
+                "title": "Question Topic"
             },
             "creationDate": "Creation Date",
-            "vtopicTitle": "Vtopic Title",
-            "vtopicDescription": "Vtopic Description",
-            "vquestion": "Vquestion",
+            "vtopicTitle": "Question Topic Title",
+            "vtopicDescription": "Question Topic Description",
+            "vquestion": "Question",
             "user": "User"
         }
     }

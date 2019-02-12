@@ -33,7 +33,6 @@ export class InterestUpdateComponent implements OnInit {
     routeData: any;
     links: any;
     totalItems: any;
-    queryCount: any;
     itemsPerPage: any;
     page: any = 1;
     predicate: any = 'id';
@@ -237,13 +236,11 @@ export class InterestUpdateComponent implements OnInit {
     private paginateInterests(data: IInterest[], headers: HttpHeaders) {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
-        this.queryCount = this.totalItems;
         this.interests = data;
-        if (this.queryCount === 0) {
+        if (this.totalItems === 0) {
             this.interest.interestName = this.currentSearch;
         }
         console.log('CONSOLOG: M:paginateInterests & O: this.totalItems : ', this.totalItems);
-        console.log('CONSOLOG: M:paginateInterests & O: this.queryCount : ', this.queryCount);
         console.log('CONSOLOG: M:paginateInterests & O: this.interests : ', this.interests);
     }
 

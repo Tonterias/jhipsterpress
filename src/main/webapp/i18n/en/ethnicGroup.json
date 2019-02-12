@@ -2,17 +2,17 @@
     "jhipsterpressApp": {
         "EthnicGroup": {
             "null": "",
-            "NA": "NA",
-            "MIXED": "MIXED",
-            "WHITE": "WHITE",
-            "LATIN": "LATIN",
-            "GYPSY": "GYPSY",
-            "AFRO": "AFRO",
-            "HINDU": "HINDU",
-            "ARAB": "ARAB",
-            "ASIAN": "ASIAN",
-            "INDIAN": "INDIAN",
-            "OTHER": "OTHER"
+            "NA": "Not Aplicable",
+            "MIXED": "Mixed",
+            "WHITE": "White",
+            "LATIN": "Latin",
+            "GIPSY": "Gypsy",
+            "AFRO": "Afro",
+            "HINDU": "Hindu",
+            "ARAB": "Arab",
+            "ASIAN": "Asian",
+            "INDIAN": "Indian",
+            "OTHER": "Other"
         }
     }
 }

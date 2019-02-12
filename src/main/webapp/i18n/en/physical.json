@@ -2,13 +2,13 @@
     "jhipsterpressApp": {
         "Physical": {
             "null": "",
-            "NA": "NA",
-            "THIN": "THIN",
-            "ATHLETIC": "ATHLETIC",
-            "NORMAL": "NORMAL",
-            "CORPULENT": "CORPULENT",
-            "BULKY": "BULKY",
-            "OTHER": "OTHER"
+            "NA": "Not Aplicable",
+            "THIN": "Thin",
+            "ATHLETIC": "Athletic",
+            "NORMAL": "Normal",
+            "CORPULENT": "Corpulent",
+            "BULKY": "Bulky",
+            "OTHER": "Other"
         }
     }
 }

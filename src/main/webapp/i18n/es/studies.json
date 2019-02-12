@@ -2,14 +2,14 @@
     "jhipsterpressApp": {
         "Studies": {
             "null": "",
-            "NA": "NA",
-            "PRIMARY": "PRIMARY",
-            "HIGH_SCHOOL": "HIGH_SCHOOL",
-            "TECHNICAL": "TECHNICAL",
-            "COLLEGE": "COLLEGE",
-            "MASTER": "MASTER",
-            "DOCTORATE": "DOCTORATE",
-            "OTHER": "OTHER"
+            "NA": "No Aplica",
+            "PRIMARY": "Primaria",
+            "HIGH_SCHOOL": "Secundaria",
+            "TECHNICAL": "Técnica",
+            "COLLEGE": "Universitaria",
+            "MASTER": "Master",
+            "DOCTORATE": "Doctorado",
+            "OTHER": "Otras"
         }
     }
 }

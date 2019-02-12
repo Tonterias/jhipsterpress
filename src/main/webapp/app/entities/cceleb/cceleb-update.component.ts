@@ -32,7 +32,6 @@ export class CcelebUpdateComponent implements OnInit {
     routeData: any;
     links: any;
     totalItems: any;
-    queryCount: any;
     itemsPerPage: any;
     page: any = 1;
     predicate: any = 'id';
@@ -236,13 +235,11 @@ export class CcelebUpdateComponent implements OnInit {
     private paginateCinterests(data: ICommunity[], headers: HttpHeaders) {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
-        this.queryCount = this.totalItems;
         this.ccelebs = data;
-        if (this.queryCount === 0) {
+        if (this.totalItems === 0) {
             this.cceleb.celebName = this.currentSearch;
         }
         console.log('CONSOLOG: M:paginateActivities & O: this.totalItems : ', this.totalItems);
-        console.log('CONSOLOG: M:paginateActivities & O: this.queryCount : ', this.queryCount);
         console.log('CONSOLOG: M:paginateActivities & O: this.ccelebs : ', this.ccelebs);
     }
 

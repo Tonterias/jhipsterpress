@@ -2,25 +2,26 @@
     "jhipsterpressApp": {
         "vthumb": {
             "home": {
-                "title": "Vthumbs",
-                "createLabel": "Create a new Vthumb",
-                "createOrEditLabel": "Create or edit a Vthumb"
+                "title": "Thumbs",
+                "createLabel": "Create a new Thumb",
+                "createOrEditLabel": "Create or edit a Thumb",
+                "search": "Search for Thumb"
             },
-            "created": "A new Vthumb is created with identifier {{ param }}",
-            "updated": "A Vthumb is updated with identifier {{ param }}",
-            "deleted": "A Vthumb is deleted with identifier {{ param }}",
+            "created": "A new Thumb is created with identifier {{ param }}",
+            "updated": "A Thumb is updated with identifier {{ param }}",
+            "deleted": "A Thumb is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Vthumb {{ id }}?"
+                "question": "Are you sure you want to delete Thumb {{ id }}?"
             },
             "detail": {
-                "title": "Vthumb"
+                "title": "Thumb"
             },
             "creationDate": "Creation Date",
-            "vthumbUp": "Vthumb Up",
-            "vthumbDown": "Vthumb Down",
+            "vthumbUp": "Thumb Up",
+            "vthumbDown": "Thumb Down",
             "user": "User",
-            "vquestion": "Vquestion",
-            "vanswer": "Vanswer"
+            "vquestion": "Question",
+            "vanswer": "Answer"
         }
     }
 }

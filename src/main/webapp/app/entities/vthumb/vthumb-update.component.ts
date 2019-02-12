@@ -42,29 +42,48 @@ export class VthumbUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ vthumb }) => {
             this.vthumb = vthumb;
-            this.creationDate = this.vthumb.creationDate != null ? this.vthumb.creationDate.format(DATE_TIME_FORMAT) : null;
+            this.creationDate = moment().format(DATE_TIME_FORMAT);
+            this.vthumb.creationDate = moment(this.creationDate);
         });
-        this.userService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<IUser[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IUser[]>) => response.body)
-            )
-            .subscribe((res: IUser[]) => (this.users = res), (res: HttpErrorResponse) => this.onError(res.message));
-        this.vquestionService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<IVquestion[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IVquestion[]>) => response.body)
-            )
-            .subscribe((res: IVquestion[]) => (this.vquestions = res), (res: HttpErrorResponse) => this.onError(res.message));
-        this.vanswerService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<IVanswer[]>) => mayBeOk.ok),
-                map((response: HttpResponse<IVanswer[]>) => response.body)
-            )
-            .subscribe((res: IVanswer[]) => (this.vanswers = res), (res: HttpErrorResponse) => this.onError(res.message));
+        this.userService.query().subscribe(
+            (res: HttpResponse<IUser[]>) => {
+                this.users = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        this.vquestionService.query().subscribe(
+            (res: HttpResponse<IVquestion[]>) => {
+                this.vquestions = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        this.vanswerService.query().subscribe(
+            (res: HttpResponse<IVanswer[]>) => {
+                this.vanswers = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        //        this.userService
+        //            .query()
+        //            .pipe(
+        //                filter((mayBeOk: HttpResponse<IUser[]>) => mayBeOk.ok),
+        //                map((response: HttpResponse<IUser[]>) => response.body)
+        //            )
+        //            .subscribe((res: IUser[]) => (this.users = res), (res: HttpErrorResponse) => this.onError(res.message));
+        //        this.vquestionService
+        //            .query()
+        //            .pipe(
+        //                filter((mayBeOk: HttpResponse<IVquestion[]>) => mayBeOk.ok),
+        //                map((response: HttpResponse<IVquestion[]>) => response.body)
+        //            )
+        //            .subscribe((res: IVquestion[]) => (this.vquestions = res), (res: HttpErrorResponse) => this.onError(res.message));
+        //        this.vanswerService
+        //            .query()
+        //            .pipe(
+        //                filter((mayBeOk: HttpResponse<IVanswer[]>) => mayBeOk.ok),
+        //                map((response: HttpResponse<IVanswer[]>) => response.body)
+        //            )
+        //            .subscribe((res: IVanswer[]) => (this.vanswers = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     previousState() {

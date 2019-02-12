@@ -2,25 +2,26 @@
     "jhipsterpressApp": {
         "vthumb": {
             "home": {
-                "title": "Vthumbs",
-                "createLabel": "Crear nuevo Vthumb",
-                "createOrEditLabel": "Crear o editar Vthumb"
+                "title": "Pulgars",
+                "createLabel": "Crear nuevo Pulgar",
+                "createOrEditLabel": "Crear o editar Pulgar",
+                "search": "Buscar un Pulgar"
             },
-            "created": "Un nuevo Vthumb ha sido creado con el identificador {{ param }}",
-            "updated": "Un Vthumb ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Vthumb ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Pulgar ha sido creado con el identificador {{ param }}",
+            "updated": "Un Pulgar ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Pulgar ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Vthumb {{ id }}?"
+                "question": "¿Seguro que quiere eliminar el Pulgar {{ id }}?"
             },
             "detail": {
-                "title": "Vthumb"
+                "title": "Pulgar"
             },
-            "creationDate": "Creation Date",
-            "vthumbUp": "Vthumb Up",
-            "vthumbDown": "Vthumb Down",
-            "user": "User",
-            "vquestion": "Vquestion",
-            "vanswer": "Vanswer"
+            "creationDate": "Fecha de Creación",
+            "vthumbUp": "Pulgar Arriba",
+            "vthumbDown": "Pulgar Abajo",
+            "user": "Usuario",
+            "vquestion": "Preguntan",
+            "vanswer": "Respuesta"
         }
     }
 }

@@ -64,7 +64,7 @@ export class MessageComponent implements OnInit, OnDestroy {
             this.messageService
                 .query({
                     page: this.page - 1,
-                    query: this.currentSearch,
+                    'messageText.contains': this.currentSearch,
                     size: this.itemsPerPage,
                     sort: this.sort()
                 })
@@ -104,7 +104,7 @@ export class MessageComponent implements OnInit, OnDestroy {
             queryParams: {
                 page: this.page,
                 size: this.itemsPerPage,
-                search: this.currentSearch,
+                'messageText.contains': this.currentSearch,
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
             }
         });

@@ -58,7 +58,7 @@ export class VtopicComponent implements OnInit, OnDestroy {
             this.vtopicService
                 .query({
                     page: this.page - 1,
-                    query: this.currentSearch,
+                    'vtopicTitle.contains': this.currentSearch,
                     size: this.itemsPerPage,
                     sort: this.sort()
                 })

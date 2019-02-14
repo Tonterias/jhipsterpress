@@ -64,7 +64,7 @@ export class CalbumComponent implements OnInit, OnDestroy {
             this.calbumService
                 .query({
                     page: this.page - 1,
-                    query: this.currentSearch,
+                    'title.contains': this.currentSearch,
                     size: this.itemsPerPage,
                     sort: this.sort()
                 })

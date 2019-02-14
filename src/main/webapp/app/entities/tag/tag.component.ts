@@ -58,7 +58,7 @@ export class TagComponent implements OnInit, OnDestroy {
             this.tagService
                 .query({
                     page: this.page - 1,
-                    query: this.currentSearch,
+                    'tagName.contains': this.currentSearch,
                     size: this.itemsPerPage,
                     sort: this.sort()
                 })

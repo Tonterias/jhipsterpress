@@ -4,7 +4,8 @@
             "home": {
                 "title": "Feedbacks",
                 "createLabel": "Crear nuevo Feedback",
-                "createOrEditLabel": "Crear o editar Feedback"
+                "createOrEditLabel": "Crear o editar Feedback",
+                "search": "Buscar un Feedback"
             },
             "created": "Un nuevo Feedback ha sido creado con el identificador {{ param }}",
             "updated": "Un Feedback ha sido actualizado con el identificador {{ param }}",

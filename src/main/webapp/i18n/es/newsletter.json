@@ -4,7 +4,8 @@
             "home": {
                 "title": "Newsletters",
                 "createLabel": "Crear nuevo Newsletter",
-                "createOrEditLabel": "Crear o editar Newsletter"
+                "createOrEditLabel": "Crear o editar Newsletter",
+                "search": "Buscar un email en las Newsletter"
             },
             "created": "Un nuevo Newsletter ha sido creado con el identificador {{ param }}",
             "updated": "Un Newsletter ha sido actualizado con el identificador {{ param }}",

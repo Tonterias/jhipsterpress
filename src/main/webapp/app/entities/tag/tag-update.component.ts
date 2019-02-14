@@ -117,7 +117,7 @@ export class TagUpdateComponent implements OnInit {
             this.tagService
                 .query({
                     page: this.page - 1,
-                    query: this.currentSearch,
+                    'tagName.contains': this.currentSearch,
                     size: this.itemsPerPage,
                     sort: this.sort()
                 })

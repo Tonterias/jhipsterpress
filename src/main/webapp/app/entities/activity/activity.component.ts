@@ -64,7 +64,7 @@ export class ActivityComponent implements OnInit, OnDestroy {
             this.activityService
                 .query({
                     page: this.page - 1,
-                    query: this.currentSearch,
+                    'activityName.contains': this.currentSearch,
                     size: this.itemsPerPage,
                     sort: this.sort()
                 })

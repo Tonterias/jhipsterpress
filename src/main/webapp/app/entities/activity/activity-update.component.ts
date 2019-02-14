@@ -106,7 +106,7 @@ export class ActivityUpdateComponent implements OnInit {
             this.activityService
                 .query({
                     page: this.page - 1,
-                    query: this.currentSearch,
+                    'activityName.contains': this.currentSearch,
                     size: this.itemsPerPage,
                     sort: this.sort()
                 })

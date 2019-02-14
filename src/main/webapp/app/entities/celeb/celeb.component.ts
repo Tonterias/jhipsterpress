@@ -64,7 +64,7 @@ export class CelebComponent implements OnInit, OnDestroy {
             this.celebService
                 .query({
                     page: this.page - 1,
-                    query: this.currentSearch,
+                    'celebName.contains': this.currentSearch,
                     size: this.itemsPerPage,
                     sort: this.sort()
                 })

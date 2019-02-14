@@ -104,30 +104,6 @@ export class BlogDetailComponent implements OnInit, OnDestroy {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        //                if (this.currentSearch) {
-        //                    this.postService
-        //                        .search({
-        //                            page: this.page - 1,
-        //                            query: this.currentSearch,
-        //                            size: this.itemsPerPage,
-        //                            sort: this.sort()
-        //                        })
-        //                        .subscribe(
-        //                            (res: HttpResponse<IPost[]>) => this.paginatePosts(res.body, res.headers),
-        //                            (res: HttpErrorResponse) => this.onError(res.message)
-        //                        );
-        //                    return;
-        //                }
-        //                this.postService
-        //                    .query({
-        //                        page: this.page - 1,
-        //                        size: this.itemsPerPage,
-        //                        sort: this.sort()
-        //                    })
-        //                    .subscribe(
-        //                        (res: HttpResponse<IPost[]>) => this.paginatePosts(res.body, res.headers),
-        //                        (res: HttpErrorResponse) => this.onError(res.message)
-        //                    );
     }
 
     loadPage(page: number) {
@@ -142,7 +118,6 @@ export class BlogDetailComponent implements OnInit, OnDestroy {
             queryParams: {
                 page: this.page,
                 size: this.itemsPerPage,
-                //                search: this.currentSearch,
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
             }
         });
@@ -151,7 +126,6 @@ export class BlogDetailComponent implements OnInit, OnDestroy {
 
     clear() {
         this.page = 0;
-        //        this.currentSearch = '';
         this.router.navigate([
             '/blog/',
             this.id,
@@ -163,23 +137,6 @@ export class BlogDetailComponent implements OnInit, OnDestroy {
         ]);
         this.loadAll();
     }
-
-    //    search(query) {
-    //        if (!query) {
-    //            return this.clear();
-    //        }
-    //        this.page = 0;
-    //        this.currentSearch = query;
-    //        this.router.navigate([
-    //            '/post',
-    //            {
-    //                search: this.currentSearch,
-    //                page: this.page,
-    //                sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
-    //            }
-    //        ]);
-    //        this.loadAll();
-    //    }
 
     ngOnDestroy() {
         this.eventManager.destroy(this.eventSubscriber);

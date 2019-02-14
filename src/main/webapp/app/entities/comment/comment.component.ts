@@ -60,7 +60,7 @@ export class CommentComponent implements OnInit, OnDestroy {
             this.commentService
                 .query({
                     page: this.page - 1,
-                    query: this.currentSearch,
+                    'commentText.contains': this.currentSearch,
                     size: this.itemsPerPage,
                     sort: this.sort()
                 })

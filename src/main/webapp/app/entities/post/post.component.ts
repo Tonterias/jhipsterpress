@@ -66,7 +66,7 @@ export class PostComponent implements OnInit, OnDestroy {
             this.postService
                 .query({
                     page: this.page - 1,
-                    query: this.currentSearch,
+                    'bodytext.contains': this.currentSearch,
                     size: this.itemsPerPage,
                     sort: this.sort()
                 })

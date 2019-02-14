@@ -58,7 +58,7 @@ export class NewsletterComponent implements OnInit, OnDestroy {
             this.newsletterService
                 .query({
                     page: this.page - 1,
-                    query: this.currentSearch,
+                    'email.contains': this.currentSearch,
                     size: this.itemsPerPage,
                     sort: this.sort()
                 })

@@ -115,7 +115,7 @@ export class CcelebUpdateComponent implements OnInit {
             this.ccelebService
                 .query({
                     page: this.page - 1,
-                    query: this.currentSearch,
+                    'celebName.contains': this.currentSearch,
                     size: this.itemsPerPage,
                     sort: this.sort()
                 })

@@ -61,7 +61,8 @@ export class CommunityComponent implements OnInit, OnDestroy {
             this.communityService
                 .query({
                     page: this.page - 1,
-                    query: this.currentSearch,
+                    'communityName.contains': this.currentSearch,
+                    //                    'communityDescription.contains': this.currentSearch,
                     size: this.itemsPerPage,
                     sort: this.sort()
                 })

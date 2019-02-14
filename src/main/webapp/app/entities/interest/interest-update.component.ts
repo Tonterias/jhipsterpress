@@ -114,7 +114,7 @@ export class InterestUpdateComponent implements OnInit {
             this.interestService
                 .query({
                     page: this.page - 1,
-                    interestName: this.currentSearch,
+                    'interestName.contains': this.currentSearch,
                     size: this.itemsPerPage,
                     sort: this.sort()
                 })

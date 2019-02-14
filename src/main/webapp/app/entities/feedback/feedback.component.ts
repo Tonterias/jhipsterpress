@@ -55,13 +55,16 @@ export class FeedbackComponent implements OnInit, OnDestroy {
 
     loadAll() {
         if (this.currentSearch) {
+            const query = {
+                page: this.page - 1,
+                size: this.itemsPerPage,
+                sort: this.sort()
+            };
+            query['name.contains'] = this.currentSearch;
+            //                    query['feedback.contains'] = this.currentSearch;
+            //                    query['email.contains'] = this.currentSearch;
             this.feedbackService
-                .query({
-                    page: this.page - 1,
-                    query: this.currentSearch,
-                    size: this.itemsPerPage,
-                    sort: this.sort()
-                })
+                .query(query)
                 .subscribe(
                     (res: HttpResponse<IFeedback[]>) => this.paginateFeedbacks(res.body, res.headers),
                     (res: HttpErrorResponse) => this.onError(res.message)

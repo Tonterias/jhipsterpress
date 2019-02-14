@@ -58,7 +58,7 @@ export class UrllinkComponent implements OnInit, OnDestroy {
             this.urllinkService
                 .query({
                     page: this.page - 1,
-                    query: this.currentSearch,
+                    'linkText.contains': this.currentSearch,
                     size: this.itemsPerPage,
                     search: this.currentSearch,
                     sort: this.sort()

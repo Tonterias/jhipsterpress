@@ -64,7 +64,7 @@ export class CinterestComponent implements OnInit, OnDestroy {
             this.cinterestService
                 .query({
                     page: this.page - 1,
-                    query: this.currentSearch,
+                    'interestName.contains': this.currentSearch,
                     size: this.itemsPerPage,
                     sort: this.sort()
                 })

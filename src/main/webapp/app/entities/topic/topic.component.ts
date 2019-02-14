@@ -58,7 +58,7 @@ export class TopicComponent implements OnInit, OnDestroy {
             this.topicService
                 .query({
                     page: this.page - 1,
-                    query: this.currentSearch,
+                    'topicName.contains': this.currentSearch,
                     size: this.itemsPerPage,
                     sort: this.sort()
                 })

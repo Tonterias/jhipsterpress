@@ -60,7 +60,7 @@ export class AlbumComponent implements OnInit, OnDestroy {
             this.albumService
                 .query({
                     page: this.page - 1,
-                    query: this.currentSearch,
+                    'title.contains': this.currentSearch,
                     size: this.itemsPerPage,
                     sort: this.sort()
                 })
@@ -94,7 +94,7 @@ export class AlbumComponent implements OnInit, OnDestroy {
             queryParams: {
                 page: this.page,
                 size: this.itemsPerPage,
-                //                search: this.currentSearch,
+                search: this.currentSearch,
                 sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
             }
         });
@@ -103,7 +103,7 @@ export class AlbumComponent implements OnInit, OnDestroy {
 
     clear() {
         this.page = 0;
-        //        this.currentSearch = '';
+        this.currentSearch = '';
         this.router.navigate([
             '/album',
             {

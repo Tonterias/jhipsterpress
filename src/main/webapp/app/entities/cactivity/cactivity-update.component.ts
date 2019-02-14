@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Subscription } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 
 import { ICactivity } from 'app/shared/model/cactivity.model';
@@ -10,8 +10,8 @@ import { CactivityService } from './cactivity.service';
 import { ICommunity } from 'app/shared/model/community.model';
 import { CommunityService } from 'app/entities/community';
 
-import { ITEMS_PER_PAGE } from 'app/shared';
 import { AccountService } from 'app/core';
+import { ITEMS_PER_PAGE } from 'app/shared';
 
 @Component({
     selector: 'jhi-cactivity-update',
@@ -81,7 +81,7 @@ export class CactivityUpdateComponent implements OnInit {
         //            .subscribe((res: ICommunity[]) => (this.communities = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
-    private myCommunityCactivities() {
+    protected myCommunityCactivities() {
         const query = {};
         if (this.valueParamCommunityId != null) {
             query['id.equals'] = this.valueParamCommunityId;

@@ -28,7 +28,9 @@ export class InterestService {
     }
 
     query(req?: any): Observable<EntityArrayResponseType> {
+        console.log('CONSOLOG: M:query & O: req : ', req);
         const options = createRequestOption(req);
+        console.log('CONSOLOG: M:query & O: options : ', options);
         return this.http.get<IInterest[]>(this.resourceUrl, { params: options, observe: 'response' });
     }
 

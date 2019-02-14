@@ -71,7 +71,7 @@
                           <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                       </button>
                       <button type="submit"
-                              [routerLink]="['/', { outlets: { popup: 'vtopic/'+ vtopic.id + '/delete'} }]"
+                              [routerLink]="['/', 'vtopic', { outlets: { popup: vtopic.id + '/delete'} }]"
                               replaceUrl="true"
                               queryParamsHandling="merge"
                               class="btn btn-danger btn-sm">

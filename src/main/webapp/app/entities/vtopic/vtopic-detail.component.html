@@ -16,16 +16,16 @@
 					<span>{{vtopic.creationDate | date:'MMM d, y, h:mm a'}}</span>
 				</dd>
 				<dt>
-					<span jhiTranslate="jhipsterpressApp.vtopic.vtopictitle">Vtopictitle</span>
+					<span jhiTranslate="jhipsterpressApp.vtopic.vtopicTitle">vtopicTitle</span>
 				</dt>
 				<dd>
-					<span>{{vtopic.vtopictitle}}</span>
+					<span>{{vtopic.vtopicTitle}}</span>
 				</dd>
 				<dt>
-					<span jhiTranslate="jhipsterpressApp.vtopic.vtopicdesc">Vtopicdesc</span>
+					<span jhiTranslate="jhipsterpressApp.vtopic.vtopicDescription">vtopicDescription</span>
 				</dt>
 				<dd>
-					<span>{{vtopic.vtopicdesc}}</span>
+					<span>{{vtopic.vtopicDescription}}</span>
 				</dd>
 				<dt>
 					<span jhiTranslate="jhipsterpressApp.vtopic.user">User</span>
@@ -85,7 +85,7 @@
 							role="tabpanel" 
 							aria-labelledby="accordion-heading">
 						<div *ngFor="let vanswer of vquestion.vanswers" class="u-accordion__body g-bg-gray-light-v5 g-px-50 g-py-30">
-							<a href="http://{{vanswer.urlvanser}}" target="_blank">{{vanswer.urlvanser}}</a>
+							<a href="http://{{vanswer.urlVanswer}}" target="_blank">{{vanswer.urlVanswer}}</a>
 								<span class="u-icon-v1 g-mr-15 g-mb-15">
 								  <i class="fa fa-thumbs-up" (click)="registerAnswerThumbUp(vanswer.id)" style="float:left; margin-left:7px;"> </i>
 								  <span style="margin-left: 5px; font-size:18px;">{{vanswer.vthumbs | thumbcounter:'vthumbup':true}}</span>

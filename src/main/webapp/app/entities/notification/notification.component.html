@@ -70,7 +70,7 @@
                         </button>
                          -->
                         <button type="submit"
-                                [routerLink]="[{ outlets: { popup: 'notification/'+ notification.id + '/delete'} }]"
+                        		[routerLink]="['/', 'notification', { outlets: { popup: notification.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">

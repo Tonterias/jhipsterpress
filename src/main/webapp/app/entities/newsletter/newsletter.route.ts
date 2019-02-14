@@ -37,11 +37,11 @@ export const newsletterRoute: Routes = [
             pagingParams: JhiResolvePagingParams
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: [],
             defaultSort: 'id,asc',
             pageTitle: 'jhipsterpressApp.newsletter.home.title'
-        },
-        canActivate: [UserRouteAccessService]
+        }
+        //        canActivate: [UserRouteAccessService]
     },
     {
         path: ':id/view',
@@ -62,10 +62,10 @@ export const newsletterRoute: Routes = [
             newsletter: NewsletterResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: [],
             pageTitle: 'jhipsterpressApp.newsletter.home.title'
-        },
-        canActivate: [UserRouteAccessService]
+        }
+        //        canActivate: [UserRouteAccessService]
     },
     {
         path: ':id/edit',

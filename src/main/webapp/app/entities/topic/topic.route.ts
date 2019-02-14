@@ -37,11 +37,11 @@ export const topicRoute: Routes = [
             pagingParams: JhiResolvePagingParams
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: [],
             defaultSort: 'id,asc',
             pageTitle: 'jhipsterpressApp.topic.home.title'
-        },
-        canActivate: [UserRouteAccessService]
+        }
+        //        canActivate: [UserRouteAccessService]
     },
     {
         path: ':id/view',
@@ -50,10 +50,10 @@ export const topicRoute: Routes = [
             topic: TopicResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: [],
             pageTitle: 'jhipsterpressApp.topic.home.title'
-        },
-        canActivate: [UserRouteAccessService]
+        }
+        //        canActivate: [UserRouteAccessService]
     },
     {
         path: 'new',

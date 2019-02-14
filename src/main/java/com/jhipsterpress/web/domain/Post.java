@@ -88,13 +88,14 @@ public class Post implements Serializable {
     private Blog blog;
 
     @ManyToMany(mappedBy = "posts", cascade = CascadeType.REMOVE)
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+//    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @Cache(usage = CacheConcurrencyStrategy.NONE)
     @JsonIgnore
     private Set<Tag> tags = new HashSet<>();
 
     @ManyToMany(mappedBy = "posts")
 //    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+//    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnore
     private Set<Topic> topics = new HashSet<>();
 

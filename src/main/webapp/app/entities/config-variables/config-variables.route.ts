@@ -37,11 +37,11 @@ export const configVariablesRoute: Routes = [
             pagingParams: JhiResolvePagingParams
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: [],
             defaultSort: 'id,asc',
             pageTitle: 'jhipsterpressApp.configVariables.home.title'
-        },
-        canActivate: [UserRouteAccessService]
+        }
+        //        canActivate: [UserRouteAccessService]
     },
     {
         path: ':id/view',
@@ -50,10 +50,10 @@ export const configVariablesRoute: Routes = [
             configVariables: ConfigVariablesResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: [],
             pageTitle: 'jhipsterpressApp.configVariables.home.title'
-        },
-        canActivate: [UserRouteAccessService]
+        }
+        //        canActivate: [UserRouteAccessService]
     },
     {
         path: 'new',

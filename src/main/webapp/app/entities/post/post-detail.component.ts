@@ -46,7 +46,7 @@ export class PostDetailComponent implements OnInit {
 
     currentAccount: any;
     creationDate: string;
-    owner: any;
+    owner: any = 0;
     postUserFirstName: string;
     postUserLastName: string;
 
@@ -97,17 +97,20 @@ export class PostDetailComponent implements OnInit {
             this.post = post;
             console.log('CONSOLOG: M:ngOnInit & O: this.post : ', this.post);
         });
-        this.loadAll();
         this.accountService.identity().then(account => {
-            this.currentAccount = account;
-            this.owner = account.id;
-            console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount.id);
-            console.log('CONSOLOG: M:paginateProfiles & O: this.owner : ', this.owner);
+            if (account != null) {
+                this.currentAccount = account;
+                this.owner = account.id;
+                console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount.id);
+                console.log('CONSOLOG: M:ngOnInit & O: this.owner : ', this.owner);
+                this.loadAll();
+                this.comment = new Object();
+                this.comment.commentText = '';
+                this.registerChangeInComments();
+                console.log('CONSOLOG: M:ngOnInit & O: this.comments : ', this.comments);
+            }
+            console.log('CONSOLOG: M:ngOnInit & O: this.owner : ', this.owner);
         });
-        this.comment = new Object();
-        this.comment.commentText = '';
-        this.registerChangeInComments();
-        console.log('CONSOLOG: M:ngOnInit & O: this.comments : ', this.comments);
     }
 
     saveComment() {

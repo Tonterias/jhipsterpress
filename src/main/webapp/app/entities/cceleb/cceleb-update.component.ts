@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 import { ICceleb } from 'app/shared/model/cceleb.model';
 import { CcelebService } from './cceleb.service';
@@ -71,13 +71,13 @@ export class CcelebUpdateComponent implements OnInit {
             this.currentAccount = account;
             this.myCommunityCcelebs();
         });
-        this.communityService
-            .query()
-            .pipe(
-                filter((mayBeOk: HttpResponse<ICommunity[]>) => mayBeOk.ok),
-                map((response: HttpResponse<ICommunity[]>) => response.body)
-            )
-            .subscribe((res: ICommunity[]) => (this.communities = res), (res: HttpErrorResponse) => this.onError(res.message));
+        //        this.communityService
+        //            .query()
+        //            .pipe(
+        //                filter((mayBeOk: HttpResponse<ICommunity[]>) => mayBeOk.ok),
+        //                map((response: HttpResponse<ICommunity[]>) => response.body)
+        //            )
+        //            .subscribe((res: ICommunity[]) => (this.communities = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     protected myCommunityCcelebs() {
@@ -103,6 +103,8 @@ export class CcelebUpdateComponent implements OnInit {
         if (this.cceleb.id !== undefined) {
             this.subscribeToSaveResponse(this.ccelebService.update(this.cceleb));
         } else {
+            this.cceleb.communities = this.communities;
+            console.log('CONSOLOG: M:save & O: this.communities : ', this.communities);
             this.subscribeToSaveResponse(this.ccelebService.create(this.cceleb));
         }
     }
@@ -249,7 +251,7 @@ export class CcelebUpdateComponent implements OnInit {
 
     protected onSaveSuccess() {
         this.isSaving = false;
-        this.previousState();
+        this.router.navigate(['/community/', this.valueParamCommunityId, 'view']);
     }
 
     protected onSaveError() {

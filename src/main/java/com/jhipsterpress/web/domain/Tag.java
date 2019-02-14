@@ -33,7 +33,8 @@ public class Tag implements Serializable {
     private String tagName;
 
     @ManyToMany
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+//    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @Cache(usage = CacheConcurrencyStrategy.NONE)
     @JoinTable(name = "tag_post",
                joinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id"),
                inverseJoinColumns = @JoinColumn(name = "post_id", referencedColumnName = "id"))

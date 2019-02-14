@@ -37,11 +37,11 @@ export const postRoute: Routes = [
             pagingParams: JhiResolvePagingParams
         },
         data: {
-            authorities: ['ROLE_USER'],
+            authorities: [],
             defaultSort: 'id,asc',
             pageTitle: 'jhipsterpressApp.post.home.title'
-        },
-        canActivate: [UserRouteAccessService]
+        }
+        //        canActivate: [UserRouteAccessService]
     },
     {
         path: ':id/view',

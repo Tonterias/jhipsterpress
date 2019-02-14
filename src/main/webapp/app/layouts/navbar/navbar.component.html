@@ -26,184 +26,193 @@
                         </span>
                     </span>
                 </a>
-                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
+                <ul class="dropdown-menu" ngbDropdownMenu>
+                	
+                	<li>
+                        <a class="dropdown-item" routerLink="community" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            
+                            <span jhiTranslate="global.menu.entities.community">Community</span>
+                        </a>
+                    </li>
                     <li>
                         <a class="dropdown-item" routerLink="blog" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            
                             <span jhiTranslate="global.menu.entities.blog">Blog</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="post" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            
                             <span jhiTranslate="global.menu.entities.post">Post</span>
                         </a>
                     </li>
+                    <!-- 
                     <li>
                         <a class="dropdown-item" routerLink="topic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            
                             <span jhiTranslate="global.menu.entities.topic">Topic</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="tag" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            
                             <span jhiTranslate="global.menu.entities.tag">Tag</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="comment" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.comment">Comment</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="cmessage" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.cmessage">Cmessage</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="message" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.message">Message</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="notification" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.notification">Notification</span>
-                        </a>
-                    </li>
+                     -->                   
                     <li>
                         <a class="dropdown-item" routerLink="uprofile" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            
                             <span jhiTranslate="global.menu.entities.uprofile">Uprofile</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="community" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.community">Community</span>
-                        </a>
-                    </li>
+                    <!-- 
                     <li>
                         <a class="dropdown-item" routerLink="follow" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            
                             <span jhiTranslate="global.menu.entities.follow">Follow</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="blockuser" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            
                             <span jhiTranslate="global.menu.entities.blockuser">Blockuser</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="album" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.album">Album</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="calbum" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.calbum">Calbum</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="photo" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.photo">Photo</span>
-                        </a>
-                    </li>
+
                     <li>
                         <a class="dropdown-item" routerLink="interest" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            
                             <span jhiTranslate="global.menu.entities.interest">Interest</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="activity" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            
                             <span jhiTranslate="global.menu.entities.activity">Activity</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="celeb" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            
                             <span jhiTranslate="global.menu.entities.celeb">Celeb</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="cinterest" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            
                             <span jhiTranslate="global.menu.entities.cinterest">Cinterest</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="cactivity" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            
                             <span jhiTranslate="global.menu.entities.cactivity">Cactivity</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="cceleb" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            
                             <span jhiTranslate="global.menu.entities.cceleb">Cceleb</span>
                         </a>
                     </li>
+                     -->                    
                     <li>
-                        <a class="dropdown-item" routerLink="urllink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.urllink">Urllink</span>
+                        <a class="dropdown-item" routerLink="album" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            
+                            <span jhiTranslate="global.menu.entities.album">Album</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="frontpageconfig" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                        <a class="dropdown-item" routerLink="calbum" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            
+                            <span jhiTranslate="global.menu.entities.calbum">Calbum</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="photo" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            
+                            <span jhiTranslate="global.menu.entities.photo">Photo</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" routerLink="vtopic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            
+                            <span jhiTranslate="global.menu.entities.vtopic">Vtopic</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a class="dropdown-item" routerLink="message" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            
+                            <span jhiTranslate="global.menu.entities.message">Message</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="cmessage" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            
+                            <span jhiTranslate="global.menu.entities.cmessage">Cmessage</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="notification" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            
+                            <span jhiTranslate="global.menu.entities.notification">Notification</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a *jhiHasAnyAuthority="'ROLE_ADMIN'" class="dropdown-item" routerLink="frontpageconfig" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            
                             <span jhiTranslate="global.menu.entities.frontpageconfig">Frontpageconfig</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="vtopic" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.vtopic">Vtopic</span>
+                        <a *jhiHasAnyAuthority="'ROLE_ADMIN'" class="dropdown-item" routerLink="urllink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            
+                            <span jhiTranslate="global.menu.entities.urllink">Urllink</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="vquestion" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.vquestion">Vquestion</span>
+                        <a *jhiHasAnyAuthority="'ROLE_ADMIN'" class="dropdown-item" routerLink="comment" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            
+                            <span jhiTranslate="global.menu.entities.comment">Comment</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="vanswer" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.vanswer">Vanswer</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="vthumb" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.vthumb">Vthumb</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="newsletter" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                        <a *jhiHasAnyAuthority="'ROLE_ADMIN'" class="dropdown-item" routerLink="newsletter" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            
                             <span jhiTranslate="global.menu.entities.newsletter">Newsletter</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="feedback" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                        <a *jhiHasAnyAuthority="'ROLE_ADMIN'" class="dropdown-item" routerLink="feedback" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            
                             <span jhiTranslate="global.menu.entities.feedback">Feedback</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" routerLink="config-variables" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                        <a *jhiHasAnyAuthority="'ROLE_ADMIN'" class="dropdown-item" routerLink="vquestion" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            
+                            <span jhiTranslate="global.menu.entities.vquestion">Vquestion</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a *jhiHasAnyAuthority="'ROLE_ADMIN'" class="dropdown-item" routerLink="vanswer" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            
+                            <span jhiTranslate="global.menu.entities.vanswer">Vanswer</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a *jhiHasAnyAuthority="'ROLE_ADMIN'" class="dropdown-item" routerLink="vthumb" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            
+                            <span jhiTranslate="global.menu.entities.vthumb">Vthumb</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a *jhiHasAnyAuthority="'ROLE_ADMIN'" class="dropdown-item" routerLink="config-variables" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+
                             <span jhiTranslate="global.menu.entities.configVariables">Config Variables</span>
                         </a>
                     </li>
@@ -217,7 +226,7 @@
                         <span jhiTranslate="global.menu.admin.main">Administration</span>
                     </span>
                 </a>
-                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="admin-menu">
+                <ul class="dropdown-menu" ngbDropdownMenu>
                     <li>
                         <a class="dropdown-item" routerLink="admin/user-management" routerLinkActive="active" (click)="collapseNavbar()">
                             <fa-icon icon="user" fixedWidth="true"></fa-icon>
@@ -276,7 +285,7 @@
                         <span jhiTranslate="global.menu.language">Language</span>
                     </span>
                 </a>
-                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="languagesnavBarDropdown">
+                <ul class="dropdown-menu" ngbDropdownMenu>
                     <li *ngFor="let language of languages">
                         <a class="dropdown-item" [jhiActiveMenu]="language" href="javascript:void(0);" (click)="changeLanguage(language);collapseNavbar();">{{language | findLanguageFromKey}}</a>
                     </li>
@@ -289,12 +298,17 @@
                     <span jhiTranslate="global.menu.account.main">
                       Account
                     </span>
+
+                    <span *ngIf="loginName">
+                    	: {{loginName}}
+                    </span>
+
                   </span>
                   <span *ngIf="getImageUrl()">
-                      <img [src]="getImageUrl()" class="profile-image rounded-circle" alt="Avatar">
+                      <img [src]="getImageUrl()" class="profile-image img-circle" alt="Avatar">
                   </span>
                 </a>
-                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="account-menu">
+                <ul class="dropdown-menu" ngbDropdownMenu>
                     <li *ngSwitchCase="true">
                         <a class="dropdown-item" routerLink="settings" routerLinkActive="active" (click)="collapseNavbar()">
                             <fa-icon icon="wrench" fixedWidth="true"></fa-icon>
@@ -332,6 +346,22 @@
                         </a>
                     </li>
                 </ul>
+
+                <li *ngSwitchCase="true"ngbDropdown class="nav-item dropdown pointer">
+	               	<a [routerLink]="['/notification']">
+						<fa-icon [icon]="'envelope'"></fa-icon>
+						<span class="u-label g-font-size-11 g-bg-gray-dark-v2 g-rounded-20 g-px-10">{{numberOfNotifications}}</span>
+					</a>
+					<a [routerLink]="['/message']">
+						<fa-icon [icon]="'comment'"></fa-icon>
+						<span class="u-label g-font-size-11 g-bg-gray-dark-v2 g-rounded-20 g-px-10">{{numberOfMessages}}</span>
+					</a>
+					<a [routerLink]="['/cmessage']">
+						<fa-icon [icon]="'comment'"></fa-icon>
+						<span class="u-label g-font-size-11 g-bg-gray-dark-v2 g-rounded-20 g-px-10">{{numberOfCmessages}}</span>
+					</a>
+	            </li>
+
             </li>
         </ul>
     </div>

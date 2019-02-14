@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -17,7 +17,7 @@ export class NewsletterUpdateComponent implements OnInit {
     isSaving: boolean;
     creationDate: string;
 
-    constructor(protected newsletterService: NewsletterService, protected activatedRoute: ActivatedRoute) {}
+    constructor(protected newsletterService: NewsletterService, protected activatedRoute: ActivatedRoute, protected router: Router) {}
 
     ngOnInit() {
         this.isSaving = false;
@@ -48,7 +48,8 @@ export class NewsletterUpdateComponent implements OnInit {
 
     protected onSaveSuccess() {
         this.isSaving = false;
-        this.previousState();
+        console.log('Deberia ir a la HOME!');
+        this.router.navigate(['/']);
     }
 
     protected onSaveError() {

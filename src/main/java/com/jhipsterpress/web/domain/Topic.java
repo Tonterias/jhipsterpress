@@ -34,7 +34,7 @@ public class Topic implements Serializable {
 
     @ManyToMany
 //    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @Cache(usage = CacheConcurrencyStrategy.NONE)
     @JoinTable(name = "topic_post",
                joinColumns = @JoinColumn(name = "topic_id", referencedColumnName = "id"),
                inverseJoinColumns = @JoinColumn(name = "post_id", referencedColumnName = "id"))

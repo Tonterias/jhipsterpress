@@ -125,25 +125,27 @@ export class HomeComponent implements OnInit, OnDestroy {
     ngOnInit() {
         //        this.loadAll();
         this.accountService.identity().then(account => {
-            this.currentAccount = account;
+            if (account != null) {
+                this.currentAccount = account;
+                this.registerAuthenticationSuccess();
+                this.registerChangeInFrontpageconfigs();
+            }
         });
         this.topicService.query().subscribe(
             (res: HttpResponse<ITopic[]>) => {
                 this.topics = res.body;
-                console.log('CONSOLOG: M:communitiesBlogs & O: this.blogs : ', this.topics);
+                console.log('CONSOLOG: M:ngOnInit & O: this.blogs : ', this.topics);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
         this.configVariablesService.query().subscribe(
             (res: HttpResponse<IConfigVariables[]>) => {
                 this.configVariable = res.body[0];
-                console.log('CONSOLOG: M:communitiesBlogs & O: this.configVariable : ', this.configVariable.configVarLong1);
+                console.log('CONSOLOG: M:ngOnInit & O: this.configVariable : ', this.configVariable.configVarLong1);
                 this.loadAll();
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        this.registerAuthenticationSuccess();
-        this.registerChangeInFrontpageconfigs();
     }
 
     ngOnDestroy() {

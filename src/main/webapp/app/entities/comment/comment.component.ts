@@ -168,6 +168,7 @@ export class CommentComponent implements OnInit, OnDestroy {
             sort: this.sort()
         };
         query['userId.equals'] = this.owner;
+        console.log('CONSOLOG: M:myComments & O: query : ', query);
         this.commentService
             .query(query)
             .subscribe(

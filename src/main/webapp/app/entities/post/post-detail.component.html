@@ -10,7 +10,7 @@
 		                <header class="g-mb-30">
 		                  <h2 class="h1 g-mb-15">{{post.headline}}</h2>
 		
-		                  <ul class="list-inline d-sm-flex g-color-gray-dark-v4 mb-0">
+		                  <ul *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_USER']" class="list-inline d-sm-flex g-color-gray-dark-v4 mb-0">
 		                    <li class="list-inline-item" *ngIf="post && uprofile">
 		                      <a [routerLink]="['/uprofile', uprofile.id, 'view']" class="u-link-v5 g-color-gray-dark-v4 g-color-primary--hover">{{postUserFirstName}} {{postUserLastName}}</a>
 		                    </li>
@@ -77,7 +77,7 @@
 		                </div>
 		
 		                <!-- Sources & Tags -->
-		                <div class="g-mb-30">
+		                <div *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_USER']" class="g-mb-30">
 		                  <h6 class="g-color-gray-dark-v1">
 			                  	<button id="jh-create-entity"
 									*ngIf="owner === post.userId" 
@@ -154,11 +154,10 @@
 		                <!-- Author Block -->
 		                <div class="g-mb-60">
 		                  <div class="u-heading-v3-1 g-mb-30">
-		                    <h2 class="h5 u-heading-v3__title g-color-gray-dark-v1 text-uppercase g-brd-primary">About The Author</h2>
+		                    <h2 *ngIf="owner===0" class="h5 u-heading-v3__title g-color-gray-dark-v1 text-uppercase g-brd-primary">Please log in</h2>
+		                    <h2 *ngIf="owner!=0" class="h5 u-heading-v3__title g-color-gray-dark-v1 text-uppercase g-brd-primary">About The Author</h2>
 		                  </div>
-		
-		                  <div class="media g-brd-around g-brd-gray-light-v4 rounded g-pa-30 g-mb-20">
-
+		                  <div *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_USER']" class="media g-brd-around g-brd-gray-light-v4 rounded g-pa-30 g-mb-20">
 		                    <div *ngIf="uprofile">
 		                        <a [routerLink]="['/uprofile', uprofile.id, 'view']">
 		                            <img [src]="'data:' + uprofile.imageContentType + ';base64,' + uprofile.image" style="max-width: 100%;" alt="uprofile.image"/>
@@ -197,7 +196,7 @@
 		                <!-- End Author Block -->
 		
 		                <!-- Comments -->
-		                <div class="g-mb-60">
+		                <div *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_USER']" class="g-mb-60">
 		                  <div class="u-heading-v3-1 g-mb-30" id="comments">
 		                    <h2 class="h5 u-heading-v3__title g-color-gray-dark-v1 text-uppercase g-brd-primary" *ngIf="comments">{{comments.length}} Comments</h2>
 		                  </div>
@@ -260,7 +259,7 @@
 		                <!-- Comments -->
 		
 		                <!-- Add Comment -->
-		                <div class="g-mb-60">
+		                <div class="g-mb-60" *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_USER']">
 		                  <div class="u-heading-v3-1 g-mb-30">
 		                    <h2 class="h5 u-heading-v3__title g-color-gray-dark-v1 text-uppercase g-brd-primary">Add a Comment</h2>
 		                  </div>

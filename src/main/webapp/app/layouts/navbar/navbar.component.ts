@@ -110,17 +110,17 @@ export class NavbarComponent implements OnInit {
                 (res2: HttpResponse<ICommunity[]>) => {
                     this.communities = res2.body;
                     console.log('CONSOLOG: M:loginData & O: this.communities : ', this.communities);
+                    this.communitiesMessages().subscribe(
+                        (res3: HttpResponse<ICmessage[]>) => {
+                            console.log('CONSOLOG: M:loginData & O: res3.body.length .numberOfMessages : ', res3.body.length);
+                            console.log('CONSOLOG: M:loginData & O: res3.body : ', res3.body);
+                            this.numberOfCmessages = res3.body.length;
+                            console.log('CONSOLOG: M:loginData & O: this.numberOfMessages : ', this.numberOfCmessages);
+                        },
+                        (res3: HttpErrorResponse) => this.onError(res3.message)
+                    );
                 },
                 (res: HttpErrorResponse) => this.onError(res.message)
-            );
-            this.communitiesMessages().subscribe(
-                (res3: HttpResponse<ICmessage[]>) => {
-                    console.log('CONSOLOG: M:loginData & O: res3.body.length .numberOfMessages : ', res3.body.length);
-                    console.log('CONSOLOG: M:loginData & O: res3.body : ', res3.body);
-                    this.numberOfCmessages = res3.body.length;
-                    console.log('CONSOLOG: M:loginData & O: this.numberOfMessages : ', this.numberOfCmessages);
-                },
-                (res3: HttpErrorResponse) => this.onError(res3.message)
             );
         });
     }

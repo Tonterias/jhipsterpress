@@ -33,6 +33,9 @@ export class CommunityComponent implements OnInit, OnDestroy {
     owner: any;
     isAdmin: boolean;
 
+    arrayAux = [];
+    arrayIds = [];
+
     constructor(
         protected communityService: CommunityService,
         protected parseLinks: JhiParseLinks,
@@ -58,18 +61,30 @@ export class CommunityComponent implements OnInit, OnDestroy {
 
     loadAll() {
         if (this.currentSearch) {
-            this.communityService
-                .query({
-                    page: this.page - 1,
-                    'communityName.contains': this.currentSearch,
-                    //                    'communityDescription.contains': this.currentSearch,
-                    size: this.itemsPerPage,
-                    sort: this.sort()
-                })
-                .subscribe(
-                    (res: HttpResponse<ICommunity[]>) => this.paginateCommunities(res.body, res.headers),
-                    (res: HttpErrorResponse) => this.onError(res.message)
-                );
+            const query = {
+                page: this.page - 1,
+                size: this.itemsPerPage,
+                sort: this.sort()
+            };
+            query['communityDescription.contains'] = this.currentSearch;
+            this.communityService.query(query).subscribe(
+                (res: HttpResponse<ICommunity[]>) => {
+                    this.communities = res.body;
+                    const query2 = {
+                        page: this.page - 1,
+                        size: this.itemsPerPage,
+                        sort: this.sort()
+                    };
+                    query2['communityName.contains'] = this.currentSearch;
+                    this.communityService.query(query2).subscribe(
+                        (res2: HttpResponse<ICommunity[]>) => {
+                            this.communities = this.filterArray(this.communities.concat(res2.body));
+                        },
+                        (res2: HttpErrorResponse) => this.onError(res2.message)
+                    );
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
             return;
         }
         this.communityService
@@ -83,6 +98,22 @@ export class CommunityComponent implements OnInit, OnDestroy {
                 (res: HttpResponse<ICommunity[]>) => this.paginateCommunities(res.body, res.headers),
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
+    }
+
+    private filterArray(posts) {
+        this.arrayAux = [];
+        this.arrayIds = [];
+        posts.map(x => {
+            if (this.arrayIds.length >= 1 && this.arrayIds.includes(x.id) === false) {
+                this.arrayAux.push(x);
+                this.arrayIds.push(x.id);
+            } else if (this.arrayIds.length === 0) {
+                this.arrayAux.push(x);
+                this.arrayIds.push(x.id);
+            }
+        });
+        console.log('CONSOLOG: M:filterInterests & O: this.follows : ', this.arrayIds, this.arrayAux);
+        return this.arrayAux;
     }
 
     loadPage(page: number) {

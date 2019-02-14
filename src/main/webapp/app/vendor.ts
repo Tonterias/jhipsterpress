@@ -8,6 +8,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import {
     faUser,
     faSort,
+    faEnvelope,
+    faComment,
     faSortUp,
     faSortDown,
     faSync,
@@ -45,6 +47,8 @@ import {
 // Adds the SVG icon to the library so you can use it in your page
 library.add(faUser);
 library.add(faSort);
+library.add(faEnvelope);
+library.add(faComment);
 library.add(faSortUp);
 library.add(faSortDown);
 library.add(faSync);

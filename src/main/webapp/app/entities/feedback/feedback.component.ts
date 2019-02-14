@@ -31,6 +31,9 @@ export class FeedbackComponent implements OnInit, OnDestroy {
     previousPage: any;
     reverse: any;
 
+    arrayAux = [];
+    arrayIds = [];
+
     constructor(
         protected feedbackService: FeedbackService,
         protected parseLinks: JhiParseLinks,
@@ -61,14 +64,36 @@ export class FeedbackComponent implements OnInit, OnDestroy {
                 sort: this.sort()
             };
             query['name.contains'] = this.currentSearch;
-            //                    query['feedback.contains'] = this.currentSearch;
-            //                    query['email.contains'] = this.currentSearch;
-            this.feedbackService
-                .query(query)
-                .subscribe(
-                    (res: HttpResponse<IFeedback[]>) => this.paginateFeedbacks(res.body, res.headers),
-                    (res: HttpErrorResponse) => this.onError(res.message)
-                );
+            this.feedbackService.query(query).subscribe(
+                (res: HttpResponse<IFeedback[]>) => {
+                    this.feedbacks = res.body;
+                    const query2 = {
+                        page: this.page - 1,
+                        size: this.itemsPerPage,
+                        sort: this.sort()
+                    };
+                    query2['feedback.contains'] = this.currentSearch;
+                    this.feedbackService.query(query2).subscribe(
+                        (res2: HttpResponse<IFeedback[]>) => {
+                            this.feedbacks = this.filterArray(this.feedbacks.concat(res2.body));
+                            const query3 = {
+                                page: this.page - 1,
+                                size: this.itemsPerPage,
+                                sort: this.sort()
+                            };
+                            query3['email.contains'] = this.currentSearch;
+                            this.feedbackService.query(query3).subscribe(
+                                (res3: HttpResponse<IFeedback[]>) => {
+                                    this.feedbacks = this.filterArray(this.feedbacks.concat(res3.body));
+                                },
+                                (res3: HttpErrorResponse) => this.onError(res3.message)
+                            );
+                        },
+                        (res2: HttpErrorResponse) => this.onError(res2.message)
+                    );
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
             return;
         }
         this.feedbackService
@@ -81,6 +106,22 @@ export class FeedbackComponent implements OnInit, OnDestroy {
                 (res: HttpResponse<IFeedback[]>) => this.paginateFeedbacks(res.body, res.headers),
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
+    }
+
+    private filterArray(feedbacks) {
+        this.arrayAux = [];
+        this.arrayIds = [];
+        feedbacks.map(x => {
+            if (this.arrayIds.length >= 1 && this.arrayIds.includes(x.id) === false) {
+                this.arrayAux.push(x);
+                this.arrayIds.push(x.id);
+            } else if (this.arrayIds.length === 0) {
+                this.arrayAux.push(x);
+                this.arrayIds.push(x.id);
+            }
+        });
+        console.log('CONSOLOG: M:filterInterests & O: this.follows : ', this.arrayIds, this.arrayAux);
+        return this.arrayAux;
     }
 
     loadPage(page: number) {

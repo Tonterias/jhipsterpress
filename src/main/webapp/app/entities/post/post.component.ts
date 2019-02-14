@@ -37,6 +37,9 @@ export class PostComponent implements OnInit, OnDestroy {
     owner: any;
     isAdmin: boolean;
 
+    arrayAux = [];
+    arrayIds = [];
+
     constructor(
         protected postService: PostService,
         protected userService: UserService,
@@ -63,17 +66,42 @@ export class PostComponent implements OnInit, OnDestroy {
 
     loadAll() {
         if (this.currentSearch) {
-            this.postService
-                .query({
-                    page: this.page - 1,
-                    'bodytext.contains': this.currentSearch,
-                    size: this.itemsPerPage,
-                    sort: this.sort()
-                })
-                .subscribe(
-                    (res: HttpResponse<IPost[]>) => this.paginatePosts(res.body, res.headers),
-                    (res: HttpErrorResponse) => this.onError(res.message)
-                );
+            const query = {
+                page: this.page - 1,
+                size: this.itemsPerPage,
+                sort: this.sort()
+            };
+            query['headline.contains'] = this.currentSearch;
+            this.postService.query(query).subscribe(
+                (res: HttpResponse<IPost[]>) => {
+                    this.posts = res.body;
+                    const query2 = {
+                        page: this.page - 1,
+                        size: this.itemsPerPage,
+                        sort: this.sort()
+                    };
+                    query2['bodytext.contains'] = this.currentSearch;
+                    this.postService.query(query2).subscribe(
+                        (res2: HttpResponse<IPost[]>) => {
+                            this.posts = this.filterArray(this.posts.concat(res2.body));
+                            const query3 = {
+                                page: this.page - 1,
+                                size: this.itemsPerPage,
+                                sort: this.sort()
+                            };
+                            query3['conclusion.contains'] = this.currentSearch;
+                            this.postService.query(query3).subscribe(
+                                (res3: HttpResponse<IPost[]>) => {
+                                    this.posts = this.filterArray(this.posts.concat(res3.body));
+                                },
+                                (res3: HttpErrorResponse) => this.onError(res3.message)
+                            );
+                        },
+                        (res2: HttpErrorResponse) => this.onError(res2.message)
+                    );
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
             return;
         }
         this.postService
@@ -86,6 +114,22 @@ export class PostComponent implements OnInit, OnDestroy {
                 (res: HttpResponse<IPost[]>) => this.paginatePosts(res.body, res.headers),
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
+    }
+
+    private filterArray(posts) {
+        this.arrayAux = [];
+        this.arrayIds = [];
+        posts.map(x => {
+            if (this.arrayIds.length >= 1 && this.arrayIds.includes(x.id) === false) {
+                this.arrayAux.push(x);
+                this.arrayIds.push(x.id);
+            } else if (this.arrayIds.length === 0) {
+                this.arrayAux.push(x);
+                this.arrayIds.push(x.id);
+            }
+        });
+        console.log('CONSOLOG: M:filterInterests & O: this.follows : ', this.arrayIds, this.arrayAux);
+        return this.arrayAux;
     }
 
     loadPage(page: number) {

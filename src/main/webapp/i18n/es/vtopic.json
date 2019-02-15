@@ -1,6 +1,7 @@
 {
     "jhipsterpressApp": {
         "vtopic": {
+            "add": "Añadir una nueva pregunta al tema",
             "home": {
                 "title": "Temas de las Preguntas",
                 "createLabel": "Crear un nuevo Tema",
@@ -17,6 +18,7 @@
                 "title": "Tema"
             },
             "creationDate": "Fecha de creación",
+            "related": "Preguntas relacionadas con: ",
             "vtopicTitle": "Tema",
             "vtopicDescription": "Descripción del Tema",
             "vquestion": "Pregunta",

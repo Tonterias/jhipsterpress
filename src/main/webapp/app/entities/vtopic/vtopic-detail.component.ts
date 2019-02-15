@@ -25,6 +25,8 @@ export class VtopicDetailComponent implements OnInit {
     items = [];
     accc = true;
 
+    menu = [];
+
     itemsPerPage: any;
     page: any;
     predicate: any;
@@ -59,6 +61,7 @@ export class VtopicDetailComponent implements OnInit {
             this.vquestionService.query(query).subscribe(
                 (res: HttpResponse<IVquestion[]>) => {
                     this.vquestions = res.body;
+                    this.menu = Array(this.vquestions.length).fill(false);
                     console.log('CONSOLOG: M:ngOnInit & O: this.vquestions : ', this.vquestions);
                     //                        this.paginatePosts(res.body, res.headers);
                 },
@@ -74,11 +77,16 @@ export class VtopicDetailComponent implements OnInit {
         });
     }
 
+    changeMenu(i) {
+        this.menu[i] = !this.menu[i];
+    }
+
     registerQuestionThumbUp(number) {
         console.log('CONSOLOG: M:registerQuestionThumbUp & O: this.vthumb : ', this.vthumb);
         console.log('CONSOLOG: M:registerAnswerThumbDown & O: number this.vquestion.id : ', number, this.vquestions[number]);
         this.isSaving = true;
         this.vthumb = this.vthumb;
+        // let vthumb: any; // = this.vthumb;
         console.log('CONSOLOG: M:registerAnswerThumbDown & O: this.vthumb : ', this.vthumb);
         if (number !== undefined) {
             this.vthumb.vthumbUp = true;
@@ -87,8 +95,19 @@ export class VtopicDetailComponent implements OnInit {
             this.vthumb.vquestionId = number;
             this.vthumb.creationDate = this.creationDate != null ? moment(this.creationDate, DATE_TIME_FORMAT) : null;
             console.log('CONSOLOG: M:registerQuestionThumbUp & O: this.vthumb : ', this.vthumb);
-            this.subscribeToSaveResponse(this.vthumbService.create(this.vthumb));
             //            this.vquestions[number].vthumbs.push(this.vthumb);
+            this.subscribeToSaveResponse(this.vthumbService.create(this.vthumb));
+            //            const vthumb = {
+            //                    "ID": 1010,
+            //                    "CREATIONDATE": this.vthumb.creationDate,
+            //                    "VTHUMBUP": TRUE,
+            //                    "VTHUMBDOWN": FALSE,
+            //                    "USERID": 3,
+            //                    "VQUESTIONID": number,
+            //                    "VANSWERID": NULL
+            //                },
+            console.log('EEEEEEEEEEEEEEEEEEEEE', this.vquestions[number]);
+            //            this.vquestions[number].vthumbs.push(vthumb);
         } else {
             console.log('CONSOLOG: M:registerThumbUp & O: SIN number : ', number);
         }
@@ -107,7 +126,7 @@ export class VtopicDetailComponent implements OnInit {
             this.vthumb.creationDate = this.creationDate != null ? moment(this.creationDate, DATE_TIME_FORMAT) : null;
             console.log('CONSOLOG: M:registerQuestionThumbDown & O: this.vthumb : ', this.vthumb);
             this.subscribeToSaveResponse(this.vthumbService.create(this.vthumb));
-            //            this.vquestions[number].vthumbs.push(this.vthumb);
+            this.vquestions[number].vthumbs.push(this.vthumb);
         } else {
             console.log('CONSOLOG: M:registerThumbUp & O: SIN number : ', number);
         }

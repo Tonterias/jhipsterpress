@@ -44,11 +44,13 @@ public class Vquestion implements Serializable {
     private String vquestionDescription;
 
     @OneToMany(mappedBy = "vquestion", cascade = CascadeType.REMOVE)
-    @Cache(usage = CacheConcurrencyStrategy.NONE)
+//    @Cache(usage = CacheConcurrencyStrategy.NONE)
     private Set<Vanswer> vanswers = new HashSet<>();
+    
     @OneToMany(mappedBy = "vquestion", cascade = CascadeType.REMOVE)
-    @Cache(usage = CacheConcurrencyStrategy.NONE)
+//    @Cache(usage = CacheConcurrencyStrategy.NONE)
     private Set<Vthumb> vthumbs = new HashSet<>();
+    
     @ManyToOne(optional = false)
     @NotNull
     @JsonIgnoreProperties("vquestion(id)S")

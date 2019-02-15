@@ -1,6 +1,7 @@
 {
     "jhipsterpressApp": {
         "vanswer": {
+            "add": "Add a new Answer to the Question",
             "home": {
                 "title": "Answers",
                 "createLabel": "Create a new Answer",

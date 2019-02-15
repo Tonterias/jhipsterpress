@@ -1,6 +1,7 @@
 {
     "jhipsterpressApp": {
         "vtopic": {
+            "add": "Add a new Question to the topic",
             "home": {
                 "title": "Questions' Topics",
                 "createLabel": "Create a new Question Topic",
@@ -17,6 +18,7 @@
                 "title": "Question Topic"
             },
             "creationDate": "Creation Date",
+            "related": "Questions related to: ",
             "vtopicTitle": "Question Topic Title",
             "vtopicDescription": "Question Topic Description",
             "vquestion": "Question",

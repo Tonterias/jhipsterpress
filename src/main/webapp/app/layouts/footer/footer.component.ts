@@ -40,8 +40,22 @@ export class FooterComponent implements OnInit {
         if (this.newsletter.id !== undefined) {
             this.subscribeToSaveResponse(this.newsletterService.update(this.newsletter));
         } else {
-            this.onWarning('BLOCKED BY USER');
-            this.subscribeToSaveResponse(this.newsletterService.create(this.newsletter));
+            const query = {};
+            if (this.newsletter.email != null) {
+                query['email.equals'] = this.newsletter.email;
+            }
+            this.newsletterService.query(query).subscribe(
+                (res: HttpResponse<INewsletter[]>) => {
+                    if (res.body.length === 0) {
+                        this.onWarning('Confirmation');
+                        this.subscribeToSaveResponse(this.newsletterService.create(this.newsletter));
+                    } else {
+                        console.log('Ya tenemos tu email');
+                        this.newsletter.email = '';
+                    }
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
         }
     }
 
@@ -51,6 +65,7 @@ export class FooterComponent implements OnInit {
 
     private onSaveSuccess() {
         this.isSaving = false;
+        this.newsletter.email = '';
     }
 
     private onSaveError() {
@@ -74,5 +89,9 @@ export class FooterComponent implements OnInit {
             )
         );
         console.log('CONSOLOG: M:onWarning & O:  this.alerts2 : ', this.alerts);
+    }
+
+    private onError(errorMessage: string) {
+        this.jhiAlertService.error(errorMessage, null, null);
     }
 }

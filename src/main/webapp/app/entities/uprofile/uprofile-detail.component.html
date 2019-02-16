@@ -158,66 +158,57 @@
 								<div class="g-mb-30" style="width: 100%; overflow: hidden;">
 								  <h6 class="g-color-gray-dark-v1">
    								    <button id="jh-create-entity" 
-   								    style="margin-top: 15px;"
+   								    		style="margin-top: 15px;"
    								    		*ngIf="owner === uprofile.userId" 
 									        class="btn btn-primary float-right jh-create-entity create-interest" 
 									        [routerLink]="['/interest/new']" [queryParams]="{ 'uprofileIdEquals': uprofile.id }">
 										<fa-icon [icon]="'plus'"></fa-icon>
 									</button>
 								    <strong class="g-mr-5" style="float: left; margin-top: 24px; font-size: 16px;">Interests:</strong>
-								    <span *ngFor="let interest of interests" class="g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-white--hover" style="font-size: 13px; font-weight: bold; cursor: pointer; float:left; padding: 8px 10px; border-radius: 5px; border: solid 1px; margin-right: 15px; overflow: hidden; display: inherit; width: fit-content; margin-top: 15px;">	
-								    							    <fa-icon (click)="removeProfileInterest(interest.id, uprofile.id)"  [icon]="'times'" class="g-color-red--hover"></fa-icon>
-								    							    <span [routerLink]="['/interest', interest.id, 'view' ]" style="padding-left: 10px;" >{{interest.interestName}}</span>
-									   <!-- <a (click)="removeProfileInterest(interest.id, uprofile.id)" class="u-tags-v1 g-font-size-12 g-brd-around g-bg-primary--hover g-brd-primary--hover g-color-red-opacity-0_8 g-color-red--hover rounded g-py-6 g-px-15 g-mr-5">
-											<fa-icon [icon]="'times'"></fa-icon>
-										</a>
-								    	<a [routerLink]="['/interest', interest.id, 'view' ]" class="u-tags-v1 g-font-size-12 g-brd-around g-bg-primary--hover g-brd-primary--hover g-color-black-opacity-0_8 g-color-white--hover rounded g-py-6 g-px-15 g-mr-5">
-	                    					{{interest.interestName}}
-								    	</a> -->
+								    <span *ngFor="let interest of interests" class="g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-white--hover" 
+								    		style="font-size: 13px; font-weight: bold; cursor: pointer; float:left; padding: 8px 10px; border-radius: 5px; border: solid 1px; margin-right: 15px; overflow: hidden; display: inherit; width: fit-content; margin-top: 15px;">	
+	    							    <fa-icon (click)="removeProfileInterest(interest.id, uprofile.id)" [icon]="'times'" class="g-color-red--hover"></fa-icon>
+	    							    <span [routerLink]="['/interest', interest.id, 'view' ]" style="padding-left: 10px;" >{{interest.interestName}}</span>
 								    </span>
 								  </h6>
 								</div>
 								<!-- End Interests -->
 								
 								<!-- Activities -->
-								<div class="g-mb-30">
+								<div class="g-mb-30" style="width: 100%; overflow: hidden;">
 								  <h6 class="g-color-gray-dark-v1">
-   								    <button id="jh-create-entity" 
+								  	<button id="jh-create-entity" 
+   								    		style="margin-top: 15px;"
    								    		*ngIf="owner === uprofile.userId" 
-								        	class="btn btn-primary float-right jh-create-entity create-interest" 
-								        	[routerLink]="['/activity/new']" [queryParams]="{ 'uprofileIdEquals': uprofile.id }">
+									        class="btn btn-primary float-right jh-create-entity create-interest" 
+									        [routerLink]="['/activity/new']" [queryParams]="{ 'uprofileIdEquals': uprofile.id }">
 										<fa-icon [icon]="'plus'"></fa-icon>
 									</button>
-								    <strong class="g-mr-5">Activities:</strong>
-								    <span *ngFor="let activity of activities">
-									    <a (click)="removeProfileActivity(activity.id, uprofile.id)" class="u-tags-v1 g-font-size-12 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-red-opacity-0_8 g-color-red--hover rounded g-py-6 g-px-15 g-mr-5">
-											<fa-icon [icon]="'times'"></fa-icon>
-										</a>
-								    	<a [routerLink]="['/activity', activity.id, 'view' ]" class="u-tags-v1 g-font-size-12 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-black-opacity-0_8 g-color-white--hover rounded g-py-6 g-px-15 g-mr-5">
-								    		{{activity.activityName}}
-								    	</a>
+								    <strong class="g-mr-5" style="float: left; margin-top: 24px; font-size: 16px;">Activities:</strong>
+								    <span *ngFor="let activity of activities" class="g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-white--hover" 
+								    		style="font-size: 13px; font-weight: bold; cursor: pointer; float:left; padding: 8px 10px; border-radius: 5px; border: solid 1px; margin-right: 15px; overflow: hidden; display: inherit; width: fit-content; margin-top: 15px;">	
+	    							    <fa-icon (click)="removeProfileActivity(activity.id, uprofile.id)" [icon]="'times'" class="g-color-red--hover"></fa-icon>
+	    							    <span [routerLink]="['/activity', activity.id, 'view' ]" style="padding-left: 10px;" >{{activity.activityName}}</span>
 								    </span>
 								  </h6>
 								</div>
 								<!-- End Activities -->
 								
 								<!-- Celebs -->
-								<div class="g-mb-30">
+								<div class="g-mb-30" style="width: 100%; overflow: hidden;">
 								  <h6 class="g-color-gray-dark-v1">
- 	   								    <button id="jh-create-entity" 
- 	   								    		*ngIf="owner === uprofile.userId" 
-										        class="btn btn-primary float-right jh-create-entity create-interest" 
-										        [routerLink]="['/celeb/new']" [queryParams]="{ 'uprofileIdEquals': uprofile.id }">
+								  		<button id="jh-create-entity" 
+   								    		style="margin-top: 15px;"
+   								    		*ngIf="owner === uprofile.userId" 
+									        class="btn btn-primary float-right jh-create-entity create-interest" 
+									        [routerLink]="['/celeb/new']" [queryParams]="{ 'uprofileIdEquals': uprofile.id }">
 											<fa-icon [icon]="'plus'"></fa-icon>
 										</button>
-								    <strong class="g-mr-5">Celebs:</strong>
-								    <span *ngFor="let celeb of celebs">
-									    <a (click)="removeProfileCeleb(celeb.id, uprofile.id)" class="u-tags-v1 g-font-size-12 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-red-opacity-0_8 g-color-red--hover rounded g-py-6 g-px-15 g-mr-5">
-											<fa-icon [icon]="'times'"></fa-icon>
-										</a>
-								    	<a [routerLink]="['/celeb', celeb.id, 'view' ]" class="u-tags-v1 g-font-size-12 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-black-opacity-0_8 g-color-white--hover rounded g-py-6 g-px-15 g-mr-5">
-								    		{{celeb.celebName}}
-								    	</a>
+								    <strong class="g-mr-5" style="float: left; margin-top: 24px; font-size: 16px;">Celebs:</strong>
+								    <span *ngFor="let celeb of celebs" class="g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-white--hover" 
+								    		style="font-size: 13px; font-weight: bold; cursor: pointer; float:left; padding: 8px 10px; border-radius: 5px; border: solid 1px; margin-right: 15px; overflow: hidden; display: inherit; width: fit-content; margin-top: 15px;">	
+	    							    <fa-icon (click)="removeProfileCeleb(celeb.id, uprofile.id)" [icon]="'times'" class="g-color-red--hover"></fa-icon>
+	    							    <span [routerLink]="['/celeb', celeb.id, 'view' ]" style="padding-left: 10px;" >{{celeb.celebName}}</span>
 								    </span>
 								  </h6>
 								</div>

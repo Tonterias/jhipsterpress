@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="community">
-            <h2><span>{{community.communityname}}</span>
+            <h2><span>{{community.communityName}}</span>
 	            <button *ngIf="isFollowing === true" style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="unFollowing()">
 				    <span jhiTranslate="jhipsterpressApp.community.unfollow">
 				    UnFollow

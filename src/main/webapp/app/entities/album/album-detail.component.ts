@@ -63,4 +63,8 @@ export class AlbumDetailComponent implements OnInit {
     protected onError(errorMessage: string) {
         this.jhiAlertService.error(errorMessage, null, null);
     }
+
+    trackId(index: number, item: IPhoto) {
+        return item.id;
+    }
 }

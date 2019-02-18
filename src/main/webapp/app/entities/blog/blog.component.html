@@ -53,7 +53,7 @@
                       </div>
                       <div class="mb-3">
                         <h2 class="h3 mb-4"><a class="u-link-v5 g-color-main g-color-primary--hover" [routerLink]="['/blog', blog.id, 'view' ]">{{blog.title}}</a></h2>
-	        			<p class="g-font-size-13">{{blog.creationDate | date:'longDate'}}</p>
+	        			<p class="g-font-size-13">{{blog.creationDate | date:'MMM d, y, h:mm a'}}</p>
                       </div>
 						<!-- Info -->
 						<div class="btn-group flex-btn-group-container">
@@ -137,7 +137,7 @@
             <tbody>
             <tr *ngFor="let blog of blogs ;trackBy: trackId">
                 <td><a [routerLink]="['/blog', blog.id, 'view' ]">{{blog.id}}</a></td>
-                <td>{{blog.creationDate | date:'medium'}}</td>
+                <td>{{blog.creationDate | date:'MMM d, y, h:mm a'}}</td>
                 <td>{{blog.title}}</td>
                 <td>
                     <a *ngIf="blog.image" (click)="openFile(blog.imageContentType, blog.image)">

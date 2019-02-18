@@ -43,7 +43,7 @@
             <tbody>
             <tr *ngFor="let vquestion of vquestions ;trackBy: trackId">
                 <td><a [routerLink]="['/vquestion', vquestion.id, 'view' ]">{{vquestion.id}}</a></td>
-                <td>{{vquestion.creationDate | date:'medium'}}</td>
+                <td>{{vquestion.creationDate | date:'MMM d, y, h:mm a'}}</td>
                 <td>{{vquestion.vquestion}}</td>
                 <td>{{vquestion.vquestionDescription}}</td>
                 <td>

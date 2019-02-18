@@ -25,7 +25,7 @@
 	          <a *ngIf="follow.cfollowingImage" [routerLink]="['/community', follow.cfollowingId, 'view' ]">
                   <img class="g-width-100 g-height-100 rounded-circle g-mb-20" [src]="'data:' + follow.cfollowingImageContentType + ';base64,' + follow.cfollowingImage" alt="image"/>
               </a>
-              <a *ngIf="follow.followingImage" [routerLink]="['/uprofileuid']" [queryParams]="{ 'userIdEquals': follow.followingId }">
+              <a *ngIf="follow.followingImage" [routerLink]="['/uprofile/uprofileuid']" [queryParams]="{ 'userIdEquals': follow.followingId }">
                   <img class="g-width-100 g-height-100 rounded-circle g-mb-20" [src]="'data:' + follow.followingImageContentType + ';base64,' + follow.followingImage" alt="image"/>
               </a>
 	          <!-- Figure Image -->
@@ -35,7 +35,7 @@
 			  <a *ngIf="follow.cfollowingId" [routerLink]="['/community', follow.cfollowingId, 'view' ]">
 	          	<h4 class="h5 g-mb-5">{{follow.cfollowingCommunityname}}</h4>
 	          </a>
-	          <a *ngIf="follow.followingId" [routerLink]="['/uprofileuid']" [queryParams]="{ 'userIdEquals': follow.followingId }">
+	          <a *ngIf="follow.followingId" [routerLink]="['/uprofile/uprofileuid']" [queryParams]="{ 'userIdEquals': follow.followingId }">
 	          	<h4 class="h5 g-mb-5">{{follow.followingUserFirstName}} {{follow.followingUserLastName}}</h4>
 	          </a>
 	          

@@ -44,8 +44,8 @@
             <tbody>
             <tr *ngFor="let notification of notifications ;trackBy: trackId">
                 <td><a [routerLink]="['/notification', notification.id, 'view' ]">{{notification.id}}</a></td>
-                <td>{{notification.creationDate | date:'medium'}}</td>
-                <td>{{notification.notificationDate | date:'medium'}}</td>
+                <td>{{notification.creationDate | date:'MMM d, y, h:mm a'}}</td>
+                <td>{{notification.notificationDate | date:'MMM d, y, h:mm a'}}</td>
                 <td jhiTranslate="{{'jhipsterpressApp.NotificationReason.' + notification.notificationReason}}">{{notification.notificationReason}}</td>
                 <td [innerHTML]="notification.notificationText"></td>
                 <td>{{notification.isDelivered}}</td>

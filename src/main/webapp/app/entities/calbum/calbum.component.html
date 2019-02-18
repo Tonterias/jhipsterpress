@@ -45,7 +45,7 @@
             <tbody>
             <tr *ngFor="let calbum of calbums ;trackBy: trackId">
                 <td><a [routerLink]="['/calbum', calbum.id, 'view' ]">{{calbum.id}}</a></td>
-                <td>{{calbum.creationDate | date:'medium'}}</td>
+                <td>{{calbum.creationDate | date:'MMM d, y, h:mm a'}}</td>
                 <td>{{calbum.title}}</td>
                 <td>
                     <div *ngIf="calbum.communityId">

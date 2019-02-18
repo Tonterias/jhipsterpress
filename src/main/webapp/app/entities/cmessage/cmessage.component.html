@@ -49,7 +49,7 @@
             <tbody>
             <tr *ngFor="let cmessage of cmessages ;trackBy: trackId">
                 <td><a [routerLink]="['/cmessage', cmessage.id, 'view' ]">{{cmessage.id}}</a></td>
-                <td>{{cmessage.creationDate | date:'medium'}}</td>
+                <td>{{cmessage.creationDate | date:'MMM d, y, h:mm a'}}</td>
                 <td [innerHTML]="cmessage.messageText"></td>
                 <td>{{cmessage.isDelivered}}</td>
                 <td>

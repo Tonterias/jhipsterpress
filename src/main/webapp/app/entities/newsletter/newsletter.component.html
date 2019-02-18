@@ -38,7 +38,7 @@
             <tbody>
             <tr *ngFor="let newsletter of newsletters ;trackBy: trackId">
                 <td><a [routerLink]="['/newsletter', newsletter.id, 'view' ]">{{newsletter.id}}</a></td>
-                <td>{{newsletter.creationDate | date:'medium'}}</td>
+                <td>{{newsletter.creationDate | date:'MMM d, y, h:mm a'}}</td>
                 <td>{{newsletter.email}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

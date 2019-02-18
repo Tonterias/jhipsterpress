@@ -125,7 +125,7 @@
             <tbody>
             <tr *ngFor="let uprofile of uprofiles ;trackBy: trackId">
                 <td><a [routerLink]="['/uprofile', uprofile.id, 'view' ]">{{uprofile.id}}</a></td>
-                <td>{{uprofile.creationDate | date:'medium'}}</td>
+                <td>{{uprofile.creationDate | date:'MMM d, y, h:mm a'}}</td>
                 <td>
                     <a *ngIf="uprofile.image" (click)="openFile(uprofile.imageContentType, uprofile.image)">
                         <img [src]="'data:' + uprofile.imageContentType + ';base64,' + uprofile.image" style="max-height: 30px;" alt="uprofile image"/>
@@ -140,7 +140,7 @@
                 <td>{{uprofile.linkedin}}</td>
                 <td>{{uprofile.instagram}}</td>
                 <td>{{uprofile.googlePlus}}</td>
-                <td>{{uprofile.birthdate | date:'medium'}}</td>
+                <td>{{uprofile.birthdate | date:'MMM d, y, h:mm a'}}</td>
                 <td jhiTranslate="{{'jhipsterpressApp.CivilStatus.' + uprofile.civilStatus}}">{{uprofile.civilStatus}}</td>
                 <td jhiTranslate="{{'jhipsterpressApp.Gender.' + uprofile.lookingFor}}">{{uprofile.lookingFor}}</td>
                 <td jhiTranslate="{{'jhipsterpressApp.Purpose.' + uprofile.purpose}}">{{uprofile.purpose}}</td>

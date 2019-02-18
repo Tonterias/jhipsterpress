@@ -131,8 +131,8 @@
             <tbody>
             <tr *ngFor="let post of posts ;trackBy: trackId">
                 <td><a [routerLink]="['/post', post.id, 'view' ]">{{post.id}}</a></td>
-                <td>{{post.creationDate | date:'medium'}}</td>
-                <td>{{post.publicationDate | date:'medium'}}</td>
+                <td>{{post.creationDate | date:'MMM d, y, h:mm a'}}</td>
+                <td>{{post.publicationDate | date:'MMM d, y, h:mm a'}}</td>
                 <td>{{post.headline}}</td>
                 <td>{{post.leadtext}}</td>
                 <td>{{post.bodytext}}</td>

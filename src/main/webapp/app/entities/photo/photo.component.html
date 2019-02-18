@@ -30,7 +30,7 @@
             <tbody>
             <tr *ngFor="let photo of photos ;trackBy: trackId">
                 <td><a [routerLink]="['/photo', photo.id, 'view' ]">{{photo.id}}</a></td>
-                <td>{{photo.creationDate | date:'medium'}}</td>
+                <td>{{photo.creationDate | date:'MMM d, y, h:mm a'}}</td>
                 <td>
                     <a *ngIf="photo.image" (click)="openFile(photo.imageContentType, photo.image)">
                         <img [src]="'data:' + photo.imageContentType + ';base64,' + photo.image" style="max-height: 30px;" alt="photo image"/>

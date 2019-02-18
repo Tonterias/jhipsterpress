@@ -7,7 +7,7 @@
             <dl class="row-md jh-entity-details">
                 <dt><span jhiTranslate="jhipsterpressApp.newsletter.creationDate">Creation Date</span></dt>
                 <dd>
-                    <span>{{newsletter.creationDate}}</span>
+                    <span>{{newsletter.creationDate | date:'MMM d, y, h:mm a'}}</span>
                 </dd>
                 <dt><span jhiTranslate="jhipsterpressApp.newsletter.email">Email</span></dt>
                 <dd>

@@ -27,7 +27,7 @@
             <tbody>
             <tr *ngFor="let vanswer of vanswers ;trackBy: trackId">
                 <td><a [routerLink]="['/vanswer', vanswer.id, 'view' ]">{{vanswer.id}}</a></td>
-                <td>{{vanswer.creationDate | date:'medium'}}</td>
+                <td>{{vanswer.creationDate | date:'MMM d, y, h:mm a'}}</td>
                 <td>{{vanswer.urlVanswer}}</td>
                 <td>{{vanswer.accepted}}</td>
                 <td>

@@ -76,7 +76,7 @@
             <tbody>
             <tr *ngFor="let frontpageconfig of frontpageconfigs ;trackBy: trackId">
                 <td><a [routerLink]="['/frontpageconfig', frontpageconfig.id, 'view' ]">{{frontpageconfig.id}}</a></td>
-                <td>{{frontpageconfig.creationDate | date:'medium'}}</td>
+                <td>{{frontpageconfig.creationDate | date:'MMM d, y, h:mm a'}}</td>
                 <td>{{frontpageconfig.topNews1}}</td>
                 <td>{{frontpageconfig.topNews2}}</td>
                 <td>{{frontpageconfig.topNews3}}</td>

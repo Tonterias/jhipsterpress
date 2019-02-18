@@ -7,11 +7,11 @@
             <dl class="row-md jh-entity-details">
                 <dt><span jhiTranslate="jhipsterpressApp.notification.creationDate">Creation Date</span></dt>
                 <dd>
-                    <span>{{notification.creationDate}}</span>
+                    <span>{{notification.creationDate | date:'MMM d, y, h:mm a'}}</span>
                 </dd>
                 <dt><span jhiTranslate="jhipsterpressApp.notification.notificationDate">Notification Date</span></dt>
                 <dd>
-                    <span>{{notification.notificationDate}}</span>
+                    <span>{{notification.notificationDate | date:'MMM d, y, h:mm a'}}</span>
                 </dd>
                 <dt><span jhiTranslate="jhipsterpressApp.notification.notificationReason">Notification Reason</span></dt>
                 <dd>

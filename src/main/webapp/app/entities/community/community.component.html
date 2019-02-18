@@ -1,20 +1,34 @@
 <div>
-    <h2 id="page-heading">
-        <span jhiTranslate="jhipsterpressApp.community.home.title">Communities</span>
-        <button style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="myCommunities()">
-            <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="jhipsterpressApp.community.home.myLabel">
-            My Communities
-            </span>
-        </button>
-        <button style="margin:5px;" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-community" [routerLink]="['/community/new']">
-            <fa-icon [icon]="'plus'"></fa-icon>
-            <span class="hidden-sm-down"  jhiTranslate="jhipsterpressApp.community.home.createLabel">
-            Create new Community
-            </span>
-        </button>
-    </h2>
+	<div>
+	    <h2 id="page-heading">
+	        <span jhiTranslate="jhipsterpressApp.community.home.title">Communities</span>
+	        <button style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="myCommunities()">
+	            <fa-icon [icon]="'plus'"></fa-icon>
+	            <span  jhiTranslate="jhipsterpressApp.community.home.myLabel">
+	            My Communities
+	            </span>
+	        </button>
+	        <button style="margin:5px;" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-community" [routerLink]="['/community/new']">
+	            <fa-icon [icon]="'plus'"></fa-icon>
+	            <span class="hidden-sm-down"  jhiTranslate="jhipsterpressApp.community.home.createLabel">
+	            Create new Community
+	            </span>
+	        </button>
+			<form name="searchForm" class="form-inline">
+	             <div class="input-group w-100 mt-3">
+	                 <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jhipsterpressApp.community.home.search' | translate }}">
+	                 <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+	                     <fa-icon [icon]="'search'"></fa-icon>
+	                 </button>
+	                 <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+	                     <fa-icon [icon]="'trash-alt'"></fa-icon>
+	                 </button>
+	             </div>
+	         </form>
+	    </h2>
+    </div>
     <jhi-alert></jhi-alert>
+     <!--  
     <div class="row">
         <div class="col-sm-12">
             <form name="searchForm" class="form-inline">
@@ -31,7 +45,7 @@
         </div>
     </div>
     <br/>
-    
+    -->
  		
 	  <!-- User Blocks v16 https://htmlstream.com/public/preview/unify-v2.5.1/unify-main/shortcodes/shortcode-blocks-users.html-->
       <section class="g-bg-secondary g-py-100">
@@ -114,7 +128,7 @@
             <tbody>
             <tr *ngFor="let community of communities ;trackBy: trackId">
                 <td><a [routerLink]="['/community', community.id, 'view' ]">{{community.id}}</a></td>
-                <td>{{community.creationDate | date:'medium'}}</td>
+                <td>{{community.creationDate | date:'MMM d, y, h:mm a'}}</td>
                 <td>{{community.communityName}}</td>
                 <td>{{community.communityDescription}}</td>
                 <td>

@@ -25,7 +25,7 @@
 	          <a *ngIf="blockuser.cblockeduserImage" [routerLink]="['/community', blockuser.cblockeduserId, 'view' ]">
                   <img class="g-width-100 g-height-100 rounded-circle g-mb-20" [src]="'data:' + blockuser.cblockeduserImageContentType + ';base64,' + blockuser.cblockeduserImage" alt="image"/>
               </a>
-              <a *ngIf="blockuser.blockeduserImage" [routerLink]="['/uprofileuid']" [queryParams]="{ 'userIdEquals': blockuser.blockeduserId }">
+              <a *ngIf="blockuser.blockeduserImage" [routerLink]="['/uprofile/uprofileuid']" [queryParams]="{ 'userIdEquals': blockuser.blockeduserId }">
                   <img class="g-width-100 g-height-100 rounded-circle g-mb-20" [src]="'data:' + blockuser.blockeduserImageContentType + ';base64,' + blockuser.blockeduserImage" alt="image"/>
               </a>
 	          <!-- Figure Image -->
@@ -35,7 +35,7 @@
 			  <a *ngIf="blockuser.cblockeduserId" [routerLink]="['/community', blockuser.cblockeduserId, 'view' ]">
 	          	<h4 class="h5 g-mb-5">{{blockuser.cblockeduserCommunityname}}</h4>
 	          </a>
-	          <a *ngIf="blockuser.blockeduserId" [routerLink]="['/uprofileuid']" [queryParams]="{ 'userIdEquals': blockuser.blockeduserId }">
+	          <a *ngIf="blockuser.blockeduserId" [routerLink]="['/uprofile/uprofileuid']" [queryParams]="{ 'userIdEquals': blockuser.blockeduserId }">
 	          	<h4 class="h5 g-mb-5">{{blockuser.blockeduserFirstName}} {{blockuser.blockeduserLastName}}</h4>
 	          </a>
 	          

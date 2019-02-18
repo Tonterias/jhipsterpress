@@ -1,21 +1,36 @@
 <div>
 	<div>
 	    <h2 id="page-heading">
-	        <span jhiTranslate="jhipsterpressApp.community.home.title">Communities</span>
-	        <button style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="myCommunities()">
-	            <fa-icon [icon]="'plus'"></fa-icon>
-	            <span  jhiTranslate="jhipsterpressApp.community.home.myLabel">
-	            My Communities
-	            </span>
-	        </button>
-	        <button style="margin:5px;" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-community" [routerLink]="['/community/new']">
-	            <fa-icon [icon]="'plus'"></fa-icon>
-	            <span class="hidden-sm-down"  jhiTranslate="jhipsterpressApp.community.home.createLabel">
-	            Create new Community
-	            </span>
-	        </button>
+		<table style="width:100%">
+		  <tr>
+			<span jhiTranslate="jhipsterpressApp.community.home.title">Communities</span>
+		  </tr>
+		  <tr>
+		    <td>
+   		        <button style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="myCommunities()">
+		            <fa-icon [icon]="'plus'"></fa-icon>
+		            <span  jhiTranslate="jhipsterpressApp.community.home.myLabel">
+		            My Communities
+		            </span>
+		        </button>
+			</td>
+		    <td>
+   		        <button style="margin:5px;" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-community" [routerLink]="['/community/new']">
+		            <fa-icon [icon]="'plus'"></fa-icon>
+		            <span class="hidden-sm-down"  jhiTranslate="jhipsterpressApp.community.home.createLabel">
+		            Create new Community
+		            </span>
+		        </button>
+			</td> 
+		  </tr>
+		</table>
+		</h2>
+    </div>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
 			<form name="searchForm" class="form-inline">
-	             <div class="input-group w-100 mt-3">
+	             <div class="input-group w-100 mt-3" style="width:100%">
 	                 <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jhipsterpressApp.community.home.search' | translate }}">
 	                 <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
 	                     <fa-icon [icon]="'search'"></fa-icon>
@@ -25,27 +40,9 @@
 	                 </button>
 	             </div>
 	         </form>
-	    </h2>
-    </div>
-    <jhi-alert></jhi-alert>
-     <!--  
-    <div class="row">
-        <div class="col-sm-12">
-            <form name="searchForm" class="form-inline">
-                <div class="input-group w-100 mt-3">
-                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jhipsterpressApp.community.home.search' | translate }}">
-                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
-                        <fa-icon [icon]="'search'"></fa-icon>
-                    </button>
-                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
-                        <fa-icon [icon]="'trash-alt'"></fa-icon>
-                    </button>
-                </div>
-            </form>
         </div>
     </div>
     <br/>
-    -->
  		
 	  <!-- User Blocks v16 https://htmlstream.com/public/preview/unify-v2.5.1/unify-main/shortcodes/shortcode-blocks-users.html-->
       <section class="g-bg-secondary g-py-100">
@@ -58,7 +55,7 @@
                   <!-- Listing - Agents -->
                   <div class="u-shadow-v11 text-center">
                     <div class="g-bg-white g-pa-20">
-                      <div class="g-width-130 g-height-130 mx-auto mb-4">
+                      <div class="g-width-130 mx-auto mb-4">
 				        <!-- Figure Image -->
 			        	<a *ngIf="community.image" [routerLink]="['/community', community.id, 'view' ]">
 		                    <img [src]="'data:' + community.imageContentType + ';base64,' + community.image" style="max-width: 100%;" alt="community image"/>

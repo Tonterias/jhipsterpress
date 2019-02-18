@@ -47,10 +47,16 @@ spring:
     liquibase:
         contexts: prod
     mail:
-        host: localhost
-        port: 25
-        username:
-        password:
+        host: smtp.gmail.com
+        port: 587
+        username: jhipsterpress@gmail.com
+        password: 2donotbeakid   
+        protocol: smtp
+        tls: true
+        properties.mail.smtp: 
+            auth: true
+            starttls.enable: true
+            ssl.trust: smtp.gmail.com
     thymeleaf:
         cache: true
 
@@ -101,7 +107,7 @@ jhipster:
             key: 849674ddd717c497d8121e881c00e0a360379a3e8688dbe36ef79a4f9ee0e6560ed963066de7c638eade3ef2016e164bb8f1
     mail: # specific JHipster mail property, for standard properties see MailProperties
         from: jhipsterpress@localhost
-        base-url: http://my-server-url-to-change # Modify according to your server's URL
+        base-url: http://www.jhipsterpress.com # Modify according to your server's URL
     metrics:
         logs: # Reports metrics in the logs
             enabled: false

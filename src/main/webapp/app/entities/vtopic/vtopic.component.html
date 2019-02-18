@@ -1,13 +1,23 @@
 <div>
-    <h2 id="page-heading">
-        <span jhiTranslate="jhipsterpressApp.vtopic.home.title">Vtopics</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-vtopic" [routerLink]="['/vtopic/new']">
-            <fa-icon [icon]="'plus'"></fa-icon>
-            <span class="hidden-sm-down" jhiTranslate="jhipsterpressApp.vtopic.home.createLabel">
-            Create new Vtopic
-            </span>
-        </button>
-    </h2>
+	<div>
+	    <h2 id="page-heading">
+		<table style="width:100%">
+		  <tr>
+			<span jhiTranslate="jhipsterpressApp.vtopic.home.title">Vtopics</span>
+		  </tr>
+		  <tr>
+		    <td>
+		        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-vtopic" [routerLink]="['/vtopic/new']">
+		            <fa-icon [icon]="'plus'"></fa-icon>
+		            <span class="hidden-sm-down" jhiTranslate="jhipsterpressApp.vtopic.home.createLabel">
+		            Create new Vtopic
+		            </span>
+		        </button>
+			</td>
+		  </tr>
+		</table>
+		</h2>
+    </div>
     <jhi-alert></jhi-alert>
     <div class="row">
         <div class="col-sm-12">

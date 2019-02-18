@@ -1,19 +1,31 @@
 <div>
-    <h2 id="page-heading">
-        <span jhiTranslate="jhipsterpressApp.blog.home.title">Blogs</span>
-        <button style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="myBlogs()">
-            <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="jhipsterpressApp.blog.home.myLabel">
-            My Blogs
-            </span>
-        </button>
-        <button style="margin:5px;" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-message" [routerLink]="['/blog/new']">
-            <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="jhipsterpressApp.blog.home.createLabel">
-            Create new Blog
-            </span>
-        </button>
-    </h2>
+	<div>
+	    <h2 id="page-heading">
+		<table style="width:100%">
+		  <tr>
+			<span jhiTranslate="jhipsterpressApp.blog.home.title">Blogs</span>
+		  </tr>
+		  <tr>
+		    <td>
+		        <button style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="myBlogs()">
+		            <fa-icon [icon]="'plus'"></fa-icon>
+		            <span  jhiTranslate="jhipsterpressApp.blog.home.myLabel">
+		            My Blogs
+		            </span>
+		        </button>
+			</td>
+		    <td>
+		        <button style="margin:5px;" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-message" [routerLink]="['/blog/new']">
+		            <fa-icon [icon]="'plus'"></fa-icon>
+		            <span  jhiTranslate="jhipsterpressApp.blog.home.createLabel">
+		            Create new Blog
+		            </span>
+		        </button>
+			</td> 
+		  </tr>
+		</table>
+		</h2>
+    </div>
     <jhi-alert></jhi-alert>
     <div class="row">
         <div class="col-sm-12">

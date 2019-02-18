@@ -37,6 +37,7 @@ local.properties
 .loadpath
 .factorypath
 /src/main/resources/rebel.xml
+/jhipsterpress/src/main/resources/config/application-prod.yml
 
 # External tool builders
 .externalToolBuilders/**

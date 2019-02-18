@@ -123,33 +123,32 @@
 			 <div class="row justify-content-center">
 				    <div class="col-8">
 				        <div *ngIf="uprofile">
-				            <h2>
-				            <span *ngIf="uprofile.id!==loggedProfileId">
-					            <button *ngIf="isFollowing === true" style="margin:5px;" id="jh-my-entity" class="btn btn-outline-primary float-right jh-create-entity create-blog" (click)="unFollowing()">
-								    <span jhiTranslate="jhipsterpressApp.uprofile.unfollow">
-								    UnFollow
-								    </span>
-								</button>
-								<button *ngIf="isFollowing === false" style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="following()">
-								    <span jhiTranslate="jhipsterpressApp.uprofile.follow">
-								    Follow
-								    </span>
-								</button>
-								
-								<button *ngIf="isBlocked === true" style="margin:5px;" id="jh-my-entity" class="btn btn-outline-primary float-right jh-create-entity create-blog" (click)="unBlocking()">
-								    <span jhiTranslate="jhipsterpressApp.uprofile.unblockuser">
-								    UnBlockUser
-								    </span>
-								</button>
-								<button *ngIf="isBlocked === false" style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="blocking()">
-								    <span jhiTranslate="jhipsterpressApp.uprofile.blockuser">
-								    BlockUser
-								    </span>
-								</button>
-							</span> 
-				            <span jhiTranslate="jhipsterpressApp.uprofile.detail.title">Profile</span> 
-				            </h2>
-				            <h2>{{uprofileUserFirstName}} {{uprofileUserLastName}}</h2>
+				            <h2>{{uprofileUserFirstName}} {{uprofileUserLastName}}
+				            	<span jhiTranslate="jhipsterpressApp.uprofile.detail.title">Profile</span>
+					            <span *ngIf="uprofile.id!==loggedProfileId">
+						            <button *ngIf="isFollowing === true" style="margin:5px;" id="jh-my-entity" class="btn btn-outline-primary float-right jh-create-entity create-blog" (click)="unFollowing()">
+									    <span jhiTranslate="jhipsterpressApp.uprofile.unfollow">
+									    UnFollow
+									    </span>
+									</button>
+									<button *ngIf="isFollowing === false" style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="following()">
+									    <span jhiTranslate="jhipsterpressApp.uprofile.follow">
+									    Follow
+									    </span>
+									</button>
+									
+									<button *ngIf="isBlocked === true" style="margin:5px;" id="jh-my-entity" class="btn btn-outline-primary float-right jh-create-entity create-blog" (click)="unBlocking()">
+									    <span jhiTranslate="jhipsterpressApp.uprofile.unblockuser">
+									    UnBlockUser
+									    </span>
+									</button>
+									<button *ngIf="isBlocked === false" style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="blocking()">
+									    <span jhiTranslate="jhipsterpressApp.uprofile.blockuser">
+									    BlockUser
+									    </span>
+									</button>
+								</span>
+				            </h2> 
 				            <hr>
 				            <jhi-alert-error></jhi-alert-error>
 				            <dl class="row-md jh-entity-details">

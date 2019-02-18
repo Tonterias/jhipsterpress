@@ -1,19 +1,31 @@
 <div>
-    <h2 id="page-heading">
-        <span jhiTranslate="jhipsterpressApp.album.home.title">Albums</span>
-        <button style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="myAlbums()">
-            <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="jhipsterpressApp.album.home.myLabel">
-            My Albums
-            </span>
-        </button>
-        <button style="margin:5px;" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-album" [routerLink]="['/album/new']">
-            <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="jhipsterpressApp.album.home.createLabel">
-            Create new Album
-            </span>
-        </button>
-    </h2>
+	<div>
+	    <h2 id="page-heading">
+		<table style="width:100%">
+		  <tr>
+			<span jhiTranslate="jhipsterpressApp.album.home.title">Albums</span>
+		  </tr>
+		  <tr>
+		    <td>
+		        <button style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="myAlbums()">
+		            <fa-icon [icon]="'plus'"></fa-icon>
+		            <span  jhiTranslate="jhipsterpressApp.album.home.myLabel">
+		            My Albums
+		            </span>
+		        </button>
+			</td>
+		    <td>
+		        <button style="margin:5px;" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-album" [routerLink]="['/album/new']">
+		            <fa-icon [icon]="'plus'"></fa-icon>
+		            <span  jhiTranslate="jhipsterpressApp.album.home.createLabel">
+		            Create new Album
+		            </span>
+		        </button>
+			</td> 
+		  </tr>
+		</table>
+		</h2>
+    </div>
     <jhi-alert></jhi-alert>
     <div class="row">
         <div class="col-sm-12">

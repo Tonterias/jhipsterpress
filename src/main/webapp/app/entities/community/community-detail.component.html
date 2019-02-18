@@ -48,66 +48,69 @@
                 </dd>
                 
                 <!-- Interests -->
-				<div class="g-mb-30">
+				<div class="g-mb-30" style="width: 100%; overflow: hidden;">
 					<h6 class="g-color-gray-dark-v1">
-						<button id="jh-create-entity"
+						<button id="jh-create-entity" style="margin-top: 15px;"
 							*ngIf="owner === community.userId" 
 							class="btn btn-primary float-right jh-create-entity create-interest"
 							[routerLink]="['/cinterest/new']" [queryParams]="{ 'communityIdEquals': community.id }">
 							<fa-icon [icon]="'plus'"></fa-icon>
 						</button>
-						<strong class="g-mr-5">Interests:</strong> 
-						<span *ngFor="let cinterest of cinterests">
-						    <a (click)="removeCommunityCinterest(cinterest.id, community.id)"  class="u-tags-v1 g-font-size-12 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-red-opacity-0_8 g-color-red--hover rounded g-py-6 g-px-15 g-mr-5">
-								<fa-icon [icon]="'times'"></fa-icon>
-							</a>
-							<a [routerLink]="['/cinterest', cinterest.id, 'view' ]" class="u-tags-v1 g-font-size-12 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-black-opacity-0_8 g-color-white--hover rounded g-py-6 g-px-15 g-mr-5" href="#!">
-								{{cinterest.interestName}}
-							</a>
+						<strong class="g-mr-5" style="float: left; margin-top: 24px; font-size: 16px;">Interests:</strong>
+						<span *ngFor="let cinterest of cinterests"
+								class="g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-white--hover" 
+            					style="font-size: 13px; font-weight: bold; cursor: pointer; float:left; padding: 8px 10px; border-radius: 5px; 
+            					border: solid 1px; margin-right: 15px; overflow: hidden; display: inherit; width: fit-content; margin-top: 15px;">
+								<fa-icon class="g-color-red--hover" (click)="removeCommunityCinterest(cinterest.id, community.id)" [icon]="'times'"></fa-icon>
+								<span [routerLink]="['/cinterest', cinterest.id, 'view' ]" style="padding-left: 10px;">
+									{{cinterest.interestName}}
+								</span>
 						</span>
 					</h6>
 				</div>
 				<!-- End Interests -->
 				
 				<!-- Activities -->
-				<div class="g-mb-30">
+				<div class="g-mb-30" style="width: 100%; overflow: hidden;">
 				  <h6 class="g-color-gray-dark-v1">
-				            <button id="jh-create-entity" 
+				            <button id="jh-create-entity" style="margin-top: 15px;"
 				            	*ngIf="owner === community.userId" 
 				                class="btn btn-primary float-right jh-create-entity create-interest" 
 				                [routerLink]="['/cactivity/new']" [queryParams]="{ 'communityIdEquals': community.id }">
 				            <fa-icon [icon]="'plus'"></fa-icon>
 				        </button>
-					    <strong class="g-mr-5">Activities:</strong>
-					    <span *ngFor="let cactivity of cactivities">
-						    <a (click)="removeCommunityCactivity(cactivity.id, community.id)"  class="u-tags-v1 g-font-size-12 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-red-opacity-0_8 g-color-red--hover rounded g-py-6 g-px-15 g-mr-5">
-								<fa-icon [icon]="'times'"></fa-icon>
-							</a>
-							<a [routerLink]="['/cactivity', cactivity.id, 'view' ]" class="u-tags-v1 g-font-size-12 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-black-opacity-0_8 g-color-white--hover rounded g-py-6 g-px-15 g-mr-5" href="#!">
-								{{cactivity.activityName}}
-							</a>
+					    <strong class="g-mr-5" style="float: left; margin-top: 24px; font-size: 16px;">Activities:</strong>
+					    <span *ngFor="let cactivity of cactivities"
+								class="g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-white--hover" 
+            					style="font-size: 13px; font-weight: bold; cursor: pointer; float:left; padding: 8px 10px; border-radius: 5px; 
+            					border: solid 1px; margin-right: 15px; overflow: hidden; display: inherit; width: fit-content; margin-top: 15px;">
+            					<fa-icon class="g-color-red--hover" (click)="removeCommunityCactivity(cactivity.id, community.id)" [icon]="'times'"></fa-icon>
+								<span [routerLink]="['/cactivity', cactivity.id, 'view' ]" style="padding-left: 10px;">
+									{{cactivity.activityName}}
+								</span>
 					    </span>
 				  </h6>
 				</div>
 				<!-- End Activities -->
 				
 				<!-- Celebs -->
-				<div class="g-mb-30">
+				<div class="g-mb-30" style="width: 100%; overflow: hidden;">
 				  <h6 class="g-color-gray-dark-v1">
-				            <button id="jh-create-entity" 
+				            <button id="jh-create-entity" style="margin-top: 15px;"
 				           		*ngIf="owner === community.userId" 
 				                class="btn btn-primary float-right jh-create-entity create-interest" 
 				                [routerLink]="['/cceleb/new']" [queryParams]="{ 'communityIdEquals': community.id }">
 				            <fa-icon [icon]="'plus'"></fa-icon>
 				        </button>
-					    <strong class="g-mr-5">Celebs:</strong>
-					    <span  *ngFor="let cceleb of ccelebs">
-							<a (click)="removeCommunityCceleb(cceleb.id, community.id)"  class="u-tags-v1 g-font-size-12 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-red-opacity-0_8 g-color-red--hover rounded g-py-6 g-px-15 g-mr-5">
-								<fa-icon [icon]="'times'"></fa-icon>
-							</a>
-							<a [routerLink]="['/cceleb', cceleb.id, 'view' ]" class="u-tags-v1 g-font-size-12 g-brd-around g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-black-opacity-0_8 g-color-white--hover rounded g-py-6 g-px-15 g-mr-5" href="#!">
-								{{cceleb.celebName}}
-							</a>					        
+				        <strong class="g-mr-5" style="float: left; margin-top: 24px; font-size: 16px;">Celebs:</strong>
+					    <span  *ngFor="let cceleb of ccelebs"
+								class="g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-white--hover" 
+            					style="font-size: 13px; font-weight: bold; cursor: pointer; float:left; padding: 8px 10px; border-radius: 5px; 
+            					border: solid 1px; margin-right: 15px; overflow: hidden; display: inherit; width: fit-content; margin-top: 15px;">
+            					<fa-icon class="g-color-red--hover" (click)="removeCommunityCceleb(cceleb.id, community.id)" [icon]="'times'"></fa-icon>
+								<span [routerLink]="['/cceleb', cceleb.id, 'view' ]" style="padding-left: 10px;">
+									{{cceleb.celebName}}
+								</span>
 					    </span>
 				  </h6>
 				</div>

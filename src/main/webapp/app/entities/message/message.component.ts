@@ -61,35 +61,34 @@ export class MessageComponent implements OnInit, OnDestroy {
 
     loadAll() {
         if (this.currentSearch) {
-            this.messageService
-                .query({
-                    page: this.page - 1,
-                    'messageText.contains': this.currentSearch,
-                    size: this.itemsPerPage,
-                    sort: this.sort()
-                })
-                .subscribe(
-                    (res: HttpResponse<IMessage[]>) => this.paginateMessages(res.body, res.headers),
-                    (res: HttpErrorResponse) => this.onError(res.message)
-                );
+            const query = {
+                page: this.page - 1,
+                size: this.itemsPerPage,
+                sort: this.sort()
+            };
+            query['messageText.contains'] = this.currentSearch;
+            query['receiverId.equals'] = this.currentAccount.id;
+            this.messageService.query(query).subscribe(
+                (res: HttpResponse<IMessage[]>) => {
+                    this.messages = res.body;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
             return;
         }
-        const query = {
+        const query2 = {
             page: this.page - 1,
             size: this.itemsPerPage,
             sort: this.sort()
         };
-        if (this.currentAccount.id != null) {
-            query['receiverId.equals'] = this.currentAccount.id;
-            query['isDelivered.equals'] = 'false';
-        }
-        this.messageService.query(query).subscribe(
+        query2['receiverId.equals'] = this.currentAccount.id;
+        this.messageService.query(query2).subscribe(
             (res: HttpResponse<IMessage[]>) => {
                 this.messages = res.body;
-                console.log('CONSOLOG: M:myUserMessages & O: this.messages : ', this.messages);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        return;
     }
 
     loadPage(page: number) {

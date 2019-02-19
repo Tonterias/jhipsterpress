@@ -7,7 +7,7 @@
 		  </tr>
 		  <tr>
 		    <td>
-		        <button style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="myCalbums()">
+		        <button id="jh-my-entity" class="btn btn-primary float-left jh-create-entity create-blog" (click)="myCalbums()">
 		            <fa-icon [icon]="'plus'"></fa-icon>
 		            <span  jhiTranslate="jhipsterpressApp.calbum.home.myLabel">
 		            My Calbum
@@ -15,7 +15,7 @@
 		        </button>
 			</td>
 		    <td>
-		        <button style="margin:5px;" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-calbum" [routerLink]="['/calbum/new']">
+		        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-calbum" [routerLink]="['/calbum/new']">
 		            <fa-icon [icon]="'plus'"></fa-icon>
 		            <span class="hidden-sm-down"  jhiTranslate="jhipsterpressApp.calbum.home.createLabel">
 		            Create new Calbum

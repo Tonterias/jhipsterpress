@@ -7,7 +7,7 @@
 		  </tr>
 		  <tr>
 		    <td>
-		        <button style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="myAlbums()">
+		        <button id="jh-my-entity" class="btn btn-primary float-left jh-create-entity create-blog" (click)="myAlbums()">
 		            <fa-icon [icon]="'plus'"></fa-icon>
 		            <span  jhiTranslate="jhipsterpressApp.album.home.myLabel">
 		            My Albums
@@ -15,7 +15,7 @@
 		        </button>
 			</td>
 		    <td>
-		        <button style="margin:5px;" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-album" [routerLink]="['/album/new']">
+		        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-album" [routerLink]="['/album/new']">
 		            <fa-icon [icon]="'plus'"></fa-icon>
 		            <span  jhiTranslate="jhipsterpressApp.album.home.createLabel">
 		            Create new Album

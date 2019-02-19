@@ -7,7 +7,7 @@
 		  </tr>
 		  <tr>
 		    <td>
-		        <button style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="myBlogs()">
+		        <button id="jh-my-entity" class="btn btn-primary float-left jh-create-entity create-blog" (click)="myBlogs()">
 		            <fa-icon [icon]="'plus'"></fa-icon>
 		            <span  jhiTranslate="jhipsterpressApp.blog.home.myLabel">
 		            My Blogs
@@ -15,7 +15,7 @@
 		        </button>
 			</td>
 		    <td>
-		        <button style="margin:5px;" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-message" [routerLink]="['/blog/new']">
+		        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-message" [routerLink]="['/blog/new']">
 		            <fa-icon [icon]="'plus'"></fa-icon>
 		            <span  jhiTranslate="jhipsterpressApp.blog.home.createLabel">
 		            Create new Blog

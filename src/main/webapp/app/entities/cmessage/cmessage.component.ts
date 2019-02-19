@@ -24,6 +24,7 @@ export class CmessageComponent implements OnInit, OnDestroy {
     currentAccount: any;
     cmessages: ICmessage[];
     communities: ICommunity[];
+    arrayCommmunities = [];
     error: any;
     success: any;
     eventSubscriber: Subscription;
@@ -64,29 +65,34 @@ export class CmessageComponent implements OnInit, OnDestroy {
 
     loadAll() {
         if (this.currentSearch) {
-            this.cmessageService
-                .query({
-                    page: this.page - 1,
-                    'messageText.contains': this.currentSearch,
-                    size: this.itemsPerPage,
-                    sort: this.sort()
-                })
-                .subscribe(
-                    (res: HttpResponse<ICmessage[]>) => this.paginateCmessages(res.body, res.headers),
-                    (res: HttpErrorResponse) => this.onError(res.message)
-                );
-            return;
-        }
-        this.cmessageService
-            .query({
+            const query = {
                 page: this.page - 1,
                 size: this.itemsPerPage,
                 sort: this.sort()
-            })
-            .subscribe(
-                (res: HttpResponse<ICmessage[]>) => this.paginateCmessages(res.body, res.headers),
+            };
+            query['messageText.contains'] = this.currentSearch;
+            query['creceiverId.in'] = this.arrayCommmunities;
+            this.cmessageService.query(query).subscribe(
+                (res: HttpResponse<ICmessage[]>) => {
+                    this.cmessages = res.body;
+                },
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
+            return;
+        }
+        const query2 = {
+            page: this.page - 1,
+            size: this.itemsPerPage,
+            sort: this.sort()
+        };
+        query2['creceiverId.in'] = this.arrayCommmunities;
+        this.cmessageService.query(query2).subscribe(
+            (res: HttpResponse<ICmessage[]>) => {
+                this.cmessages = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        return;
     }
 
     loadPage(page: number) {
@@ -139,12 +145,12 @@ export class CmessageComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.loadAll();
         this.accountService.identity().then(account => {
             this.currentAccount = account;
             console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount);
             this.myCmessages();
         });
+        this.loadAll();
         this.registerChangeInCmessages();
     }
 
@@ -163,11 +169,12 @@ export class CmessageComponent implements OnInit, OnDestroy {
                     sort: this.sort()
                 };
                 if (this.communities != null) {
-                    const arrayCommmunities = [];
+                    //                    const arrayCommmunities = [];
+                    this.arrayCommmunities = [];
                     this.communities.forEach(community => {
-                        arrayCommmunities.push(community.id);
+                        this.arrayCommmunities.push(community.id);
                     });
-                    query2['creceiverId.in'] = arrayCommmunities;
+                    query2['creceiverId.in'] = this.arrayCommmunities;
                     //                    query2['isDelivered.equals'] = 'false';
                 }
                 this.cmessageService.query(query2).subscribe(

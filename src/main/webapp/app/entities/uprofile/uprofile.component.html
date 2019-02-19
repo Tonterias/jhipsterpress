@@ -1,20 +1,33 @@
 <div>
-    <h2 id="page-heading">
-        <span jhiTranslate="jhipsterpressApp.uprofile.home.title">Uprofiles</span>
-		<button style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="myProfile()">
-            <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="jhipsterpressApp.uprofile.home.myLabel">
-            My Profile
-            </span>
-        </button>
-        <button style="margin:5px;" *ngIf="hasProfile === false" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-uprofile" [routerLink]="['/uprofile/new']">
-            <fa-icon [icon]="'plus'"></fa-icon>
-            <span class="hidden-sm-down"  jhiTranslate="jhipsterpressApp.uprofile.home.createLabel">
-            Create new Uprofile
-            </span>
-        </button>
-    </h2>
+	<div>
+	    <h2 id="page-heading">
+		<table style="width:100%">
+		  <tr>
+			<span jhiTranslate="jhipsterpressApp.uprofile.home.title">Uprofiles</span>
+		  </tr>
+		  <tr>
+		    <td>
+				<button id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="myProfile()">
+		            <fa-icon [icon]="'plus'"></fa-icon>
+		            <span  jhiTranslate="jhipsterpressApp.uprofile.home.myLabel">
+		            My Profile
+		            </span>
+		        </button>
+			</td>
+		    <td>
+		        <button *ngIf="hasProfile === false" id="jh-create-entity" class="btn btn-primary float-left jh-create-entity create-uprofile" [routerLink]="['/uprofile/new']">
+		            <fa-icon [icon]="'plus'"></fa-icon>
+		            <span class="hidden-sm-down"  jhiTranslate="jhipsterpressApp.uprofile.home.createLabel">
+		            Create new Uprofile
+		            </span>
+		        </button>
+			</td> 
+		  </tr>
+		</table>
+		</h2>
+    </div>
     <jhi-alert></jhi-alert>
+    <!-- 
     <div class="row">
         <div class="col-sm-12">
             <form name="searchForm" class="form-inline">
@@ -30,6 +43,7 @@
             </form>
         </div>
     </div>
+     -->
     <br/>
 
   <!-- Profile Content -->

@@ -1,14 +1,14 @@
 <div>
     <h2 id="page-heading">
         <span jhiTranslate="jhipsterpressApp.message.home.title">Messages</span>
-        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="myMessages()">
+        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="myMessages()">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span  jhiTranslate="jhipsterpressApp.message.home.myLabel">
             My Messages
             </span>
         </button>
         <!--
-        <button style="margin:5px;" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-message" [routerLink]="['/message/new']">
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-message" [routerLink]="['/message/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span class="hidden-sm-down"  jhiTranslate="jhipsterpressApp.message.home.createLabel">
             Create new Message

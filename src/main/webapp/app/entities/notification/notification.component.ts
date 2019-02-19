@@ -68,29 +68,34 @@ export class NotificationComponent implements OnInit, OnDestroy {
 
     loadAll() {
         if (this.currentSearch) {
-            this.notificationService
-                .query({
-                    page: this.page - 1,
-                    'notificationText.contains': this.currentSearch,
-                    size: this.itemsPerPage,
-                    sort: this.sort()
-                })
-                .subscribe(
-                    (res: HttpResponse<INotification[]>) => this.paginateNotifications(res.body, res.headers),
-                    (res: HttpErrorResponse) => this.onError(res.message)
-                );
-            return;
-        }
-        this.notificationService
-            .query({
+            const query = {
                 page: this.page - 1,
                 size: this.itemsPerPage,
                 sort: this.sort()
-            })
-            .subscribe(
-                (res: HttpResponse<INotification[]>) => this.paginateNotifications(res.body, res.headers),
+            };
+            query['notificationText.contains'] = this.currentSearch;
+            query['userId.equals'] = this.currentAccount.id;
+            this.notificationService.query(query).subscribe(
+                (res: HttpResponse<INotification[]>) => {
+                    this.notifications = res.body;
+                },
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
+            return;
+        }
+        const query2 = {
+            page: this.page - 1,
+            size: this.itemsPerPage,
+            sort: this.sort()
+        };
+        query2['userId.equals'] = this.currentAccount.id;
+        this.notificationService.query(query2).subscribe(
+            (res: HttpResponse<INotification[]>) => {
+                this.notifications = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        return;
     }
 
     loadPage(page: number) {

@@ -1,20 +1,33 @@
 <div>
-    <h2 id="page-heading">
-        <span jhiTranslate="jhipsterpressApp.photo.home.title">Photos</span>
-        <button style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="myUsersPhotos()">
-            <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="jhipsterpressApp.photo.home.myLabel">
-            My Photos
-            </span>
-        </button>
-        <button style="margin:5px;" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-photo" [routerLink]="['/photo/new']">
-            <fa-icon [icon]="'plus'"></fa-icon>
-            <span class="hidden-sm-down"  jhiTranslate="jhipsterpressApp.photo.home.createLabel">
-            Create new Photo
-            </span>
-        </button>
-    </h2>
+	<div>
+	    <h2 id="page-heading">
+		<table style="width:100%">
+		  <tr>
+			<span jhiTranslate="jhipsterpressApp.photo.home.title">Photos</span>
+		  </tr>
+		  <tr>
+		    <td>
+		        <button style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-left jh-create-entity create-blog" (click)="myUsersPhotos()">
+		            <fa-icon [icon]="'plus'"></fa-icon>
+		            <span  jhiTranslate="jhipsterpressApp.photo.home.myLabel">
+		            My Photos
+		            </span>
+		        </button>
+			</td>
+		    <td>
+		        <button style="margin:5px;" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-photo" [routerLink]="['/photo/new']">
+		            <fa-icon [icon]="'plus'"></fa-icon>
+		            <span class="hidden-sm-down"  jhiTranslate="jhipsterpressApp.photo.home.createLabel">
+		            Create new Photo
+		            </span>
+		        </button>
+			</td> 
+		  </tr>
+		</table>
+		</h2>
+    </div>
     <jhi-alert></jhi-alert>
+    
     <div class="table-responsive" *ngIf="photos">
         <table class="table table-striped">
             <thead>

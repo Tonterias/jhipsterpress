@@ -167,7 +167,7 @@
 								    		class="g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-white--hover" 
 								    		style="font-size: 13px; font-weight: bold; cursor: pointer; float:left; padding: 8px 10px; border-radius: 5px; border: solid 1px; 
 								    		margin-right: 15px; overflow: hidden; display: inherit; width: fit-content; margin-top: 15px;">	
-	    							    <fa-icon (click)="removeProfileInterest(interest.id, uprofile.id)" [icon]="'times'" class="g-color-red--hover"></fa-icon>
+	    							    <fa-icon *ngIf="owner === uprofile.userId" (click)="removeProfileInterest(interest.id, uprofile.id)" [icon]="'times'" class="g-color-red--hover"></fa-icon>
 	    							    <span [routerLink]="['/interest', interest.id, 'view' ]" style="padding-left: 10px;">{{interest.interestName}}</span>
 								    </span>
 								  </h6>
@@ -187,7 +187,7 @@
 								    <strong class="g-mr-5" style="float: left; margin-top: 24px; font-size: 16px;">Activities:</strong>
 								    <span *ngFor="let activity of activities" class="g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-white--hover" 
 								    		style="font-size: 13px; font-weight: bold; cursor: pointer; float:left; padding: 8px 10px; border-radius: 5px; border: solid 1px; margin-right: 15px; overflow: hidden; display: inherit; width: fit-content; margin-top: 15px;">	
-	    							    <fa-icon (click)="removeProfileActivity(activity.id, uprofile.id)" [icon]="'times'" class="g-color-red--hover"></fa-icon>
+	    							    <fa-icon *ngIf="owner === uprofile.userId" (click)="removeProfileActivity(activity.id, uprofile.id)" [icon]="'times'" class="g-color-red--hover"></fa-icon>
 	    							    <span [routerLink]="['/activity', activity.id, 'view' ]" style="padding-left: 10px;" >{{activity.activityName}}</span>
 								    </span>
 								  </h6>
@@ -207,7 +207,7 @@
 								    <strong class="g-mr-5" style="float: left; margin-top: 24px; font-size: 16px;">Celebs:</strong>
 								    <span *ngFor="let celeb of celebs" class="g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-white--hover" 
 								    		style="font-size: 13px; font-weight: bold; cursor: pointer; float:left; padding: 8px 10px; border-radius: 5px; border: solid 1px; margin-right: 15px; overflow: hidden; display: inherit; width: fit-content; margin-top: 15px;">	
-	    							    <fa-icon (click)="removeProfileCeleb(celeb.id, uprofile.id)" [icon]="'times'" class="g-color-red--hover"></fa-icon>
+	    							    <fa-icon *ngIf="owner === uprofile.userId" (click)="removeProfileCeleb(celeb.id, uprofile.id)" [icon]="'times'" class="g-color-red--hover"></fa-icon>
 	    							    <span [routerLink]="['/celeb', celeb.id, 'view' ]" style="padding-left: 10px;" >{{celeb.celebName}}</span>
 								    </span>
 								  </h6>

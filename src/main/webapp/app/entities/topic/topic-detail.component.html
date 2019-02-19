@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-lg-8 col-md-12">
         <div *ngIf="topic">
-            <h2><span jhiTranslate="jhipsterpressApp.topic.detail.title">Topic</span> {{topic.topicName}}</h2>
+            <h2><span jhiTranslate="jhipsterpressApp.topic.detail.title">Topic</span>: {{topic.topicName}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
 
@@ -41,10 +41,7 @@
 			            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
 			        </div>
 			    </div>
-			    
-			    
-			    
-			    
+
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">

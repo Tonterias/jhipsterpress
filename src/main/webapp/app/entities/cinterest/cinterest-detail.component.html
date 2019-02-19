@@ -13,7 +13,7 @@
                 <dd>
                     <span *ngFor="let community of cinterest.communities; let last = last">
                     	<img [src]="'data:' + community.imageContentType + ';base64,' + community.image" style="max-height: 100px;" *ngIf="community.image" alt="community image"/>
-                        <a [routerLink]="['/community', community?.id, 'view' ]">{{community.communityname}}</a>{{last ? '' : ', '}}<br>
+                        <a [routerLink]="['/community', community?.id, 'view' ]">{{community.communityName}}</a>{{last ? '' : ', '}}<br>
                     </span>
                 </dd>
             </dl>

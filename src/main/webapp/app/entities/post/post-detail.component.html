@@ -90,7 +90,7 @@
 							            class="g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-white--hover" 
 							            style="font-size: 13px; font-weight: bold; cursor: pointer; float:left; padding: 8px 10px; border-radius: 5px; border: solid 1px; 
 							            margin-right: 15px; overflow: hidden; display: inherit; width: fit-content; margin-top: 15px;">
-					                    <fa-icon (click)="removePostTopic(topic.id, post.id)" [icon]="'times'" class="g-color-red--hover"></fa-icon>
+					                    <fa-icon *ngIf="owner === post.userId" (click)="removePostTopic(topic.id, post.id)" [icon]="'times'" class="g-color-red--hover"></fa-icon>
 								        <span [routerLink]="['/topic', topic.id, 'view' ]" style="padding-left: 10px;">{{topic.topicName}}</span>
 							    </span>
 		                  </h6>
@@ -108,7 +108,7 @@
 							            class="g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-white--hover" 
 							            style="font-size: 13px; font-weight: bold; cursor: pointer; float:left; padding: 8px 10px; border-radius: 5px; border: solid 1px; 
 							            margin-right: 15px; overflow: hidden; display: inherit; width: fit-content; margin-top: 15px;">
-					                    <fa-icon (click)="removePostTag(tag.id, post.id)" [icon]="'times'" class="g-color-red--hover"></fa-icon>
+					                    <fa-icon *ngIf="owner === post.userId" (click)="removePostTag(tag.id, post.id)" [icon]="'times'" class="g-color-red--hover"></fa-icon>
 								        <span [routerLink]="['/tag', tag.id, 'view' ]" style="padding-left: 10px;">{{tag.tagName}}</span>
 							    </span>
 		                  </h6>

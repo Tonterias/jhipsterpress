@@ -1,21 +1,46 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="tag">
-            <h2><span jhiTranslate="jhipsterpressApp.tag.detail.title">Tag</span> {{tag.id}}</h2>
+            <h2><span jhiTranslate="jhipsterpressApp.tag.detail.title">Tag</span>: {{tag.tagName}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
-            <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="jhipsterpressApp.tag.tagName">Tag Name</span></dt>
-                <dd>
-                    <span>{{tag.tagName}}</span>
-                </dd>
-                <dt><span jhiTranslate="jhipsterpressApp.tag.post">Post</span></dt>
-                <dd>
-                    <span *ngFor="let post of tag.posts; let last = last">
-                        <a [routerLink]="['/post', post?.id, 'view' ]">{{post.headline}}</a>{{last ? '' : ', '}}
-                    </span>
-                </dd>
-            </dl>
+
+				<h3><span jhiTranslate="jhipsterpressApp.blog.detail.blogposts">Blogs´ Posts</span></h3>
+		           
+				<div class="table-responsive" *ngIf="tag.posts">
+			        <table class="table table-striped">
+			            <thead>
+			            <th><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+			            <th><span jhiTranslate="jhipsterpressApp.post.creationDate">Creation Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+			            <th><span jhiTranslate="jhipsterpressApp.post.headline">Headline</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+			            <th><span jhiTranslate="jhipsterpressApp.post.image">Image</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+			            <th></th>
+			            </tr>
+			            </thead>
+			            <tbody>
+			            <tr  *ngFor="let post of tag.posts; let last = last">
+			                <td><a [routerLink]="['/post', post.id, 'view' ]">{{post.id}}</a></td>
+			                <td>{{post.creationDate | date:'MMM d, y, h:mm a'}}</td>
+			                <td><a [routerLink]="['/post', post.id, 'view' ]">{{post.headline}}</a></td>
+			                <td>
+			                    <a *ngIf="post.image" (click)="openFile(post.imageContentType, post.image)">
+			                        <img [src]="'data:' + post.imageContentType + ';base64,' + post.image" style="max-height: 30px;" alt="post image"/>
+			                    </a>
+			                    <!-- <span *ngIf="post.image">{{post.imageContentType}}, {{byteSize(post.image)}}</span>  -->
+			                </td>
+			            </tr>
+			            </tbody>
+			        </table>
+			    </div>
+			    
+			    <div *ngIf="posts && posts.length">
+			        <div class="row justify-content-center">
+			            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+			        </div>
+			        <div class="row justify-content-center">
+			            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+			        </div>
+			    </div>
 
             <button type="submit"
                     (click)="previousState()"

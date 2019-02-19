@@ -100,7 +100,7 @@ export class CommunityDetailComponent implements OnInit {
             this.community = community;
             this.communitiesBlogs(community);
             this.userId = community.userId;
-            //            console.log('CONSOLOG: M:ngOnInit & O: this.community : ', this.community);
+            //                        console.log('CONSOLOG: M:ngOnInit & O: this.community : ', this.community);
         });
         this.communityInterests();
         this.communityActivities();
@@ -108,7 +108,7 @@ export class CommunityDetailComponent implements OnInit {
         this.accountService.identity().then(account => {
             this.currentAccount = account;
             this.owner = account.id;
-            //            console.log('CONSOLOG: M:paginateProfiles & O: this.owner : ', this.owner);
+            //                        console.log('CONSOLOG: M:paginateProfiles & O: this.owner : ', this.owner);
             this.isFollower();
         });
         this.isSaving = false;

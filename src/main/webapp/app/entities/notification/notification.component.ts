@@ -196,7 +196,7 @@ export class NotificationComponent implements OnInit, OnDestroy {
             (res: HttpResponse<INotification[]>) => {
                 this.paginateNotifications(res.body, res.headers);
                 this.notifications = res.body;
-                console.log('CONSOLOG: M:isDeliveredUpdate & O: res.body : ', res.body);
+                //                console.log('CONSOLOG: M:isDeliveredUpdate & O: res.body : ', res.body);
                 this.isDeliveredUpdate(this.notifications);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
@@ -206,7 +206,7 @@ export class NotificationComponent implements OnInit, OnDestroy {
     isDeliveredUpdate(notifications: INotification[]) {
         this.isSaving = true;
         this.notifications.forEach(notification => {
-            console.log('CONSOLOG: M:isDeliveredUpdate & O: notifications PRE-Date : ', notifications);
+            //            console.log('CONSOLOG: M:isDeliveredUpdate & O: notifications PRE-Date : ', notifications);
             this.notificationDate = moment(notification.notificationDate).format(DATE_TIME_FORMAT);
             //            console.log('CONSOLOG: M:isDeliveredUpdate & O: this.notificationDate : ', this.notificationDate);
             //            console.log('CONSOLOG: M:isDeliveredUpdate & O: notifications POST-Date : ', notifications);

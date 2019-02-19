@@ -129,14 +129,14 @@ export class ActivityUpdateComponent implements OnInit {
     }
 
     addExistingProfileActivity(activityId) {
-        console.log(
-            //            'CONSOLOG: M:addExistingProfileActivity & ActivityId: ',
-            activityId,
-            ', uprofileId : ',
-            this.nameParamUprofileId,
-            ' &:',
-            this.valueParamUprofileId
-        );
+        //        console.log(
+        //            //            'CONSOLOG: M:addExistingProfileActivity & ActivityId: ',
+        //            activityId,
+        //            ', uprofileId : ',
+        //            this.nameParamUprofileId,
+        //            ' &:',
+        //            this.valueParamUprofileId
+        //        );
         this.isSaving = true;
         if (activityId !== undefined) {
             const query = {};

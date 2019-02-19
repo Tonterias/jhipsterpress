@@ -61,7 +61,7 @@
 								class="g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-white--hover" 
             					style="font-size: 13px; font-weight: bold; cursor: pointer; float:left; padding: 8px 10px; border-radius: 5px; 
             					border: solid 1px; margin-right: 15px; overflow: hidden; display: inherit; width: fit-content; margin-top: 15px;">
-								<fa-icon class="g-color-red--hover" (click)="removeCommunityCinterest(cinterest.id, community.id)" [icon]="'times'"></fa-icon>
+								<fa-icon class="g-color-red--hover" *ngIf="owner === community.userId" (click)="removeCommunityCinterest(cinterest.id, community.id)" [icon]="'times'"></fa-icon>
 								<span [routerLink]="['/cinterest', cinterest.id, 'view' ]" style="padding-left: 10px;">
 									{{cinterest.interestName}}
 								</span>
@@ -84,7 +84,7 @@
 								class="g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-white--hover" 
             					style="font-size: 13px; font-weight: bold; cursor: pointer; float:left; padding: 8px 10px; border-radius: 5px; 
             					border: solid 1px; margin-right: 15px; overflow: hidden; display: inherit; width: fit-content; margin-top: 15px;">
-            					<fa-icon class="g-color-red--hover" (click)="removeCommunityCactivity(cactivity.id, community.id)" [icon]="'times'"></fa-icon>
+            					<fa-icon class="g-color-red--hover" *ngIf="owner === community.userId" (click)="removeCommunityCactivity(cactivity.id, community.id)" [icon]="'times'"></fa-icon>
 								<span [routerLink]="['/cactivity', cactivity.id, 'view' ]" style="padding-left: 10px;">
 									{{cactivity.activityName}}
 								</span>
@@ -107,7 +107,7 @@
 								class="g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-white--hover" 
             					style="font-size: 13px; font-weight: bold; cursor: pointer; float:left; padding: 8px 10px; border-radius: 5px; 
             					border: solid 1px; margin-right: 15px; overflow: hidden; display: inherit; width: fit-content; margin-top: 15px;">
-            					<fa-icon class="g-color-red--hover" (click)="removeCommunityCceleb(cceleb.id, community.id)" [icon]="'times'"></fa-icon>
+            					<fa-icon class="g-color-red--hover" *ngIf="owner === community.userId" (click)="removeCommunityCceleb(cceleb.id, community.id)" [icon]="'times'"></fa-icon>
 								<span [routerLink]="['/cceleb', cceleb.id, 'view' ]" style="padding-left: 10px;">
 									{{cceleb.celebName}}
 								</span>

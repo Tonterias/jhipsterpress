@@ -134,14 +134,14 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.topicService.query().subscribe(
             (res: HttpResponse<ITopic[]>) => {
                 this.topics = res.body;
-                console.log('CONSOLOG: M:ngOnInit & O: this.blogs : ', this.topics);
+                //                console.log('CONSOLOG: M:ngOnInit & O: this.blogs : ', this.topics);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
         this.configVariablesService.query().subscribe(
             (res: HttpResponse<IConfigVariables[]>) => {
                 this.configVariable = res.body[0];
-                console.log('CONSOLOG: M:ngOnInit & O: this.configVariable : ', this.configVariable.configVarLong1);
+                //                console.log('CONSOLOG: M:ngOnInit & O: this.configVariable : ', this.configVariable.configVarLong1);
                 this.loadAll();
             },
             (res: HttpErrorResponse) => this.onError(res.message)
@@ -182,7 +182,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         // this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = 1;
         this.frontpageconfigs.push(data);
-        console.log('CONSOLOG: M:paginateFrontpageconfigs & O: this.frontpageconfigs : ', this.frontpageconfigs);
+        //        console.log('CONSOLOG: M:paginateFrontpageconfigs & O: this.frontpageconfigs : ', this.frontpageconfigs);
     }
 
     protected onError(errorMessage: string) {

@@ -147,7 +147,7 @@ export class CmessageComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.accountService.identity().then(account => {
             this.currentAccount = account;
-            console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount);
             this.myCmessages();
         });
         this.loadAll();
@@ -162,7 +162,7 @@ export class CmessageComponent implements OnInit, OnDestroy {
         this.communityService.query(query).subscribe(
             (res: HttpResponse<ICommunity[]>) => {
                 this.communities = res.body;
-                console.log('CONSOLOG: M:loginData & O: this.communities : ', this.communities);
+                //                console.log('CONSOLOG: M:loginData & O: this.communities : ', this.communities);
                 const query2 = {
                     page: this.page - 1,
                     size: this.itemsPerPage,
@@ -181,7 +181,7 @@ export class CmessageComponent implements OnInit, OnDestroy {
                     (res2: HttpResponse<ICmessage[]>) => {
                         this.cmessages = res2.body;
                         this.paginateCmessages(res2.body, res2.headers);
-                        console.log('CONSOLOG: M:myUserMessages & O: this.cmessages : ', this.cmessages);
+                        //                        console.log('CONSOLOG: M:myUserMessages & O: this.cmessages : ', this.cmessages);
                         this.isDeliveredUpdate(this.cmessages);
                     },
                     (res2: HttpErrorResponse) => this.onError(res2.message)
@@ -194,15 +194,15 @@ export class CmessageComponent implements OnInit, OnDestroy {
     isDeliveredUpdate(cmessages: ICmessage[]) {
         this.isSaving = true;
         this.cmessages.forEach(cmessage => {
-            console.log('CONSOLOG: M:isDeliveredUpdate & O: cmessages PRE-Date : ', cmessages);
+            //            console.log('CONSOLOG: M:isDeliveredUpdate & O: cmessages PRE-Date : ', cmessages);
             this.creationDate = moment(cmessage.creationDate).format(DATE_TIME_FORMAT);
-            console.log('CONSOLOG: M:isDeliveredUpdate & O: this.notificationDate : ', this.creationDate);
-            console.log('CONSOLOG: M:isDeliveredUpdate & O: notifications POST-Date : ', cmessages);
+            //            console.log('CONSOLOG: M:isDeliveredUpdate & O: this.notificationDate : ', this.creationDate);
+            //            console.log('CONSOLOG: M:isDeliveredUpdate & O: notifications POST-Date : ', cmessages);
             cmessage.isDelivered = true;
             //            this.notificationService.update(notification);
             this.subscribeToSaveResponse(this.cmessageService.update(cmessage));
             //            this.subscribeToSaveResponse(this.notificationService.update(notification));
-            console.log('CONSOLOG: M:isDeliveredUpdate & O: cmessages : ', cmessages);
+            //            console.log('CONSOLOG: M:isDeliveredUpdate & O: cmessages : ', cmessages);
         });
     }
 
@@ -240,10 +240,10 @@ export class CmessageComponent implements OnInit, OnDestroy {
 
     protected paginateCmessages(data: ICmessage[], headers: HttpHeaders) {
         this.links = this.parseLinks.parse(headers.get('link'));
-        console.log(
-            'CONSOLOG: M:paginateCmessages & O: parseInt(headers.get(X-Total-Count), 10) : ',
-            parseInt(headers.get('X-Total-Count'), 10)
-        );
+        //        console.log(
+        //            'CONSOLOG: M:paginateCmessages & O: parseInt(headers.get(X-Total-Count), 10) : ',
+        //            parseInt(headers.get('X-Total-Count'), 10)
+        //        );
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.cmessages = data;
     }

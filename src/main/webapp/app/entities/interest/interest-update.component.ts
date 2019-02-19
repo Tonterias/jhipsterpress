@@ -54,8 +54,8 @@ export class InterestUpdateComponent implements OnInit {
             if (params.uprofileIdEquals != null) {
                 this.nameParamUprofileId = 'uprofile.userId';
                 this.valueParamUprofileId = params.uprofileIdEquals;
-                console.log('CONSOLOG: M:constructor & O: this.nameParamUprofileId : ', this.nameParamUprofileId);
-                console.log('CONSOLOG: M:constructor & O: this.valueParamUprofileId : ', this.valueParamUprofileId);
+                //                console.log('CONSOLOG: M:constructor & O: this.nameParamUprofileId : ', this.nameParamUprofileId);
+                //                console.log('CONSOLOG: M:constructor & O: this.valueParamUprofileId : ', this.valueParamUprofileId);
             }
         });
     }
@@ -64,8 +64,8 @@ export class InterestUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ interest }) => {
             this.interest = interest;
-            console.log('CONSOLOG: M:ngOnInit & O: this.interest : ', this.interest);
-            console.log('CONSOLOG: M:ngOnInit & O: this.predicate : ', this.predicate);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.interest : ', this.interest);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.predicate : ', this.predicate);
         });
         this.accountService.identity().then(account => {
             this.currentAccount = account;
@@ -88,7 +88,7 @@ export class InterestUpdateComponent implements OnInit {
         this.uprofileService.query(query).subscribe(
             (res: HttpResponse<IUprofile[]>) => {
                 this.uprofiles = res.body;
-                console.log('CONSOLOG: M:myProfiles & O: res.body : ', res.body);
+                //                console.log('CONSOLOG: M:myProfiles & O: res.body : ', res.body);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -104,7 +104,7 @@ export class InterestUpdateComponent implements OnInit {
             this.subscribeToSaveResponse(this.interestService.update(this.interest));
         } else {
             this.interest.uprofiles = this.uprofiles;
-            console.log('CONSOLOG: M:save & O: this.interest : ', this.interest);
+            //            console.log('CONSOLOG: M:save & O: this.interest : ', this.interest);
             this.subscribeToSaveResponse(this.interestService.create(this.interest));
         }
     }
@@ -137,34 +137,34 @@ export class InterestUpdateComponent implements OnInit {
     }
 
     addExistingProfileInterest(interestId) {
-        console.log(
-            'CONSOLOG: M:addExistingProfileInterest & interestId: ',
-            interestId,
-            ', uprofileId : ',
-            this.nameParamUprofileId,
-            ' &:',
-            this.valueParamUprofileId
-        );
+        //        console.log(
+        //            'CONSOLOG: M:addExistingProfileInterest & interestId: ',
+        //            interestId,
+        //            ', uprofileId : ',
+        //            this.nameParamUprofileId,
+        //            ' &:',
+        //            this.valueParamUprofileId
+        //        );
         this.isSaving = true;
         if (interestId !== undefined) {
             const query = {};
             query['id.equals'] = interestId;
-            console.log('CONSOLOG: M:addExistingProfileInterest & O: query : ', query);
+            //            console.log('CONSOLOG: M:addExistingProfileInterest & O: query : ', query);
             this.interestService.query(query).subscribe(
                 (res: HttpResponse<IInterest[]>) => {
                     this.interests = res.body;
-                    console.log('CONSOLOG: M:addExistingProfileInterest & O: res.body : ', res.body);
-                    console.log('CONSOLOG: M:addExistingProfileInterest & O: this.interestss : ', this.interests);
+                    //                    console.log('CONSOLOG: M:addExistingProfileInterest & O: res.body : ', res.body);
+                    //                    console.log('CONSOLOG: M:addExistingProfileInterest & O: this.interestss : ', this.interests);
                     const query2 = {};
                     if (this.valueParamUprofileId != null) {
                         query2['id.equals'] = this.valueParamUprofileId;
                     }
-                    console.log('CONSOLOG: M:addExistingProfileInterest & O: query2 : ', query2);
+                    //                    console.log('CONSOLOG: M:addExistingProfileInterest & O: query2 : ', query2);
                     this.uprofileService.query(query2).subscribe(
                         (res2: HttpResponse<IUprofile[]>) => {
                             this.interests[0].uprofiles.push(res2.body[0]);
-                            console.log('CONSOLOG: M:addExistingProfileInterest & O: res2.body : ', res2.body);
-                            console.log('CONSOLOG: M:addExistingProfileInterest & O: this.interests : ', this.interests);
+                            //                            console.log('CONSOLOG: M:addExistingProfileInterest & O: res2.body : ', res2.body);
+                            //                            console.log('CONSOLOG: M:addExistingProfileInterest & O: this.interests : ', this.interests);
                             this.subscribeToSaveResponse(this.interestService.update(this.interests[0]));
                         },
                         (res2: HttpErrorResponse) => this.onError(res2.message)
@@ -240,8 +240,8 @@ export class InterestUpdateComponent implements OnInit {
         if (this.totalItems === 0) {
             this.interest.interestName = this.currentSearch;
         }
-        console.log('CONSOLOG: M:paginateInterests & O: this.totalItems : ', this.totalItems);
-        console.log('CONSOLOG: M:paginateInterests & O: this.interests : ', this.interests);
+        //        console.log('CONSOLOG: M:paginateInterests & O: this.totalItems : ', this.totalItems);
+        //        console.log('CONSOLOG: M:paginateInterests & O: this.interests : ', this.interests);
     }
 
     protected subscribeToSaveResponse(result: Observable<HttpResponse<IInterest>>) {

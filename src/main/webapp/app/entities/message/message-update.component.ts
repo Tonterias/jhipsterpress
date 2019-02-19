@@ -63,7 +63,7 @@ export class MessageUpdateComponent implements OnInit {
             if (params.uprofileIdEquals != null) {
                 this.nameParamFollows = 'uprofileId';
                 this.valueParamFollows = params.uprofileIdEquals;
-                console.log('CONSOLOG: M:ngOnInit & O: this.activatedRoute.queryParams : ', this.nameParamFollows, this.valueParamFollows);
+                //                console.log('CONSOLOG: M:ngOnInit & O: this.activatedRoute.queryParams : ', this.nameParamFollows, this.valueParamFollows);
             }
         });
     }
@@ -99,20 +99,20 @@ export class MessageUpdateComponent implements OnInit {
                 (res: HttpResponse<IUprofile[]>) => {
                     this.message.receiverId = res.body[0].userId;
                     this.blockeduserId = res.body[0].userId;
-                    console.log('CONSOLOG: M:ngOnInit & O: this.message.receiverId:', this.message.receiverId);
+                    //                    console.log('CONSOLOG: M:ngOnInit & O: this.message.receiverId:', this.message.receiverId);
                     this.accountService.identity().then(account => {
                         this.currentAccount = account;
                         this.message.senderId = this.currentAccount.id;
-                        console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount);
+                        //                        console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount);
                         this.isBlockUser().subscribe(
                             (res2: HttpResponse<IBlockuser[]>) => {
                                 this.blockusers = res2.body;
-                                console.log('CONSOLOG: M:currentLoggedProfile & O:  this.blockusers : ', this.blockusers);
+                                //                                console.log('CONSOLOG: M:currentLoggedProfile & O:  this.blockusers : ', this.blockusers);
                                 if (this.blockusers.length > 0) {
                                     this.isAllowedUser = false;
                                     this.valueParamFollows = null;
                                     //                                    this.onWarning('BLOCKED BY USER');
-                                    console.log('CONSOLOG: M:currentLoggedProfile & O:  this.isAllowedUser : ', this.isAllowedUser);
+                                    //                                    console.log('CONSOLOG: M:currentLoggedProfile & O:  this.isAllowedUser : ', this.isAllowedUser);
                                     return this.blockusers[0];
                                 }
                             },
@@ -137,7 +137,7 @@ export class MessageUpdateComponent implements OnInit {
         } else {
             if (this.message.receiverId !== undefined) {
                 if (this.isAllowedUser === true) {
-                    console.log('CONSOLOG: M:save & O: this.isBlockUser.length : NO-BLOCKED ', this.isBlockUser.length);
+                    //                    console.log('CONSOLOG: M:save & O: this.isBlockUser.length : NO-BLOCKED ', this.isBlockUser.length);
                     this.subscribeToSaveResponse(this.messageService.create(this.message));
                 }
             }
@@ -151,7 +151,7 @@ export class MessageUpdateComponent implements OnInit {
             query['blockeduserId.in'] = this.blockeduserId;
             query['blockinguserId.in'] = this.currentAccount.id;
         }
-        console.log('CONSOLOG: M:isBlockUser & O: query : ', query);
+        //        console.log('CONSOLOG: M:isBlockUser & O: query : ', query);
         return this.blockuserService.query(query);
     }
 

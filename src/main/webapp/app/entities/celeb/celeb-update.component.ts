@@ -54,8 +54,8 @@ export class CelebUpdateComponent implements OnInit {
             if (params.uprofileIdEquals != null) {
                 this.nameParamUprofileId = 'uprofile.userId';
                 this.valueParamUprofileId = params.uprofileIdEquals;
-                console.log('CONSOLOG: M:constructor & O: this.nameParamUprofileId : ', this.nameParamUprofileId);
-                console.log('CONSOLOG: M:constructor & O: this.valueParamUprofileId : ', this.valueParamUprofileId);
+                //                console.log('CONSOLOG: M:constructor & O: this.nameParamUprofileId : ', this.nameParamUprofileId);
+                //                console.log('CONSOLOG: M:constructor & O: this.valueParamUprofileId : ', this.valueParamUprofileId);
             }
         });
     }
@@ -64,8 +64,8 @@ export class CelebUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ celeb }) => {
             this.celeb = celeb;
-            console.log('CONSOLOG: M:ngOnInit & O: this.celeb : ', this.celeb);
-            console.log('CONSOLOG: M:ngOnInit & O: this.predicate : ', this.predicate);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.celeb : ', this.celeb);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.predicate : ', this.predicate);
         });
         this.accountService.identity().then(account => {
             this.currentAccount = account;
@@ -88,7 +88,7 @@ export class CelebUpdateComponent implements OnInit {
         this.uprofileService.query(query).subscribe(
             (res: HttpResponse<IUprofile[]>) => {
                 this.uprofiles = res.body;
-                console.log('CONSOLOG: M:myProfiles & O: res.body : ', res.body);
+                //                console.log('CONSOLOG: M:myProfiles & O: res.body : ', res.body);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -104,7 +104,7 @@ export class CelebUpdateComponent implements OnInit {
             this.subscribeToSaveResponse(this.celebService.update(this.celeb));
         } else {
             this.celeb.uprofiles = this.uprofiles;
-            console.log('CONSOLOG: M:save & O: this.celeb : ', this.celeb);
+            //            console.log('CONSOLOG: M:save & O: this.celeb : ', this.celeb);
             this.subscribeToSaveResponse(this.celebService.create(this.celeb));
         }
     }
@@ -137,34 +137,34 @@ export class CelebUpdateComponent implements OnInit {
     }
 
     addExistingProfileCeleb(celebId) {
-        console.log(
-            'CONSOLOG: M:addExistingProfileCeleb & celebId: ',
-            celebId,
-            ', uprofileId : ',
-            this.nameParamUprofileId,
-            ' &:',
-            this.valueParamUprofileId
-        );
+        //        console.log(
+        //            'CONSOLOG: M:addExistingProfileCeleb & celebId: ',
+        //            celebId,
+        //            ', uprofileId : ',
+        //            this.nameParamUprofileId,
+        //            ' &:',
+        //            this.valueParamUprofileId
+        //        );
         this.isSaving = true;
         if (celebId !== undefined) {
             const query = {};
             query['id.equals'] = celebId;
-            console.log('CONSOLOG: M:addExistingProfileInterest & O: query : ', query);
+            //            console.log('CONSOLOG: M:addExistingProfileInterest & O: query : ', query);
             this.celebService.query(query).subscribe(
                 (res: HttpResponse<ICeleb[]>) => {
                     this.celebs = res.body;
-                    console.log('CONSOLOG: M:addExistingProfileInterest & O: res.body : ', res.body);
-                    console.log('CONSOLOG: M:addExistingProfileInterest & O: this.celebs : ', this.celebs);
+                    //                    console.log('CONSOLOG: M:addExistingProfileInterest & O: res.body : ', res.body);
+                    //                    console.log('CONSOLOG: M:addExistingProfileInterest & O: this.celebs : ', this.celebs);
                     const query2 = {};
                     if (this.valueParamUprofileId != null) {
                         query2['id.equals'] = this.valueParamUprofileId;
                     }
-                    console.log('CONSOLOG: M:addExistingProfileInterest & O: query2 : ', query2);
+                    //                    console.log('CONSOLOG: M:addExistingProfileInterest & O: query2 : ', query2);
                     this.uprofileService.query(query2).subscribe(
                         (res2: HttpResponse<IUprofile[]>) => {
                             this.celebs[0].uprofiles.push(res2.body[0]);
-                            console.log('CONSOLOG: M:addExistingProfileInterest & O: res2.body : ', res2.body);
-                            console.log('CONSOLOG: M:addExistingProfileInterest & O: this.celebs : ', this.celebs);
+                            //                            console.log('CONSOLOG: M:addExistingProfileInterest & O: res2.body : ', res2.body);
+                            //                            console.log('CONSOLOG: M:addExistingProfileInterest & O: this.celebs : ', this.celebs);
                             this.subscribeToSaveResponse(this.celebService.update(this.celebs[0]));
                         },
                         (res2: HttpErrorResponse) => this.onError(res2.message)
@@ -240,8 +240,8 @@ export class CelebUpdateComponent implements OnInit {
         if (this.totalItems === 0) {
             this.celeb.celebName = this.currentSearch;
         }
-        console.log('CONSOLOG: M:paginateActivities & O: this.totalItems : ', this.totalItems);
-        console.log('CONSOLOG: M:paginateActivities & O: this.celebs : ', this.celebs);
+        //        console.log('CONSOLOG: M:paginateActivities & O: this.totalItems : ', this.totalItems);
+        //        console.log('CONSOLOG: M:paginateActivities & O: this.celebs : ', this.celebs);
     }
 
     protected subscribeToSaveResponse(result: Observable<HttpResponse<ICeleb>>) {

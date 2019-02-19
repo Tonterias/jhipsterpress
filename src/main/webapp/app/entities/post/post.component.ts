@@ -128,7 +128,7 @@ export class PostComponent implements OnInit, OnDestroy {
                 this.arrayIds.push(x.id);
             }
         });
-        console.log('CONSOLOG: M:filterInterests & O: this.follows : ', this.arrayIds, this.arrayAux);
+        //        console.log('CONSOLOG: M:filterInterests & O: this.follows : ', this.arrayIds, this.arrayAux);
         return this.arrayAux;
     }
 
@@ -238,7 +238,7 @@ export class PostComponent implements OnInit, OnDestroy {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.posts = data;
-        console.log('CONSOLOG: M:ngOnInit & O: this.posts : ', this.posts);
+        //        console.log('CONSOLOG: M:ngOnInit & O: this.posts : ', this.posts);
     }
 
     protected onError(errorMessage: string) {

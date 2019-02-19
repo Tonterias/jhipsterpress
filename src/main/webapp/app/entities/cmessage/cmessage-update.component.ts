@@ -61,11 +61,11 @@ export class CmessageUpdateComponent implements OnInit {
             if (params.communityIdEquals != null) {
                 this.nameParamFollows = 'communityId';
                 this.valueParamFollows = params.communityIdEquals;
-                console.log(
-                    'CONSOLOG: M:Constructor & O: this.activatedRoute.queryParams : ',
-                    this.nameParamFollows,
-                    this.valueParamFollows
-                );
+                //                console.log(
+                //                    'CONSOLOG: M:Constructor & O: this.activatedRoute.queryParams : ',
+                //                    this.nameParamFollows,
+                //                    this.valueParamFollows
+                //                );
             }
         });
     }
@@ -76,22 +76,22 @@ export class CmessageUpdateComponent implements OnInit {
             this.cmessage = cmessage;
             this.creationDate = moment().format(DATE_TIME_FORMAT);
             this.cmessage.creationDate = moment(this.creationDate);
-            console.log('CONSOLOG: M:ngOnInit & O: this.cmessage : ', this.cmessage);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.cmessage : ', this.cmessage);
             this.cmessage.creceiverId = Number(this.valueParamFollows);
         });
         this.accountService.identity().then(account => {
             this.currentAccount = account;
             this.cmessage.csenderId = this.currentAccount.id;
-            console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount);
             this.isBlockUser().subscribe(
                 (res: HttpResponse<IBlockuser[]>) => {
                     this.blockusers = res.body;
-                    console.log('CONSOLOG: M:currentLoggedProfile & O:  this.blockusers : ', this.blockusers);
+                    //                    console.log('CONSOLOG: M:currentLoggedProfile & O:  this.blockusers : ', this.blockusers);
                     if (this.blockusers.length > 0) {
                         this.isBlocked = true;
                         this.valueParamFollows = null;
                         this.onWarning('BLOCKED BY USER');
-                        console.log('CONSOLOG: M:currentLoggedProfile & O:  this.isBlocked : ', this.isBlocked);
+                        //                        console.log('CONSOLOG: M:currentLoggedProfile & O:  this.isBlocked : ', this.isBlocked);
                         return this.blockusers[0];
                     }
                 },
@@ -120,7 +120,7 @@ export class CmessageUpdateComponent implements OnInit {
         } else {
             if (this.cmessage.creceiverId !== undefined) {
                 if (this.isBlocked === false) {
-                    console.log('CONSOLOG: M:save & O: this.isBlockUser.length : NO-BLOCKED ', this.isBlockUser.length);
+                    //                    console.log('CONSOLOG: M:save & O: this.isBlockUser.length : NO-BLOCKED ', this.isBlockUser.length);
                     this.subscribeToSaveResponse(this.cmessageService.create(this.cmessage));
                 }
             }
@@ -134,7 +134,7 @@ export class CmessageUpdateComponent implements OnInit {
             query['blockeduserId.in'] = Number(this.valueParamFollows);
             query['blockinguserId.in'] = this.currentAccount.id;
         }
-        console.log('CONSOLOG: M:isBlockUser & O: query : ', query);
+        //        console.log('CONSOLOG: M:isBlockUser & O: query : ', query);
         return this.blockuserService.query(query);
     }
 
@@ -156,9 +156,9 @@ export class CmessageUpdateComponent implements OnInit {
     }
 
     private onWarning(errorMessage: string) {
-        console.log('CONSOLOG: M:onWarning & O:  errorMessage : ', errorMessage);
+        //        console.log('CONSOLOG: M:onWarning & O:  errorMessage : ', errorMessage);
         this.alerts = [];
-        console.log('CONSOLOG: M:onWarning & O:  this.alerts : ', this.alerts);
+        //        console.log('CONSOLOG: M:onWarning & O:  this.alerts : ', this.alerts);
         this.alerts.push(
             this.jhiAlertService.addAlert(
                 {
@@ -171,7 +171,7 @@ export class CmessageUpdateComponent implements OnInit {
                 this.alerts
             )
         );
-        console.log('CONSOLOG: M:onWarning & O:  this.alerts2 : ', this.alerts);
+        //        console.log('CONSOLOG: M:onWarning & O:  this.alerts2 : ', this.alerts);
     }
 
     trackCommunityById(index: number, item: ICommunity) {

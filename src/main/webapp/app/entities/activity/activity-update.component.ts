@@ -53,8 +53,8 @@ export class ActivityUpdateComponent implements OnInit {
             if (params.uprofileIdEquals != null) {
                 this.nameParamUprofileId = 'uprofile.userId';
                 this.valueParamUprofileId = params.uprofileIdEquals;
-                console.log('CONSOLOG: M:constructor & O: this.nameParamUprofileId : ', this.nameParamUprofileId);
-                console.log('CONSOLOG: M:constructor & O: this.valueParamUprofileId : ', this.valueParamUprofileId);
+                //                console.log('CONSOLOG: M:constructor & O: this.nameParamUprofileId : ', this.nameParamUprofileId);
+                //                console.log('CONSOLOG: M:constructor & O: this.valueParamUprofileId : ', this.valueParamUprofileId);
             }
         });
     }
@@ -63,8 +63,8 @@ export class ActivityUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ activity }) => {
             this.activity = activity;
-            console.log('CONSOLOG: M:ngOnInit & O: this.activity : ', this.activity);
-            console.log('CONSOLOG: M:ngOnInit & O: this.predicate : ', this.predicate);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.activity : ', this.activity);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.predicate : ', this.predicate);
         });
         this.accountService.identity().then(account => {
             this.currentAccount = account;
@@ -80,7 +80,7 @@ export class ActivityUpdateComponent implements OnInit {
         this.uprofileService.query(query).subscribe(
             (res: HttpResponse<IUprofile[]>) => {
                 this.uprofiles = res.body;
-                console.log('CONSOLOG: M:myProfiles & O: res.body : ', res.body);
+                //                console.log('CONSOLOG: M:myProfiles & O: res.body : ', res.body);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -96,7 +96,7 @@ export class ActivityUpdateComponent implements OnInit {
             this.subscribeToSaveResponse(this.activityService.update(this.activity));
         } else {
             this.activity.uprofiles = this.uprofiles;
-            console.log('CONSOLOG: M:save & O: this.activity : ', this.activity);
+            //            console.log('CONSOLOG: M:save & O: this.activity : ', this.activity);
             this.subscribeToSaveResponse(this.activityService.create(this.activity));
         }
     }
@@ -130,7 +130,7 @@ export class ActivityUpdateComponent implements OnInit {
 
     addExistingProfileActivity(activityId) {
         console.log(
-            'CONSOLOG: M:addExistingProfileActivity & ActivityId: ',
+            //            'CONSOLOG: M:addExistingProfileActivity & ActivityId: ',
             activityId,
             ', uprofileId : ',
             this.nameParamUprofileId,
@@ -141,22 +141,22 @@ export class ActivityUpdateComponent implements OnInit {
         if (activityId !== undefined) {
             const query = {};
             query['id.equals'] = activityId;
-            console.log('CONSOLOG: M:addExistingProfileInterest & O: query : ', query);
+            //            console.log('CONSOLOG: M:addExistingProfileInterest & O: query : ', query);
             this.activityService.query(query).subscribe(
                 (res: HttpResponse<IActivity[]>) => {
                     this.activities = res.body;
-                    console.log('CONSOLOG: M:addExistingProfileActivity & O: res.body : ', res.body);
-                    console.log('CONSOLOG: M:addExistingProfileActivity & O: this.Activityss : ', this.activities);
+                    //                    console.log('CONSOLOG: M:addExistingProfileActivity & O: res.body : ', res.body);
+                    //                    console.log('CONSOLOG: M:addExistingProfileActivity & O: this.Activityss : ', this.activities);
                     const query2 = {};
                     if (this.valueParamUprofileId != null) {
                         query2['id.equals'] = this.valueParamUprofileId;
                     }
-                    console.log('CONSOLOG: M:addExistingProfileActivity & O: query2 : ', query2);
+                    //                    console.log('CONSOLOG: M:addExistingProfileActivity & O: query2 : ', query2);
                     this.uprofileService.query(query2).subscribe(
                         (res2: HttpResponse<IUprofile[]>) => {
                             this.activities[0].uprofiles.push(res2.body[0]);
-                            console.log('CONSOLOG: M:addExistingProfileActivity & O: res2.body : ', res2.body);
-                            console.log('CONSOLOG: M:addExistingProfileActivity & O: this.Activitys : ', this.activities);
+                            //                            console.log('CONSOLOG: M:addExistingProfileActivity & O: res2.body : ', res2.body);
+                            //                            console.log('CONSOLOG: M:addExistingProfileActivity & O: this.Activitys : ', this.activities);
                             this.subscribeToSaveResponse(this.activityService.update(this.activities[0]));
                         },
                         (res2: HttpErrorResponse) => this.onError(res2.message)
@@ -232,8 +232,8 @@ export class ActivityUpdateComponent implements OnInit {
         if (this.totalItems === 0) {
             this.activity.activityName = this.currentSearch;
         }
-        console.log('CONSOLOG: M:paginateActivities & O: this.totalItems : ', this.totalItems);
-        console.log('CONSOLOG: M:paginateActivities & O: this.activities : ', this.activities);
+        //        console.log('CONSOLOG: M:paginateActivities & O: this.totalItems : ', this.totalItems);
+        //        console.log('CONSOLOG: M:paginateActivities & O: this.activities : ', this.activities);
     }
 
     protected subscribeToSaveResponse(result: Observable<HttpResponse<IActivity>>) {

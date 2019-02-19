@@ -15,7 +15,7 @@ export class InterestDetailComponent implements OnInit {
     ngOnInit() {
         this.activatedRoute.data.subscribe(({ interest }) => {
             this.interest = interest;
-            console.log('CONSOLOG: M:ngOnInit & O: this.interest : ', this.interest);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.interest : ', this.interest);
         });
     }
 

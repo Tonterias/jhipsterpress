@@ -75,11 +75,11 @@ export class CalbumUpdateComponent implements OnInit {
         this.communityService.query(query).subscribe(
             (res: HttpResponse<ICommunity[]>) => {
                 this.communities = res.body;
-                console.log('CONSOLOG: M:myCommunities & O: res.body : ', res.body);
+                //                console.log('CONSOLOG: M:myCommunities & O: res.body : ', res.body);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        console.log('CONSOLOG: M:myCommunities & O: this.currentAccount.id : ', this.currentAccount.id);
+        //        console.log('CONSOLOG: M:myCommunities & O: this.currentAccount.id : ', this.currentAccount.id);
     }
 
     protected subscribeToSaveResponse(result: Observable<HttpResponse<ICalbum>>) {

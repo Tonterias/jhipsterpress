@@ -75,7 +75,7 @@ export class FollowingComponent implements OnInit, OnDestroy {
             size: this.itemsPerPage,
             sort: this.sort()
         };
-        console.log('CONSOLOG: M:loadAll & O: this.followedUserId : ', this.followerId);
+        //        console.log('CONSOLOG: M:loadAll & O: this.followedUserId : ', this.followerId);
         query[this.nameParamFollows] = this.followerId;
         this.followService
             .query(query)
@@ -83,7 +83,7 @@ export class FollowingComponent implements OnInit, OnDestroy {
                 (res: HttpResponse<IFollow[]>) => this.paginateFollows(res.body, res.headers),
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
-        console.log('CONSOLOG: M:loadAll & O: this.query : ', query);
+        //        console.log('CONSOLOG: M:loadAll & O: this.query : ', query);
     }
 
     loadPage(page: number) {
@@ -127,10 +127,10 @@ export class FollowingComponent implements OnInit, OnDestroy {
                 this.uprofileService.query(query).subscribe(
                     (res: HttpResponse<IUprofile[]>) => {
                         this.uprofiles = res.body;
-                        console.log('CONSOLOG: M:ngOnInit & O: this.uprofiles : ', this.uprofiles);
+                        //                        console.log('CONSOLOG: M:ngOnInit & O: this.uprofiles : ', this.uprofiles);
                         this.uprofiles.forEach(profile => {
                             this.followerId = profile.userId;
-                            console.log('CONSOLOG: M:ngOnInit & O: this.followerId : ', this.followerId);
+                            //                            console.log('CONSOLOG: M:ngOnInit & O: this.followerId : ', this.followerId);
                             this.loadAll();
                         });
                     },
@@ -139,9 +139,9 @@ export class FollowingComponent implements OnInit, OnDestroy {
             });
         }
         if (this.communityQuery === true) {
-            console.log('CONSOLOG: M:ngOnInit & O: ENTRO EN this.communityQuery === true');
+            //            console.log('CONSOLOG: M:ngOnInit & O: ENTRO EN this.communityQuery === true');
             this.followerId = this.valueParamFollows;
-            console.log('CONSOLOG: M:ngOnInit & O: this.valueParamFollows : ', this.valueParamFollows);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.valueParamFollows : ', this.valueParamFollows);
             this.loadAll();
         }
         this.registerChangeInFollows();
@@ -171,7 +171,7 @@ export class FollowingComponent implements OnInit, OnDestroy {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.follows = data;
-        console.log('CONSOLOG: M:paginateFollows & O: this.follows : ', this.follows);
+        //        console.log('CONSOLOG: M:paginateFollows & O: this.follows : ', this.follows);
     }
 
     private onError(errorMessage: string) {

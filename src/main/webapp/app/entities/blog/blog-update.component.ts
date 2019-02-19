@@ -44,7 +44,7 @@ export class BlogUpdateComponent implements OnInit {
         });
         this.accountService.identity().then(account => {
             this.currentAccount = account;
-            console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount);
             const query = {};
             if (this.currentAccount.id != null) {
                 query['userId.equals'] = this.currentAccount.id;
@@ -52,7 +52,7 @@ export class BlogUpdateComponent implements OnInit {
             this.communityService.query(query).subscribe(
                 (res: HttpResponse<ICommunity[]>) => {
                     this.communities = res.body;
-                    console.log('CONSOLOG: M:ngOnInit & O: this.blog : ', this.communities);
+                    //                    console.log('CONSOLOG: M:ngOnInit & O: this.blog : ', this.communities);
                 },
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
@@ -89,7 +89,7 @@ export class BlogUpdateComponent implements OnInit {
     save() {
         this.isSaving = true;
         this.blog.creationDate = this.creationDate != null ? moment(this.creationDate, DATE_TIME_FORMAT) : null;
-        console.log('CONSOLOG: M:save & O: this.blog : ', this.blog);
+        //        console.log('CONSOLOG: M:save & O: this.blog : ', this.blog);
         if (this.blog.id !== undefined) {
             this.subscribeToSaveResponse(this.blogService.update(this.blog));
         } else {

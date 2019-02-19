@@ -54,9 +54,9 @@ export class CinterestUpdateComponent implements OnInit {
             if (params.communityIdEquals != null) {
                 this.nameParamCommunityId = 'community.id';
                 this.valueParamCommunityId = params.communityIdEquals;
-                console.log('CONSOLOG: M:constructor & O: this.nameParamUprofileId : ', this.nameParamCommunityId);
-                console.log('CONSOLOG: M:constructor & O: this.valueParamUprofileId : ', this.valueParamCommunityId);
-                console.log('CONSOLOG: M:constructor & O: this.itemsPerPage : ', this.itemsPerPage);
+                //                console.log('CONSOLOG: M:constructor & O: this.nameParamUprofileId : ', this.nameParamCommunityId);
+                //                console.log('CONSOLOG: M:constructor & O: this.valueParamUprofileId : ', this.valueParamCommunityId);
+                //                console.log('CONSOLOG: M:constructor & O: this.itemsPerPage : ', this.itemsPerPage);
             }
         });
     }
@@ -65,8 +65,8 @@ export class CinterestUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ cinterest }) => {
             this.cinterest = cinterest;
-            console.log('CONSOLOG: M:ngOnInit & O: this.cinterest : ', this.cinterest);
-            console.log('CONSOLOG: M:ngOnInit & O: this.predicate : ', this.predicate);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.cinterest : ', this.cinterest);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.predicate : ', this.predicate);
         });
         this.accountService.identity().then(account => {
             this.currentAccount = account;
@@ -89,7 +89,7 @@ export class CinterestUpdateComponent implements OnInit {
         this.communityService.query(query).subscribe(
             (res: HttpResponse<ICommunity[]>) => {
                 this.communities = res.body;
-                console.log('CONSOLOG: M:myUserActivities & O: res.body : ', res.body);
+                //                console.log('CONSOLOG: M:myUserActivities & O: res.body : ', res.body);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -105,13 +105,13 @@ export class CinterestUpdateComponent implements OnInit {
             this.subscribeToSaveResponse(this.cinterestService.update(this.cinterest));
         } else {
             this.cinterest.communities = this.communities;
-            console.log('CONSOLOG: M:save & O: this.communities : ', this.communities);
+            //            console.log('CONSOLOG: M:save & O: this.communities : ', this.communities);
             this.subscribeToSaveResponse(this.cinterestService.create(this.cinterest));
         }
     }
 
     loadAll() {
-        console.log('CONSOLOG: M:loadAll & O: this.currentSearch : ', this.currentSearch);
+        //        console.log('CONSOLOG: M:loadAll & O: this.currentSearch : ', this.currentSearch);
         if (this.currentSearch) {
             this.cinterestService
                 .query({
@@ -139,34 +139,34 @@ export class CinterestUpdateComponent implements OnInit {
     }
 
     addExistingProfileCinterest(cinterestId) {
-        console.log(
-            'CONSOLOG: M:addExistingProfileInterest & interestId: ',
-            cinterestId,
-            ', uprofileId : ',
-            this.nameParamCommunityId,
-            ' &:',
-            this.valueParamCommunityId
-        );
+        //        console.log(
+        //            'CONSOLOG: M:addExistingProfileInterest & interestId: ',
+        //            cinterestId,
+        //            ', uprofileId : ',
+        //            this.nameParamCommunityId,
+        //            ' &:',
+        //            this.valueParamCommunityId
+        //        );
         this.isSaving = true;
         if (cinterestId !== undefined) {
             const query = {};
             query['id.equals'] = cinterestId;
-            console.log('CONSOLOG: M:addExistingProfileInterest & O: query : ', query);
+            //            console.log('CONSOLOG: M:addExistingProfileInterest & O: query : ', query);
             this.cinterestService.query(query).subscribe(
                 (res: HttpResponse<ICinterest[]>) => {
                     this.cinterests = res.body;
-                    console.log('CONSOLOG: M:addExistingProfileInterest & O: res.body : ', res.body);
-                    console.log('CONSOLOG: M:addExistingProfileInterest & O: this.cinterestss : ', this.cinterests);
+                    //                    console.log('CONSOLOG: M:addExistingProfileInterest & O: res.body : ', res.body);
+                    //                    console.log('CONSOLOG: M:addExistingProfileInterest & O: this.cinterestss : ', this.cinterests);
                     const query2 = {};
                     if (this.valueParamCommunityId != null) {
                         query2['id.equals'] = this.valueParamCommunityId;
                     }
-                    console.log('CONSOLOG: M:addExistingProfileInterest & O: query2 : ', query2);
+                    //                    console.log('CONSOLOG: M:addExistingProfileInterest & O: query2 : ', query2);
                     this.communityService.query(query2).subscribe(
                         (res2: HttpResponse<ICommunity[]>) => {
                             this.cinterests[0].communities.push(res2.body[0]);
-                            console.log('CONSOLOG: M:addExistingProfileInterest & O: res2.body : ', res2.body);
-                            console.log('CONSOLOG: M:addExistingProfileInterest & O: this.cinterests : ', this.cinterests);
+                            //                            console.log('CONSOLOG: M:addExistingProfileInterest & O: res2.body : ', res2.body);
+                            //                            console.log('CONSOLOG: M:addExistingProfileInterest & O: this.cinterests : ', this.cinterests);
                             this.subscribeToSaveResponse(this.cinterestService.update(this.cinterests[0]));
                         },
                         (res2: HttpErrorResponse) => this.onError(res2.message)
@@ -242,8 +242,8 @@ export class CinterestUpdateComponent implements OnInit {
         if (this.totalItems === 0) {
             this.cinterest.interestName = this.currentSearch;
         }
-        console.log('CONSOLOG: M:paginateActivities & O: this.totalItems : ', this.totalItems);
-        console.log('CONSOLOG: M:paginateActivities & O: this.interests : ', this.cinterests);
+        //        console.log('CONSOLOG: M:paginateActivities & O: this.totalItems : ', this.totalItems);
+        //        console.log('CONSOLOG: M:paginateActivities & O: this.interests : ', this.cinterests);
     }
 
     protected subscribeToSaveResponse(result: Observable<HttpResponse<ICinterest>>) {

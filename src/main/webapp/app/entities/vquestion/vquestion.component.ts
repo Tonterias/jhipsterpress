@@ -161,7 +161,7 @@ export class VquestionComponent implements OnInit, OnDestroy {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.vquestions = data;
-        console.log('CONSOLOG: M:paginateVquestions & O: this.vquestions : ', this.vquestions);
+        //        console.log('CONSOLOG: M:paginateVquestions & O: this.vquestions : ', this.vquestions);
     }
 
     protected onError(errorMessage: string) {

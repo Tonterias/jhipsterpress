@@ -112,7 +112,7 @@ export class CommunityComponent implements OnInit, OnDestroy {
                 this.arrayIds.push(x.id);
             }
         });
-        console.log('CONSOLOG: M:filterInterests & O: this.follows : ', this.arrayIds, this.arrayAux);
+        //        console.log('CONSOLOG: M:filterInterests & O: this.follows : ', this.arrayIds, this.arrayAux);
         return this.arrayAux;
     }
 
@@ -223,7 +223,7 @@ export class CommunityComponent implements OnInit, OnDestroy {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.communities = data;
-        console.log('CONSOLOG: M:paginateCommunities & O: this.communities : ', this.communities);
+        //        console.log('CONSOLOG: M:paginateCommunities & O: this.communities : ', this.communities);
     }
 
     protected onError(errorMessage: string) {

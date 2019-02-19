@@ -143,7 +143,7 @@ export class MessageComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.accountService.identity().then(account => {
             this.currentAccount = account;
-            console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount);
             this.myMessages();
         });
         this.registerChangeInMessages();
@@ -155,14 +155,14 @@ export class MessageComponent implements OnInit, OnDestroy {
             size: this.itemsPerPage,
             sort: this.sort()
         };
-        console.log('CONSOLOG: M:myMessages & O: query : ', query, this.itemsPerPage);
+        //        console.log('CONSOLOG: M:myMessages & O: query : ', query, this.itemsPerPage);
         if (this.currentAccount.id != null) {
             query['receiverId.equals'] = this.currentAccount.id;
         }
         this.messageService.query(query).subscribe(
             (res: HttpResponse<IMessage[]>) => {
                 this.messages = res.body;
-                console.log('CONSOLOG: M:myMessages & O: this.messages : ', this.messages);
+                //                console.log('CONSOLOG: M:myMessages & O: this.messages : ', this.messages);
                 this.isDeliveredUpdate(this.messages);
                 this.paginateMessages(res.body, res.headers);
             },
@@ -221,7 +221,7 @@ export class MessageComponent implements OnInit, OnDestroy {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.messages = data;
-        console.log('CONSOLOG: M:paginateMessages & O: this.messages : ', this.messages);
+        //        console.log('CONSOLOG: M:paginateMessages & O: this.messages : ', this.messages);
     }
 
     protected onError(errorMessage: string) {

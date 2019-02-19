@@ -208,13 +208,13 @@ export class NotificationComponent implements OnInit, OnDestroy {
         this.notifications.forEach(notification => {
             console.log('CONSOLOG: M:isDeliveredUpdate & O: notifications PRE-Date : ', notifications);
             this.notificationDate = moment(notification.notificationDate).format(DATE_TIME_FORMAT);
-            console.log('CONSOLOG: M:isDeliveredUpdate & O: this.notificationDate : ', this.notificationDate);
-            console.log('CONSOLOG: M:isDeliveredUpdate & O: notifications POST-Date : ', notifications);
+            //            console.log('CONSOLOG: M:isDeliveredUpdate & O: this.notificationDate : ', this.notificationDate);
+            //            console.log('CONSOLOG: M:isDeliveredUpdate & O: notifications POST-Date : ', notifications);
             notification.isDelivered = true;
             //            this.notificationService.update(notification);
             this.subscribeToSaveResponse(this.notificationService.update(notification));
             //            this.subscribeToSaveResponse(this.notificationService.update(notification));
-            console.log('CONSOLOG: M:isDeliveredUpdate & O: notifications : ', notifications);
+            //            console.log('CONSOLOG: M:isDeliveredUpdate & O: notifications : ', notifications);
         });
     }
 

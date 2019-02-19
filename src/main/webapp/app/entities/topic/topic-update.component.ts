@@ -55,9 +55,9 @@ export class TopicUpdateComponent implements OnInit {
                 this.nameParamPost = 'postId.equals';
                 this.valueParamPost = params.postIdEquals;
             }
-            console.log('CONSOLOG: M:constructor & O: this.nameParamPost : ', this.nameParamPost);
-            console.log('CONSOLOG: M:constructor & O: this.valueParamPost : ', this.valueParamPost);
-            console.log('CONSOLOG: M:constructor & O: this.itemsPerPage : ', this.itemsPerPage);
+            //            console.log('CONSOLOG: M:constructor & O: this.nameParamPost : ', this.nameParamPost);
+            //            console.log('CONSOLOG: M:constructor & O: this.valueParamPost : ', this.valueParamPost);
+            //            console.log('CONSOLOG: M:constructor & O: this.itemsPerPage : ', this.itemsPerPage);
         });
     }
 
@@ -65,8 +65,8 @@ export class TopicUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ topic }) => {
             this.topic = topic;
-            console.log('CONSOLOG: M:ngOnInit & O: this.topic : ', this.topic);
-            console.log('CONSOLOG: M:ngOnInit & O: this.predicate : ', this.predicate);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.topic : ', this.topic);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.predicate : ', this.predicate);
         });
         if (this.valueParamPost != null) {
             const query = {};
@@ -74,7 +74,7 @@ export class TopicUpdateComponent implements OnInit {
             this.postService.query(query).subscribe(
                 (res: HttpResponse<IPost[]>) => {
                     this.posts = res.body;
-                    console.log('CONSOLOG: M:ngOnInit & O: this.posts if1 : ', this.posts);
+                    //                    console.log('CONSOLOG: M:ngOnInit & O: this.posts if1 : ', this.posts);
                 },
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
@@ -82,7 +82,7 @@ export class TopicUpdateComponent implements OnInit {
             this.postService.query().subscribe(
                 (res: HttpResponse<IPost[]>) => {
                     this.posts = res.body;
-                    console.log('CONSOLOG: M:ngOnInit & O: this.posts else2 : ', this.posts);
+                    //                    console.log('CONSOLOG: M:ngOnInit & O: this.posts else2 : ', this.posts);
                 },
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
@@ -106,13 +106,13 @@ export class TopicUpdateComponent implements OnInit {
             this.subscribeToSaveResponse(this.topicService.update(this.topic));
         } else {
             this.topic.posts = this.posts;
-            console.log('CONSOLOG: M:save & O: this.posts : ', this.posts);
+            //            console.log('CONSOLOG: M:save & O: this.posts : ', this.posts);
             this.subscribeToSaveResponse(this.topicService.create(this.topic));
         }
     }
 
     loadAll() {
-        console.log('CONSOLOG: M:loadAll & O: this.currentSearch : ', this.currentSearch);
+        //        console.log('CONSOLOG: M:loadAll & O: this.currentSearch : ', this.currentSearch);
         if (this.currentSearch) {
             this.topicService
                 .query({
@@ -140,34 +140,34 @@ export class TopicUpdateComponent implements OnInit {
     }
 
     addExistingTopic2Post(topicId) {
-        console.log(
-            'CONSOLOG: M:addExistingProfileInterest & interestId: ',
-            topicId,
-            ', uprofileId : ',
-            this.nameParamPost,
-            ' &:',
-            this.valueParamPost
-        );
+        //        console.log(
+        //            'CONSOLOG: M:addExistingProfileInterest & interestId: ',
+        //            topicId,
+        //            ', uprofileId : ',
+        //            this.nameParamPost,
+        //            ' &:',
+        //            this.valueParamPost
+        //        );
         this.isSaving = true;
         if (topicId !== undefined) {
             const query = {};
             query['id.equals'] = topicId;
-            console.log('CONSOLOG: M:addExistingProfileInterest & O: query : ', query);
+            //            console.log('CONSOLOG: M:addExistingProfileInterest & O: query : ', query);
             this.topicService.query(query).subscribe(
                 (res: HttpResponse<ITopic[]>) => {
                     this.topics = res.body;
-                    console.log('CONSOLOG: M:addExistingProfileInterest & O: res.body : ', res.body);
-                    console.log('CONSOLOG: M:addExistingProfileInterest & O: this.topics : ', this.topics);
+                    //                    console.log('CONSOLOG: M:addExistingProfileInterest & O: res.body : ', res.body);
+                    //                    console.log('CONSOLOG: M:addExistingProfileInterest & O: this.topics : ', this.topics);
                     const query2 = {};
                     if (this.valueParamPost != null) {
                         query2['id.equals'] = this.valueParamPost;
                     }
-                    console.log('CONSOLOG: M:addExistingProfileInterest & O: query2 : ', query2);
+                    //                    console.log('CONSOLOG: M:addExistingProfileInterest & O: query2 : ', query2);
                     this.postService.query(query2).subscribe(
                         (res2: HttpResponse<IPost[]>) => {
                             this.topics[0].posts.push(res2.body[0]);
-                            console.log('CONSOLOG: M:addExistingProfileInterest & O: res2.body : ', res2.body);
-                            console.log('CONSOLOG: M:addExistingProfileInterest & O: this.topics : ', this.topics);
+                            //                            console.log('CONSOLOG: M:addExistingProfileInterest & O: res2.body : ', res2.body);
+                            //                            console.log('CONSOLOG: M:addExistingProfileInterest & O: this.topics : ', this.topics);
                             this.subscribeToSaveResponse(this.topicService.update(this.topics[0]));
                         },
                         (res2: HttpErrorResponse) => this.onError(res2.message)
@@ -243,8 +243,8 @@ export class TopicUpdateComponent implements OnInit {
         if (this.totalItems === 0) {
             this.topic.topicName = this.currentSearch;
         }
-        console.log('CONSOLOG: M:paginateActivities & O: this.totalItems : ', this.totalItems);
-        console.log('CONSOLOG: M:paginateActivities & O: this.interests : ', this.topics);
+        //        console.log('CONSOLOG: M:paginateActivities & O: this.totalItems : ', this.totalItems);
+        //        console.log('CONSOLOG: M:paginateActivities & O: this.interests : ', this.topics);
     }
 
     protected subscribeToSaveResponse(result: Observable<HttpResponse<ITopic>>) {

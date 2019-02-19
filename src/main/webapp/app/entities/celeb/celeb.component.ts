@@ -153,7 +153,7 @@ export class CelebComponent implements OnInit, OnDestroy {
         this.uprofileService.query(query).subscribe(
             (res: HttpResponse<IUprofile[]>) => {
                 this.uprofiles = res.body;
-                console.log('CONSOLOG: M:myProfiles & O: res.body : ', res.body);
+                //                console.log('CONSOLOG: M:myProfiles & O: res.body : ', res.body);
                 this.uprofileCelebs();
             },
             (res: HttpErrorResponse) => this.onError(res.message)
@@ -172,7 +172,7 @@ export class CelebComponent implements OnInit, OnDestroy {
         this.celebService.query(query).subscribe(
             (res: HttpResponse<ICeleb[]>) => {
                 this.celebs = res.body;
-                console.log('CONSOLOG: M:communitiesActivities & O: this.activities : ', this.celebs);
+                //                console.log('CONSOLOG: M:communitiesActivities & O: this.activities : ', this.celebs);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -202,9 +202,9 @@ export class CelebComponent implements OnInit, OnDestroy {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.celebs = data;
-        console.log('CONSOLOG: M:paginateActivities & O: this.celebs : ', this.celebs);
-        console.log('CONSOLOG: M:paginateActivities & O: this.owner : ', this.owner);
-        console.log('CONSOLOG: M:paginateActivities & O: this.isAdmin : ', this.isAdmin);
+        //        console.log('CONSOLOG: M:paginateActivities & O: this.celebs : ', this.celebs);
+        //        console.log('CONSOLOG: M:paginateActivities & O: this.owner : ', this.owner);
+        //        console.log('CONSOLOG: M:paginateActivities & O: this.isAdmin : ', this.isAdmin);
     }
 
     protected onError(errorMessage: string) {

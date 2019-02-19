@@ -53,7 +53,7 @@ export class CalbumDetailComponent implements OnInit {
             (res: HttpResponse<IPhoto[]>) => {
                 //                        this.photos = this.photos.concat(res.body);
                 this.photos = res.body;
-                console.log('CONSOLOG: M:paginatePhotos & O: this.photos : ', this.photos);
+                //                console.log('CONSOLOG: M:paginatePhotos & O: this.photos : ', this.photos);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

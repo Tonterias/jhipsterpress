@@ -130,7 +130,7 @@ export class VanswerComponent implements OnInit, OnDestroy {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.vanswers = data;
-        console.log('CONSOLOG: M:paginateVanswers & O: this.vanswers : ', this.vanswers);
+        //        console.log('CONSOLOG: M:paginateVanswers & O: this.vanswers : ', this.vanswers);
     }
 
     protected onError(errorMessage: string) {

@@ -153,7 +153,7 @@ export class CinterestComponent implements OnInit, OnDestroy {
         this.communityService.query(query).subscribe(
             (res: HttpResponse<ICommunity[]>) => {
                 this.communities = res.body;
-                console.log('CONSOLOG: M:myCactivities & O: res.body : ', res.body);
+                //                console.log('CONSOLOG: M:myCactivities & O: res.body : ', res.body);
                 this.communityCinterests();
             },
             (res: HttpErrorResponse) => this.onError(res.message)
@@ -172,7 +172,7 @@ export class CinterestComponent implements OnInit, OnDestroy {
         this.cinterestService.query(query).subscribe(
             (res: HttpResponse<ICommunity[]>) => {
                 this.cinterests = res.body;
-                console.log('CONSOLOG: M:communityCactivities & O: res.body : ', res.body);
+                //                console.log('CONSOLOG: M:communityCactivities & O: res.body : ', res.body);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -202,9 +202,9 @@ export class CinterestComponent implements OnInit, OnDestroy {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.cinterests = data;
-        console.log('CONSOLOG: M:paginateActivities & O: this.activities : ', this.cinterests);
-        console.log('CONSOLOG: M:paginateActivities & O: this.owner : ', this.owner);
-        console.log('CONSOLOG: M:paginateActivities & O: this.isAdmin : ', this.isAdmin);
+        //        console.log('CONSOLOG: M:paginateActivities & O: this.activities : ', this.cinterests);
+        //        console.log('CONSOLOG: M:paginateActivities & O: this.owner : ', this.owner);
+        //        console.log('CONSOLOG: M:paginateActivities & O: this.isAdmin : ', this.isAdmin);
     }
 
     protected onError(errorMessage: string) {

@@ -55,9 +55,9 @@ export class TagUpdateComponent implements OnInit {
                 this.nameParamPost = 'postId.equals';
                 this.valueParamPost = params.postIdEquals;
             }
-            console.log('CONSOLOG: M:constructor & O: this.nameParamPost : ', this.nameParamPost);
-            console.log('CONSOLOG: M:constructor & O: this.valueParamPost : ', this.valueParamPost);
-            console.log('CONSOLOG: M:constructor & O: this.itemsPerPage : ', this.itemsPerPage);
+            //            console.log('CONSOLOG: M:constructor & O: this.nameParamPost : ', this.nameParamPost);
+            //            console.log('CONSOLOG: M:constructor & O: this.valueParamPost : ', this.valueParamPost);
+            //            console.log('CONSOLOG: M:constructor & O: this.itemsPerPage : ', this.itemsPerPage);
         });
     }
 
@@ -65,8 +65,8 @@ export class TagUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ tag }) => {
             this.tag = tag;
-            console.log('CONSOLOG: M:ngOnInit & O: this.tag : ', this.tag);
-            console.log('CONSOLOG: M:ngOnInit & O: this.predicate : ', this.predicate);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.tag : ', this.tag);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.predicate : ', this.predicate);
         });
         if (this.valueParamPost != null) {
             const query = {};
@@ -74,7 +74,7 @@ export class TagUpdateComponent implements OnInit {
             this.postService.query(query).subscribe(
                 (res: HttpResponse<IPost[]>) => {
                     this.posts = res.body;
-                    console.log('CONSOLOG: M:ngOnInit & O: this.posts if1 : ', this.posts);
+                    //                    console.log('CONSOLOG: M:ngOnInit & O: this.posts if1 : ', this.posts);
                 },
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
@@ -82,7 +82,7 @@ export class TagUpdateComponent implements OnInit {
             this.postService.query().subscribe(
                 (res: HttpResponse<IPost[]>) => {
                     this.posts = res.body;
-                    console.log('CONSOLOG: M:ngOnInit & O: this.posts else2 : ', this.posts);
+                    //                    console.log('CONSOLOG: M:ngOnInit & O: this.posts else2 : ', this.posts);
                 },
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
@@ -106,13 +106,13 @@ export class TagUpdateComponent implements OnInit {
             this.subscribeToSaveResponse(this.tagService.update(this.tag));
         } else {
             this.tag.posts = this.posts;
-            console.log('CONSOLOG: M:save & O: this.posts : ', this.posts);
+            //            console.log('CONSOLOG: M:save & O: this.posts : ', this.posts);
             this.subscribeToSaveResponse(this.tagService.create(this.tag));
         }
     }
 
     loadAll() {
-        console.log('CONSOLOG: M:loadAll & O: this.currentSearch : ', this.currentSearch);
+        //        console.log('CONSOLOG: M:loadAll & O: this.currentSearch : ', this.currentSearch);
         if (this.currentSearch) {
             this.tagService
                 .query({
@@ -140,34 +140,34 @@ export class TagUpdateComponent implements OnInit {
     }
 
     addExistingTag2Post(tagId) {
-        console.log(
-            'CONSOLOG: M:addExistingProfileInterest & interestId: ',
-            tagId,
-            ', uprofileId : ',
-            this.nameParamPost,
-            ' &:',
-            this.valueParamPost
-        );
+        //        console.log(
+        //            'CONSOLOG: M:addExistingProfileInterest & interestId: ',
+        //            tagId,
+        //            ', uprofileId : ',
+        //            this.nameParamPost,
+        //            ' &:',
+        //            this.valueParamPost
+        //        );
         this.isSaving = true;
         if (tagId !== undefined) {
             const query = {};
             query['id.equals'] = tagId;
-            console.log('CONSOLOG: M:addExistingProfileInterest & O: query : ', query);
+            //            console.log('CONSOLOG: M:addExistingProfileInterest & O: query : ', query);
             this.tagService.query(query).subscribe(
                 (res: HttpResponse<ITag[]>) => {
                     this.tags = res.body;
-                    console.log('CONSOLOG: M:addExistingProfileInterest & O: res.body : ', res.body);
-                    console.log('CONSOLOG: M:addExistingProfileInterest & O: this.tags : ', this.tags);
+                    //                    console.log('CONSOLOG: M:addExistingProfileInterest & O: res.body : ', res.body);
+                    //                    console.log('CONSOLOG: M:addExistingProfileInterest & O: this.tags : ', this.tags);
                     const query2 = {};
                     if (this.valueParamPost != null) {
                         query2['id.equals'] = this.valueParamPost;
                     }
-                    console.log('CONSOLOG: M:addExistingProfileInterest & O: query2 : ', query2);
+                    //                    console.log('CONSOLOG: M:addExistingProfileInterest & O: query2 : ', query2);
                     this.postService.query(query2).subscribe(
                         (res2: HttpResponse<IPost[]>) => {
                             this.tags[0].posts.push(res2.body[0]);
-                            console.log('CONSOLOG: M:addExistingProfileInterest & O: res2.body : ', res2.body);
-                            console.log('CONSOLOG: M:addExistingProfileInterest & O: this.tags : ', this.tags);
+                            //                            console.log('CONSOLOG: M:addExistingProfileInterest & O: res2.body : ', res2.body);
+                            //                            console.log('CONSOLOG: M:addExistingProfileInterest & O: this.tags : ', this.tags);
                             this.subscribeToSaveResponse(this.tagService.update(this.tags[0]));
                         },
                         (res2: HttpErrorResponse) => this.onError(res2.message)
@@ -243,8 +243,8 @@ export class TagUpdateComponent implements OnInit {
         if (this.totalItems === 0) {
             this.tag.tagName = this.currentSearch;
         }
-        console.log('CONSOLOG: M:paginateActivities & O: this.totalItems : ', this.totalItems);
-        console.log('CONSOLOG: M:paginateActivities & O: this.interests : ', this.tags);
+        //        console.log('CONSOLOG: M:paginateActivities & O: this.totalItems : ', this.totalItems);
+        //        console.log('CONSOLOG: M:paginateActivities & O: this.interests : ', this.tags);
     }
 
     protected subscribeToSaveResponse(result: Observable<HttpResponse<ITag>>) {

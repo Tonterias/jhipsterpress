@@ -223,7 +223,7 @@ export class BlogComponent implements OnInit, OnDestroy {
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.communities = data;
         this.communitiesBlogs();
-        console.log('CONSOLOG: M:paginateBlogs & O: this.communities : ', this.communities);
+        //        console.log('CONSOLOG: M:paginateBlogs & O: this.communities : ', this.communities);
     }
 
     protected onError(errorMessage: string) {

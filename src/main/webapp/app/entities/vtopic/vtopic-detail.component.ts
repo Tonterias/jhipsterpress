@@ -62,7 +62,7 @@ export class VtopicDetailComponent implements OnInit {
                 (res: HttpResponse<IVquestion[]>) => {
                     this.vquestions = res.body;
                     this.menu = Array(this.vquestions.length).fill(false);
-                    console.log('CONSOLOG: M:ngOnInit & O: this.vquestions : ', this.vquestions);
+                    //                    console.log('CONSOLOG: M:ngOnInit & O: this.vquestions : ', this.vquestions);
                     //                        this.paginatePosts(res.body, res.headers);
                 },
                 (res: HttpErrorResponse) => this.onError(res.message)
@@ -82,79 +82,79 @@ export class VtopicDetailComponent implements OnInit {
     }
 
     registerQuestionThumbUp(number) {
-        console.log('CONSOLOG: M:registerQuestionThumbUp & O: this.vthumb : ', this.vthumb);
-        console.log('CONSOLOG: M:registerAnswerThumbDown & O: number this.vquestion.id : ', number, this.vquestions[number]);
+        //        console.log('CONSOLOG: M:registerQuestionThumbUp & O: this.vthumb : ', this.vthumb);
+        //        console.log('CONSOLOG: M:registerAnswerThumbDown & O: number this.vquestion.id : ', number, this.vquestions[number]);
         this.isSaving = true;
         this.vthumb = this.vthumb;
-        console.log('CONSOLOG: M:registerAnswerThumbDown & O: this.vthumb : ', this.vthumb);
+        //        console.log('CONSOLOG: M:registerAnswerThumbDown & O: this.vthumb : ', this.vthumb);
         if (number !== undefined) {
             this.vthumb.vthumbUp = true;
             this.vthumb.vthumbDown = false;
             this.vthumb.userId = this.currentAccount.id;
             this.vthumb.vquestionId = number;
             this.vthumb.creationDate = this.creationDate != null ? moment(this.creationDate, DATE_TIME_FORMAT) : null;
-            console.log('CONSOLOG: M:registerQuestionThumbUp & O: this.vthumb : ', this.vthumb);
+            //            console.log('CONSOLOG: M:registerQuestionThumbUp & O: this.vthumb : ', this.vthumb);
             this.subscribeToSaveResponse(this.vthumbService.create(this.vthumb));
         } else {
-            console.log('CONSOLOG: M:registerThumbUp & O: SIN number : ', number);
+            //            console.log('CONSOLOG: M:registerThumbUp & O: SIN number : ', number);
         }
     }
 
     registerQuestionThumbDown(number) {
-        console.log('CONSOLOG: M:registerAnswerThumbDown & O: number : ', number);
+        //        console.log('CONSOLOG: M:registerAnswerThumbDown & O: number : ', number);
         this.isSaving = true;
         this.vthumb = this.vthumb;
-        console.log('CONSOLOG: M:registerAnswerThumbDown & O: this.vthumb : ', this.vthumb);
+        //        console.log('CONSOLOG: M:registerAnswerThumbDown & O: this.vthumb : ', this.vthumb);
         if (number !== undefined) {
             this.vthumb.vthumbUp = false;
             this.vthumb.vthumbDown = true;
             this.vthumb.userId = this.currentAccount.id;
             this.vthumb.vquestionId = number;
             this.vthumb.creationDate = this.creationDate != null ? moment(this.creationDate, DATE_TIME_FORMAT) : null;
-            console.log('CONSOLOG: M:registerQuestionThumbDown & O: this.vthumb : ', this.vthumb);
+            //            console.log('CONSOLOG: M:registerQuestionThumbDown & O: this.vthumb : ', this.vthumb);
             this.subscribeToSaveResponse(this.vthumbService.create(this.vthumb));
             this.vquestions[number].vthumbs.push(this.vthumb);
         } else {
-            console.log('CONSOLOG: M:registerThumbUp & O: SIN number : ', number);
+            //            console.log('CONSOLOG: M:registerThumbUp & O: SIN number : ', number);
         }
     }
 
     registerAnswerThumbUp(number) {
-        console.log('CONSOLOG: M:registerAnswerThumbDown & O: number : ', number);
+        //        console.log('CONSOLOG: M:registerAnswerThumbDown & O: number : ', number);
         this.isSaving = true;
         this.vthumb = this.vthumb;
-        console.log('CONSOLOG: M:registerAnswerThumbDown & O: this.vthumb : ', this.vthumb);
+        //        console.log('CONSOLOG: M:registerAnswerThumbDown & O: this.vthumb : ', this.vthumb);
         if (number !== undefined) {
             this.vthumb.vthumbUp = true;
             this.vthumb.vthumbDown = false;
             this.vthumb.userId = this.currentAccount.id;
             this.vthumb.vanswerId = number;
             this.vthumb.creationDate = this.creationDate != null ? moment(this.creationDate, DATE_TIME_FORMAT) : null;
-            console.log('CONSOLOG: M:registerAnswerThumbUp & O: this.vthumb : ', this.vthumb);
+            //            console.log('CONSOLOG: M:registerAnswerThumbUp & O: this.vthumb : ', this.vthumb);
             this.subscribeToSaveResponse(this.vthumbService.create(this.vthumb));
         } else {
-            console.log('CONSOLOG: M:registerThumbUp & O: SIN number : ', number);
+            //            console.log('CONSOLOG: M:registerThumbUp & O: SIN number : ', number);
         }
     }
 
     registerAnswerThumbDown(number) {
-        console.log('CONSOLOG: M:registerAnswerThumbDown & O: number : ', number);
+        //        console.log('CONSOLOG: M:registerAnswerThumbDown & O: number : ', number);
         this.isSaving = true;
         this.vthumb = this.vthumb;
-        console.log('CONSOLOG: M:registerAnswerThumbDown & O: this.vthumb : ', this.vthumb);
+        //        console.log('CONSOLOG: M:registerAnswerThumbDown & O: this.vthumb : ', this.vthumb);
         if (number !== undefined) {
             this.vthumb.vthumbUp = false;
             this.vthumb.vthumbDown = true;
             this.vthumb.userId = this.currentAccount.id;
             this.vthumb.vanswerId = number;
             this.creationDate = this.vthumb.creationDate != null ? this.vthumb.creationDate.format(DATE_TIME_FORMAT) : null;
-            console.log('CONSOLOG: M:registerAnswerThumbDown & O: this.creationDate : ', this.creationDate);
+            //            console.log('CONSOLOG: M:registerAnswerThumbDown & O: this.creationDate : ', this.creationDate);
             this.vthumb.creationDate = this.creationDate != null ? moment(this.creationDate, DATE_TIME_FORMAT) : null;
-            console.log('CONSOLOG: M:registerAnswerThumbDown & O: this.vthumb.creationDate : ', this.vthumb.creationDate);
-            console.log('CONSOLOG: M:registerAnswerThumbDown & O: this.vthumb : ', this.vthumb);
+            //            console.log('CONSOLOG: M:registerAnswerThumbDown & O: this.vthumb.creationDate : ', this.vthumb.creationDate);
+            //            console.log('CONSOLOG: M:registerAnswerThumbDown & O: this.vthumb : ', this.vthumb);
             this.subscribeToSaveResponse(this.vthumbService.create(this.vthumb));
         } else {
-            console.log('CONSOLOG: M:registerThumbUp & O: SIN number : ', number);
+            //            console.log('CONSOLOG: M:registerThumbUp & O: SIN number : ', number);
         }
     }
 
@@ -179,9 +179,9 @@ export class VtopicDetailComponent implements OnInit {
         this._vthumb = vthumb;
         this.creationDate = moment(vthumb.creationDate).format(DATE_TIME_FORMAT);
         this.vthumb.creationDate = this.creationDate != null ? moment(this.creationDate, DATE_TIME_FORMAT) : null;
-        console.log('CONSOLOG: M:vthumb & O: this.creationDate : ', this.creationDate);
-        console.log('CONSOLOG: M:vthumb & O: this.vthumb : ', this.vthumb);
-        console.log('CONSOLOG: M:vthumb & O: this._vthumb : ', this._vthumb);
+        //        console.log('CONSOLOG: M:vthumb & O: this.creationDate : ', this.creationDate);
+        //        console.log('CONSOLOG: M:vthumb & O: this.vthumb : ', this.vthumb);
+        //        console.log('CONSOLOG: M:vthumb & O: this._vthumb : ', this._vthumb);
     }
 
     previousState() {

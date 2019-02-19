@@ -140,7 +140,7 @@ export class UprofileComponent implements OnInit, OnDestroy {
             this.owner = account.id;
             this.isAdmin = this.accountService.hasAnyAuthority(['ROLE_ADMIN']);
             this.hasProfile = false;
-            console.log('CONSOLOG: M:myProfile & O: this.hasProfile:', this.hasProfile);
+            //            console.log('CONSOLOG: M:myProfile & O: this.hasProfile:', this.hasProfile);
             const query = {};
             if (this.currentAccount.id != null) {
                 query['userId.equals'] = this.currentAccount.id;
@@ -149,8 +149,8 @@ export class UprofileComponent implements OnInit, OnDestroy {
                 (res: HttpResponse<IUprofile[]>) => {
                     if (res.body.length !== 0) {
                         this.hasProfile = true;
-                        console.log('CONSOLOG: M:ngOnInit & O: uprofileService-res.body:', res.body);
-                        console.log('CONSOLOG: M:ngOnInit & O: this.hasProfile:', this.hasProfile);
+                        //                        console.log('CONSOLOG: M:ngOnInit & O: uprofileService-res.body:', res.body);
+                        //                        console.log('CONSOLOG: M:ngOnInit & O: this.hasProfile:', this.hasProfile);
                     }
                 },
                 (res: HttpErrorResponse) => this.onError(res.message)
@@ -189,7 +189,7 @@ export class UprofileComponent implements OnInit, OnDestroy {
 
     myProfile() {
         this.hasProfile = false;
-        console.log('CONSOLOG: M:myProfile & O: this.hasProfile:', this.hasProfile);
+        //        console.log('CONSOLOG: M:myProfile & O: this.hasProfile:', this.hasProfile);
         const query = {
             page: this.page - 1,
             size: this.itemsPerPage,
@@ -202,8 +202,8 @@ export class UprofileComponent implements OnInit, OnDestroy {
             (res: HttpResponse<IUprofile[]>) => {
                 if (res.body.length !== 0) {
                     this.hasProfile = true;
-                    console.log('CONSOLOG: M:myProfile & O: res.body:', res.body);
-                    console.log('CONSOLOG: M:myProfile & O: this.hasProfile:', this.hasProfile);
+                    //                    console.log('CONSOLOG: M:myProfile & O: res.body:', res.body);
+                    //                    console.log('CONSOLOG: M:myProfile & O: this.hasProfile:', this.hasProfile);
                 }
                 this.paginateUprofiles(res.body, res.headers);
             },
@@ -215,9 +215,9 @@ export class UprofileComponent implements OnInit, OnDestroy {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.uprofiles = data;
-        console.log('CONSOLOG: M:paginateProfiles & O: this.owner : ', this.owner);
-        console.log('CONSOLOG: M:paginateProfiles & O: this.isAdmin : ', this.isAdmin);
-        console.log('CONSOLOG: M:paginateProfiles & O: this.uprofiles : ', this.uprofiles);
+        //        console.log('CONSOLOG: M:paginateProfiles & O: this.owner : ', this.owner);
+        //        console.log('CONSOLOG: M:paginateProfiles & O: this.isAdmin : ', this.isAdmin);
+        //        console.log('CONSOLOG: M:paginateProfiles & O: this.uprofiles : ', this.uprofiles);
     }
 
     protected onError(errorMessage: string) {

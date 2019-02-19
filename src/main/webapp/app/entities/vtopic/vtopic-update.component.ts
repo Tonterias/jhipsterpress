@@ -37,7 +37,7 @@ export class VtopicUpdateComponent implements OnInit {
         this.isSaving = false;
         this.accountService.identity().then(account => {
             this.currentAccount = account;
-            console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount.id : ', this.currentAccount.id);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount.id : ', this.currentAccount.id);
             this.userService.findById(this.currentAccount.id).subscribe(
                 (res: HttpResponse<IUser>) => {
                     this.vtopic.userId = res.body.id;

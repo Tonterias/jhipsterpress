@@ -63,7 +63,7 @@ export class PostUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ post }) => {
             this.post = post;
-            console.log('CONSOLOG: M:ngOnInit & O: this.post : ', this.post);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.post : ', this.post);
             this.creationDate = moment().format(DATE_TIME_FORMAT);
             this.post.creationDate = moment(this.creationDate);
             this.post.publicationDate = moment(this.creationDate);
@@ -71,7 +71,7 @@ export class PostUpdateComponent implements OnInit {
         this.accountService.identity().then(account => {
             this.currentAccount = account;
             this.loggeUserdId = this.currentAccount.id;
-            console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount);
             this.userService.findById(this.currentAccount.id).subscribe(
                 (res: HttpResponse<IUser>) => {
                     this.post.userId = res.body.id;
@@ -161,7 +161,7 @@ export class PostUpdateComponent implements OnInit {
         this.communityService.query(query).subscribe(
             (res: HttpResponse<ICommunity[]>) => {
                 this.communities = res.body;
-                console.log('CONSOLOG: M:myCommunities & O: this.communities : ', this.communities);
+                //                console.log('CONSOLOG: M:myCommunities & O: this.communities : ', this.communities);
                 this.communitiesBlogs(this.communities);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
@@ -180,7 +180,7 @@ export class PostUpdateComponent implements OnInit {
         this.blogService.query(query).subscribe(
             (res: HttpResponse<IBlog[]>) => {
                 this.blogs = res.body;
-                console.log('CONSOLOG: M:myCommunities & O: this.blogs : ', this.blogs);
+                //                console.log('CONSOLOG: M:myCommunities & O: this.blogs : ', this.blogs);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

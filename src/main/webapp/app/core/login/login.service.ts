@@ -14,7 +14,7 @@ export class LoginService {
 
     editLoginStatus(status) {
         this.loginStatus.next(status);
-        console.log('CONSOLOG: M:editLoginStatus & O: this.loginStatus : ', this.loginStatus);
+        //        console.log('CONSOLOG: M:editLoginStatus & O: this.loginStatus : ', this.loginStatus);
     }
 
     login(credentials, callback?) {

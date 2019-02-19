@@ -87,11 +87,11 @@ export class NavbarComponent implements OnInit {
         this.accountService.identity().then(account => {
             this.currentAccount = account;
             this.loginName = this.currentAccount.login;
-            console.log('CONSOLOG: M:ngOnInit & O: this.loginName : ', this.loginName);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.loginName : ', this.loginName);
             this.notifications().subscribe(
                 (res: HttpResponse<INotification[]>) => {
-                    console.log('CONSOLOG: M:ngOnInit & O: notifications.res.body INotification : ', res.body);
-                    console.log('CONSOLOG: M:ngOnInit & O: notifications.res.body.length INotification : ', res.body.length);
+                    //                    console.log('CONSOLOG: M:ngOnInit & O: notifications.res.body INotification : ', res.body);
+                    //                    console.log('CONSOLOG: M:ngOnInit & O: notifications.res.body.length INotification : ', res.body.length);
                     this.numberOfNotifications = res.body.length;
                     return this.numberOfNotifications;
                 },
@@ -99,8 +99,8 @@ export class NavbarComponent implements OnInit {
             );
             this.mymessages().subscribe(
                 (res: HttpResponse<IMessage[]>) => {
-                    console.log('CONSOLOG: M:ngOnInit & O: messages.res.body IMessage : ', res.body);
-                    console.log('CONSOLOG: M:ngOnInit & O: notifications.res.body.length IMessage : ', res.body.length);
+                    //                    console.log('CONSOLOG: M:ngOnInit & O: messages.res.body IMessage : ', res.body);
+                    //                    console.log('CONSOLOG: M:ngOnInit & O: notifications.res.body.length IMessage : ', res.body.length);
                     this.numberOfMessages = res.body.length;
                     return this.numberOfMessages;
                 },
@@ -109,13 +109,13 @@ export class NavbarComponent implements OnInit {
             this.myMessagesCommunities().subscribe(
                 (res2: HttpResponse<ICommunity[]>) => {
                     this.communities = res2.body;
-                    console.log('CONSOLOG: M:loginData & O: this.communities : ', this.communities);
+                    //                    console.log('CONSOLOG: M:loginData & O: this.communities : ', this.communities);
                     this.communitiesMessages().subscribe(
                         (res3: HttpResponse<ICmessage[]>) => {
-                            console.log('CONSOLOG: M:loginData & O: res3.body.length .numberOfMessages : ', res3.body.length);
-                            console.log('CONSOLOG: M:loginData & O: res3.body : ', res3.body);
+                            //                            console.log('CONSOLOG: M:loginData & O: res3.body.length .numberOfMessages : ', res3.body.length);
+                            //                            console.log('CONSOLOG: M:loginData & O: res3.body : ', res3.body);
                             this.numberOfCmessages = res3.body.length;
-                            console.log('CONSOLOG: M:loginData & O: this.numberOfMessages : ', this.numberOfCmessages);
+                            //                            console.log('CONSOLOG: M:loginData & O: this.numberOfMessages : ', this.numberOfCmessages);
                         },
                         (res3: HttpErrorResponse) => this.onError(res3.message)
                     );
@@ -176,7 +176,7 @@ export class NavbarComponent implements OnInit {
     }
 
     private myMessagesCommunities() {
-        console.log('CONSOLOG: M:myMessagesCommunities & O: this.currentAccount : ', this.currentAccount);
+        //        console.log('CONSOLOG: M:myMessagesCommunities & O: this.currentAccount : ', this.currentAccount);
         const query = {};
         if (this.currentAccount.id != null) {
             query['userId.equals'] = this.currentAccount.id;

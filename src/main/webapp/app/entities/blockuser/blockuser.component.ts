@@ -141,9 +141,9 @@ export class BlockuserComponent implements OnInit, OnDestroy {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.blockusers = data;
-        console.log('CONSOLOG: M:paginateBlockusers & O: this.blockusers : ', this.blockusers);
-        console.log('CONSOLOG: M:paginateBlockusers & O: this.owner : ', this.owner);
-        console.log('CONSOLOG: M:paginateBlockusers & O: this.isAdmin : ', this.isAdmin);
+        //        console.log('CONSOLOG: M:paginateBlockusers & O: this.blockusers : ', this.blockusers);
+        //        console.log('CONSOLOG: M:paginateBlockusers & O: this.owner : ', this.owner);
+        //        console.log('CONSOLOG: M:paginateBlockusers & O: this.isAdmin : ', this.isAdmin);
     }
 
     protected onError(errorMessage: string) {

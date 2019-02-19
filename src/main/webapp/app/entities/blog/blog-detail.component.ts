@@ -51,7 +51,7 @@ export class BlogDetailComponent implements OnInit, OnDestroy {
         this.activatedRoute.data.subscribe(({ blog }) => {
             this.blog = blog;
             this.id = this.blog.id;
-            console.log('CONSOLOG: M:ngOnInit & O: this.blog : ', this.blog);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.blog : ', this.blog);
             this.loadAll();
         });
         this.registerChangeInPosts();
@@ -69,7 +69,7 @@ export class BlogDetailComponent implements OnInit, OnDestroy {
         this.postService.query(query).subscribe(
             (res: HttpResponse<IPost[]>) => {
                 this.posts = res.body;
-                console.log('CONSOLOG: M:communitiesPosts & O: this.posts : ', this.posts);
+                //                console.log('CONSOLOG: M:communitiesPosts & O: this.posts : ', this.posts);
                 this.paginatePosts(res.body, res.headers);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
@@ -99,7 +99,7 @@ export class BlogDetailComponent implements OnInit, OnDestroy {
         this.postService.query(query).subscribe(
             (res: HttpResponse<IPost[]>) => {
                 this.posts = res.body;
-                console.log('CONSOLOG: M:communitiesPosts & O: this.posts : ', this.posts);
+                //                console.log('CONSOLOG: M:communitiesPosts & O: this.posts : ', this.posts);
                 this.paginatePosts(res.body, res.headers);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
@@ -159,14 +159,14 @@ export class BlogDetailComponent implements OnInit, OnDestroy {
     }
 
     protected paginatePosts(data: IPost[], headers: HttpHeaders) {
-        console.log('!!!!!!!!!!!!!', data, headers);
+        //        console.log('!!!!!!!!!!!!!', data, headers);
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.posts = data;
     }
 
     protected onError(errorMessage: string) {
-        console.log('!!!!!!!!!****', errorMessage);
+        //        console.log('!!!!!!!!!****', errorMessage);
         this.jhiAlertService.error(errorMessage, null, null);
     }
 }

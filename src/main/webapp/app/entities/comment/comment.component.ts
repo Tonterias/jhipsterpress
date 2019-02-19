@@ -168,7 +168,7 @@ export class CommentComponent implements OnInit, OnDestroy {
             sort: this.sort()
         };
         query['userId.equals'] = this.owner;
-        console.log('CONSOLOG: M:myComments & O: query : ', query);
+        //        console.log('CONSOLOG: M:myComments & O: query : ', query);
         this.commentService
             .query(query)
             .subscribe(
@@ -181,9 +181,9 @@ export class CommentComponent implements OnInit, OnDestroy {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.comments = data;
-        console.log('CONSOLOG: M:paginateComments & O: this.owner : ', this.owner);
-        console.log('CONSOLOG: M:paginateComments & O: this.isAdmin : ', this.isAdmin);
-        console.log('CONSOLOG: M:paginateComments & O: this.comments : ', this.comments);
+        //        console.log('CONSOLOG: M:paginateComments & O: this.owner : ', this.owner);
+        //        console.log('CONSOLOG: M:paginateComments & O: this.isAdmin : ', this.isAdmin);
+        //        console.log('CONSOLOG: M:paginateComments & O: this.comments : ', this.comments);
     }
 
     protected onError(errorMessage: string) {

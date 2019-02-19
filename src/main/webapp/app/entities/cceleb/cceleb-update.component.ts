@@ -53,9 +53,9 @@ export class CcelebUpdateComponent implements OnInit {
             if (params.communityIdEquals != null) {
                 this.nameParamCommunityId = 'community.id';
                 this.valueParamCommunityId = params.communityIdEquals;
-                console.log('CONSOLOG: M:constructor & O: this.nameParamUprofileId : ', this.nameParamCommunityId);
-                console.log('CONSOLOG: M:constructor & O: this.valueParamUprofileId : ', this.valueParamCommunityId);
-                console.log('CONSOLOG: M:constructor & O: this.itemsPerPage : ', this.itemsPerPage);
+                //                console.log('CONSOLOG: M:constructor & O: this.nameParamUprofileId : ', this.nameParamCommunityId);
+                //                console.log('CONSOLOG: M:constructor & O: this.valueParamUprofileId : ', this.valueParamCommunityId);
+                //                console.log('CONSOLOG: M:constructor & O: this.itemsPerPage : ', this.itemsPerPage);
             }
         });
     }
@@ -64,8 +64,8 @@ export class CcelebUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ cceleb }) => {
             this.cceleb = cceleb;
-            console.log('CONSOLOG: M:ngOnInit & O: this.cceleb : ', this.cceleb);
-            console.log('CONSOLOG: M:ngOnInit & O: this.predicate : ', this.predicate);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.cceleb : ', this.cceleb);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.predicate : ', this.predicate);
         });
         this.accountService.identity().then(account => {
             this.currentAccount = account;
@@ -88,7 +88,7 @@ export class CcelebUpdateComponent implements OnInit {
         this.communityService.query(query).subscribe(
             (res: HttpResponse<ICommunity[]>) => {
                 this.communities = res.body;
-                console.log('CONSOLOG: M:myUserActivities & O: res.body : ', res.body);
+                //                console.log('CONSOLOG: M:myUserActivities & O: res.body : ', res.body);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -104,13 +104,13 @@ export class CcelebUpdateComponent implements OnInit {
             this.subscribeToSaveResponse(this.ccelebService.update(this.cceleb));
         } else {
             this.cceleb.communities = this.communities;
-            console.log('CONSOLOG: M:save & O: this.communities : ', this.communities);
+            //            console.log('CONSOLOG: M:save & O: this.communities : ', this.communities);
             this.subscribeToSaveResponse(this.ccelebService.create(this.cceleb));
         }
     }
 
     loadAll() {
-        console.log('CONSOLOG: M:loadAll & O: this.currentSearch : ', this.currentSearch);
+        //        console.log('CONSOLOG: M:loadAll & O: this.currentSearch : ', this.currentSearch);
         if (this.currentSearch) {
             this.ccelebService
                 .query({
@@ -138,34 +138,34 @@ export class CcelebUpdateComponent implements OnInit {
     }
 
     addExistingProfileCceleb(ccelebId) {
-        console.log(
-            'CONSOLOG: M:addExistingProfileInterest & interestId: ',
-            ccelebId,
-            ', uprofileId : ',
-            this.nameParamCommunityId,
-            ' &:',
-            this.valueParamCommunityId
-        );
+        //        console.log(
+        //            'CONSOLOG: M:addExistingProfileInterest & interestId: ',
+        //            ccelebId,
+        //            ', uprofileId : ',
+        //            this.nameParamCommunityId,
+        //            ' &:',
+        //            this.valueParamCommunityId
+        //        );
         this.isSaving = true;
         if (ccelebId !== undefined) {
             const query = {};
             query['id.equals'] = ccelebId;
-            console.log('CONSOLOG: M:addExistingProfileInterest & O: query : ', query);
+            //            console.log('CONSOLOG: M:addExistingProfileInterest & O: query : ', query);
             this.ccelebService.query(query).subscribe(
                 (res: HttpResponse<ICceleb[]>) => {
                     this.ccelebs = res.body;
-                    console.log('CONSOLOG: M:addExistingProfileInterest & O: res.body : ', res.body);
-                    console.log('CONSOLOG: M:addExistingProfileInterest & O: this.ccelebs : ', this.ccelebs);
+                    //                    console.log('CONSOLOG: M:addExistingProfileInterest & O: res.body : ', res.body);
+                    //                    console.log('CONSOLOG: M:addExistingProfileInterest & O: this.ccelebs : ', this.ccelebs);
                     const query2 = {};
                     if (this.valueParamCommunityId != null) {
                         query2['id.equals'] = this.valueParamCommunityId;
                     }
-                    console.log('CONSOLOG: M:addExistingProfileInterest & O: query2 : ', query2);
+                    //                    console.log('CONSOLOG: M:addExistingProfileInterest & O: query2 : ', query2);
                     this.communityService.query(query2).subscribe(
                         (res2: HttpResponse<ICommunity[]>) => {
                             this.ccelebs[0].communities.push(res2.body[0]);
-                            console.log('CONSOLOG: M:addExistingProfileInterest & O: res2.body : ', res2.body);
-                            console.log('CONSOLOG: M:addExistingProfileInterest & O: this.ccelebs : ', this.ccelebs);
+                            //                            console.log('CONSOLOG: M:addExistingProfileInterest & O: res2.body : ', res2.body);
+                            //                            console.log('CONSOLOG: M:addExistingProfileInterest & O: this.ccelebs : ', this.ccelebs);
                             this.subscribeToSaveResponse(this.ccelebService.update(this.ccelebs[0]));
                         },
                         (res2: HttpErrorResponse) => this.onError(res2.message)
@@ -241,8 +241,8 @@ export class CcelebUpdateComponent implements OnInit {
         if (this.totalItems === 0) {
             this.cceleb.celebName = this.currentSearch;
         }
-        console.log('CONSOLOG: M:paginateActivities & O: this.totalItems : ', this.totalItems);
-        console.log('CONSOLOG: M:paginateActivities & O: this.ccelebs : ', this.ccelebs);
+        //        console.log('CONSOLOG: M:paginateActivities & O: this.totalItems : ', this.totalItems);
+        //        console.log('CONSOLOG: M:paginateActivities & O: this.ccelebs : ', this.ccelebs);
     }
 
     protected subscribeToSaveResponse(result: Observable<HttpResponse<ICceleb>>) {

@@ -57,17 +57,17 @@ export class UprofileUpdateComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ uprofile }) => {
             this.uprofile = uprofile;
-            console.log('CONSOLOG: M:ngOnInit & O: this.uprofile : ', this.uprofile);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.uprofile : ', this.uprofile);
             this.creationDate = moment().format(DATE_TIME_FORMAT);
             this.uprofile.creationDate = moment(this.creationDate);
             this.birthdate = this.uprofile.birthdate != null ? this.uprofile.birthdate.format(DATE_TIME_FORMAT) : null;
             this.accountService.identity().then(account => {
                 this.currentAccount = account;
-                console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount);
+                //                console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount);
                 this.userService.findById(this.currentAccount.id).subscribe(
                     (res: HttpResponse<IUser>) => {
                         this.uprofile.userId = res.body.id;
-                        console.log('CONSOLOG: M:ngOnInit & O: this.user : ', this.user);
+                        //                        console.log('CONSOLOG: M:ngOnInit & O: this.user : ', this.user);
                     },
                     (res: HttpErrorResponse) => this.onError(res.message)
                 );

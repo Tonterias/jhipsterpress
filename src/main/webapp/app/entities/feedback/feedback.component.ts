@@ -120,7 +120,7 @@ export class FeedbackComponent implements OnInit, OnDestroy {
                 this.arrayIds.push(x.id);
             }
         });
-        console.log('CONSOLOG: M:filterInterests & O: this.follows : ', this.arrayIds, this.arrayAux);
+        //        console.log('CONSOLOG: M:filterInterests & O: this.follows : ', this.arrayIds, this.arrayAux);
         return this.arrayAux;
     }
 

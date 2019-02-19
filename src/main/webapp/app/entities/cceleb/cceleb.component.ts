@@ -154,7 +154,7 @@ export class CcelebComponent implements OnInit, OnDestroy {
         this.communityService.query(query).subscribe(
             (res: HttpResponse<ICommunity[]>) => {
                 this.communities = res.body;
-                console.log('CONSOLOG: M:myCcelebs & O: res.body : ', res.body);
+                //                console.log('CONSOLOG: M:myCcelebs & O: res.body : ', res.body);
                 this.communityCcelebs();
             },
             (res: HttpErrorResponse) => this.onError(res.message)
@@ -173,7 +173,7 @@ export class CcelebComponent implements OnInit, OnDestroy {
         this.ccelebService.query(query).subscribe(
             (res: HttpResponse<ICceleb[]>) => {
                 this.ccelebs = res.body;
-                console.log('CONSOLOG: M:communityCactivities & O: res.body : ', res.body);
+                //                console.log('CONSOLOG: M:communityCactivities & O: res.body : ', res.body);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -203,9 +203,9 @@ export class CcelebComponent implements OnInit, OnDestroy {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.ccelebs = data;
-        console.log('CONSOLOG: M:paginateActivities & O: this.ccelebs : ', this.ccelebs);
-        console.log('CONSOLOG: M:paginateActivities & O: this.owner : ', this.owner);
-        console.log('CONSOLOG: M:paginateActivities & O: this.isAdmin : ', this.isAdmin);
+        //        console.log('CONSOLOG: M:paginateActivities & O: this.ccelebs : ', this.ccelebs);
+        //        console.log('CONSOLOG: M:paginateActivities & O: this.owner : ', this.owner);
+        //        console.log('CONSOLOG: M:paginateActivities & O: this.isAdmin : ', this.isAdmin);
     }
 
     protected onError(errorMessage: string) {

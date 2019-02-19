@@ -90,7 +90,7 @@ export class CommunityUpdateComponent implements OnInit {
         this.isSaving = false;
         this.accountService.identity().then(account => {
             this.currentAccount = account;
-            console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount.id : ', this.currentAccount.id);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount.id : ', this.currentAccount.id);
             this.userService.findById(this.currentAccount.id).subscribe(
                 (res: HttpResponse<IUser>) => {
                     this.community.userId = res.body.id;
@@ -102,7 +102,7 @@ export class CommunityUpdateComponent implements OnInit {
             this.community = community;
             this.creationDate = moment().format(DATE_TIME_FORMAT);
             this.community.creationDate = moment(this.creationDate);
-            console.log('CONSOLOG: M:ngOnInit & O: this.community : ', this.community);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.community : ', this.community);
         });
     }
 
@@ -130,7 +130,7 @@ export class CommunityUpdateComponent implements OnInit {
         this.isSaving = true;
         this.community.creationDate = this.creationDate != null ? moment(this.creationDate, DATE_TIME_FORMAT) : null;
         this.community.userId = this.currentAccount.id;
-        console.log('CONSOLOG: M:save & O: this.this.community : ', this.community);
+        //        console.log('CONSOLOG: M:save & O: this.this.community : ', this.community);
         if (this.community.id !== undefined) {
             this.subscribeToSaveResponse(this.communityService.update(this.community));
         } else {

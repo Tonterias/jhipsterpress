@@ -41,7 +41,7 @@ export class AlbumUpdateComponent implements OnInit {
             //            this.creationDate = this.album.creationDate != null ? this.album.creationDate.format(DATE_TIME_FORMAT) : null;
             this.album.creationDate = moment(this.creationDate);
         });
-        console.log('CONSOLOG: M:ngOnInit & O: this.isSaving : ', this.isSaving);
+        //        console.log('CONSOLOG: M:ngOnInit & O: this.isSaving : ', this.isSaving);
         this.accountService.identity().then(account => {
             this.currentAccount = account;
             this.myUser();
@@ -63,10 +63,10 @@ export class AlbumUpdateComponent implements OnInit {
         this.isSaving = true;
         this.album.creationDate = this.creationDate != null ? moment(this.creationDate, DATE_TIME_FORMAT) : null;
         if (this.album.id !== undefined) {
-            console.log('CONSOLOG: M:save & O: this.album : ', this.album);
+            //            console.log('CONSOLOG: M:save & O: this.album : ', this.album);
             this.subscribeToSaveResponse(this.albumService.update(this.album));
         } else {
-            console.log('CONSOLOG: M:save & O: this.album : ', this.album);
+            //            console.log('CONSOLOG: M:save & O: this.album : ', this.album);
             this.subscribeToSaveResponse(this.albumService.create(this.album));
         }
     }
@@ -75,8 +75,8 @@ export class AlbumUpdateComponent implements OnInit {
         this.userService.findById(this.currentAccount.id).subscribe(
             (res: HttpResponse<IUser>) => {
                 this.album.userId = res.body.id;
-                console.log('CONSOLOG: M:myUser & O: res.body : ', res.body);
-                console.log('CONSOLOG: M:myUser & O: this.album.userId : ', this.album.userId);
+                //                console.log('CONSOLOG: M:myUser & O: res.body : ', res.body);
+                //                console.log('CONSOLOG: M:myUser & O: this.album.userId : ', this.album.userId);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

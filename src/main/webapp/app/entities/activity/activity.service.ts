@@ -29,9 +29,9 @@ export class ActivityService {
     }
 
     query(req?: any): Observable<EntityArrayResponseType> {
-        console.log('CONSOLOG: M:ActivityService: & O: this.req : ', req);
+        //        console.log('CONSOLOG: M:ActivityService: & O: this.req : ', req);
         const options = createRequestOption(req);
-        console.log('CONSOLOG: M:ActivityService: & O: this.options : ', options);
+        //        console.log('CONSOLOG: M:ActivityService: & O: this.options : ', options);
         return this.http.get<IActivity[]>(this.resourceUrl, { params: options, observe: 'response' });
     }
 

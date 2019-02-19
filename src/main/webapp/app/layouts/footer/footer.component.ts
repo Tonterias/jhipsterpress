@@ -50,7 +50,7 @@ export class FooterComponent implements OnInit {
                         this.onWarning('Confirmation');
                         this.subscribeToSaveResponse(this.newsletterService.create(this.newsletter));
                     } else {
-                        console.log('Ya tenemos tu email');
+                        //                        console.log('Ya tenemos tu email');
                         this.newsletter.email = '';
                     }
                 },
@@ -73,9 +73,9 @@ export class FooterComponent implements OnInit {
     }
 
     private onWarning(errorMessage: string) {
-        console.log('CONSOLOG: M:onWarning & O:  errorMessage : ', errorMessage);
+        //        console.log('CONSOLOG: M:onWarning & O:  errorMessage : ', errorMessage);
         this.alerts = [];
-        console.log('CONSOLOG: M:onWarning & O:  this.alerts : ', this.alerts);
+        //        console.log('CONSOLOG: M:onWarning & O:  this.alerts : ', this.alerts);
         this.alerts.push(
             this.jhiAlertService.addAlert(
                 {
@@ -88,7 +88,7 @@ export class FooterComponent implements OnInit {
                 this.alerts
             )
         );
-        console.log('CONSOLOG: M:onWarning & O:  this.alerts2 : ', this.alerts);
+        //        console.log('CONSOLOG: M:onWarning & O:  this.alerts2 : ', this.alerts);
     }
 
     private onError(errorMessage: string) {

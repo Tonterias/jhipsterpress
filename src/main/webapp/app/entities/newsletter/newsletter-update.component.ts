@@ -55,7 +55,7 @@ export class NewsletterUpdateComponent implements OnInit {
                     if (res.body.length === 0) {
                         this.subscribeToSaveResponse(this.newsletterService.create(this.newsletter));
                     } else {
-                        console.log('Ya tenemos tu email');
+                        //                        console.log('Ya tenemos tu email');
                         this.newsletter.email = '';
                     }
                 },
@@ -70,7 +70,7 @@ export class NewsletterUpdateComponent implements OnInit {
 
     protected onSaveSuccess() {
         this.isSaving = false;
-        console.log('Deberia ir a la HOME!');
+        //        console.log('Deberia ir a la HOME!');
         this.router.navigate(['/']);
     }
 

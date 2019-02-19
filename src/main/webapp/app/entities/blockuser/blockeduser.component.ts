@@ -80,7 +80,7 @@ export class BlockeduserComponent implements OnInit, OnDestroy {
                 (res: HttpResponse<IBlockuser[]>) => this.paginateBlockusers(res.body, res.headers),
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
-        console.log('CONSOLOG: M:loadAll & O: this.query : ', query);
+        //        console.log('CONSOLOG: M:loadAll & O: this.query : ', query);
     }
 
     loadPage(page: number) {
@@ -127,10 +127,10 @@ export class BlockeduserComponent implements OnInit, OnDestroy {
             this.uprofileService.query(query).subscribe(
                 (res: HttpResponse<IUprofile[]>) => {
                     this.uprofiles = res.body;
-                    console.log('CONSOLOG: M:ngOnInit & O: this.uprofiles : ', this.uprofiles);
+                    //                    console.log('CONSOLOG: M:ngOnInit & O: this.uprofiles : ', this.uprofiles);
                     this.uprofiles.forEach(profile => {
                         this.blockingUserId = profile.userId;
-                        console.log('CONSOLOG: M:ngOnInit & O: this.blockingUserId : ', this.blockingUserId);
+                        //                        console.log('CONSOLOG: M:ngOnInit & O: this.blockingUserId : ', this.blockingUserId);
                         this.loadAll();
                     });
                 },
@@ -165,9 +165,9 @@ export class BlockeduserComponent implements OnInit, OnDestroy {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.blockusers = data;
-        console.log('CONSOLOG: M:paginateBlockusers & O: this.blockusers : ', this.blockusers);
-        console.log('CONSOLOG: M:paginateBlockusers & O: this.owner : ', this.owner);
-        console.log('CONSOLOG: M:paginateBlockusers & O: this.isAdmin : ', this.isAdmin);
+        //        console.log('CONSOLOG: M:paginateBlockusers & O: this.blockusers : ', this.blockusers);
+        //        console.log('CONSOLOG: M:paginateBlockusers & O: this.owner : ', this.owner);
+        //        console.log('CONSOLOG: M:paginateBlockusers & O: this.isAdmin : ', this.isAdmin);
     }
 
     private onError(errorMessage: string) {

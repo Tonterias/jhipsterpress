@@ -100,7 +100,7 @@ export class CommunityDetailComponent implements OnInit {
             this.community = community;
             this.communitiesBlogs(community);
             this.userId = community.userId;
-            console.log('CONSOLOG: M:ngOnInit & O: this.community : ', this.community);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.community : ', this.community);
         });
         this.communityInterests();
         this.communityActivities();
@@ -108,7 +108,7 @@ export class CommunityDetailComponent implements OnInit {
         this.accountService.identity().then(account => {
             this.currentAccount = account;
             this.owner = account.id;
-            console.log('CONSOLOG: M:paginateProfiles & O: this.owner : ', this.owner);
+            //            console.log('CONSOLOG: M:paginateProfiles & O: this.owner : ', this.owner);
             this.isFollower();
         });
         this.isSaving = false;
@@ -124,7 +124,7 @@ export class CommunityDetailComponent implements OnInit {
             (res: HttpResponse<IBlog[]>) => {
                 //                this.blogs = res.body;
                 this.paginateBlogs(res.body, res.headers);
-                console.log('CONSOLOG: M:communitiesBlogs & O: this.blogs : ', this.blogs);
+                //                console.log('CONSOLOG: M:communitiesBlogs & O: this.blogs : ', this.blogs);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -136,7 +136,7 @@ export class CommunityDetailComponent implements OnInit {
         return this.cinterestService.query(query2).subscribe(
             (res: HttpResponse<ICinterest[]>) => {
                 this.cinterests = res.body;
-                console.log('CONSOLOG: M:umxmInterests & O: this.cinterests : ', this.cinterests);
+                //                console.log('CONSOLOG: M:umxmInterests & O: this.cinterests : ', this.cinterests);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -148,7 +148,7 @@ export class CommunityDetailComponent implements OnInit {
         return this.cactivityService.query(query3).subscribe(
             (res: HttpResponse<ICactivity[]>) => {
                 this.cactivities = res.body;
-                console.log('CONSOLOG: M:umxmActivities & O: this.cactivities : ', this.cactivities);
+                //                console.log('CONSOLOG: M:umxmActivities & O: this.cactivities : ', this.cactivities);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -160,7 +160,7 @@ export class CommunityDetailComponent implements OnInit {
         return this.ccelebService.query(query4).subscribe(
             (res: HttpResponse<ICceleb[]>) => {
                 this.ccelebs = res.body;
-                console.log('CONSOLOG: M:umxmCelebs & O: this.ccelebs : ', this.ccelebs);
+                //                console.log('CONSOLOG: M:umxmCelebs & O: this.ccelebs : ', this.ccelebs);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -182,7 +182,7 @@ export class CommunityDetailComponent implements OnInit {
         this.follow.followedId = this.currentAccount.id;
         this.follow.cfollowingId = this.community.id;
         if (this.isFollowing === false) {
-            console.log('CONSOLOG: M:following & O: this.follow : ', this.follow);
+            //            console.log('CONSOLOG: M:following & O: this.follow : ', this.follow);
             this.subscribeToSaveResponse(this.followService.create(this.follow));
             this.notificationReason = 'FOLLOWING';
             this.createNotification(this.notificationReason);
@@ -198,7 +198,7 @@ export class CommunityDetailComponent implements OnInit {
                     if (this.follows.length > 0) {
                         this.isFollowing = true;
                         // return this.follows[0];
-                        console.log('CONSOLOG: M:unFollowing & O: this.follows[0].id : ', this.follows[0].id);
+                        //                        console.log('CONSOLOG: M:unFollowing & O: this.follows[0].id : ', this.follows[0].id);
                         this.followService.delete(this.follows[0].id).subscribe(response => {
                             this.notificationReason = 'UNFOLLOWING';
                             this.createNotification(this.notificationReason);
@@ -212,13 +212,13 @@ export class CommunityDetailComponent implements OnInit {
     }
 
     deleteItemFromList() {
-        console.log('CONSOLOG: M:deleteItemFromList : ');
+        //        console.log('CONSOLOG: M:deleteItemFromList : ');
     }
 
     private createNotification(notificationReason) {
         this.notification = new Object();
-        console.log('CONSOLOG: M:createNotification & O: this.notification : ', this.notification);
-        console.log('CONSOLOG: M:createNotification & O: this.userId : ', this.userId);
+        //        console.log('CONSOLOG: M:createNotification & O: this.notification : ', this.notification);
+        //        console.log('CONSOLOG: M:createNotification & O: this.userId : ', this.userId);
         this.isSaving = true;
         this.notification.creationDate = moment(this.creationDate, DATE_TIME_FORMAT);
         this.notification.notificationDate = moment(this.creationDate, DATE_TIME_FORMAT);
@@ -230,14 +230,14 @@ export class CommunityDetailComponent implements OnInit {
         if (this.notification.id !== undefined) {
             this.subscribeToSaveResponse2(this.notificationService.update(this.notification));
         } else {
-            console.log('CONSOLOG: M:createNotification & O: this.notification: ', this.notification);
+            //            console.log('CONSOLOG: M:createNotification & O: this.notification: ', this.notification);
             this.subscribeToSaveResponse2(this.notificationService.create(this.notification));
         }
     }
 
     removeCommunityCinterest(cinterestId, communityId) {
-        console.log('CONSOLOG: M:removeProfileInterest & cinterestId: ', cinterestId, ', uprofileId : ', communityId);
-        console.log('CONSOLOG: M:removeProfileInterest & O: this.interests : ', this.cinterests);
+        //        console.log('CONSOLOG: M:removeProfileInterest & cinterestId: ', cinterestId, ', uprofileId : ', communityId);
+        //        console.log('CONSOLOG: M:removeProfileInterest & O: this.interests : ', this.cinterests);
         this.cinterests.forEach(cinterest => {
             //            console.log( 'CONSOLOG: M:removeProfileInterest; & this.interest: ', interest );
             if (cinterest.id === cinterestId) {
@@ -245,7 +245,7 @@ export class CommunityDetailComponent implements OnInit {
                 cinterest.communities.forEach(community => {
                     //                    console.log( 'CONSOLOG: M:removeProfileInterest; & this.uprofile: ', uprofile );
                     if (community.id === communityId) {
-                        console.log('CONSOLOG: M:removeProfileInterest; INDEX!!!!!: ', cinterest.communities.indexOf(community));
+                        //                        console.log('CONSOLOG: M:removeProfileInterest; INDEX!!!!!: ', cinterest.communities.indexOf(community));
                         cinterest.communities.splice(cinterest.communities.indexOf(community), 1);
                         this.subscribeToSaveResponse3(this.cinterestService.update(cinterest));
                         this.cinterests.splice(cinterest.communities.indexOf(community), 1);
@@ -256,8 +256,8 @@ export class CommunityDetailComponent implements OnInit {
     }
 
     removeCommunityCactivity(cactivityId, communityId) {
-        console.log('CONSOLOG: M:removeProfileInterest & cactivityId: ', cactivityId, ', uprofileId : ', communityId);
-        console.log('CONSOLOG: M:removeProfileInterest & O: this.cactivities : ', this.cactivities);
+        //        console.log('CONSOLOG: M:removeProfileInterest & cactivityId: ', cactivityId, ', uprofileId : ', communityId);
+        //        console.log('CONSOLOG: M:removeProfileInterest & O: this.cactivities : ', this.cactivities);
         this.cactivities.forEach(cactivity => {
             //            console.log( 'CONSOLOG: M:removeProfileInterest; & this.interest: ', interest );
             if (cactivity.id === cactivityId) {
@@ -265,7 +265,7 @@ export class CommunityDetailComponent implements OnInit {
                 cactivity.communities.forEach(community => {
                     //                    console.log( 'CONSOLOG: M:removeProfileInterest; & this.uprofile: ', uprofile );
                     if (community.id === communityId) {
-                        console.log('CONSOLOG: M:removeProfileInterest; INDEX!!!!!: ', cactivity.communities.indexOf(community));
+                        //                        console.log('CONSOLOG: M:removeProfileInterest; INDEX!!!!!: ', cactivity.communities.indexOf(community));
                         cactivity.communities.splice(cactivity.communities.indexOf(community), 1);
                         this.subscribeToSaveResponse3(this.cactivityService.update(cactivity));
                         this.cactivities.splice(cactivity.communities.indexOf(community), 1);
@@ -276,8 +276,8 @@ export class CommunityDetailComponent implements OnInit {
     }
 
     removeCommunityCceleb(ccelebId, communityId) {
-        console.log('CONSOLOG: M:removeProfileInterest & ccelebId: ', ccelebId, ', uprofileId : ', communityId);
-        console.log('CONSOLOG: M:removeProfileInterest & O: this.ccelebs : ', this.ccelebs);
+        //        console.log('CONSOLOG: M:removeProfileInterest & ccelebId: ', ccelebId, ', uprofileId : ', communityId);
+        //        console.log('CONSOLOG: M:removeProfileInterest & O: this.ccelebs : ', this.ccelebs);
         this.ccelebs.forEach(cceleb => {
             //            console.log( 'CONSOLOG: M:removeProfileInterest; & this.interest: ', interest );
             if (cceleb.id === ccelebId) {
@@ -285,7 +285,7 @@ export class CommunityDetailComponent implements OnInit {
                 cceleb.communities.forEach(community => {
                     //                    console.log( 'CONSOLOG: M:removeProfileInterest; & this.uprofile: ', uprofile );
                     if (community.id === communityId) {
-                        console.log('CONSOLOG: M:removeProfileInterest; INDEX!!!!!: ', cceleb.communities.indexOf(community));
+                        //                        console.log('CONSOLOG: M:removeProfileInterest; INDEX!!!!!: ', cceleb.communities.indexOf(community));
                         cceleb.communities.splice(cceleb.communities.indexOf(community), 1);
                         this.subscribeToSaveResponse3(this.ccelebService.update(cceleb));
                         this.ccelebs.splice(cceleb.communities.indexOf(community), 1);
@@ -348,7 +348,7 @@ export class CommunityDetailComponent implements OnInit {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.blogs = data;
-        console.log('CONSOLOG: M:paginateBlogs & O: this.blogs : ', this.blogs);
+        //        console.log('CONSOLOG: M:paginateBlogs & O: this.blogs : ', this.blogs);
     }
 
     loadPage(page) {

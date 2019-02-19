@@ -47,7 +47,7 @@ export class VquestionUpdateComponent implements OnInit {
                 this.nameParamVtopic = 'vtopicId.equals';
                 this.valueParamVtopic = params.vtopicIdEquals;
             }
-            console.log('CONSOLOG: M:constructor & O: activatedRoute : ', this.nameParamVtopic, ' : ', this.valueParamVtopic);
+            //            console.log('CONSOLOG: M:constructor & O: activatedRoute : ', this.nameParamVtopic, ' : ', this.valueParamVtopic);
         });
     }
 
@@ -62,7 +62,7 @@ export class VquestionUpdateComponent implements OnInit {
             this.vquestion.vtopicId = this.valueParamVtopic;
             this.accountService.identity().then(account => {
                 this.vquestion.userId = account.id;
-                console.log('CONSOLOG: M:ngOnInit & O: this.vquestion : ', this.vquestion);
+                //                console.log('CONSOLOG: M:ngOnInit & O: this.vquestion : ', this.vquestion);
             });
         }
         //        this.userService
@@ -89,10 +89,10 @@ export class VquestionUpdateComponent implements OnInit {
         this.isSaving = true;
         this.vquestion.creationDate = this.creationDate != null ? moment(this.creationDate, DATE_TIME_FORMAT) : null;
         if (this.vquestion.id !== undefined) {
-            console.log('CONSOLOG: M:ngOnInit & O: this.vquestion : ', this.vquestion);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.vquestion : ', this.vquestion);
             this.subscribeToSaveResponse(this.vquestionService.update(this.vquestion));
         } else {
-            console.log('CONSOLOG: M:ngOnInit & O: this.vquestion : ', this.vquestion);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.vquestion : ', this.vquestion);
             this.subscribeToSaveResponse(this.vquestionService.create(this.vquestion));
         }
     }

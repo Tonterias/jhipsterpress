@@ -182,9 +182,9 @@ export class AlbumComponent implements OnInit, OnDestroy {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.albums = data;
-        console.log('CONSOLOG: M:paginateAlbums & O: this.owner : ', this.owner);
-        console.log('CONSOLOG: M:paginateAlbums & O: this.isAdmin : ', this.isAdmin);
-        console.log('CONSOLOG: M:paginateAlbums & O: this.albums : ', this.albums);
+        //        console.log('CONSOLOG: M:paginateAlbums & O: this.owner : ', this.owner);
+        //        console.log('CONSOLOG: M:paginateAlbums & O: this.isAdmin : ', this.isAdmin);
+        //        console.log('CONSOLOG: M:paginateAlbums & O: this.albums : ', this.albums);
     }
 
     protected onError(errorMessage: string) {

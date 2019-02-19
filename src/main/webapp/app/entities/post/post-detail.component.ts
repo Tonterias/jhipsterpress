@@ -88,28 +88,28 @@ export class PostDetailComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log('CONSOLOG: M:ngOnInit & O: this.page : ', this.page);
-        console.log('CONSOLOG: M:ngOnInit & O: this.predicate : ', this.predicate);
-        console.log('CONSOLOG: M:ngOnInit & O: this.previousPage : ', this.previousPage);
-        console.log('CONSOLOG: M:ngOnInit & O: this.reverse : ', this.reverse);
+        //        console.log('CONSOLOG: M:ngOnInit & O: this.page : ', this.page);
+        //        console.log('CONSOLOG: M:ngOnInit & O: this.predicate : ', this.predicate);
+        //        console.log('CONSOLOG: M:ngOnInit & O: this.previousPage : ', this.previousPage);
+        //        console.log('CONSOLOG: M:ngOnInit & O: this.reverse : ', this.reverse);
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ post }) => {
             this.post = post;
-            console.log('CONSOLOG: M:ngOnInit & O: this.post : ', this.post);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.post : ', this.post);
         });
         this.accountService.identity().then(account => {
             if (account != null) {
                 this.currentAccount = account;
                 this.owner = account.id;
-                console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount.id);
-                console.log('CONSOLOG: M:ngOnInit & O: this.owner : ', this.owner);
+                //                console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount.id);
+                //                console.log('CONSOLOG: M:ngOnInit & O: this.owner : ', this.owner);
                 this.loadAll();
                 this.comment = new Object();
                 this.comment.commentText = '';
                 this.registerChangeInComments();
-                console.log('CONSOLOG: M:ngOnInit & O: this.comments : ', this.comments);
+                //                console.log('CONSOLOG: M:ngOnInit & O: this.comments : ', this.comments);
             }
-            console.log('CONSOLOG: M:ngOnInit & O: this.owner : ', this.owner);
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.owner : ', this.owner);
         });
     }
 
@@ -124,7 +124,7 @@ export class PostDetailComponent implements OnInit {
                     this.comment.userId = res.body.id;
                     this.comment.isOffensive = false;
                     this.comment.postId = this.post.id;
-                    console.log('CONSOLOG: M:save & O: this.comment : ', this.comment);
+                    //                    console.log('CONSOLOG: M:save & O: this.comment : ', this.comment);
                     this.subscribeToSaveResponse(this.commentService.create(this.comment));
                 },
                 (res: HttpErrorResponse) => this.onError(res.message)
@@ -200,13 +200,13 @@ export class PostDetailComponent implements OnInit {
         query['postId.equals'] = this.post.id;
         this.commentService.query(query).subscribe(
             (res: HttpResponse<IComment[]>) => {
-                console.log('CONSOLOG: M:loadAll & O: query : ', query);
+                //                console.log('CONSOLOG: M:loadAll & O: query : ', query);
                 this.paginateComments(res.body, res.headers);
-                console.log('CONSOLOG: M:loadAll & O: commentService res.body : ', res.body);
+                //                console.log('CONSOLOG: M:loadAll & O: commentService res.body : ', res.body);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        console.log('CONSOLOG: M:loadAll & O: this.post.userId : ', this.post.userId);
+        //        console.log('CONSOLOG: M:loadAll & O: this.post.userId : ', this.post.userId);
         const query2 = {};
         if (this.post.userId != null) {
             query2['userId.equals'] = this.post.userId;
@@ -215,7 +215,7 @@ export class PostDetailComponent implements OnInit {
             (res: HttpResponse<IUprofile[]>) => {
                 this.uprofiles = res.body;
                 this.uprofile = res.body[0];
-                console.log('CONSOLOG: M:ngOnInit & O: this.profile : ', this.uprofile);
+                //                console.log('CONSOLOG: M:ngOnInit & O: this.profile : ', this.uprofile);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -224,33 +224,33 @@ export class PostDetailComponent implements OnInit {
                 this.user = res.body;
                 this.postUserFirstName = res.body.firstName;
                 this.postUserLastName = res.body.lastName;
-                console.log('CONSOLOG: M:ngOnInit & O: this.user : ', this.user);
+                //                console.log('CONSOLOG: M:ngOnInit & O: this.user : ', this.user);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
     }
 
     removePostTag(tagId, postId) {
-        console.log('CONSOLOG: M:removePostTag & tagId: ', tagId, ', postId : ', postId);
-        console.log('CONSOLOG: M:removePostTag & O: this.post : ', this.post);
+        //        console.log('CONSOLOG: M:removePostTag & tagId: ', tagId, ', postId : ', postId);
+        //        console.log('CONSOLOG: M:removePostTag & O: this.post : ', this.post);
         this.post.tags.forEach(tag => {
             if (tag.id === tagId) {
-                console.log('CONSOLOG: M:removePostTag; INDEX!!!!!: ', this.post.tags.indexOf(tag));
+                //                console.log('CONSOLOG: M:removePostTag; INDEX!!!!!: ', this.post.tags.indexOf(tag));
                 this.post.tags.splice(this.post.tags.indexOf(tag), 1);
-                console.log('CONSOLOG: M:removePostTag; & this.post: ', this.post);
+                //                console.log('CONSOLOG: M:removePostTag; & this.post: ', this.post);
                 this.subscribeToSaveResponse2(this.tagService.update(tag));
             }
         });
     }
 
     removePostTopic(topicId, postId) {
-        console.log('CONSOLOG: M:removePostTopic & topicId: ', topicId, ', postId : ', postId);
-        console.log('CONSOLOG: M:removePostTopic & O: this.post : ', this.post);
+        //        console.log('CONSOLOG: M:removePostTopic & topicId: ', topicId, ', postId : ', postId);
+        //        console.log('CONSOLOG: M:removePostTopic & O: this.post : ', this.post);
         this.post.topics.forEach(topic => {
             if (topic.id === topicId) {
-                console.log('CONSOLOG: M:removePostTopic; INDEX!!!!!: ', this.post.topics.indexOf(topic));
+                //                console.log('CONSOLOG: M:removePostTopic; INDEX!!!!!: ', this.post.topics.indexOf(topic));
                 this.post.topics.splice(this.post.topics.indexOf(topic), 1);
-                console.log('CONSOLOG: M:removePostTopic; & this.post: ', this.post);
+                //                console.log('CONSOLOG: M:removePostTopic; & this.post: ', this.post);
                 this.subscribeToSaveResponse3(this.topicService.update(topic));
             }
         });
@@ -304,6 +304,6 @@ export class PostDetailComponent implements OnInit {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.comments = data;
-        console.log('CONSOLOG: M:paginateComments & O: this.comments : ', this.comments);
+        //        console.log('CONSOLOG: M:paginateComments & O: this.comments : ', this.comments);
     }
 }

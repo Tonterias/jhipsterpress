@@ -82,8 +82,8 @@ export class UprofileDetailComponent implements OnInit {
             if (params.userIdEquals != null) {
                 this.nameParamUserId = 'userId.equals';
                 this.valueParamUserId = params.userIdEquals;
-                console.log('CONSOLOG: M:activatedRoute & O: this.nameParamUserId : ', this.nameParamUserId);
-                console.log('CONSOLOG: M:activatedRoute & O: this.valueParamUserId : ', this.valueParamUserId);
+                //                console.log('CONSOLOG: M:activatedRoute & O: this.nameParamUserId : ', this.nameParamUserId);
+                //                console.log('CONSOLOG: M:activatedRoute & O: this.valueParamUserId : ', this.valueParamUserId);
             }
         });
     }
@@ -92,19 +92,19 @@ export class UprofileDetailComponent implements OnInit {
         this.accountService.identity().then(account => {
             this.currentAccount = account;
             this.owner = account.id;
-            console.log('CONSOLOG: M:paginateProfiles & O: this.owner : ', this.owner);
+            //            console.log('CONSOLOG: M:paginateProfiles & O: this.owner : ', this.owner);
             this.currentLoggedProfile();
         });
         if (this.valueParamUserId != null) {
-            console.log('CONSOLOG: TENGO DATO DE UPROFILE VIA this.valueParamUserId consultedUserId');
-            console.log('CONSOLOG: M:ngOnInit & O: this.valueParamUserId : ', this.valueParamUserId);
+            //            console.log('CONSOLOG: TENGO DATO DE UPROFILE VIA this.valueParamUserId consultedUserId');
+            //            console.log('CONSOLOG: M:ngOnInit & O: this.valueParamUserId : ', this.valueParamUserId);
             this.consultedUserId = this.valueParamUserId;
             const query = {};
             query['userId.equals'] = this.valueParamUserId;
             this.uprofileService.query(query).subscribe(
                 (res: HttpResponse<IUprofile[]>) => {
                     this.uprofile = res.body[0];
-                    console.log('CONSOLOG: M:ngOnInit & O: this.uprofile1 : ', this.uprofile);
+                    //                    console.log('CONSOLOG: M:ngOnInit & O: this.uprofile1 : ', this.uprofile);
                 },
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
@@ -112,7 +112,7 @@ export class UprofileDetailComponent implements OnInit {
             this.activatedRoute.data.subscribe(({ uprofile }) => {
                 this.uprofile = uprofile;
                 this.consultedUserId = uprofile.userId;
-                console.log('CONSOLOG: M:ngOnInit & O: this.uprofile2 : ', this.uprofile);
+                //                console.log('CONSOLOG: M:ngOnInit & O: this.uprofile2 : ', this.uprofile);
             });
         }
         this.fillProfile();
@@ -122,14 +122,14 @@ export class UprofileDetailComponent implements OnInit {
     }
 
     protected fillProfile() {
-        console.log('CONSOLOG: M:fillProfile!!!!!!!!!!!!!!!!!!!!!!!!!! en fillProfile1');
+        //        console.log('CONSOLOG: M:fillProfile!!!!!!!!!!!!!!!!!!!!!!!!!! en fillProfile1');
         this.consultProfile().subscribe(
             (res: HttpResponse<IUser>) => {
                 this.consultedUser = res.body;
                 this.uprofileUserFirstName = res.body.firstName;
                 this.uprofileUserLastName = res.body.lastName;
-                console.log('CONSOLOG: M:fillProfile & O: this.consultedUser : ', this.consultedUser);
-                console.log('CONSOLOG: M:fillProfile!!!!!!!!!!!!!!!!!!!!!!!!!! en fillProfile2');
+                //                console.log('CONSOLOG: M:fillProfile & O: this.consultedUser : ', this.consultedUser);
+                //                console.log('CONSOLOG: M:fillProfile!!!!!!!!!!!!!!!!!!!!!!!!!! en fillProfile2');
                 this.uprofileInterests();
                 this.uprofileActivities();
                 this.uprofileCelebs();
@@ -139,7 +139,7 @@ export class UprofileDetailComponent implements OnInit {
     }
 
     protected consultProfile() {
-        console.log('CONSOLOG: M:consultProfile!!!!!!!!!!!!!!!!!!!!!!!!!! en consultedUserId', this.consultedUserId);
+        //        console.log('CONSOLOG: M:consultProfile!!!!!!!!!!!!!!!!!!!!!!!!!! en consultedUserId', this.consultedUserId);
         return this.userService.findById(this.consultedUserId);
     }
 
@@ -149,7 +149,7 @@ export class UprofileDetailComponent implements OnInit {
         return this.interestService.query(query2).subscribe(
             (res: HttpResponse<IInterest[]>) => {
                 this.interests = res.body;
-                console.log('CONSOLOG: M:uprofileInterests & O: this.interests : ', this.interests);
+                //                console.log('CONSOLOG: M:uprofileInterests & O: this.interests : ', this.interests);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -161,7 +161,7 @@ export class UprofileDetailComponent implements OnInit {
         return this.activityService.query(query3).subscribe(
             (res: HttpResponse<IActivity[]>) => {
                 this.activities = res.body;
-                console.log('CONSOLOG: M:uprofileActivities & O: this.activities : ', this.activities);
+                //                console.log('CONSOLOG: M:uprofileActivities & O: this.activities : ', this.activities);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -173,7 +173,7 @@ export class UprofileDetailComponent implements OnInit {
         return this.celebService.query(query4).subscribe(
             (res: HttpResponse<ICeleb[]>) => {
                 this.celebs = res.body;
-                console.log('CONSOLOG: M:uprofileCelebs & O: this.celebs : ', this.celebs);
+                //                console.log('CONSOLOG: M:uprofileCelebs & O: this.celebs : ', this.celebs);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -188,7 +188,7 @@ export class UprofileDetailComponent implements OnInit {
             (res: HttpResponse<IUprofile[]>) => {
                 this.loggedProfile = res.body;
                 this.loggedProfileId = res.body[0].id;
-                console.log('CONSOLOG: M:currentLoggedProfile & O: this.loggedProfile : ', this.loggedProfile);
+                //                console.log('CONSOLOG: M:currentLoggedProfile & O: this.loggedProfile : ', this.loggedProfile);
                 this.loggedProfile.forEach(profile => {
                     this.loggedUserId = profile.userId;
                 });
@@ -233,7 +233,7 @@ export class UprofileDetailComponent implements OnInit {
         this.follow.followingId = this.uprofile.userId;
         this.follow.followedId = this.loggedUserId;
         if (this.isFollowing === false) {
-            console.log('CONSOLOG: M:following & O: this.follow : ', this.follow);
+            //            console.log('CONSOLOG: M:following & O: this.follow : ', this.follow);
             this.subscribeToSaveResponse(this.followService.create(this.follow));
             this.notificationReason = 'FOLLOWING';
             this.createNotification(this.notificationReason);
@@ -250,7 +250,7 @@ export class UprofileDetailComponent implements OnInit {
                     if (this.follows.length > 0) {
                         this.isFollowing = true;
                         // return this.follows[0];
-                        console.log('CONSOLOG: M:unFollowing & O: this.follows[0].id : ', this.follows[0].id);
+                        //                        console.log('CONSOLOG: M:unFollowing & O: this.follows[0].id : ', this.follows[0].id);
                         this.followService.delete(this.follows[0].id).subscribe(response => {
                             this.notificationReason = 'UNFOLLOWING';
                             this.createNotification(this.notificationReason);
@@ -266,8 +266,8 @@ export class UprofileDetailComponent implements OnInit {
 
     protected createNotification(notificationReason) {
         this.notification = new Object();
-        console.log('CONSOLOG: M:createNotification & O: this.notification : ', this.notification);
-        console.log('CONSOLOG: M:createNotification & O: this.consultedUserId : ', this.consultedUserId);
+        //        console.log('CONSOLOG: M:createNotification & O: this.notification : ', this.notification);
+        //        console.log('CONSOLOG: M:createNotification & O: this.consultedUserId : ', this.consultedUserId);
         this.isSaving = true;
         this.notification.creationDate = moment(this.creationDate, DATE_TIME_FORMAT);
         this.notification.notificationDate = moment(this.creationDate, DATE_TIME_FORMAT);
@@ -278,7 +278,7 @@ export class UprofileDetailComponent implements OnInit {
         if (this.notification.id !== undefined) {
             this.subscribeToSaveResponse2(this.notificationService.update(this.notification));
         } else {
-            console.log('CONSOLOG: M:createNotification & O: this.notification: ', this.notification);
+            //            console.log('CONSOLOG: M:createNotification & O: this.notification: ', this.notification);
             this.subscribeToSaveResponse2(this.notificationService.create(this.notification));
         }
     }
@@ -312,7 +312,7 @@ export class UprofileDetailComponent implements OnInit {
                     this.blockusers = res4.body;
                     if (this.blockusers.length > 0) {
                         this.isBlocked = true;
-                        console.log('CONSOLOG: M:unBlocking & O2: this.blockusers[0].id : ', this.blockusers[0].id);
+                        //                        console.log('CONSOLOG: M:unBlocking & O2: this.blockusers[0].id : ', this.blockusers[0].id);
                         this.blockuserService.delete(this.blockusers[0].id).subscribe(response => {});
                         this.isBlocked = false;
                         //                        this.reload();
@@ -324,8 +324,8 @@ export class UprofileDetailComponent implements OnInit {
     }
 
     removeProfileInterest(interestId, uprofileId) {
-        console.log('CONSOLOG: M:removeProfileInterest & interestId: ', interestId, ', uprofileId : ', uprofileId);
-        console.log('CONSOLOG: M:removeProfileInterest & O: this.interests : ', this.interests);
+        //        console.log('CONSOLOG: M:removeProfileInterest & interestId: ', interestId, ', uprofileId : ', uprofileId);
+        //        console.log('CONSOLOG: M:removeProfileInterest & O: this.interests : ', this.interests);
         this.interests.forEach(interest => {
             //            console.log( 'CONSOLOG: M:removeProfileInterest; & this.interest: ', interest );
             if (interest.id === interestId) {
@@ -333,7 +333,7 @@ export class UprofileDetailComponent implements OnInit {
                 interest.uprofiles.forEach(uprofile => {
                     //                    console.log( 'CONSOLOG: M:removeProfileInterest; & this.uprofile: ', uprofile );
                     if (uprofile.id === uprofileId) {
-                        console.log('CONSOLOG: M:removeProfileInterest; INDEX!!!!!: ', interest.uprofiles.indexOf(uprofile));
+                        //                        console.log('CONSOLOG: M:removeProfileInterest; INDEX!!!!!: ', interest.uprofiles.indexOf(uprofile));
                         interest.uprofiles.splice(interest.uprofiles.indexOf(uprofile), 1);
                         this.subscribeToSaveResponse3(this.interestService.update(interest));
                         this.interests.splice(interest.uprofiles.indexOf(uprofile), 1);
@@ -344,8 +344,8 @@ export class UprofileDetailComponent implements OnInit {
     }
 
     removeProfileActivity(actvityId, uprofileId) {
-        console.log('CONSOLOG: M:removeProfileInterest & actvityId: ', actvityId, ', uprofileId : ', uprofileId);
-        console.log('CONSOLOG: M:removeProfileInterest & O: this.activities : ', this.activities);
+        //        console.log('CONSOLOG: M:removeProfileInterest & actvityId: ', actvityId, ', uprofileId : ', uprofileId);
+        //        console.log('CONSOLOG: M:removeProfileInterest & O: this.activities : ', this.activities);
         this.activities.forEach(activity => {
             if (activity.id === actvityId) {
                 activity.uprofiles.forEach(uprofile => {
@@ -360,13 +360,13 @@ export class UprofileDetailComponent implements OnInit {
     }
 
     removeProfileCeleb(celebId, uprofileId) {
-        console.log('CONSOLOG: M:removeProfileInterest & celebId: ', celebId, ', uprofileId : ', uprofileId);
-        console.log('CONSOLOG: M:removeProfileInterest & O: this.celebs : ', this.celebs);
+        //        console.log('CONSOLOG: M:removeProfileInterest & celebId: ', celebId, ', uprofileId : ', uprofileId);
+        //        console.log('CONSOLOG: M:removeProfileInterest & O: this.celebs : ', this.celebs);
         this.celebs.forEach(celeb => {
             if (celeb.id === celebId) {
                 celeb.uprofiles.forEach(uprofile => {
                     if (uprofile.id === uprofileId) {
-                        console.log('CONSOLOG: M:removeProfileceleb; INDEX!!!!!: ', celeb.uprofiles.indexOf(uprofile));
+                        //                        console.log('CONSOLOG: M:removeProfileceleb; INDEX!!!!!: ', celeb.uprofiles.indexOf(uprofile));
                         celeb.uprofiles.splice(celeb.uprofiles.indexOf(uprofile), 1);
                         this.subscribeToSaveResponse5(this.celebService.update(celeb));
                         this.celebs.splice(celeb.uprofiles.indexOf(uprofile), 1);

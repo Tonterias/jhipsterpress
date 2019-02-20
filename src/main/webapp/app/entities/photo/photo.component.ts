@@ -133,11 +133,11 @@ export class PhotoComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.loadAll();
         this.accountService.identity().then(account => {
             this.currentAccount = account;
             this.owner = account.id;
             this.isAdmin = this.accountService.hasAnyAuthority(['ROLE_ADMIN']);
+            this.myUsersPhotos();
         });
         this.registerChangeInPhotos();
     }

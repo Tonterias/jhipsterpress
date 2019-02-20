@@ -55,31 +55,62 @@ export class AlbumComponent implements OnInit, OnDestroy {
                 : '';
     }
 
+    //    loadAll() {
+    //        if (this.currentSearch) {
+    //            this.albumService
+    //                .query({
+    //                    page: this.page - 1,
+    //                    'title.contains': this.currentSearch,
+    //                    size: this.itemsPerPage,
+    //                    sort: this.sort()
+    //                })
+    //                .subscribe(
+    //                    (res: HttpResponse<IAlbum[]>) => this.paginateAlbums(res.body, res.headers),
+    //                    (res: HttpErrorResponse) => this.onError(res.message)
+    //                );
+    //            return;
+    //        }
+    //        this.albumService
+    //            .query({
+    //                page: this.page - 1,
+    //                size: this.itemsPerPage,
+    //                sort: this.sort()
+    //            })
+    //            .subscribe(
+    //                (res: HttpResponse<IAlbum[]>) => this.paginateAlbums(res.body, res.headers),
+    //                (res: HttpErrorResponse) => this.onError(res.message)
+    //            );
+    //    }
+
     loadAll() {
         if (this.currentSearch) {
-            this.albumService
-                .query({
-                    page: this.page - 1,
-                    'title.contains': this.currentSearch,
-                    size: this.itemsPerPage,
-                    sort: this.sort()
-                })
-                .subscribe(
-                    (res: HttpResponse<IAlbum[]>) => this.paginateAlbums(res.body, res.headers),
-                    (res: HttpErrorResponse) => this.onError(res.message)
-                );
-            return;
-        }
-        this.albumService
-            .query({
+            const query = {
                 page: this.page - 1,
                 size: this.itemsPerPage,
                 sort: this.sort()
-            })
-            .subscribe(
-                (res: HttpResponse<IAlbum[]>) => this.paginateAlbums(res.body, res.headers),
+            };
+            query['userId.equals'] = this.currentAccount.id;
+            this.albumService.query(query).subscribe(
+                (res: HttpResponse<IAlbum[]>) => {
+                    this.albums = res.body;
+                },
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
+            return;
+        }
+        const query2 = {
+            page: this.page - 1,
+            size: this.itemsPerPage,
+            sort: this.sort()
+        };
+        query2['userId.equals'] = this.currentAccount.id;
+        this.albumService.query(query2).subscribe(
+            (res: HttpResponse<IAlbum[]>) => {
+                this.albums = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        return;
     }
 
     loadPage(page: number) {
@@ -132,11 +163,11 @@ export class AlbumComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.loadAll();
         this.accountService.identity().then(account => {
             this.currentAccount = account;
             this.owner = account.id;
             this.isAdmin = this.accountService.hasAnyAuthority(['ROLE_ADMIN']);
+            this.loadAll();
         });
         this.registerChangeInAlbums();
     }

@@ -21,6 +21,7 @@ export class CalbumComponent implements OnInit, OnDestroy {
     currentAccount: any;
     calbums: ICalbum[];
     communities: ICommunity[];
+    arrayCommmunities = [];
     error: any;
     success: any;
     eventSubscriber: Subscription;
@@ -59,31 +60,63 @@ export class CalbumComponent implements OnInit, OnDestroy {
                 : '';
     }
 
+    //    loadAll() {
+    //        if (this.currentSearch) {
+    //            this.calbumService
+    //                .query({
+    //                    page: this.page - 1,
+    //                    'title.contains': this.currentSearch,
+    //                    size: this.itemsPerPage,
+    //                    sort: this.sort()
+    //                })
+    //                .subscribe(
+    //                    (res: HttpResponse<ICalbum[]>) => this.paginateCalbums(res.body, res.headers),
+    //                    (res: HttpErrorResponse) => this.onError(res.message)
+    //                );
+    //            return;
+    //        }
+    //        this.calbumService
+    //            .query({
+    //                page: this.page - 1,
+    //                size: this.itemsPerPage,
+    //                sort: this.sort()
+    //            })
+    //            .subscribe(
+    //                (res: HttpResponse<ICalbum[]>) => this.paginateCalbums(res.body, res.headers),
+    //                (res: HttpErrorResponse) => this.onError(res.message)
+    //            );
+    //    }
+
     loadAll() {
         if (this.currentSearch) {
-            this.calbumService
-                .query({
-                    page: this.page - 1,
-                    'title.contains': this.currentSearch,
-                    size: this.itemsPerPage,
-                    sort: this.sort()
-                })
-                .subscribe(
-                    (res: HttpResponse<ICalbum[]>) => this.paginateCalbums(res.body, res.headers),
-                    (res: HttpErrorResponse) => this.onError(res.message)
-                );
-            return;
-        }
-        this.calbumService
-            .query({
+            const query = {
                 page: this.page - 1,
                 size: this.itemsPerPage,
                 sort: this.sort()
-            })
-            .subscribe(
-                (res: HttpResponse<ICalbum[]>) => this.paginateCalbums(res.body, res.headers),
+            };
+            query['title.contains'] = this.currentSearch;
+            query['creceiverId.in'] = this.arrayCommmunities;
+            this.calbumService.query(query).subscribe(
+                (res: HttpResponse<ICalbum[]>) => {
+                    this.calbums = res.body;
+                },
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
+            return;
+        }
+        const query2 = {
+            page: this.page - 1,
+            size: this.itemsPerPage,
+            sort: this.sort()
+        };
+        query2['creceiverId.in'] = this.arrayCommmunities;
+        this.calbumService.query(query2).subscribe(
+            (res: HttpResponse<ICalbum[]>) => {
+                this.calbums = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        return;
     }
 
     loadPage(page: number) {
@@ -136,12 +169,13 @@ export class CalbumComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.loadAll();
         this.accountService.identity().then(account => {
             this.currentAccount = account;
             this.owner = account.id;
             this.isAdmin = this.accountService.hasAnyAuthority(['ROLE_ADMIN']);
+            this.myCalbums();
         });
+        this.loadAll();
         this.registerChangeInCalbums();
     }
 
@@ -182,18 +216,19 @@ export class CalbumComponent implements OnInit, OnDestroy {
             );
     }
 
-    private communitiesBlogs() {
+    private communitiesAlbums() {
         const query = {
             page: this.page - 1,
             size: this.itemsPerPage,
             sort: this.sort()
         };
         if (this.communities != null) {
-            const arrayCommmunities = [];
+            this.arrayCommmunities = [];
             this.communities.forEach(community => {
-                arrayCommmunities.push(community.id);
+                this.arrayCommmunities.push(community.id);
+                //                console.log('CONSOLOG: M:communitiesAlbums & O: this.arrayCommmunities : ', this.arrayCommmunities);
             });
-            query['communityId.in'] = arrayCommmunities;
+            query['communityId.in'] = this.arrayCommmunities;
         }
         this.calbumService
             .query(query)
@@ -213,7 +248,7 @@ export class CalbumComponent implements OnInit, OnDestroy {
         this.links = this.parseLinks.parse(headers.get('link'));
         this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
         this.communities = data;
-        this.communitiesBlogs();
+        this.communitiesAlbums();
     }
 
     protected onError(errorMessage: string) {

@@ -47,16 +47,16 @@ spring:
     liquibase:
         contexts: prod
     mail:
-        host: smtp.gmail.com
+        host: in-v3.mailjet.com
         port: 587
-        username: jhipsterpress@gmail.com
-        password: 2donotbeakid   
+        username: 86e53c39b724614ed803d6c12f4c66ef  #Replace this field with your Gmail username.
+        password: e8814ab5ad0dd418013cd47392232a0d  #Replace this field with your Gmail password.
         protocol: smtp
         tls: true
-        properties.mail.smtp: 
+        properties.mail.smtp:
             auth: true
             starttls.enable: true
-            ssl.trust: smtp.gmail.com
+            ssl.trust: in-v3.mailjet.com
     thymeleaf:
         cache: true
 

@@ -2,7 +2,7 @@
     <div class="col-lg-8 col-md-12">
         <div *ngIf="community">
             <h2><span>{{community.communityName}}</span>
-	            <button *ngIf="isFollowing === true" style="margin:5px;" id="jh-my-entity" class="btn btn-primary float-right jh-create-entity create-blog" (click)="unFollowing()">
+	            <button *ngIf="isFollowing === true" style="margin:5px;" id="jh-my-entity" class="btn btn-outline-primary float-right jh-create-entity create-blog" (click)="unFollowing()">
 				    <span jhiTranslate="jhipsterpressApp.community.unfollow">
 				    UnFollow
 				    </span>

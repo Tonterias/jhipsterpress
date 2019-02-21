@@ -123,8 +123,9 @@
 			 <div class="row justify-content-center">
 				    <div class="col-8">
 				        <div *ngIf="uprofile">
-				            <h2>{{uprofileUserFirstName}} {{uprofileUserLastName}}
-				            	<span jhiTranslate="jhipsterpressApp.uprofile.detail.title">Profile</span>
+				            <h2>
+				            	<span jhiTranslate="jhipsterpressApp.uprofile.detail.title">Profile</span>:
+				             {{uprofileUserFirstName}} {{uprofileUserLastName}}
 				            </h2>
 				            <div>
   					            <span *ngIf="uprofile.id!==loggedProfileId">

@@ -1,14 +1,10 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="cinterest">
-            <h2><span jhiTranslate="jhipsterpressApp.cinterest.detail.title">Cinterest</span> {{cinterest.id}}</h2>
+            <h2><span jhiTranslate="jhipsterpressApp.cinterest.interestName">Cinterest</span>: {{cinterest.interestName}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="jhipsterpressApp.cinterest.interestName">Interest Name</span></dt>
-                <dd>
-                    <span>{{cinterest.interestName}}</span>
-                </dd>
                 <dt><span jhiTranslate="jhipsterpressApp.cinterest.community">Community</span></dt>
                 <dd>
                     <span *ngFor="let community of cinterest.communities; let last = last">

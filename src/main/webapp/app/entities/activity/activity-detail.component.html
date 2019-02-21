@@ -1,14 +1,10 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="activity">
-            <h2><span jhiTranslate="jhipsterpressApp.activity.detail.title">Activity</span> {{activity.id}}</h2>
+            <h2><span jhiTranslate="jhipsterpressApp.activity.activityName">Activity</span>: {{activity.activityName}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="jhipsterpressApp.activity.activityName">Activity Name</span></dt>
-                <dd>
-                    <span>{{activity.activityName}}</span>
-                </dd>
                 <dt><span jhiTranslate="jhipsterpressApp.activity.uprofile">Uprofile</span></dt>
                 <dd>
                     <span *ngFor="let uprofile of activity.uprofiles; let last = last">

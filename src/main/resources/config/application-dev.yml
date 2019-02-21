@@ -60,10 +60,16 @@ spring:
     liquibase:
         contexts: dev
     mail:
-        host: localhost
-        port: 25
-        username:
-        password:
+        host: in-v3.mailjet.com
+        port: 587
+        username: 86e53c39b724614ed803d6c12f4c66ef  #Replace this field with your Gmail username.
+        password: e8814ab5ad0dd418013cd47392232a0d  #Replace this field with your Gmail password.
+        protocol: smtp
+        tls: true
+        properties.mail.smtp:
+            auth: true
+            starttls.enable: true
+            ssl.trust: in-v3.mailjet.com
     messages:
         cache-duration: PT1S # 1 second, see the ISO 8601 standard
     thymeleaf:

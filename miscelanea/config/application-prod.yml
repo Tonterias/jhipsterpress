@@ -50,7 +50,7 @@ spring:
         host: smtp-relay.sendinblue.com
         port: 587
         username: jhipsterpress@gmail.com  #Replace this field with your Gmail username.
-        password: LDBnK0YNPOZzcFJ1  #Replace this field with your Gmail password.
+        password: xxxxxxxxxxxxxxxxxxxxxxx  #Replace this field with your Gmail password.
         protocol: smtp
         tls: true
         properties.mail.smtp:
@@ -104,7 +104,7 @@ jhipster:
     security:
         remember-me:
             # security key (this key should be unique for your application, and kept secret)
-            key: 849674ddd717c497d8121e881c00e0a360379a3e8688dbe36ef79a4f9ee0e6560ed963066de7c638eade3ef2016e164bb8f1
+            key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     mail: # specific JHipster mail property, for standard properties see MailProperties
         from: jhipsterpress@localhost
         base-url: http://www.jhipsterpress.com # Modify according to your server's URL

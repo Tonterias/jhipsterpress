@@ -63,7 +63,7 @@ spring:
         host: smtp-relay.sendinblue.com
         port: 587
         username: jhipsterpress@gmail.com  #Replace this field with your Gmail username.
-        password: LDBnK0YNPOZzcFJ1  #Replace this field with your Gmail password.
+        password: xxxxxxxxxxxxxxxxxx  #Replace this field with your Gmail password.
         protocol: smtp
         tls: true
         properties.mail.smtp:

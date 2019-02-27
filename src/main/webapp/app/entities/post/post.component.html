@@ -107,6 +107,14 @@
         </div>
       </section>
       <!-- End User Blocks v16 -->
+      <div *ngIf="posts && posts.length">
+	      <div class="row justify-content-center">
+	          <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+	      </div>
+	      <div class="row justify-content-center">
+	          <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+	      </div>
+	  </div>
 </div>
 
 <div>
@@ -147,7 +155,7 @@
                 <td>{{post.publicationDate | date:'MMM d, y, h:mm a'}}</td>
                 <td>{{post.headline}}</td>
                 <td>{{post.leadtext}}</td>
-                <td>{{post.bodytext}}</td>
+                <td>{{post.bodytext | slice:0:75}}</td>
                 <td>{{post.quote}}</td>
                 <td>{{post.conclusion}}</td>
                 <td>{{post.linkText}}</td>

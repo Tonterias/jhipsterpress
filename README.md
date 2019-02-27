@@ -82,6 +82,7 @@ ADVANCED:
 
 SPECIFIC or not so general questions:
 
+-   [Configurations and Open Source incompatibilities NOTE](ReadMe/Solution38.md)
 -   [How to sanitize YouTube links in Angular 7: DomSanitizer](ReadMe/Solution34.md)
 
 Do you already use this simple tool:https://www.diffchecker.com/diff?

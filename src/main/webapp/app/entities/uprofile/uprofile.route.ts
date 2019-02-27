@@ -9,6 +9,8 @@ import { Uprofile } from 'app/shared/model/uprofile.model';
 import { UprofileService } from './uprofile.service';
 import { UprofileComponent } from './uprofile.component';
 import { UprofileDetailComponent } from './uprofile-detail.component';
+import { UprofileSearchComponent } from './uprofile-search.component';
+import { UprofileSearchResultsComponent } from './uprofile-search-results.component';
 import { UprofileUpdateComponent } from './uprofile-update.component';
 import { UprofileDeletePopupComponent } from './uprofile-delete-dialog.component';
 import { IUprofile } from 'app/shared/model/uprofile.model';
@@ -39,6 +41,32 @@ export const uprofileRoute: Routes = [
         data: {
             authorities: ['ROLE_USER'],
             defaultSort: 'id,asc',
+            pageTitle: 'jhipsterpressApp.uprofile.home.title'
+        },
+        canActivate: [UserRouteAccessService]
+    },
+    {
+        path: 'uprofilesearch',
+        component: UprofileSearchComponent,
+        resolve: {
+            pagingParams: JhiResolvePagingParams
+        },
+        data: {
+            authorities: ['ROLE_USER'],
+            //            defaultSort: 'id,asc',
+            pageTitle: 'jhipsterpressApp.uprofile.home.title'
+        },
+        canActivate: [UserRouteAccessService]
+    },
+    {
+        path: 'uprofilesearchresults',
+        component: UprofileSearchResultsComponent,
+        resolve: {
+            pagingParams: JhiResolvePagingParams
+        },
+        data: {
+            authorities: ['ROLE_USER'],
+            //            defaultSort: 'id,asc',
             pageTitle: 'jhipsterpressApp.uprofile.home.title'
         },
         canActivate: [UserRouteAccessService]

@@ -6,6 +6,8 @@ import { JhiLanguageHelper } from 'app/core';
 import { JhipsterpressSharedModule } from 'app/shared';
 import {
     UprofileComponent,
+    UprofileSearchComponent,
+    UprofileSearchResultsComponent,
     UprofileDetailComponent,
     UprofileUpdateComponent,
     UprofileDeletePopupComponent,
@@ -20,12 +22,21 @@ const ENTITY_STATES = [...uprofileRoute, ...uprofilePopupRoute];
     imports: [JhipsterpressSharedModule, RouterModule.forChild(ENTITY_STATES)],
     declarations: [
         UprofileComponent,
+        UprofileSearchComponent,
+        UprofileSearchResultsComponent,
         UprofileDetailComponent,
         UprofileUpdateComponent,
         UprofileDeleteDialogComponent,
         UprofileDeletePopupComponent
     ],
-    entryComponents: [UprofileComponent, UprofileUpdateComponent, UprofileDeleteDialogComponent, UprofileDeletePopupComponent],
+    entryComponents: [
+        UprofileComponent,
+        UprofileSearchComponent,
+        UprofileSearchResultsComponent,
+        UprofileUpdateComponent,
+        UprofileDeleteDialogComponent,
+        UprofileDeletePopupComponent
+    ],
     providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

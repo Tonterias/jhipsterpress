@@ -12,8 +12,8 @@ import { CmessageService } from './cmessage.service';
 import { ICommunity } from 'app/shared/model/community.model';
 import { CommunityService } from 'app/entities/community';
 import { IUser, UserService } from 'app/core';
-import { IFollow } from 'app/shared/model/follow.model';
-import { FollowService } from '../follow/follow.service';
+// import { IFollow } from 'app/shared/model/follow.model';
+// import { FollowService } from '../follow/follow.service';
 import { IBlockuser } from 'app/shared/model/blockuser.model';
 import { BlockuserService } from '../blockuser/blockuser.service';
 
@@ -33,7 +33,7 @@ export class CmessageUpdateComponent implements OnInit {
 
     creationDate: string;
 
-    follows: IFollow[];
+    //    follows: IFollow[];
     loggedUser: IUser;
     blockusers: IBlockuser[];
 
@@ -51,7 +51,7 @@ export class CmessageUpdateComponent implements OnInit {
         protected jhiAlertService: JhiAlertService,
         protected cmessageService: CmessageService,
         protected userService: UserService,
-        protected followService: FollowService,
+        //        protected followService: FollowService,
         protected blockuserService: BlockuserService,
         protected accountService: AccountService,
         protected communityService: CommunityService,

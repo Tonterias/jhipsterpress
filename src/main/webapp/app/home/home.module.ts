@@ -6,6 +6,7 @@ import {
     HOME_ROUTE,
     HomeComponent,
     ABOUT_ROUTE,
+    CREDITS_ROUTE,
     ERROR404_ROUTE,
     HELP_ROUTE,
     PRIVACY_ROUTE,
@@ -15,6 +16,7 @@ import {
     PRICING_ROUTE
 } from './';
 import { AboutComponent } from '../static/about/about.component';
+import { CreditsComponent } from 'app/static/credits/credits.component';
 import { ErrorComponent } from 'app/static/error/error.component';
 import { HelpComponent } from 'app/static/help/help.component';
 import { PrivacyComponent } from 'app/static/privacy/privacy.component';
@@ -29,6 +31,7 @@ import { PricingComponent } from 'app/static/pricing/pricing.component';
         RouterModule.forChild([
             HOME_ROUTE,
             ABOUT_ROUTE,
+            CREDITS_ROUTE,
             ERROR404_ROUTE,
             HELP_ROUTE,
             PRIVACY_ROUTE,
@@ -41,6 +44,7 @@ import { PricingComponent } from 'app/static/pricing/pricing.component';
     declarations: [
         HomeComponent,
         AboutComponent,
+        CreditsComponent,
         ErrorComponent,
         HelpComponent,
         PrivacyComponent,

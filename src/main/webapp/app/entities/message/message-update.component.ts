@@ -10,8 +10,8 @@ import { JhiAlertService } from 'ng-jhipster';
 import { IMessage } from 'app/shared/model/message.model';
 import { MessageService } from './message.service';
 import { IUser, UserService } from 'app/core';
-import { IFollow } from 'app/shared/model/follow.model';
-import { FollowService } from '../follow/follow.service';
+// import { IFollow } from 'app/shared/model/follow.model';
+// import { FollowService } from '../follow/follow.service';
 import { IBlockuser } from 'app/shared/model/blockuser.model';
 import { BlockuserService } from '../blockuser/blockuser.service';
 import { IUprofile } from 'app/shared/model/uprofile.model';
@@ -35,7 +35,7 @@ export class MessageUpdateComponent implements OnInit {
 
     creationDate: string;
 
-    follows: IFollow[];
+    //    follows: IFollow[];
     loggedUser: IUser;
     blockusers: IBlockuser[];
 
@@ -54,7 +54,7 @@ export class MessageUpdateComponent implements OnInit {
         protected messageService: MessageService,
         protected userService: UserService,
         protected uprofileService: UprofileService,
-        protected followService: FollowService,
+        //        protected followService: FollowService,
         protected blockuserService: BlockuserService,
         protected accountService: AccountService,
         protected activatedRoute: ActivatedRoute

@@ -18,6 +18,8 @@ import { ITopic } from 'app/shared/model/topic.model';
 import { TopicService } from 'app/entities/topic';
 import { ICommunity } from 'app/shared/model/community.model';
 import { CommunityService } from '../../entities/community/community.service';
+import { IFollow } from 'app/shared/model/follow.model';
+import { FollowService } from '../../entities/follow/follow.service';
 import { AccountService } from 'app/core';
 
 @Component({
@@ -39,11 +41,16 @@ export class PostUpdateComponent implements OnInit {
 
     communities: ICommunity[];
 
+    follows: IFollow[];
+
     loggeUserdId: number;
     creationDate: string;
     publicationDate: string;
     currentAccount: any;
     userLogin: string;
+
+    arrayAux = [];
+    arrayIds = [];
 
     constructor(
         protected dataUtils: JhiDataUtils,
@@ -55,6 +62,7 @@ export class PostUpdateComponent implements OnInit {
         protected blogService: BlogService,
         protected tagService: TagService,
         protected topicService: TopicService,
+        protected followService: FollowService,
         protected elementRef: ElementRef,
         protected activatedRoute: ActivatedRoute
     ) {}
@@ -168,6 +176,47 @@ export class PostUpdateComponent implements OnInit {
         );
     }
 
+    //    private myCommunities(currentAccount) {
+    //        const query = {};
+    //        if (this.currentAccount.id != null) {
+    //            query['followingId.equals'] = this.currentAccount.id;
+    //        }
+    //        this.followService.query(query).subscribe(
+    //            (res: HttpResponse<IFollow[]>) => {
+    //                this.follows = res.body;
+    //                this.follows.forEach(follow => {
+    ////                    arrayCommmunities.push(follow.cfollowedId);
+    //                    const query2 = {};
+    //                    if (follow.cfollowedId != null) {
+    //                        query2['id.equals'] = follow.cfollowedId;
+    //                        this.communityService.query(query2).subscribe(
+    //                                (res2: HttpResponse<ICommunity[]>) => {
+    //                                    this.communities = res.body;
+    //                                    console.log('CONSOLOG: M:myCommunities & O: this.communities1 : ', this.communities);
+    //                                    this.communitiesBlogs(this.communities);
+    //                                },
+    //                                (res2: HttpErrorResponse) => this.onError(res2.message)
+    //                            );
+    //                    }
+    //                });
+    //                console.log('CONSOLOG: M:myCommunities & O: this.communities2 : ', this.communities);
+    //            },
+    //            (res: HttpErrorResponse) => this.onError(res.message)
+    //        );
+    //        const query3 = {};
+    //        if (this.currentAccount.id != null) {
+    //            query3['userId.equals'] = this.currentAccount.id;
+    //        }
+    //        this.communityService.query(query3).subscribe(
+    //            (res: HttpResponse<ICommunity[]>) => {
+    //                this.communities = res.body;
+    //                console.log('CONSOLOG: M:myCommunities & O: this.communities3 : ', this.communities);
+    //                this.communitiesBlogs(this.communities);
+    //            },
+    //            (res: HttpErrorResponse) => this.onError(res.message)
+    //        );
+    //    }
+
     protected communitiesBlogs(communities) {
         const query = {};
         if (this.communities != null) {
@@ -180,10 +229,26 @@ export class PostUpdateComponent implements OnInit {
         this.blogService.query(query).subscribe(
             (res: HttpResponse<IBlog[]>) => {
                 this.blogs = res.body;
-                //                console.log('CONSOLOG: M:myCommunities & O: this.blogs : ', this.blogs);
+                console.log('CONSOLOG: M:myCommunities & O: this.blogs : ', this.blogs);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+    }
+
+    private filterArray(communities) {
+        this.arrayAux = [];
+        this.arrayIds = [];
+        communities.map(x => {
+            if (this.arrayIds.length >= 1 && this.arrayIds.includes(x.id) === false) {
+                this.arrayAux.push(x);
+                this.arrayIds.push(x.id);
+            } else if (this.arrayIds.length === 0) {
+                this.arrayAux.push(x);
+                this.arrayIds.push(x.id);
+            }
+        });
+        //        console.log('CONSOLOG: M:filterInterests & O: this.follows : ', this.arrayIds, this.arrayAux);
+        return this.arrayAux;
     }
 
     protected subscribeToSaveResponse(result: Observable<HttpResponse<IPost>>) {

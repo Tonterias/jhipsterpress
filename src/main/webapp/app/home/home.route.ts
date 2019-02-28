@@ -2,6 +2,7 @@ import { Route } from '@angular/router';
 
 import { HomeComponent } from './';
 import { AboutComponent } from 'app/static/about/about.component';
+import { CreditsComponent } from 'app/static/credits/credits.component';
 import { ErrorComponent } from 'app/static/error/error.component';
 import { HelpComponent } from 'app/static/help/help.component';
 import { PrivacyComponent } from 'app/static/privacy/privacy.component';
@@ -24,7 +25,16 @@ export const ABOUT_ROUTE: Route = {
     component: AboutComponent,
     data: {
         authorities: [],
-        pageTitle: 'global.menu.about'
+        pageTitle: 'home.title'
+    }
+};
+
+export const CREDITS_ROUTE: Route = {
+    path: 'credits',
+    component: CreditsComponent,
+    data: {
+        authorities: [],
+        pageTitle: 'home.title'
     }
 };
 

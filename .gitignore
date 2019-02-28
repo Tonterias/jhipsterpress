@@ -3,8 +3,6 @@
 ######################
 /build/www/**
 /src/test/javascript/coverage/
-/src/main/resources/config/application-dev.yml
-/src/main/resources/config/application-prod.yml
 
 ######################
 # Node

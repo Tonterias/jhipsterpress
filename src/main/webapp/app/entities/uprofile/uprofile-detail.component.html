@@ -165,7 +165,7 @@
 									        [routerLink]="['/interest/new']" [queryParams]="{ 'uprofileIdEquals': uprofile.id }">
 										<fa-icon [icon]="'plus'"></fa-icon>
 									</button>
-								    <strong class="g-mr-5" style="float: left; margin-top: 24px; font-size: 16px;">Interests:</strong>
+								    <strong class="g-color-primary g-mr-5" style="float: left; margin-top: 24px; font-size: 16px;">Interests:</strong>
 								    <span *ngFor="let interest of interests" 
 								    		class="g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-white--hover" 
 								    		style="font-size: 13px; font-weight: bold; cursor: pointer; float:left; padding: 8px 10px; border-radius: 5px; border: solid 1px; 
@@ -187,7 +187,7 @@
 									        [routerLink]="['/activity/new']" [queryParams]="{ 'uprofileIdEquals': uprofile.id }">
 										<fa-icon [icon]="'plus'"></fa-icon>
 									</button>
-								    <strong class="g-mr-5" style="float: left; margin-top: 24px; font-size: 16px;">Activities:</strong>
+								    <strong class="g-color-primary g-mr-5" style="float: left; margin-top: 24px; font-size: 16px;">Activities:</strong>
 								    <span *ngFor="let activity of activities" class="g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-white--hover" 
 								    		style="font-size: 13px; font-weight: bold; cursor: pointer; float:left; padding: 8px 10px; border-radius: 5px; border: solid 1px; margin-right: 15px; overflow: hidden; display: inherit; width: fit-content; margin-top: 15px;">	
 	    							    <fa-icon *ngIf="owner === uprofile.userId" (click)="removeProfileActivity(activity.id, uprofile.id)" [icon]="'times'" class="g-color-red--hover"></fa-icon>
@@ -207,7 +207,7 @@
 									        [routerLink]="['/celeb/new']" [queryParams]="{ 'uprofileIdEquals': uprofile.id }">
 											<fa-icon [icon]="'plus'"></fa-icon>
 										</button>
-								    <strong class="g-mr-5" style="float: left; margin-top: 24px; font-size: 16px;">Celebs:</strong>
+								    <strong class="g-color-primary g-mr-5" style="float: left; margin-top: 24px; font-size: 16px;">Celebs:</strong>
 								    <span *ngFor="let celeb of celebs" class="g-brd-gray-light-v4 g-bg-primary--hover g-brd-primary--hover g-color-white--hover" 
 								    		style="font-size: 13px; font-weight: bold; cursor: pointer; float:left; padding: 8px 10px; border-radius: 5px; border: solid 1px; margin-right: 15px; overflow: hidden; display: inherit; width: fit-content; margin-top: 15px;">	
 	    							    <fa-icon *ngIf="owner === uprofile.userId" (click)="removeProfileCeleb(celeb.id, uprofile.id)" [icon]="'times'" class="g-color-red--hover"></fa-icon>
@@ -267,7 +267,7 @@
 				                -->
 				                
 				                
-				                <h3><span>Relationships:</span></h3>
+				                <h3><span class="g-color-primary">Relationships:</span></h3>
 				                
 				                <dt><span *ngIf="uprofile.civilStatus" jhiTranslate="jhipsterpressApp.uprofile.civilStatus">Civil Status</span></dt>
 				                <dd>
@@ -288,7 +288,7 @@
 				                    <span jhiTranslate="{{'jhipsterpressApp.Purpose.' + uprofile.purpose}}">{{uprofile.purpose}}</span>
 				                </dd>
 				                
-				                <h3><span>Family:</span></h3>
+				                <h3><span class="g-color-primary">Family:</span></h3>
 				                
 				                </dd>
 				                <dt><span *ngIf="uprofile.sibblings" jhiTranslate="jhipsterpressApp.uprofile.sibblings">Sibblings</span></dt>
@@ -305,10 +305,10 @@
 				                </dd>
 				                <dt><span *ngIf="uprofile.pet" jhiTranslate="jhipsterpressApp.uprofile.pet">Pet</span></dt>
 				                <dd>
-				                    <span>{{uprofile.pet}}</span>
+				                    <span *ngIf="uprofile.pet===true">{{uprofile.pet}}</span>
 				                </dd>
 				                
-				                <h3><span>Physical:</span></h3>
+				                <h3><span class="g-color-primary">Physical:</span></h3>
 				                
 				                <dt><span *ngIf="uprofile.physical" jhiTranslate="jhipsterpressApp.uprofile.physical">Physical</span></dt>
 				                <dd>
@@ -319,7 +319,7 @@
 				                    <span jhiTranslate="{{'jhipsterpressApp.Eyes.' + uprofile.eyes}}">{{uprofile.eyes}}</span>
 				                </dd>
 				                
-				                <h3><span>Cultural:</span></h3>
+				                <h3><span class="g-color-primary">Cultural:</span></h3>
 				                
 				                <dt><span *ngIf="uprofile.religion" jhiTranslate="jhipsterpressApp.uprofile.religion">Religion</span></dt>
 				                <dd>
@@ -330,13 +330,13 @@
 				                    <span jhiTranslate="{{'jhipsterpressApp.EthnicGroup.' + uprofile.ethnicGroup}}">{{uprofile.ethnicGroup}}</span>
 				                </dd>
 				                
-				                <h3><span>Studies:</span></h3>
+				                <h3><span class="g-color-primary">Studies:</span></h3>
 				                
 				                <dt><span *ngIf="uprofile.studies" jhiTranslate="jhipsterpressApp.uprofile.studies">Studies</span></dt>
 				                <dd>
 				                    <span jhiTranslate="{{'jhipsterpressApp.Studies.' + uprofile.studies}}">{{uprofile.studies}}</span>
 								</dd>
-				                <h3><span>Habits:</span></h3>
+				                <h3><span class="g-color-primary">Habits:</span></h3>
 				                
 				                <dt><span *ngIf="uprofile.smoker" jhiTranslate="jhipsterpressApp.uprofile.smoker">Smoker</span></dt>
 				                <dd>

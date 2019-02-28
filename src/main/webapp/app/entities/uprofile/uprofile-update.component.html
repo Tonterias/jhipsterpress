@@ -64,8 +64,8 @@
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="jhipsterpressApp.uprofile.bio" for="field_bio">Bio</label>
-                    <input type="text" class="form-control" name="bio" id="field_bio"
-                        [(ngModel)]="uprofile.bio" maxlength="7500"/>
+                    <textarea type="text" class="form-control" name="bio" id="field_bio" rows="4"
+                        [(ngModel)]="uprofile.bio" maxlength="7500"></textarea>
                     <div [hidden]="!(editForm.controls.bio?.dirty && editForm.controls.bio?.invalid)">
                         <small class="form-text text-danger"
                         [hidden]="!editForm.controls.bio?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 7500 }">

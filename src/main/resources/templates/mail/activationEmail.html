@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title th:text="#{email.activation.title}">JHipster activation</title>
+        <title th:text="#{email.activation.title}">Spingular activation</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="shortcut icon" th:href="@{|${baseUrl}/favicon.ico|}" />
     </head>
@@ -10,7 +10,7 @@
             Dear
         </p>
         <p th:text="#{email.activation.text1}">
-            Your JHipster account has been created, please click on the URL below to activate it:
+            Your Spingular account has been created, please click on the URL below to activate it:
         </p>
         <p>
             <a th:with="url=(@{|${baseUrl}/#/activate?key=${user.activationKey}|})" th:href="${url}"
@@ -19,7 +19,7 @@
         <p>
             <span th:text="#{email.activation.text2}">Regards, </span>
             <br/>
-            <em th:text="#{email.signature}">JHipster.</em>
+            <em th:text="#{email.signature}">Spingular.</em>
         </p>
     </body>
 </html>

@@ -161,61 +161,62 @@ export class PostUpdateComponent implements OnInit {
         }
     }
 
-    private myCommunities(currentAccount) {
-        const query = {};
-        if (this.currentAccount.id != null) {
-            query['userId.equals'] = this.currentAccount.id;
-        }
-        this.communityService.query(query).subscribe(
-            (res: HttpResponse<ICommunity[]>) => {
-                this.communities = res.body;
-                //                console.log('CONSOLOG: M:myCommunities & O: this.communities : ', this.communities);
-                this.communitiesBlogs(this.communities);
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-    }
-
     //    private myCommunities(currentAccount) {
     //        const query = {};
     //        if (this.currentAccount.id != null) {
-    //            query['followingId.equals'] = this.currentAccount.id;
+    //            query['userId.equals'] = this.currentAccount.id;
     //        }
-    //        this.followService.query(query).subscribe(
-    //            (res: HttpResponse<IFollow[]>) => {
-    //                this.follows = res.body;
-    //                this.follows.forEach(follow => {
-    ////                    arrayCommmunities.push(follow.cfollowedId);
-    //                    const query2 = {};
-    //                    if (follow.cfollowedId != null) {
-    //                        query2['id.equals'] = follow.cfollowedId;
-    //                        this.communityService.query(query2).subscribe(
-    //                                (res2: HttpResponse<ICommunity[]>) => {
-    //                                    this.communities = res.body;
-    //                                    console.log('CONSOLOG: M:myCommunities & O: this.communities1 : ', this.communities);
-    //                                    this.communitiesBlogs(this.communities);
-    //                                },
-    //                                (res2: HttpErrorResponse) => this.onError(res2.message)
-    //                            );
-    //                    }
-    //                });
-    //                console.log('CONSOLOG: M:myCommunities & O: this.communities2 : ', this.communities);
-    //            },
-    //            (res: HttpErrorResponse) => this.onError(res.message)
-    //        );
-    //        const query3 = {};
-    //        if (this.currentAccount.id != null) {
-    //            query3['userId.equals'] = this.currentAccount.id;
-    //        }
-    //        this.communityService.query(query3).subscribe(
+    //        this.communityService.query(query).subscribe(
     //            (res: HttpResponse<ICommunity[]>) => {
     //                this.communities = res.body;
-    //                console.log('CONSOLOG: M:myCommunities & O: this.communities3 : ', this.communities);
+    //                //                console.log('CONSOLOG: M:myCommunities & O: this.communities : ', this.communities);
     //                this.communitiesBlogs(this.communities);
     //            },
     //            (res: HttpErrorResponse) => this.onError(res.message)
     //        );
     //    }
+
+    private myCommunities(currentAccount) {
+        const query = {};
+        if (this.currentAccount.id != null) {
+            query['followingId.equals'] = this.currentAccount.id;
+        }
+        this.followService.query(query).subscribe(
+            (res: HttpResponse<IFollow[]>) => {
+                this.follows = res.body;
+                //                    console.log('CONSOLOG: M:myCommunities & O: this.follows : ', this.follows);
+                this.follows.forEach(follow => {
+                    //                    arrayCommmunities.push(follow.cfollowedId);
+                    const query2 = {};
+                    if (follow.cfollowedId != null) {
+                        //                            console.log('CONSOLOG: M:myCommunities & O: this.followsNOTnull : ', this.follows);
+                        query2['id.equals'] = follow.cfollowedId;
+                        this.communityService.query(query2).subscribe(
+                            (res2: HttpResponse<ICommunity[]>) => {
+                                this.communities = res2.body;
+                                //                                        console.log('CONSOLOG: M:myCommunities & O: this.communities1 : ', this.communities);
+                                const query3 = {};
+                                if (this.currentAccount.id != null) {
+                                    query3['userId.equals'] = this.currentAccount.id;
+                                }
+                                this.communityService.query(query3).subscribe(
+                                    (res3: HttpResponse<ICommunity[]>) => {
+                                        this.communities = this.filterArray(this.communities.concat(res3.body));
+                                        //                                                console.log('CONSOLOG: M:myCommunities & O: this.communities3 : ', this.communities);
+                                        this.communitiesBlogs(this.communities);
+                                    },
+                                    (res3: HttpErrorResponse) => this.onError(res3.message)
+                                );
+                            },
+                            (res2: HttpErrorResponse) => this.onError(res2.message)
+                        );
+                    }
+                });
+                //                    console.log('CONSOLOG: M:myCommunities & O: this.communities2 : ', this.communities);
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+    }
 
     protected communitiesBlogs(communities) {
         const query = {};
@@ -229,7 +230,7 @@ export class PostUpdateComponent implements OnInit {
         this.blogService.query(query).subscribe(
             (res: HttpResponse<IBlog[]>) => {
                 this.blogs = res.body;
-                console.log('CONSOLOG: M:myCommunities & O: this.blogs : ', this.blogs);
+                //                console.log('CONSOLOG: M:myCommunities & O: this.blogs : ', this.blogs);
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

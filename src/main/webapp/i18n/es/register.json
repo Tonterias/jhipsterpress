@@ -13,7 +13,7 @@
                     "pattern": "Su nombre de usuario sólo puede contener letras minúsculas y dígitos."
                 }
             },
-            "success": "<strong>¡Registro guardado!</strong> Por favor, revise su correo electrónico para confirmar.",
+            "success": "<strong>¡Registro guardado!</strong> Por favor, revise su correo electrónico para confirmar (incluso en la bandeja de correo no deseado).",
             "error": {
                 "fail": "<strong>¡El registro ha fallado!</strong> Por favor, inténtelo de nuevo más tarde.",
                 "userexists": "<strong>¡El nombre de usuario ya está registrado!</strong> Por favor, escoja otro usuario.",

@@ -95,14 +95,14 @@ export class PostDetailComponent implements OnInit {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ post }) => {
             this.post = post;
-            //            console.log('CONSOLOG: M:ngOnInit & O: this.post : ', this.post);
+            console.log('CONSOLOG: M:ngOnInit & O: this.post : ', this.post);
         });
         this.accountService.identity().then(account => {
             if (account != null) {
                 this.currentAccount = account;
                 this.owner = account.id;
-                //                console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount.id);
-                //                console.log('CONSOLOG: M:ngOnInit & O: this.owner : ', this.owner);
+                console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount.id);
+                console.log('CONSOLOG: M:ngOnInit & O: this.owner : ', this.owner);
                 this.loadAll();
                 this.comment = new Object();
                 this.comment.commentText = '';

@@ -24,7 +24,8 @@ import { AccountService } from 'app/core';
     templateUrl: './uprofile-search.component.html'
 })
 export class UprofileSearchComponent implements OnInit {
-    uprofile: IUprofile;
+    private _uprofile: IUprofile;
+    //    uprofile: IUprofile;
     isSaving: boolean;
 
     users: IUser[];
@@ -177,5 +178,14 @@ export class UprofileSearchComponent implements OnInit {
             }
         }
         return option;
+    }
+
+    get uprofile() {
+        return this._uprofile;
+    }
+
+    set post(post: IUprofile) {
+        this._uprofile = post;
+        this.creationDate = moment(post.creationDate).format(DATE_TIME_FORMAT);
     }
 }

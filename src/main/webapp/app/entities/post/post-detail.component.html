@@ -8,7 +8,16 @@
 		            <div class="col-lg-9 g-mb-50 g-mb-0--lg">
 		              <article class="g-mb-60">
 		                <header class="g-mb-30">
-		                  <h2 class="h1 g-mb-15">{{post.headline}}</h2>
+		                  <h2 class="h1 g-mb-15">
+		                  	{{post.headline}}
+			                  	<button *ngIf="owner === post.userId || isAdmin == true"
+		                        		type="submit"
+		                                [routerLink]="['/post', post.id, 'edit']"
+		                                class="btn btn-primary btn-sm">
+		                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+		                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+		                        </button>
+	                        </h2>
 		
 		                  <ul *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_USER']" class="list-inline d-sm-flex g-color-gray-dark-v4 mb-0">
 		                    <li class="list-inline-item" *ngIf="post && uprofile">

@@ -13,7 +13,7 @@
                     "pattern": "Your username can only contain letters and digits."
                 }
             },
-            "success": "<strong>Registration saved!</strong> Please check your email for confirmation.",
+            "success": "<strong>Registration saved!</strong> Please check your email for confirmation (even in the unwanted incoming email folder).",
             "error": {
                 "fail": "<strong>Registration failed!</strong> Please try again later.",
                 "userexists": "<strong>Login name already registered!</strong> Please choose another one.",

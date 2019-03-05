@@ -64,6 +64,10 @@ export class UprofileSearchComponent implements OnInit {
     studiesSearchTerm: string;
     eyesSearchTerm: string;
     smokerSearchTerm: string;
+    childrenSearchTerm: string;
+    futureChildrenSearchTerm: string;
+    petSearchTerm: boolean;
+    sibblingsSearchTerm: number;
 
     constructor(
         protected dataUtils: JhiDataUtils,
@@ -86,56 +90,7 @@ export class UprofileSearchComponent implements OnInit {
         //                : '';
     }
 
-    ngOnInit() {
-        //        this.isSaving = false;
-        //        this.uprofile = new uprofile();
-        //        this.activatedRoute.data.subscribe(( { uprofile } ) => {
-        //            this.uprofile = uprofile;
-        //            //            console.log('CONSOLOG: M:ngOnInit & O: this.uprofile : ', this.uprofile);
-        //            this.creationDate = moment().format( DATE_TIME_FORMAT );
-        //            this.uprofile.creationDate = moment( this.creationDate );
-        //            this.birthdate = this.uprofile.birthdate != null ? this.uprofile.birthdate.format( DATE_TIME_FORMAT ) : null;
-        //            this.accountService.identity().then( account => {
-        //                this.currentAccount = account;
-        //                //                console.log('CONSOLOG: M:ngOnInit & O: this.currentAccount : ', this.currentAccount);
-        //                this.userService.findById( this.currentAccount.id ).subscribe(
-        //                    ( res: HttpResponse<IUser> ) => {
-        //                        this.uprofile.userId = res.body.id;
-        //                        //                        console.log('CONSOLOG: M:ngOnInit & O: this.user : ', this.user);
-        //                    },
-        //                    ( res: HttpErrorResponse ) => this.onError( res.message )
-        //                );
-        //            } );
-        //        } );
-        //        this.userService
-        //            .query()
-        //            .pipe(
-        //                filter((mayBeOk: HttpResponse<IUser[]>) => mayBeOk.ok),
-        //                map((response: HttpResponse<IUser[]>) => response.body)
-        //            )
-        //            .subscribe((res: IUser[]) => (this.users = res), (res: HttpErrorResponse) => this.onError(res.message));
-        //        this.interestService
-        //            .query()
-        //            .pipe(
-        //                filter((mayBeOk: HttpResponse<IInterest[]>) => mayBeOk.ok),
-        //                map((response: HttpResponse<IInterest[]>) => response.body)
-        //            )
-        //            .subscribe((res: IInterest[]) => (this.interests = res), (res: HttpErrorResponse) => this.onError(res.message));
-        //        this.activityService
-        //            .query()
-        //            .pipe(
-        //                filter((mayBeOk: HttpResponse<IActivity[]>) => mayBeOk.ok),
-        //                map((response: HttpResponse<IActivity[]>) => response.body)
-        //            )
-        //            .subscribe((res: IActivity[]) => (this.activities = res), (res: HttpErrorResponse) => this.onError(res.message));
-        //        this.celebService
-        //            .query()
-        //            .pipe(
-        //                filter((mayBeOk: HttpResponse<ICeleb[]>) => mayBeOk.ok),
-        //                map((response: HttpResponse<ICeleb[]>) => response.body)
-        //            )
-        //            .subscribe((res: ICeleb[]) => (this.celebs = res), (res: HttpErrorResponse) => this.onError(res.message));
-    }
+    ngOnInit() {}
 
     bioSearch() {
         console.log('CONSOLOG: M:loadAll & O: this.currentSearch : ', this.bioSearchTerm);
@@ -150,45 +105,11 @@ export class UprofileSearchComponent implements OnInit {
                 (res: HttpResponse<IUprofile[]>) => {
                     console.log('CONSOLOG: M:loadAll & O: res.body uprofiles : ', res.body);
                     this.uprofiles = res.body;
-                    //                    const query2 = {
-                    //                        page: this.page - 1,
-                    //                        size: this.itemsPerPage,
-                    //                        sort: this.sort()
-                    //                    };
-                    //                    query2['bodytext.contains'] = this.currentSearch;
-                    //                    this.uprofileService.query(query2).subscribe(
-                    //                        (res2: HttpResponse<IUprofile[]>) => {
-                    //                            this.uprofiles = this.filterArray(this.uprofiles.concat(res2.body));
-                    //                            const query3 = {
-                    //                                page: this.page - 1,
-                    //                                size: this.itemsPerPage,
-                    //                                sort: this.sort()
-                    //                            };
-                    //                            query3['conclusion.contains'] = this.currentSearch;
-                    //                            this.uprofileService.query(query3).subscribe(
-                    //                                (res3: HttpResponse<IUprofile[]>) => {
-                    //                                    this.uprofiles = this.filterArray(this.uprofiles.concat(res3.body));
-                    //                                },
-                    //                                (res3: HttpErrorResponse) => this.onError(res3.message)
-                    //                            );
-                    //                        },
-                    //                        (res2: HttpErrorResponse) => this.onError(res2.message)
-                    //                    );
                 },
                 (res: HttpErrorResponse) => this.onError(res.message)
             );
             return;
         }
-        //        this.uprofileService
-        //            .query({
-        //                page: this.page - 1,
-        //                size: this.itemsPerPage,
-        //                sort: this.sort()
-        //            })
-        //            .subscribe(
-        //                (res: HttpResponse<IPost[]>) => this.paginatePosts(res.body, res.headers),
-        //                (res: HttpErrorResponse) => this.onError(res.message)
-        //            );
     }
 
     genderSearch() {
@@ -351,21 +272,85 @@ export class UprofileSearchComponent implements OnInit {
         }
     }
 
-    private filterArray(posts) {
-        this.arrayAux = [];
-        this.arrayIds = [];
-        posts.map(x => {
-            if (this.arrayIds.length >= 1 && this.arrayIds.includes(x.id) === false) {
-                this.arrayAux.push(x);
-                this.arrayIds.push(x.id);
-            } else if (this.arrayIds.length === 0) {
-                this.arrayAux.push(x);
-                this.arrayIds.push(x.id);
-            }
-        });
-        //        console.log('CONSOLOG: M:filterInterests & O: this.follows : ', this.arrayIds, this.arrayAux);
-        return this.arrayAux;
+    childrenSearch() {
+        console.log('CONSOLOG: M:loadAll & O: this.childrenSearchTerm : ', this.childrenSearchTerm);
+        if (this.childrenSearchTerm) {
+            const query = {};
+            query['children.equals'] = this.childrenSearchTerm;
+            this.uprofileService.query(query).subscribe(
+                (res: HttpResponse<IUprofile[]>) => {
+                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+                    this.uprofiles = res.body;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+            return;
+        }
     }
+
+    futureChildrenSearch() {
+        console.log('CONSOLOG: M:loadAll & O: this.futureChildrenSearchTerm : ', this.futureChildrenSearchTerm);
+        if (this.futureChildrenSearchTerm) {
+            const query = {};
+            query['futureChildren.equals'] = this.futureChildrenSearchTerm;
+            this.uprofileService.query(query).subscribe(
+                (res: HttpResponse<IUprofile[]>) => {
+                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+                    this.uprofiles = res.body;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+            return;
+        }
+    }
+
+    petSearch() {
+        console.log('CONSOLOG: M:loadAll & O: this.petSearchTerm : ', this.petSearchTerm);
+        if (this.petSearchTerm) {
+            const query = {};
+            query['pet.equals'] = this.petSearchTerm;
+            this.uprofileService.query(query).subscribe(
+                (res: HttpResponse<IUprofile[]>) => {
+                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+                    this.uprofiles = res.body;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+            return;
+        }
+    }
+
+    sibblingsSearch() {
+        console.log('CONSOLOG: M:loadAll & O: this.sibblingsSearchTerm : ', this.sibblingsSearchTerm);
+        if (this.sibblingsSearchTerm) {
+            const query = {};
+            query['sibblings.equals'] = this.sibblingsSearchTerm;
+            this.uprofileService.query(query).subscribe(
+                (res: HttpResponse<IUprofile[]>) => {
+                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+                    this.uprofiles = res.body;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+            return;
+        }
+    }
+
+    //    private filterArray(posts) {
+    //        this.arrayAux = [];
+    //        this.arrayIds = [];
+    //        posts.map(x => {
+    //            if (this.arrayIds.length >= 1 && this.arrayIds.includes(x.id) === false) {
+    //                this.arrayAux.push(x);
+    //                this.arrayIds.push(x.id);
+    //            } else if (this.arrayIds.length === 0) {
+    //                this.arrayAux.push(x);
+    //                this.arrayIds.push(x.id);
+    //            }
+    //        });
+    //        //        console.log('CONSOLOG: M:filterInterests & O: this.follows : ', this.arrayIds, this.arrayAux);
+    //        return this.arrayAux;
+    //    }
 
     byteSize(field) {
         return this.dataUtils.byteSize(field);

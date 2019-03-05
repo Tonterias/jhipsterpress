@@ -65,7 +65,7 @@
 		            <div class="input-group w-100 mt-3">
 		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">Bio search: Traducir JHI</label> 
 		                <input type="text" class="form-control" [(ngModel)]="bioSearchTerm" id="bioSearchTerm" name="bioSearchTerm" placeholder="{{ 'jhipsterpressApp.post.home.search' | translate }}">
-		                <button class="input-group-append btn btn-info" (click)="bioSearch(currentSearch)">
+		                <button class="input-group-append btn btn-info" (click)="bioSearch(bioSearchTerm)">
 		                    <fa-icon [icon]="'search'"></fa-icon>
 		                </button>
 		                <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="bioSearchTerm">
@@ -252,7 +252,7 @@
 		        <form name="searchForm" class="form-inline">
 		            <div class="input-group w-100 mt-3">
 		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">studies:</label> 
-	                    <select class="form-control" name="ethnicGroup" [(ngModel)]="studiesSearchTerm" id="field_ethnicGroup" >
+	                    <select class="form-control" name="studies" [(ngModel)]="studiesSearchTerm" id="field_studies" >
 	                        <option value="NA">{{'jhipsterpressApp.EthnicGroup.NA' | translate}}</option>
 	                        <option value="MIXED">{{'jhipsterpressApp.EthnicGroup.MIXED' | translate}}</option>
 	                        <option value="WHITE">{{'jhipsterpressApp.EthnicGroup.WHITE' | translate}}</option>
@@ -281,7 +281,7 @@
 		        <form name="searchForm" class="form-inline">
 		            <div class="input-group w-100 mt-3">
 		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">studies:</label> 
-	                    <select class="form-control" name="ethnicGroup" [(ngModel)]="studiesSearchTerm" id="field_ethnicGroup" >
+	                    <select class="form-control" name="studiesGroup" [(ngModel)]="studiesSearchTerm" id="field_studies" >
 	                        <option value="NA">{{'jhipsterpressApp.Studies.NA' | translate}}</option>
 	                        <option value="PRIMARY">{{'jhipsterpressApp.Studies.PRIMARY' | translate}}</option>
 	                        <option value="HIGH_SCHOOL">{{'jhipsterpressApp.Studies.HIGH_SCHOOL' | translate}}</option>
@@ -307,7 +307,7 @@
 		        <form name="searchForm" class="form-inline">
 		            <div class="input-group w-100 mt-3">
 		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">eyes:</label> 
-	                    <select class="form-control" name="ethnicGroup" [(ngModel)]="eyesSearchTerm" id="field_ethnicGroup" >
+	                    <select class="form-control" name="eyes" [(ngModel)]="eyesSearchTerm" id="field_eyes" >
 	                        <option value="NA">{{'jhipsterpressApp.Eyes.NA' | translate}}</option>
 	                        <option value="BLUE">{{'jhipsterpressApp.Eyes.BLUE' | translate}}</option>
 	                        <option value="GREEN">{{'jhipsterpressApp.Eyes.GREEN' | translate}}</option>
@@ -332,7 +332,7 @@
 		        <form name="searchForm" class="form-inline">
 		            <div class="input-group w-100 mt-3">
 		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">smoker:</label> 
-	                    <select class="form-control" name="ethnicGroup" [(ngModel)]="smokerSearchTerm" id="field_ethnicGroup" >
+	                    <select class="form-control" name="smoker" [(ngModel)]="smokerSearchTerm" id="field_smoker" >
 	                        <option value="NA">{{'jhipsterpressApp.Smoker.NA' | translate}}</option>
 	                        <option value="YES">{{'jhipsterpressApp.Smoker.YES' | translate}}</option>
 	                        <option value="NO">{{'jhipsterpressApp.Smoker.NO' | translate}}</option>
@@ -348,9 +348,83 @@
 		        </form>
 		    </div>
 		</div>
+																			
+		<div class="row">
+		    <div class="col-sm-12">
+		        <form name="searchForm" class="form-inline">
+		            <div class="input-group w-100 mt-3">
+		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">children:</label> 
+	                    <select class="form-control" name="children" [(ngModel)]="childrenSearchTerm" id="field_children" >
+	                        <option value="NA">{{'jhipsterpressApp.Children.NA' | translate}}</option>
+	                        <option value="YES">{{'jhipsterpressApp.Children.YES' | translate}}</option>
+	                        <option value="NO">{{'jhipsterpressApp.Children.NO' | translate}}</option>
+	                        <option value="GREATER_THAN_18">{{'jhipsterpressApp.Children.GREATER_THAN_18' | translate}}</option>
+	                    </select>
+		                <button class="input-group-append btn btn-info" (click)="childrenSearch(childrenSearchTerm)">
+		                    <fa-icon [icon]="'search'"></fa-icon>
+		                </button>
+		                <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="childrenSearchTerm">
+		                    <fa-icon [icon]="'trash-alt'"></fa-icon>
+		                </button>
+		            </div>
+		        </form>
+		    </div>
+		</div>
+																					
+		<div class="row">
+		    <div class="col-sm-12">
+		        <form name="searchForm" class="form-inline">
+		            <div class="input-group w-100 mt-3">
+		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">futureChildren:</label> 
+	                    <select class="form-control" name="futureChildren" [(ngModel)]="futureChildrenSearchTerm" id="field_futureChildren" >
+	                        <option value="NA">{{'jhipsterpressApp.FutureChildren.NA' | translate}}</option>
+	                        <option value="YES">{{'jhipsterpressApp.FutureChildren.YES' | translate}}</option>
+	                        <option value="NO">{{'jhipsterpressApp.FutureChildren.NO' | translate}}</option>
+	                    </select>
+		                <button class="input-group-append btn btn-info" (click)="futureChildrenSearch(futureChildrenSearchTerm)">
+		                    <fa-icon [icon]="'search'"></fa-icon>
+		                </button>
+		                <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="futureChildrenSearchTerm">
+		                    <fa-icon [icon]="'trash-alt'"></fa-icon>
+		                </button>
+		            </div>
+		        </form>
+		    </div>
+		</div>
 		
-		
-		
+		<div class="row">
+		    <div class="col-sm-12">
+		        <form name="searchForm" class="form-inline">
+		            <div class="input-group w-100 mt-3">
+		            	<label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">pet</label> 
+		                <input type="checkbox" class="form-control" [(ngModel)]="petSearchTerm" id="field_pet" name="pet" placeholder="{{ 'jhipsterpressApp.post.home.search' | translate }}">
+		                <button class="input-group-append btn btn-info" (click)="petSearch(petSearchTerm)">
+		                    <fa-icon [icon]="'search'"></fa-icon>
+		                </button>
+		                <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="petSearchTerm">
+		                    <fa-icon [icon]="'trash-alt'"></fa-icon>
+		                </button>
+		            </div>
+		        </form>
+		    </div>
+		</div>
+				
+		<div class="row">
+		    <div class="col-sm-12">
+		        <form name="searchForm" class="form-inline">
+		            <div class="input-group w-100 mt-3">
+		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">sibblings</label>
+		                <input type="number" class="form-control" [(ngModel)]="sibblingsSearchTerm" id="field_sibblings" name="sibblings" placeholder="{{ 'jhipsterpressApp.post.home.search' | translate }}">
+		                <button class="input-group-append btn btn-info" (click)="sibblingsSearch(sibblingsSearchTerm)">
+		                    <fa-icon [icon]="'search'"></fa-icon>
+		                </button>
+		                <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="sibblingsSearchTerm">
+		                    <fa-icon [icon]="'trash-alt'"></fa-icon>
+		                </button>
+		            </div>
+		        </form>
+		    </div>
+		</div>
 		
 		<br/>
     </div>

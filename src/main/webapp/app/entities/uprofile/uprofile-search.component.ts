@@ -336,6 +336,32 @@ export class UprofileSearchComponent implements OnInit {
         }
     }
 
+    clear() {
+        this.page = 0;
+        this.bioSearchTerm = '';
+        this.genderSearchTerm = '';
+        this.civilStatusSearchTerm = '';
+        this.lookingForSearchTerm = '';
+        this.purposeSearchTerm = '';
+        this.physicalSearchTerm = '';
+        this.religionSearchTerm = '';
+        this.ethnicGroupSearchTerm = '';
+        this.studiesSearchTerm = '';
+        this.eyesSearchTerm = '';
+        this.smokerSearchTerm = '';
+        this.childrenSearchTerm = '';
+        this.futureChildrenSearchTerm = '';
+        this.petSearchTerm = false;
+        this.sibblingsSearchTerm = 0;
+        //        this.router.navigate([
+        //            '/uprofile',
+        //            {
+        //                page: this.page,
+        //                sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
+        //            }
+        //        ]);
+    }
+
     //    private filterArray(posts) {
     //        this.arrayAux = [];
     //        this.arrayIds = [];

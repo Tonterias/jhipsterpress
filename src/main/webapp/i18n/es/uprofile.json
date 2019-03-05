@@ -6,7 +6,9 @@
                 "createLabel": "Crear nuevo Perfil",
                 "myLabel": "Mi Perfil",
                 "createOrEditLabel": "Crear o editar Perfil",
-                "search": "Buscar por Perfil"
+                "search": "Search for Uprofile",
+                "searchBio": "Search for Uprofile",
+                "searchGender": "Search for Uprofile"
             },
             "created": "Un nuevo Perfil ha sido creado con el identificador {{ param }}",
             "updated": "Un Perfil ha sido actualizado con el identificador {{ param }}",

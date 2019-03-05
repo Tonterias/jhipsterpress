@@ -6,7 +6,9 @@
                 "createLabel": "Create a new Profile",
                 "myLabel": "My Profile",
                 "createOrEditLabel": "Create or edit a Profile",
-                "search": "Search for Uprofile"
+                "search": "Search for Uprofile",
+                "searchBio": "Search for text in Bio",
+                "searchGender": "Search for Uprofile"
             },
             "created": "A new Profile is created with identifier {{ param }}",
             "updated": "A Profile is updated with identifier {{ param }}",

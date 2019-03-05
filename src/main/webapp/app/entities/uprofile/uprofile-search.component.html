@@ -63,8 +63,8 @@
 		    <div class="col-sm-12">
 		        <form name="searchForm" class="form-inline">
 		            <div class="input-group w-100 mt-3">
-		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">Bio search: Traducir JHI</label> 
-		                <input type="text" class="form-control" [(ngModel)]="bioSearchTerm" id="bioSearchTerm" name="bioSearchTerm" placeholder="{{ 'jhipsterpressApp.post.home.search' | translate }}">
+		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2" jhiTranslate="jhipsterpressApp.uprofile.bio">Bio:</label> 
+		                <input type="text" class="form-control" [(ngModel)]="bioSearchTerm" id="bioSearchTerm" name="bioSearchTerm" placeholder="{{ 'jhipsterpressApp.uprofile.home.searchBio' | translate }}">
 		                <button class="input-group-append btn btn-info" (click)="bioSearch(bioSearchTerm)">
 		                    <fa-icon [icon]="'search'"></fa-icon>
 		                </button>
@@ -80,12 +80,12 @@
 		    <div class="col-sm-12">
 		        <form name="searchForm" class="form-inline">
 		            <div class="input-group w-100 mt-3">
-		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">Gender: jhiTranslate="jhipsterpressApp.uprofile.home.title</label> 
-		                <select class="form-control" name="gender" [(ngModel)]="genderSearchTerm" id="field_gender" >
-                        <option value="MALE">{{'jhipsterpressApp.Gender.MALE' | translate}}</option>
-                        <option value="FEMALE">{{'jhipsterpressApp.Gender.FEMALE' | translate}}</option>
-                        <option value="OTHER">{{'jhipsterpressApp.Gender.OTHER' | translate}}</option>
-                    </select>
+		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2" jhiTranslate="jhipsterpressApp.uprofile.gender">Gender:</label> 
+		                <select class="form-control" name="gender" [(ngModel)]="genderSearchTerm" id="field_gender" name="genderSearchTerm">
+	                        <option value="MALE">{{'jhipsterpressApp.Gender.MALE' | translate}}</option>
+	                        <option value="FEMALE">{{'jhipsterpressApp.Gender.FEMALE' | translate}}</option>
+	                        <option value="OTHER">{{'jhipsterpressApp.Gender.OTHER' | translate}}</option>
+                    	</select>
 		                <button class="input-group-append btn btn-info" (click)="genderSearch(genderSearchTerm)">
 		                    <fa-icon [icon]="'search'"></fa-icon>
 		                </button>
@@ -101,8 +101,8 @@
 		    <div class="col-sm-12">
 		        <form name="searchForm" class="form-inline">
 		            <div class="input-group w-100 mt-3">
-		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">CivilStatus:</label> 
-	                    <select class="form-control" name="civilStatus" [(ngModel)]="civilStatusSearchTerm" id="field_civilStatus" >
+		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2" jhiTranslate="jhipsterpressApp.uprofile.civilStatus">CivilStatus:</label> 
+	                    <select class="form-control" name="civilStatus" [(ngModel)]="civilStatusSearchTerm" id="field_civilStatus" name="civilStatusSearch">
 	                        <option value="NA">{{'jhipsterpressApp.CivilStatus.NA' | translate}}</option>
 	                        <option value="SINGLE">{{'jhipsterpressApp.CivilStatus.SINGLE' | translate}}</option>
 	                        <option value="MARRIED">{{'jhipsterpressApp.CivilStatus.MARRIED' | translate}}</option>
@@ -127,8 +127,8 @@
 		    <div class="col-sm-12">
 		        <form name="searchForm" class="form-inline">
 		            <div class="input-group w-100 mt-3">
-		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">lookingFor:</label> 
-	                    <select class="form-control" name="lookingFor" [(ngModel)]="lookingForSearchTerm" id="field_lookingFor" >
+		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2" jhiTranslate="jhipsterpressApp.uprofile.lookingFor">lookingFor:</label> 
+	                    <select class="form-control" name="lookingFor" [(ngModel)]="lookingForSearchTerm" id="field_lookingFor" name="lookingForSearch">
 	                        <option value="MALE">{{'jhipsterpressApp.Gender.MALE' | translate}}</option>
 	                        <option value="FEMALE">{{'jhipsterpressApp.Gender.FEMALE' | translate}}</option>
 	                        <option value="OTHER">{{'jhipsterpressApp.Gender.OTHER' | translate}}</option>
@@ -148,8 +148,8 @@
 		    <div class="col-sm-12">
 		        <form name="searchForm" class="form-inline">
 		            <div class="input-group w-100 mt-3">
-		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">purpose:</label> 
-	                    <select class="form-control" name="purpose" [(ngModel)]="purposeSearchTerm" id="field_purpose" >
+		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2" jhiTranslate="jhipsterpressApp.uprofile.purpose">purpose:</label> 
+	                    <select class="form-control" name="purpose" [(ngModel)]="purposeSearchTerm" id="field_purpose" name="purposeSearch">
 	                        <option value="NOT_INTERESTED">{{'jhipsterpressApp.Purpose.NOT_INTERESTED' | translate}}</option>
 	                        <option value="FRIENDSHIP">{{'jhipsterpressApp.Purpose.FRIENDSHIP' | translate}}</option>
 	                        <option value="MEET_PEOPLE">{{'jhipsterpressApp.Purpose.MEET_PEOPLE' | translate}}</option>
@@ -172,8 +172,8 @@
 		    <div class="col-sm-12">
 		        <form name="searchForm" class="form-inline">
 		            <div class="input-group w-100 mt-3">
-		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">physical:</label> 
-	                    <select class="form-control" name="physical" [(ngModel)]="physicalSearchTerm" id="field_physical" >
+		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2" jhiTranslate="jhipsterpressApp.uprofile.physical">physical:</label> 
+	                    <select class="form-control" name="physical" [(ngModel)]="physicalSearchTerm" id="field_physical" name="physicalSearch">
 	                        <option value="NA">{{'jhipsterpressApp.Physical.NA' | translate}}</option>
 	                        <option value="THIN">{{'jhipsterpressApp.Physical.THIN' | translate}}</option>
 	                        <option value="ATHLETIC">{{'jhipsterpressApp.Physical.ATHLETIC' | translate}}</option>
@@ -197,8 +197,8 @@
 		    <div class="col-sm-12">
 		        <form name="searchForm" class="form-inline">
 		            <div class="input-group w-100 mt-3">
-		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">religion:</label> 
-	                    <select class="form-control" name="religion" [(ngModel)]="religionSearchTerm" id="field_religion" >
+		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2" jhiTranslate="jhipsterpressApp.uprofile.religion">religion:</label> 
+	                    <select class="form-control" name="religion" [(ngModel)]="religionSearchTerm" id="field_religion" name="religionSearchTerm">
 	                        <option value="NA">{{'jhipsterpressApp.Religion.NA' | translate}}</option>
 	                        <option value="ATHEIST">{{'jhipsterpressApp.Religion.ATHEIST' | translate}}</option>
 	                        <option value="AGNOSTIC">{{'jhipsterpressApp.Religion.AGNOSTIC' | translate}}</option>
@@ -222,8 +222,8 @@
 		    <div class="col-sm-12">
 		        <form name="searchForm" class="form-inline">
 		            <div class="input-group w-100 mt-3">
-		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">ethnicGroup:</label> 
-	                    <select class="form-control" name="ethnicGroup" [(ngModel)]="ethnicGroupSearchTerm" id="field_ethnicGroup" >
+		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2" jhiTranslate="jhipsterpressApp.uprofile.ethnicGroup">ethnicGroup:</label> 
+	                    <select class="form-control" name="ethnicGroup" [(ngModel)]="ethnicGroupSearchTerm" id="field_ethnicGroup" name="ethnicGroupSearchTerm">
 	                        <option value="NA">{{'jhipsterpressApp.EthnicGroup.NA' | translate}}</option>
 	                        <option value="MIXED">{{'jhipsterpressApp.EthnicGroup.MIXED' | translate}}</option>
 	                        <option value="WHITE">{{'jhipsterpressApp.EthnicGroup.WHITE' | translate}}</option>
@@ -246,42 +246,13 @@
 		        </form>
 		    </div>
 		</div>
-												
-		<div class="row">
-		    <div class="col-sm-12">
-		        <form name="searchForm" class="form-inline">
-		            <div class="input-group w-100 mt-3">
-		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">studies:</label> 
-	                    <select class="form-control" name="studies" [(ngModel)]="studiesSearchTerm" id="field_studies" >
-	                        <option value="NA">{{'jhipsterpressApp.EthnicGroup.NA' | translate}}</option>
-	                        <option value="MIXED">{{'jhipsterpressApp.EthnicGroup.MIXED' | translate}}</option>
-	                        <option value="WHITE">{{'jhipsterpressApp.EthnicGroup.WHITE' | translate}}</option>
-	                        <option value="LATIN">{{'jhipsterpressApp.EthnicGroup.LATIN' | translate}}</option>
-	                        <option value="GYPSY">{{'jhipsterpressApp.EthnicGroup.GYPSY' | translate}}</option>
-	                        <option value="AFRO">{{'jhipsterpressApp.EthnicGroup.AFRO' | translate}}</option>
-	                        <option value="HINDU">{{'jhipsterpressApp.EthnicGroup.HINDU' | translate}}</option>
-	                        <option value="ARAB">{{'jhipsterpressApp.EthnicGroup.ARAB' | translate}}</option>
-	                        <option value="ASIAN">{{'jhipsterpressApp.EthnicGroup.ASIAN' | translate}}</option>
-	                        <option value="INDIAN">{{'jhipsterpressApp.EthnicGroup.INDIAN' | translate}}</option>
-	                        <option value="OTHER">{{'jhipsterpressApp.EthnicGroup.OTHER' | translate}}</option>
-	                    </select>
-		                <button class="input-group-append btn btn-info" (click)="studiesSearch(studiesSearchTerm)">
-		                    <fa-icon [icon]="'search'"></fa-icon>
-		                </button>
-		                <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="studiesSearchTerm">
-		                    <fa-icon [icon]="'trash-alt'"></fa-icon>
-		                </button>
-		            </div>
-		        </form>
-		    </div>
-		</div>
 													
 		<div class="row">
 		    <div class="col-sm-12">
 		        <form name="searchForm" class="form-inline">
 		            <div class="input-group w-100 mt-3">
-		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">studies:</label> 
-	                    <select class="form-control" name="studiesGroup" [(ngModel)]="studiesSearchTerm" id="field_studies" >
+		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2" jhiTranslate="jhipsterpressApp.uprofile.studies">studies:</label> 
+	                    <select class="form-control" name="studiesGroup" [(ngModel)]="studiesSearchTerm" id="field_studies" name="studiesSearchTerm">
 	                        <option value="NA">{{'jhipsterpressApp.Studies.NA' | translate}}</option>
 	                        <option value="PRIMARY">{{'jhipsterpressApp.Studies.PRIMARY' | translate}}</option>
 	                        <option value="HIGH_SCHOOL">{{'jhipsterpressApp.Studies.HIGH_SCHOOL' | translate}}</option>
@@ -306,8 +277,8 @@
 		    <div class="col-sm-12">
 		        <form name="searchForm" class="form-inline">
 		            <div class="input-group w-100 mt-3">
-		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">eyes:</label> 
-	                    <select class="form-control" name="eyes" [(ngModel)]="eyesSearchTerm" id="field_eyes" >
+		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2" jhiTranslate="jhipsterpressApp.uprofile.eyes">eyes:</label> 
+	                    <select class="form-control" name="eyes" [(ngModel)]="eyesSearchTerm" id="field_eyes" name="eyesSearchTerm">
 	                        <option value="NA">{{'jhipsterpressApp.Eyes.NA' | translate}}</option>
 	                        <option value="BLUE">{{'jhipsterpressApp.Eyes.BLUE' | translate}}</option>
 	                        <option value="GREEN">{{'jhipsterpressApp.Eyes.GREEN' | translate}}</option>
@@ -331,8 +302,8 @@
 		    <div class="col-sm-12">
 		        <form name="searchForm" class="form-inline">
 		            <div class="input-group w-100 mt-3">
-		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">smoker:</label> 
-	                    <select class="form-control" name="smoker" [(ngModel)]="smokerSearchTerm" id="field_smoker" >
+		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2" jhiTranslate="jhipsterpressApp.uprofile.smoker">smoker:</label> 
+	                    <select class="form-control" name="smoker" [(ngModel)]="smokerSearchTerm" id="field_smoker" name="smokerSearchTerm">
 	                        <option value="NA">{{'jhipsterpressApp.Smoker.NA' | translate}}</option>
 	                        <option value="YES">{{'jhipsterpressApp.Smoker.YES' | translate}}</option>
 	                        <option value="NO">{{'jhipsterpressApp.Smoker.NO' | translate}}</option>
@@ -353,8 +324,8 @@
 		    <div class="col-sm-12">
 		        <form name="searchForm" class="form-inline">
 		            <div class="input-group w-100 mt-3">
-		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">children:</label> 
-	                    <select class="form-control" name="children" [(ngModel)]="childrenSearchTerm" id="field_children" >
+		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2" jhiTranslate="jhipsterpressApp.uprofile.children">children:</label> 
+	                    <select class="form-control" name="children" [(ngModel)]="childrenSearchTerm" id="field_children" name="childrenSearchTerm">
 	                        <option value="NA">{{'jhipsterpressApp.Children.NA' | translate}}</option>
 	                        <option value="YES">{{'jhipsterpressApp.Children.YES' | translate}}</option>
 	                        <option value="NO">{{'jhipsterpressApp.Children.NO' | translate}}</option>
@@ -375,8 +346,8 @@
 		    <div class="col-sm-12">
 		        <form name="searchForm" class="form-inline">
 		            <div class="input-group w-100 mt-3">
-		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">futureChildren:</label> 
-	                    <select class="form-control" name="futureChildren" [(ngModel)]="futureChildrenSearchTerm" id="field_futureChildren" >
+		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2" jhiTranslate="jhipsterpressApp.uprofile.futureChildren">futureChildren:</label> 
+	                    <select class="form-control" name="futureChildren" [(ngModel)]="futureChildrenSearchTerm" id="field_futureChildren" name="futureChildrenSearchTerm">
 	                        <option value="NA">{{'jhipsterpressApp.FutureChildren.NA' | translate}}</option>
 	                        <option value="YES">{{'jhipsterpressApp.FutureChildren.YES' | translate}}</option>
 	                        <option value="NO">{{'jhipsterpressApp.FutureChildren.NO' | translate}}</option>
@@ -396,8 +367,8 @@
 		    <div class="col-sm-12">
 		        <form name="searchForm" class="form-inline">
 		            <div class="input-group w-100 mt-3">
-		            	<label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">pet</label> 
-		                <input type="checkbox" class="form-control" [(ngModel)]="petSearchTerm" id="field_pet" name="pet" placeholder="{{ 'jhipsterpressApp.post.home.search' | translate }}">
+		            	<label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2" jhiTranslate="jhipsterpressApp.uprofile.pet">pet</label> 
+		                <input type="checkbox" class="form-control" [(ngModel)]="petSearchTerm" id="field_pet" name="pet">
 		                <button class="input-group-append btn btn-info" (click)="petSearch(petSearchTerm)">
 		                    <fa-icon [icon]="'search'"></fa-icon>
 		                </button>
@@ -413,8 +384,8 @@
 		    <div class="col-sm-12">
 		        <form name="searchForm" class="form-inline">
 		            <div class="input-group w-100 mt-3">
-		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">sibblings</label>
-		                <input type="number" class="form-control" [(ngModel)]="sibblingsSearchTerm" id="field_sibblings" name="sibblings" placeholder="{{ 'jhipsterpressApp.post.home.search' | translate }}">
+		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2" jhiTranslate="jhipsterpressApp.uprofile.sibblings">sibblings</label>
+		                <input type="number" class="form-control" [(ngModel)]="sibblingsSearchTerm" id="field_sibblings" name="sibblings" >
 		                <button class="input-group-append btn btn-info" (click)="sibblingsSearch(sibblingsSearchTerm)">
 		                    <fa-icon [icon]="'search'"></fa-icon>
 		                </button>

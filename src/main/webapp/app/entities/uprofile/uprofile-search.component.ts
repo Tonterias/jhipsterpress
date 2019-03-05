@@ -1,11 +1,11 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import * as moment from 'moment';
 import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
-import { JhiAlertService, JhiDataUtils } from 'ng-jhipster';
+import { JhiEventManager, JhiParseLinks, JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 
 import { IUprofile } from 'app/shared/model/uprofile.model';
 import { UprofileService } from './uprofile.service';
@@ -26,7 +26,7 @@ import { AccountService } from 'app/core';
 export class UprofileSearchComponent implements OnInit {
     private _uprofile: IUprofile;
     //    uprofile: IUprofile;
-    isSaving: boolean;
+    uprofiles: IUprofile[];
 
     users: IUser[];
     user: IUser;
@@ -40,6 +40,19 @@ export class UprofileSearchComponent implements OnInit {
     birthdate: string;
 
     currentAccount: any;
+    currentSearch: string;
+    links: any;
+    totalItems: any;
+    itemsPerPage: any;
+    page: any;
+    predicate: any;
+    previousPage: any;
+    reverse: any;
+
+    isSaving: boolean;
+
+    arrayAux = [];
+    arrayIds = [];
 
     constructor(
         protected dataUtils: JhiDataUtils,
@@ -51,11 +64,19 @@ export class UprofileSearchComponent implements OnInit {
         //        protected celebService: CelebService,
         protected accountService: AccountService,
         protected elementRef: ElementRef,
-        protected activatedRoute: ActivatedRoute
-    ) {}
+        protected activatedRoute: ActivatedRoute,
+        protected router: Router,
+        protected parseLinks: JhiParseLinks,
+        protected eventManager: JhiEventManager
+    ) {
+        this.currentSearch =
+            this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
+                ? this.activatedRoute.snapshot.params['search']
+                : '';
+    }
 
     ngOnInit() {
-        this.isSaving = false;
+        //        this.isSaving = false;
         //        this.uprofile = new uprofile();
         //        this.activatedRoute.data.subscribe(( { uprofile } ) => {
         //            this.uprofile = uprofile;
@@ -105,6 +126,76 @@ export class UprofileSearchComponent implements OnInit {
         //            .subscribe((res: ICeleb[]) => (this.celebs = res), (res: HttpErrorResponse) => this.onError(res.message));
     }
 
+    bioSearch() {
+        console.log('CONSOLOG: M:loadAll & O: this.currentSearch : ', this.currentSearch);
+        if (this.currentSearch) {
+            const query = {
+                //                page: this.page - 1,
+                //                size: this.itemsPerPage,
+                //                sort: this.sort()
+            };
+            query['bio.contains'] = this.currentSearch;
+            this.uprofileService.query(query).subscribe(
+                (res: HttpResponse<IUprofile[]>) => {
+                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles : ', res.body);
+                    this.uprofiles = res.body;
+                    const query2 = {
+                        page: this.page - 1,
+                        size: this.itemsPerPage,
+                        sort: this.sort()
+                    };
+                    //                    query2['bodytext.contains'] = this.currentSearch;
+                    //                    this.uprofileService.query(query2).subscribe(
+                    //                        (res2: HttpResponse<IUprofile[]>) => {
+                    //                            this.uprofiles = this.filterArray(this.uprofiles.concat(res2.body));
+                    //                            const query3 = {
+                    //                                page: this.page - 1,
+                    //                                size: this.itemsPerPage,
+                    //                                sort: this.sort()
+                    //                            };
+                    //                            query3['conclusion.contains'] = this.currentSearch;
+                    //                            this.uprofileService.query(query3).subscribe(
+                    //                                (res3: HttpResponse<IUprofile[]>) => {
+                    //                                    this.uprofiles = this.filterArray(this.uprofiles.concat(res3.body));
+                    //                                },
+                    //                                (res3: HttpErrorResponse) => this.onError(res3.message)
+                    //                            );
+                    //                        },
+                    //                        (res2: HttpErrorResponse) => this.onError(res2.message)
+                    //                    );
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+            return;
+        }
+        //        this.uprofileService
+        //            .query({
+        //                page: this.page - 1,
+        //                size: this.itemsPerPage,
+        //                sort: this.sort()
+        //            })
+        //            .subscribe(
+        //                (res: HttpResponse<IPost[]>) => this.paginatePosts(res.body, res.headers),
+        //                (res: HttpErrorResponse) => this.onError(res.message)
+        //            );
+    }
+
+    private filterArray(posts) {
+        this.arrayAux = [];
+        this.arrayIds = [];
+        posts.map(x => {
+            if (this.arrayIds.length >= 1 && this.arrayIds.includes(x.id) === false) {
+                this.arrayAux.push(x);
+                this.arrayIds.push(x.id);
+            } else if (this.arrayIds.length === 0) {
+                this.arrayAux.push(x);
+                this.arrayIds.push(x.id);
+            }
+        });
+        //        console.log('CONSOLOG: M:filterInterests & O: this.follows : ', this.arrayIds, this.arrayAux);
+        return this.arrayAux;
+    }
+
     byteSize(field) {
         return this.dataUtils.byteSize(field);
     }
@@ -134,6 +225,14 @@ export class UprofileSearchComponent implements OnInit {
         } else {
             this.subscribeToSaveResponse(this.uprofileService.create(this.uprofile));
         }
+    }
+
+    sort() {
+        const result = [this.predicate + ',' + (this.reverse ? 'asc' : 'desc')];
+        if (this.predicate !== 'id') {
+            result.push('id');
+        }
+        return result;
     }
 
     protected subscribeToSaveResponse(result: Observable<HttpResponse<IUprofile>>) {
@@ -184,8 +283,9 @@ export class UprofileSearchComponent implements OnInit {
         return this._uprofile;
     }
 
-    set post(post: IUprofile) {
-        this._uprofile = post;
-        this.creationDate = moment(post.creationDate).format(DATE_TIME_FORMAT);
+    set uprofile(uprofile: IUprofile) {
+        this._uprofile = uprofile;
+        console.log('CONSOLOG: M:set & O: this._uprofile : ', this._uprofile);
+        //        this.creationDate = moment(uprofile.creationDate).format(DATE_TIME_FORMAT);
     }
 }

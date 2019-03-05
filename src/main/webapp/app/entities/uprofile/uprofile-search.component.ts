@@ -53,8 +53,17 @@ export class UprofileSearchComponent implements OnInit {
     arrayAux = [];
     arrayIds = [];
 
-    currentSearch: string;
-    currentSearch2: string;
+    bioSearchTerm: string;
+    genderSearchTerm: string;
+    civilStatusSearchTerm: string;
+    lookingForSearchTerm: string;
+    purposeSearchTerm: string;
+    physicalSearchTerm: string;
+    religionSearchTerm: string;
+    ethnicGroupSearchTerm: string;
+    studiesSearchTerm: string;
+    eyesSearchTerm: string;
+    smokerSearchTerm: string;
 
     constructor(
         protected dataUtils: JhiDataUtils,
@@ -71,10 +80,10 @@ export class UprofileSearchComponent implements OnInit {
         protected parseLinks: JhiParseLinks,
         protected eventManager: JhiEventManager
     ) {
-        this.currentSearch =
-            this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
-                ? this.activatedRoute.snapshot.params['search']
-                : '';
+        //        this.currentSearch =
+        //            this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search']
+        //                ? this.activatedRoute.snapshot.params['search']
+        //                : '';
     }
 
     ngOnInit() {
@@ -129,14 +138,14 @@ export class UprofileSearchComponent implements OnInit {
     }
 
     bioSearch() {
-        console.log('CONSOLOG: M:loadAll & O: this.currentSearch : ', this.currentSearch);
-        if (this.currentSearch) {
+        console.log('CONSOLOG: M:loadAll & O: this.currentSearch : ', this.bioSearchTerm);
+        if (this.bioSearchTerm) {
             const query = {
                 //                page: this.page - 1,
                 //                size: this.itemsPerPage,
                 //                sort: this.sort()
             };
-            query['bio.contains'] = this.currentSearch;
+            query['bio.contains'] = this.bioSearchTerm;
             this.uprofileService.query(query).subscribe(
                 (res: HttpResponse<IUprofile[]>) => {
                     console.log('CONSOLOG: M:loadAll & O: res.body uprofiles : ', res.body);
@@ -183,10 +192,154 @@ export class UprofileSearchComponent implements OnInit {
     }
 
     genderSearch() {
-        console.log('CONSOLOG: M:loadAll & O: this.currentSearch2 : ', this.currentSearch2);
-        if (this.currentSearch2) {
+        console.log('CONSOLOG: M:loadAll & O: this.currentSearch2 : ', this.genderSearchTerm);
+        if (this.genderSearchTerm) {
             const query = {};
-            query['gender.equals'] = this.currentSearch2;
+            query['gender.equals'] = this.genderSearchTerm;
+            this.uprofileService.query(query).subscribe(
+                (res: HttpResponse<IUprofile[]>) => {
+                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+                    this.uprofiles = res.body;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+            return;
+        }
+    }
+
+    civilStatusSearch() {
+        console.log('CONSOLOG: M:loadAll & O: this.civilStatusSearch : ', this.civilStatusSearchTerm);
+        if (this.civilStatusSearchTerm) {
+            const query = {};
+            query['civilStatus.equals'] = this.civilStatusSearchTerm;
+            this.uprofileService.query(query).subscribe(
+                (res: HttpResponse<IUprofile[]>) => {
+                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+                    this.uprofiles = res.body;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+            return;
+        }
+    }
+
+    lookingForSearch() {
+        console.log('CONSOLOG: M:loadAll & O: this.civilStatusSearch : ', this.lookingForSearchTerm);
+        if (this.lookingForSearchTerm) {
+            const query = {};
+            query['lookingFor.equals'] = this.lookingForSearchTerm;
+            this.uprofileService.query(query).subscribe(
+                (res: HttpResponse<IUprofile[]>) => {
+                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+                    this.uprofiles = res.body;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+            return;
+        }
+    }
+
+    purposeSearch() {
+        console.log('CONSOLOG: M:loadAll & O: this.purposeSearchTerm : ', this.purposeSearchTerm);
+        if (this.purposeSearchTerm) {
+            const query = {};
+            query['purpose.equals'] = this.purposeSearchTerm;
+            this.uprofileService.query(query).subscribe(
+                (res: HttpResponse<IUprofile[]>) => {
+                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+                    this.uprofiles = res.body;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+            return;
+        }
+    }
+
+    physicalSearch() {
+        console.log('CONSOLOG: M:loadAll & O: this.physicalSearchTerm : ', this.physicalSearchTerm);
+        if (this.physicalSearchTerm) {
+            const query = {};
+            query['physical.equals'] = this.physicalSearchTerm;
+            this.uprofileService.query(query).subscribe(
+                (res: HttpResponse<IUprofile[]>) => {
+                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+                    this.uprofiles = res.body;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+            return;
+        }
+    }
+
+    religionSearch() {
+        console.log('CONSOLOG: M:loadAll & O: this.religionSearchTerm : ', this.religionSearchTerm);
+        if (this.religionSearchTerm) {
+            const query = {};
+            query['religion.equals'] = this.religionSearchTerm;
+            this.uprofileService.query(query).subscribe(
+                (res: HttpResponse<IUprofile[]>) => {
+                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+                    this.uprofiles = res.body;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+            return;
+        }
+    }
+
+    ethnicGroupSearch() {
+        console.log('CONSOLOG: M:loadAll & O: this.ethnicGroupSearchTerm : ', this.ethnicGroupSearchTerm);
+        if (this.ethnicGroupSearchTerm) {
+            const query = {};
+            query['ethnicGroup.equals'] = this.ethnicGroupSearchTerm;
+            this.uprofileService.query(query).subscribe(
+                (res: HttpResponse<IUprofile[]>) => {
+                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+                    this.uprofiles = res.body;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+            return;
+        }
+    }
+
+    studiesSearch() {
+        console.log('CONSOLOG: M:loadAll & O: this.studiesSearchTerm : ', this.studiesSearchTerm);
+        if (this.studiesSearchTerm) {
+            const query = {};
+            query['studies.equals'] = this.studiesSearchTerm;
+            this.uprofileService.query(query).subscribe(
+                (res: HttpResponse<IUprofile[]>) => {
+                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+                    this.uprofiles = res.body;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+            return;
+        }
+    }
+
+    eyesSearch() {
+        console.log('CONSOLOG: M:loadAll & O: this.eyesSearchTerm : ', this.eyesSearchTerm);
+        if (this.eyesSearchTerm) {
+            const query = {};
+            query['eyes.equals'] = this.eyesSearchTerm;
+            this.uprofileService.query(query).subscribe(
+                (res: HttpResponse<IUprofile[]>) => {
+                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+                    this.uprofiles = res.body;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+            return;
+        }
+    }
+
+    smokerSearch() {
+        console.log('CONSOLOG: M:loadAll & O: this.smokerSearchTerm : ', this.smokerSearchTerm);
+        if (this.smokerSearchTerm) {
+            const query = {};
+            query['smoker.equals'] = this.smokerSearchTerm;
             this.uprofileService.query(query).subscribe(
                 (res: HttpResponse<IUprofile[]>) => {
                     console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);

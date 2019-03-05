@@ -40,7 +40,6 @@ export class UprofileSearchComponent implements OnInit {
     birthdate: string;
 
     currentAccount: any;
-    currentSearch: string;
     links: any;
     totalItems: any;
     itemsPerPage: any;
@@ -53,6 +52,9 @@ export class UprofileSearchComponent implements OnInit {
 
     arrayAux = [];
     arrayIds = [];
+
+    currentSearch: string;
+    currentSearch2: string;
 
     constructor(
         protected dataUtils: JhiDataUtils,
@@ -139,11 +141,11 @@ export class UprofileSearchComponent implements OnInit {
                 (res: HttpResponse<IUprofile[]>) => {
                     console.log('CONSOLOG: M:loadAll & O: res.body uprofiles : ', res.body);
                     this.uprofiles = res.body;
-                    const query2 = {
-                        page: this.page - 1,
-                        size: this.itemsPerPage,
-                        sort: this.sort()
-                    };
+                    //                    const query2 = {
+                    //                        page: this.page - 1,
+                    //                        size: this.itemsPerPage,
+                    //                        sort: this.sort()
+                    //                    };
                     //                    query2['bodytext.contains'] = this.currentSearch;
                     //                    this.uprofileService.query(query2).subscribe(
                     //                        (res2: HttpResponse<IUprofile[]>) => {
@@ -178,6 +180,22 @@ export class UprofileSearchComponent implements OnInit {
         //                (res: HttpResponse<IPost[]>) => this.paginatePosts(res.body, res.headers),
         //                (res: HttpErrorResponse) => this.onError(res.message)
         //            );
+    }
+
+    genderSearch() {
+        console.log('CONSOLOG: M:loadAll & O: this.currentSearch2 : ', this.currentSearch2);
+        if (this.currentSearch2) {
+            const query = {};
+            query['gender.equals'] = this.currentSearch2;
+            this.uprofileService.query(query).subscribe(
+                (res: HttpResponse<IUprofile[]>) => {
+                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+                    this.uprofiles = res.body;
+                },
+                (res: HttpErrorResponse) => this.onError(res.message)
+            );
+            return;
+        }
     }
 
     private filterArray(posts) {

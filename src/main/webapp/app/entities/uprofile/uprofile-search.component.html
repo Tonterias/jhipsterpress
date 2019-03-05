@@ -1,12 +1,70 @@
 <div class="row justify-content-center">
-    <div class="col-8">
-    
+    <div class="col-8">  
 	    <jhi-alert></jhi-alert>
+	    
+	    <!-- Profile Content -->
+		<div class="col-lg-9" *ngIf="uprofiles">
+		  <!-- User Contacts -->
+		  <div class="row g-mb-40">
+		    <div class="col-md-4 g-mb-30 g-mb-0--md" *ngFor="let uprofile of uprofiles ;trackBy: trackId">
+		      <!-- Figure -->
+		      <figure class="g-bg-white g-brd-around g-brd-gray-light-v4 g-brd-cyan--hover g-transition-0_2 text-center">
+		        <div class="g-py-40 g-px-20">
+		          <!-- Figure Image -->
+		          <a *ngIf="uprofile.image" [routerLink]="['/uprofile', uprofile.id, 'view' ]">
+	                  <img class="g-width-100 g-height-100 rounded-circle g-mb-20" 
+	                  [src]="'data:' + uprofile.imageContentType + ';base64,' + uprofile.image" alt="uprofile image"/>
+	              </a>
+		          <!-- Figure Image -->
+		
+		          <!-- Figure Info -->
+		          <a [routerLink]="['/uprofile', uprofile.id, 'view' ]">
+		          	<h4 class="h5 g-mb-5">{{uprofile.userFirstName}} {{uprofile.userLastName}}</h4>
+		          </a>
+		          <div class="d-block">
+		            <span class="g-color-cyan g-font-size-default g-mr-3">
+		              <!-- <i class="icon-user"></i>  -->
+		            </span>
+		            <!-- <em class="g-color-gray-dark-v4 g-font-style-normal g-font-size-default">Employee</em> -->
+		          </div>
+		          <!-- End Figure Info -->
+		        </div>
+		
+		        <hr class="g-brd-gray-light-v4 g-my-0">
+		
+		        <!-- Figure List --
+		        <ul class="row list-inline g-py-20 g-ma-0">
+		          <li class="col g-brd-right g-brd-gray-light-v4">
+		            <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-bg-transparent g-color-cyan--hover" href="#!">
+		              <i class="icon-speech"></i>
+		            </a>
+		          </li>
+		          <li class="col g-brd-right g-brd-gray-light-v4">
+		            <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-bg-transparent g-color-red--hover" href="#!">
+		              <i class="icon-envelope-letter"></i>
+		            </a>
+		          </li>
+		          <li class="col">
+		            <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-bg-transparent g-color-purple--hover" href="#!">
+		              <i class="icon-screen-smartphone"></i>
+		            </a>
+		          </li>
+		        </ul>
+		        -- End Figure List -->
+		      </figure>
+		      <!-- End Figure -->
+		    </div>
+		</div>
+		<!-- End Profile Content -->
+		</div>
+		<br/>
+	    
 		<div class="row">
 		    <div class="col-sm-12">
 		        <form name="searchForm" class="form-inline">
 		            <div class="input-group w-100 mt-3">
-		                asdfasdfasdfasdf <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jhipsterpressApp.post.home.search' | translate }}">
+		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">Bio search: Traducir JHI</label> 
+		                <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jhipsterpressApp.post.home.search' | translate }}">
 		                <button class="input-group-append btn btn-info" (click)="bioSearch(currentSearch)">
 		                    <fa-icon [icon]="'search'"></fa-icon>
 		                </button>
@@ -17,85 +75,27 @@
 		        </form>
 		    </div>
 		</div>
+		
+		<div class="row">
+		    <div class="col-sm-12">
+		        <form name="searchForm" class="form-inline">
+		            <div class="input-group w-100 mt-3">
+		                <label class="col-sm-3 col-form-label g-mb-10" for="autocomplete2">Gender: jhiTranslate="jhipsterpressApp.uprofile.home.title</label> 
+		                <select class="form-control" name="gender" [(ngModel)]="currentSearch2" id="field_gender" >
+                        <option value="MALE">{{'jhipsterpressApp.Gender.MALE' | translate}}</option>
+                        <option value="FEMALE">{{'jhipsterpressApp.Gender.FEMALE' | translate}}</option>
+                        <option value="OTHER">{{'jhipsterpressApp.Gender.OTHER' | translate}}</option>
+                    </select>
+		                <button class="input-group-append btn btn-info" (click)="genderSearch(currentSearch2)">
+		                    <fa-icon [icon]="'search'"></fa-icon>
+		                </button>
+		                <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch2">
+		                    <fa-icon [icon]="'trash-alt'"></fa-icon>
+		                </button>
+		            </div>
+		        </form>
+		    </div>
+		</div>
 		<br/>
     </div>
 </div>
-
-
-
-  <!-- Text Input -->
-  <div class="form-group row g-mb-25">
-    <label class="col-sm-3 col-form-label g-mb-10" for="hf-email">Text input</label>
-
-    <div class="col-sm-9">
-		<form name="searchForm" class="form-inline">
-            <div class="input-group w-100 mt-3">
-                <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'jhipsterpressApp.post.home.search' | translate }}">
-                <button class="input-group-append btn btn-info" (click)="bioSearch(currentSearch)">
-                    <fa-icon [icon]="'search'"></fa-icon>
-                </button>
-                <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
-                    <fa-icon [icon]="'trash-alt'"></fa-icon>
-                </button>
-            </div>
-        </form>
-    </div>
-  </div>
-  <!-- End Text Input -->
-
-  <!-- Profile Content -->
-	<div class="col-lg-9" *ngIf="uprofiles">
-	  <!-- User Contacts -->
-	  <div class="row g-mb-40">
-	    <div class="col-md-4 g-mb-30 g-mb-0--md" *ngFor="let uprofile of uprofiles ;trackBy: trackId">
-	      <!-- Figure -->
-	      <figure class="g-bg-white g-brd-around g-brd-gray-light-v4 g-brd-cyan--hover g-transition-0_2 text-center">
-	        <div class="g-py-40 g-px-20">
-	          <!-- Figure Image -->
-	          <a *ngIf="uprofile.image" [routerLink]="['/uprofile', uprofile.id, 'view' ]">
-                  <img class="g-width-100 g-height-100 rounded-circle g-mb-20" 
-                  [src]="'data:' + uprofile.imageContentType + ';base64,' + uprofile.image" alt="uprofile image"/>
-              </a>
-	          <!-- Figure Image -->
-	
-	          <!-- Figure Info -->
-	          <a [routerLink]="['/uprofile', uprofile.id, 'view' ]">
-	          	<h4 class="h5 g-mb-5">{{uprofile.userFirstName}} {{uprofile.userLastName}}</h4>
-	          </a>
-	          <div class="d-block">
-	            <span class="g-color-cyan g-font-size-default g-mr-3">
-	              <!-- <i class="icon-user"></i>  -->
-	            </span>
-	            <!-- <em class="g-color-gray-dark-v4 g-font-style-normal g-font-size-default">Employee</em> -->
-	          </div>
-	          <!-- End Figure Info -->
-	        </div>
-	
-	        <hr class="g-brd-gray-light-v4 g-my-0">
-	
-	        <!-- Figure List --
-	        <ul class="row list-inline g-py-20 g-ma-0">
-	          <li class="col g-brd-right g-brd-gray-light-v4">
-	            <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-bg-transparent g-color-cyan--hover" href="#!">
-	              <i class="icon-speech"></i>
-	            </a>
-	          </li>
-	          <li class="col g-brd-right g-brd-gray-light-v4">
-	            <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-bg-transparent g-color-red--hover" href="#!">
-	              <i class="icon-envelope-letter"></i>
-	            </a>
-	          </li>
-	          <li class="col">
-	            <a class="u-icon-v1 u-icon-size--sm g-color-gray-dark-v5 g-bg-transparent g-color-purple--hover" href="#!">
-	              <i class="icon-screen-smartphone"></i>
-	            </a>
-	          </li>
-	        </ul>
-	        -- End Figure List -->
-	      </figure>
-	      <!-- End Figure -->
-	    </div>
-	</div>
-	<!-- End Profile Content -->
-	</div>
-	<br/>

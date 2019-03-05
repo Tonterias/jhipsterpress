@@ -92,8 +92,126 @@ export class UprofileSearchComponent implements OnInit {
 
     ngOnInit() {}
 
+    searchAll() {
+        console.log('CONSOLOG: M:loadAll & O: this.bioSearchTerm : ', this.bioSearchTerm);
+        console.log('CONSOLOG: M:loadAll & O: this.currentSearch2 : ', this.genderSearchTerm);
+        console.log('CONSOLOG: M:loadAll & O: this.civilStatusSearch : ', this.civilStatusSearchTerm);
+        console.log('CONSOLOG: M:loadAll & O: this.civilStatusSearch : ', this.lookingForSearchTerm);
+        console.log('CONSOLOG: M:loadAll & O: this.purposeSearchTerm : ', this.purposeSearchTerm);
+        console.log('CONSOLOG: M:loadAll & O: this.physicalSearchTerm : ', this.physicalSearchTerm);
+        console.log('CONSOLOG: M:loadAll & O: this.religionSearchTerm : ', this.religionSearchTerm);
+        console.log('CONSOLOG: M:loadAll & O: this.ethnicGroupSearchTerm : ', this.ethnicGroupSearchTerm);
+        console.log('CONSOLOG: M:loadAll & O: this.studiesSearchTerm : ', this.studiesSearchTerm);
+        console.log('CONSOLOG: M:loadAll & O: this.eyesSearchTerm : ', this.eyesSearchTerm);
+        console.log('CONSOLOG: M:loadAll & O: this.smokerSearchTerm : ', this.smokerSearchTerm);
+        console.log('CONSOLOG: M:loadAll & O: this.childrenSearchTerm : ', this.childrenSearchTerm);
+        console.log('CONSOLOG: M:loadAll & O: this.futureChildrenSearchTerm : ', this.futureChildrenSearchTerm);
+        console.log('CONSOLOG: M:loadAll & O: this.petSearchTerm : ', this.petSearchTerm);
+        console.log('CONSOLOG: M:loadAll & O: this.sibblingsSearchTerm : ', this.sibblingsSearchTerm);
+        const query = {
+            //                page: this.page - 1,
+            //                size: this.itemsPerPage,
+            //                sort: this.sort()
+        };
+        if (this.bioSearchTerm) {
+            query['bio.contains'] = this.bioSearchTerm;
+        }
+        if (this.genderSearchTerm) {
+            query['gender.equals'] = this.genderSearchTerm;
+        }
+        if (this.civilStatusSearchTerm) {
+            query['civilStatus.equals'] = this.civilStatusSearchTerm;
+        }
+        if (this.lookingForSearchTerm) {
+            query['lookingFor.equals'] = this.lookingForSearchTerm;
+        }
+        if (this.purposeSearchTerm) {
+            query['purpose.equals'] = this.purposeSearchTerm;
+        }
+        if (this.physicalSearchTerm) {
+            query['physical.equals'] = this.physicalSearchTerm;
+        }
+        if (this.religionSearchTerm) {
+            query['religion.equals'] = this.religionSearchTerm;
+        }
+        if (this.ethnicGroupSearchTerm) {
+            query['ethnicGroup.equals'] = this.ethnicGroupSearchTerm;
+        }
+        if (this.studiesSearchTerm) {
+            query['studies.equals'] = this.studiesSearchTerm;
+        }
+        if (this.eyesSearchTerm) {
+            query['eyes.equals'] = this.eyesSearchTerm;
+        }
+        if (this.smokerSearchTerm) {
+            query['smoker.equals'] = this.smokerSearchTerm;
+        }
+        if (this.childrenSearchTerm) {
+            query['children.equals'] = this.childrenSearchTerm;
+        }
+        if (this.futureChildrenSearchTerm) {
+            query['futureChildren.equals'] = this.futureChildrenSearchTerm;
+        }
+        if (this.petSearchTerm) {
+            query['pet.equals'] = this.petSearchTerm;
+        }
+        if (this.sibblingsSearchTerm) {
+            query['sibblings.equals'] = this.sibblingsSearchTerm;
+        }
+        this.uprofileService.query(query).subscribe(
+            (res: HttpResponse<IUprofile[]>) => {
+                console.log('CONSOLOG: M:loadAll & O: res.body uprofiles : ', res.body);
+                this.uprofiles = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        return;
+    }
+
+    clear() {
+        this.page = 0;
+        this.bioSearchTerm = '';
+        this.genderSearchTerm = '';
+        this.civilStatusSearchTerm = '';
+        this.lookingForSearchTerm = '';
+        this.purposeSearchTerm = '';
+        this.physicalSearchTerm = '';
+        this.religionSearchTerm = '';
+        this.ethnicGroupSearchTerm = '';
+        this.studiesSearchTerm = '';
+        this.eyesSearchTerm = '';
+        this.smokerSearchTerm = '';
+        this.childrenSearchTerm = '';
+        this.futureChildrenSearchTerm = '';
+        this.petSearchTerm = false;
+        this.sibblingsSearchTerm = 0;
+        //        this.router.navigate([
+        //            '/uprofile',
+        //            {
+        //                page: this.page,
+        //                sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
+        //            }
+        //        ]);
+    }
+
+    //    private filterArray(posts) {
+    //        this.arrayAux = [];
+    //        this.arrayIds = [];
+    //        posts.map(x => {
+    //            if (this.arrayIds.length >= 1 && this.arrayIds.includes(x.id) === false) {
+    //                this.arrayAux.push(x);
+    //                this.arrayIds.push(x.id);
+    //            } else if (this.arrayIds.length === 0) {
+    //                this.arrayAux.push(x);
+    //                this.arrayIds.push(x.id);
+    //            }
+    //        });
+    //        //        console.log('CONSOLOG: M:filterInterests & O: this.follows : ', this.arrayIds, this.arrayAux);
+    //        return this.arrayAux;
+    //    }
+
     bioSearch() {
-        console.log('CONSOLOG: M:loadAll & O: this.currentSearch : ', this.bioSearchTerm);
+        console.log('CONSOLOG: M:loadAll & O: this.bioSearchTerm : ', this.bioSearchTerm);
         if (this.bioSearchTerm) {
             const query = {
                 //                page: this.page - 1,
@@ -335,48 +453,6 @@ export class UprofileSearchComponent implements OnInit {
             return;
         }
     }
-
-    clear() {
-        this.page = 0;
-        this.bioSearchTerm = '';
-        this.genderSearchTerm = '';
-        this.civilStatusSearchTerm = '';
-        this.lookingForSearchTerm = '';
-        this.purposeSearchTerm = '';
-        this.physicalSearchTerm = '';
-        this.religionSearchTerm = '';
-        this.ethnicGroupSearchTerm = '';
-        this.studiesSearchTerm = '';
-        this.eyesSearchTerm = '';
-        this.smokerSearchTerm = '';
-        this.childrenSearchTerm = '';
-        this.futureChildrenSearchTerm = '';
-        this.petSearchTerm = false;
-        this.sibblingsSearchTerm = 0;
-        //        this.router.navigate([
-        //            '/uprofile',
-        //            {
-        //                page: this.page,
-        //                sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
-        //            }
-        //        ]);
-    }
-
-    //    private filterArray(posts) {
-    //        this.arrayAux = [];
-    //        this.arrayIds = [];
-    //        posts.map(x => {
-    //            if (this.arrayIds.length >= 1 && this.arrayIds.includes(x.id) === false) {
-    //                this.arrayAux.push(x);
-    //                this.arrayIds.push(x.id);
-    //            } else if (this.arrayIds.length === 0) {
-    //                this.arrayAux.push(x);
-    //                this.arrayIds.push(x.id);
-    //            }
-    //        });
-    //        //        console.log('CONSOLOG: M:filterInterests & O: this.follows : ', this.arrayIds, this.arrayAux);
-    //        return this.arrayAux;
-    //    }
 
     byteSize(field) {
         return this.dataUtils.byteSize(field);

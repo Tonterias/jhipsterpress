@@ -1,6 +1,15 @@
 <div class="row justify-content-center">
     <div class="col-8">  
-	    <jhi-alert></jhi-alert>
+	<div>
+	    <h2 id="page-heading">
+		<table style="width:100%">
+		  <tr>
+			<span jhiTranslate="jhipsterpressApp.uprofile.home.search1Criteria">Uprofiles</span>
+		  </tr>
+		</table>
+		</h2>
+    </div>
+    <jhi-alert></jhi-alert>
 	    
 	    <!-- Profile Content -->
 		<div class="col-lg-9" *ngIf="uprofiles">
@@ -396,6 +405,28 @@
 		        </form>
 		    </div>
 		</div>
+
+		<div>
+		    <h2 id="page-heading">
+			<table style="width:100%">
+			  <tr>
+				<span jhiTranslate="jhipsterpressApp.uprofile.home.searchMultiCriteria">Uprofiles</span>
+			  </tr>
+			  <tr>
+			    <td>
+					<button class="input-group-append btn btn-info" (click)="searchAll()">
+			            <fa-icon [icon]="'search'"></fa-icon>
+			        </button>
+				</td>
+			    <td>
+			        <button class="input-group-append btn btn-danger" (click)="clear()">
+			           <fa-icon [icon]="'trash-alt'"></fa-icon>
+			        </button>
+				</td> 
+			  </tr>
+			</table>
+			</h2>
+	    </div>
 		
 		<br/>
     </div>

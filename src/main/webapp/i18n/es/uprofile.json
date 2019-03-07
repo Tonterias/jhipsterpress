@@ -7,8 +7,11 @@
                 "myLabel": "Mi Perfil",
                 "createOrEditLabel": "Crear o editar Perfil",
                 "search": "Search for Uprofile",
-                "searchBio": "Search for Uprofile",
-                "searchGender": "Search for Uprofile"
+                "search1Criteria": "Buscar un Perfil con un criterio:",
+                "searchMultiCriteria": "Buscar un Perfil con múltiples criterios:",
+                "searchResults": "Resultados de la búsqueda:",
+                "searchBio": "Buscar un texto en la Bio",
+                "searchGender": "Buscar un Perfil"
             },
             "created": "Un nuevo Perfil ha sido creado con el identificador {{ param }}",
             "updated": "Un Perfil ha sido actualizado con el identificador {{ param }}",

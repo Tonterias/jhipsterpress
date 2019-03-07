@@ -7,8 +7,9 @@
                 "myLabel": "My Profile",
                 "createOrEditLabel": "Create or edit a Profile",
                 "search": "Search for a Profile",
-                "search1Criteria": "Search for a Profile with one criteria",
-                "searchMultiCriteria": "Search for a Profile with more than one criteria",
+                "search1Criteria": "One criteria, search Profile:",
+                "searchMultiCriteria": "Multicriteria search Profile:",
+                "searchResults": "Search Results:",
                 "searchBio": "Search for text in Bio",
                 "searchGender": "Search for a Profile"
             },

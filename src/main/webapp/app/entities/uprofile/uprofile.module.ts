@@ -7,7 +7,6 @@ import { JhipsterpressSharedModule } from 'app/shared';
 import {
     UprofileComponent,
     UprofileSearchComponent,
-    UprofileSearchResultsComponent,
     UprofileDetailComponent,
     UprofileUpdateComponent,
     UprofileDeletePopupComponent,
@@ -23,7 +22,6 @@ const ENTITY_STATES = [...uprofileRoute, ...uprofilePopupRoute];
     declarations: [
         UprofileComponent,
         UprofileSearchComponent,
-        UprofileSearchResultsComponent,
         UprofileDetailComponent,
         UprofileUpdateComponent,
         UprofileDeleteDialogComponent,
@@ -32,7 +30,6 @@ const ENTITY_STATES = [...uprofileRoute, ...uprofilePopupRoute];
     entryComponents: [
         UprofileComponent,
         UprofileSearchComponent,
-        UprofileSearchResultsComponent,
         UprofileUpdateComponent,
         UprofileDeleteDialogComponent,
         UprofileDeletePopupComponent

@@ -8,7 +8,7 @@
             "DIVORCED": "Divorced",
             "WIDOWER": "Widowed",
             "SEPARATED": "Separated",
-            "PAIRED_UP": "Engaged",
+            "ENGAGED": "Engaged",
             "OTHER": "Other"
         }
     }

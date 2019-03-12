@@ -86,6 +86,12 @@
                 <span><i class="icon-heart g-pos-rel g-top-1 g-mr-8"></i> Reviews</span>
               </a>
               End Reviews -->
+
+              <!-- Blocking Users -->
+              <a [routerLink]="['/uprofile/uprofilesearch']" class="list-group-item list-group-item-action justify-content-between">
+                <span><i class="icon-magnifier g-pos-rel g-top-1 g-mr-8"></i> Advanced Search</span>
+              </a>
+              <!-- End Blocking Users -->
               
               <!-- Blocking Users -->
               <a [routerLink]="['/blockuser/blockinguser']" [queryParams]="{ 'blockinguserIdEquals': uprofile.id }" class="list-group-item list-group-item-action justify-content-between">

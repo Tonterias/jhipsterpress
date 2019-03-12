@@ -92,458 +92,458 @@ export class UprofileSearchComponent implements OnInit {
 
     ngOnInit() {}
 
-    searchAll() {
-        console.log('CONSOLOG: M:loadAll & O: this.bioSearchTerm : ', this.bioSearchTerm);
-        console.log('CONSOLOG: M:loadAll & O: this.currentSearch2 : ', this.genderSearchTerm);
-        console.log('CONSOLOG: M:loadAll & O: this.civilStatusSearch : ', this.civilStatusSearchTerm);
-        console.log('CONSOLOG: M:loadAll & O: this.civilStatusSearch : ', this.lookingForSearchTerm);
-        console.log('CONSOLOG: M:loadAll & O: this.purposeSearchTerm : ', this.purposeSearchTerm);
-        console.log('CONSOLOG: M:loadAll & O: this.physicalSearchTerm : ', this.physicalSearchTerm);
-        console.log('CONSOLOG: M:loadAll & O: this.religionSearchTerm : ', this.religionSearchTerm);
-        console.log('CONSOLOG: M:loadAll & O: this.ethnicGroupSearchTerm : ', this.ethnicGroupSearchTerm);
-        console.log('CONSOLOG: M:loadAll & O: this.studiesSearchTerm : ', this.studiesSearchTerm);
-        console.log('CONSOLOG: M:loadAll & O: this.eyesSearchTerm : ', this.eyesSearchTerm);
-        console.log('CONSOLOG: M:loadAll & O: this.smokerSearchTerm : ', this.smokerSearchTerm);
-        console.log('CONSOLOG: M:loadAll & O: this.childrenSearchTerm : ', this.childrenSearchTerm);
-        console.log('CONSOLOG: M:loadAll & O: this.futureChildrenSearchTerm : ', this.futureChildrenSearchTerm);
-        console.log('CONSOLOG: M:loadAll & O: this.petSearchTerm : ', this.petSearchTerm);
-        console.log('CONSOLOG: M:loadAll & O: this.sibblingsSearchTerm : ', this.sibblingsSearchTerm);
-        const query = {
-            //                page: this.page - 1,
-            //                size: this.itemsPerPage,
-            //                sort: this.sort()
-        };
-        if (this.bioSearchTerm) {
-            query['bio.contains'] = this.bioSearchTerm;
-        }
-        if (this.genderSearchTerm) {
-            query['gender.equals'] = this.genderSearchTerm;
-        }
-        if (this.civilStatusSearchTerm) {
-            query['civilStatus.equals'] = this.civilStatusSearchTerm;
-        }
-        if (this.lookingForSearchTerm) {
-            query['lookingFor.equals'] = this.lookingForSearchTerm;
-        }
-        if (this.purposeSearchTerm) {
-            query['purpose.equals'] = this.purposeSearchTerm;
-        }
-        if (this.physicalSearchTerm) {
-            query['physical.equals'] = this.physicalSearchTerm;
-        }
-        if (this.religionSearchTerm) {
-            query['religion.equals'] = this.religionSearchTerm;
-        }
-        if (this.ethnicGroupSearchTerm) {
-            query['ethnicGroup.equals'] = this.ethnicGroupSearchTerm;
-        }
-        if (this.studiesSearchTerm) {
-            query['studies.equals'] = this.studiesSearchTerm;
-        }
-        if (this.eyesSearchTerm) {
-            query['eyes.equals'] = this.eyesSearchTerm;
-        }
-        if (this.smokerSearchTerm) {
-            query['smoker.equals'] = this.smokerSearchTerm;
-        }
-        if (this.childrenSearchTerm) {
-            query['children.equals'] = this.childrenSearchTerm;
-        }
-        if (this.futureChildrenSearchTerm) {
-            query['futureChildren.equals'] = this.futureChildrenSearchTerm;
-        }
-        if (this.petSearchTerm) {
-            query['pet.equals'] = this.petSearchTerm;
-        }
-        if (this.sibblingsSearchTerm) {
-            query['sibblings.equals'] = this.sibblingsSearchTerm;
-        }
-        this.uprofileService.query(query).subscribe(
-            (res: HttpResponse<IUprofile[]>) => {
-                console.log('CONSOLOG: M:loadAll & O: res.body uprofiles : ', res.body);
-                this.uprofiles = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-        return;
-    }
-
-    clear() {
-        this.page = 0;
-        this.bioSearchTerm = '';
-        this.genderSearchTerm = '';
-        this.civilStatusSearchTerm = '';
-        this.lookingForSearchTerm = '';
-        this.purposeSearchTerm = '';
-        this.physicalSearchTerm = '';
-        this.religionSearchTerm = '';
-        this.ethnicGroupSearchTerm = '';
-        this.studiesSearchTerm = '';
-        this.eyesSearchTerm = '';
-        this.smokerSearchTerm = '';
-        this.childrenSearchTerm = '';
-        this.futureChildrenSearchTerm = '';
-        this.petSearchTerm = false;
-        this.sibblingsSearchTerm = 0;
-        //        this.router.navigate([
-        //            '/uprofile',
-        //            {
-        //                page: this.page,
-        //                sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
-        //            }
-        //        ]);
-    }
-
-    //    private filterArray(posts) {
-    //        this.arrayAux = [];
-    //        this.arrayIds = [];
-    //        posts.map(x => {
-    //            if (this.arrayIds.length >= 1 && this.arrayIds.includes(x.id) === false) {
-    //                this.arrayAux.push(x);
-    //                this.arrayIds.push(x.id);
-    //            } else if (this.arrayIds.length === 0) {
-    //                this.arrayAux.push(x);
-    //                this.arrayIds.push(x.id);
-    //            }
-    //        });
-    //        //        console.log('CONSOLOG: M:filterInterests & O: this.follows : ', this.arrayIds, this.arrayAux);
-    //        return this.arrayAux;
-    //    }
-
-    bioSearch() {
-        console.log('CONSOLOG: M:loadAll & O: this.bioSearchTerm : ', this.bioSearchTerm);
-        if (this.bioSearchTerm) {
-            const query = {
-                //                page: this.page - 1,
-                //                size: this.itemsPerPage,
-                //                sort: this.sort()
-            };
-            query['bio.contains'] = this.bioSearchTerm;
-            this.uprofileService.query(query).subscribe(
-                (res: HttpResponse<IUprofile[]>) => {
-                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles : ', res.body);
-                    this.uprofiles = res.body;
-                },
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
-            return;
-        }
-    }
-
-    genderSearch() {
-        console.log('CONSOLOG: M:loadAll & O: this.currentSearch2 : ', this.genderSearchTerm);
-        if (this.genderSearchTerm) {
-            const query = {};
-            query['gender.equals'] = this.genderSearchTerm;
-            this.uprofileService.query(query).subscribe(
-                (res: HttpResponse<IUprofile[]>) => {
-                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
-                    this.uprofiles = res.body;
-                },
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
-            return;
-        }
-    }
-
-    civilStatusSearch() {
-        console.log('CONSOLOG: M:loadAll & O: this.civilStatusSearch : ', this.civilStatusSearchTerm);
-        if (this.civilStatusSearchTerm) {
-            const query = {};
-            query['civilStatus.equals'] = this.civilStatusSearchTerm;
-            this.uprofileService.query(query).subscribe(
-                (res: HttpResponse<IUprofile[]>) => {
-                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
-                    this.uprofiles = res.body;
-                },
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
-            return;
-        }
-    }
-
-    lookingForSearch() {
-        console.log('CONSOLOG: M:loadAll & O: this.civilStatusSearch : ', this.lookingForSearchTerm);
-        if (this.lookingForSearchTerm) {
-            const query = {};
-            query['lookingFor.equals'] = this.lookingForSearchTerm;
-            this.uprofileService.query(query).subscribe(
-                (res: HttpResponse<IUprofile[]>) => {
-                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
-                    this.uprofiles = res.body;
-                },
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
-            return;
-        }
-    }
-
-    purposeSearch() {
-        console.log('CONSOLOG: M:loadAll & O: this.purposeSearchTerm : ', this.purposeSearchTerm);
-        if (this.purposeSearchTerm) {
-            const query = {};
-            query['purpose.equals'] = this.purposeSearchTerm;
-            this.uprofileService.query(query).subscribe(
-                (res: HttpResponse<IUprofile[]>) => {
-                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
-                    this.uprofiles = res.body;
-                },
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
-            return;
-        }
-    }
-
-    physicalSearch() {
-        console.log('CONSOLOG: M:loadAll & O: this.physicalSearchTerm : ', this.physicalSearchTerm);
-        if (this.physicalSearchTerm) {
-            const query = {};
-            query['physical.equals'] = this.physicalSearchTerm;
-            this.uprofileService.query(query).subscribe(
-                (res: HttpResponse<IUprofile[]>) => {
-                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
-                    this.uprofiles = res.body;
-                },
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
-            return;
-        }
-    }
-
-    religionSearch() {
-        console.log('CONSOLOG: M:loadAll & O: this.religionSearchTerm : ', this.religionSearchTerm);
-        if (this.religionSearchTerm) {
-            const query = {};
-            query['religion.equals'] = this.religionSearchTerm;
-            this.uprofileService.query(query).subscribe(
-                (res: HttpResponse<IUprofile[]>) => {
-                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
-                    this.uprofiles = res.body;
-                },
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
-            return;
-        }
-    }
-
-    ethnicGroupSearch() {
-        console.log('CONSOLOG: M:loadAll & O: this.ethnicGroupSearchTerm : ', this.ethnicGroupSearchTerm);
-        if (this.ethnicGroupSearchTerm) {
-            const query = {};
-            query['ethnicGroup.equals'] = this.ethnicGroupSearchTerm;
-            this.uprofileService.query(query).subscribe(
-                (res: HttpResponse<IUprofile[]>) => {
-                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
-                    this.uprofiles = res.body;
-                },
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
-            return;
-        }
-    }
-
-    studiesSearch() {
-        console.log('CONSOLOG: M:loadAll & O: this.studiesSearchTerm : ', this.studiesSearchTerm);
-        if (this.studiesSearchTerm) {
-            const query = {};
-            query['studies.equals'] = this.studiesSearchTerm;
-            this.uprofileService.query(query).subscribe(
-                (res: HttpResponse<IUprofile[]>) => {
-                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
-                    this.uprofiles = res.body;
-                },
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
-            return;
-        }
-    }
-
-    eyesSearch() {
-        console.log('CONSOLOG: M:loadAll & O: this.eyesSearchTerm : ', this.eyesSearchTerm);
-        if (this.eyesSearchTerm) {
-            const query = {};
-            query['eyes.equals'] = this.eyesSearchTerm;
-            this.uprofileService.query(query).subscribe(
-                (res: HttpResponse<IUprofile[]>) => {
-                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
-                    this.uprofiles = res.body;
-                },
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
-            return;
-        }
-    }
-
-    smokerSearch() {
-        console.log('CONSOLOG: M:loadAll & O: this.smokerSearchTerm : ', this.smokerSearchTerm);
-        if (this.smokerSearchTerm) {
-            const query = {};
-            query['smoker.equals'] = this.smokerSearchTerm;
-            this.uprofileService.query(query).subscribe(
-                (res: HttpResponse<IUprofile[]>) => {
-                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
-                    this.uprofiles = res.body;
-                },
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
-            return;
-        }
-    }
-
-    childrenSearch() {
-        console.log('CONSOLOG: M:loadAll & O: this.childrenSearchTerm : ', this.childrenSearchTerm);
-        if (this.childrenSearchTerm) {
-            const query = {};
-            query['children.equals'] = this.childrenSearchTerm;
-            this.uprofileService.query(query).subscribe(
-                (res: HttpResponse<IUprofile[]>) => {
-                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
-                    this.uprofiles = res.body;
-                },
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
-            return;
-        }
-    }
-
-    futureChildrenSearch() {
-        console.log('CONSOLOG: M:loadAll & O: this.futureChildrenSearchTerm : ', this.futureChildrenSearchTerm);
-        if (this.futureChildrenSearchTerm) {
-            const query = {};
-            query['futureChildren.equals'] = this.futureChildrenSearchTerm;
-            this.uprofileService.query(query).subscribe(
-                (res: HttpResponse<IUprofile[]>) => {
-                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
-                    this.uprofiles = res.body;
-                },
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
-            return;
-        }
-    }
-
-    petSearch() {
-        console.log('CONSOLOG: M:loadAll & O: this.petSearchTerm : ', this.petSearchTerm);
-        if (this.petSearchTerm) {
-            const query = {};
-            query['pet.equals'] = this.petSearchTerm;
-            this.uprofileService.query(query).subscribe(
-                (res: HttpResponse<IUprofile[]>) => {
-                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
-                    this.uprofiles = res.body;
-                },
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
-            return;
-        }
-    }
-
-    sibblingsSearch() {
-        console.log('CONSOLOG: M:loadAll & O: this.sibblingsSearchTerm : ', this.sibblingsSearchTerm);
-        if (this.sibblingsSearchTerm) {
-            const query = {};
-            query['sibblings.equals'] = this.sibblingsSearchTerm;
-            this.uprofileService.query(query).subscribe(
-                (res: HttpResponse<IUprofile[]>) => {
-                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
-                    this.uprofiles = res.body;
-                },
-                (res: HttpErrorResponse) => this.onError(res.message)
-            );
-            return;
-        }
-    }
-
-    byteSize(field) {
-        return this.dataUtils.byteSize(field);
-    }
-
-    openFile(contentType, field) {
-        return this.dataUtils.openFile(contentType, field);
-    }
-
-    setFileData(event, entity, field, isImage) {
-        this.dataUtils.setFileData(event, entity, field, isImage);
-    }
-
-    clearInputImage(field: string, fieldContentType: string, idInput: string) {
-        this.dataUtils.clearInputImage(this.uprofile, this.elementRef, field, fieldContentType, idInput);
-    }
-
-    previousState() {
-        window.history.back();
-    }
-
-    save() {
-        this.isSaving = true;
-        this.uprofile.creationDate = this.creationDate != null ? moment(this.creationDate, DATE_TIME_FORMAT) : null;
-        this.uprofile.birthdate = this.birthdate != null ? moment(this.birthdate, DATE_TIME_FORMAT) : null;
-        if (this.uprofile.id !== undefined) {
-            this.subscribeToSaveResponse(this.uprofileService.update(this.uprofile));
-        } else {
-            this.subscribeToSaveResponse(this.uprofileService.create(this.uprofile));
-        }
-    }
-
-    sort() {
-        const result = [this.predicate + ',' + (this.reverse ? 'asc' : 'desc')];
-        if (this.predicate !== 'id') {
-            result.push('id');
-        }
-        return result;
-    }
-
-    protected subscribeToSaveResponse(result: Observable<HttpResponse<IUprofile>>) {
-        result.subscribe((res: HttpResponse<IUprofile>) => this.onSaveSuccess(), (res: HttpErrorResponse) => this.onSaveError());
-    }
-
-    protected onSaveSuccess() {
-        this.isSaving = false;
-        this.previousState();
-    }
-
-    protected onSaveError() {
-        this.isSaving = false;
-    }
-
-    protected onError(errorMessage: string) {
-        this.jhiAlertService.error(errorMessage, null, null);
-    }
-
-    trackUserById(index: number, item: IUser) {
-        return item.id;
-    }
-
-    //    trackInterestById( index: number, item: IInterest ) {
-    //        return item.id;
+    //    searchAll() {
+    //        console.log('CONSOLOG: M:loadAll & O: this.bioSearchTerm : ', this.bioSearchTerm);
+    //        console.log('CONSOLOG: M:loadAll & O: this.currentSearch2 : ', this.genderSearchTerm);
+    //        console.log('CONSOLOG: M:loadAll & O: this.civilStatusSearch : ', this.civilStatusSearchTerm);
+    //        console.log('CONSOLOG: M:loadAll & O: this.civilStatusSearch : ', this.lookingForSearchTerm);
+    //        console.log('CONSOLOG: M:loadAll & O: this.purposeSearchTerm : ', this.purposeSearchTerm);
+    //        console.log('CONSOLOG: M:loadAll & O: this.physicalSearchTerm : ', this.physicalSearchTerm);
+    //        console.log('CONSOLOG: M:loadAll & O: this.religionSearchTerm : ', this.religionSearchTerm);
+    //        console.log('CONSOLOG: M:loadAll & O: this.ethnicGroupSearchTerm : ', this.ethnicGroupSearchTerm);
+    //        console.log('CONSOLOG: M:loadAll & O: this.studiesSearchTerm : ', this.studiesSearchTerm);
+    //        console.log('CONSOLOG: M:loadAll & O: this.eyesSearchTerm : ', this.eyesSearchTerm);
+    //        console.log('CONSOLOG: M:loadAll & O: this.smokerSearchTerm : ', this.smokerSearchTerm);
+    //        console.log('CONSOLOG: M:loadAll & O: this.childrenSearchTerm : ', this.childrenSearchTerm);
+    //        console.log('CONSOLOG: M:loadAll & O: this.futureChildrenSearchTerm : ', this.futureChildrenSearchTerm);
+    //        console.log('CONSOLOG: M:loadAll & O: this.petSearchTerm : ', this.petSearchTerm);
+    //        console.log('CONSOLOG: M:loadAll & O: this.sibblingsSearchTerm : ', this.sibblingsSearchTerm);
+    //        const query = {
+    //            //                page: this.page - 1,
+    //            //                size: this.itemsPerPage,
+    //            //                sort: this.sort()
+    //        };
+    //        if (this.bioSearchTerm) {
+    //            query['bio.contains'] = this.bioSearchTerm;
+    //        }
+    //        if (this.genderSearchTerm) {
+    //            query['gender.equals'] = this.genderSearchTerm;
+    //        }
+    //        if (this.civilStatusSearchTerm) {
+    //            query['civilStatus.equals'] = this.civilStatusSearchTerm;
+    //        }
+    //        if (this.lookingForSearchTerm) {
+    //            query['lookingFor.equals'] = this.lookingForSearchTerm;
+    //        }
+    //        if (this.purposeSearchTerm) {
+    //            query['purpose.equals'] = this.purposeSearchTerm;
+    //        }
+    //        if (this.physicalSearchTerm) {
+    //            query['physical.equals'] = this.physicalSearchTerm;
+    //        }
+    //        if (this.religionSearchTerm) {
+    //            query['religion.equals'] = this.religionSearchTerm;
+    //        }
+    //        if (this.ethnicGroupSearchTerm) {
+    //            query['ethnicGroup.equals'] = this.ethnicGroupSearchTerm;
+    //        }
+    //        if (this.studiesSearchTerm) {
+    //            query['studies.equals'] = this.studiesSearchTerm;
+    //        }
+    //        if (this.eyesSearchTerm) {
+    //            query['eyes.equals'] = this.eyesSearchTerm;
+    //        }
+    //        if (this.smokerSearchTerm) {
+    //            query['smoker.equals'] = this.smokerSearchTerm;
+    //        }
+    //        if (this.childrenSearchTerm) {
+    //            query['children.equals'] = this.childrenSearchTerm;
+    //        }
+    //        if (this.futureChildrenSearchTerm) {
+    //            query['futureChildren.equals'] = this.futureChildrenSearchTerm;
+    //        }
+    //        if (this.petSearchTerm) {
+    //            query['pet.equals'] = this.petSearchTerm;
+    //        }
+    //        if (this.sibblingsSearchTerm) {
+    //            query['sibblings.equals'] = this.sibblingsSearchTerm;
+    //        }
+    //        this.uprofileService.query(query).subscribe(
+    //            (res: HttpResponse<IUprofile[]>) => {
+    //                console.log('CONSOLOG: M:loadAll & O: res.body uprofiles : ', res.body);
+    //                this.uprofiles = res.body;
+    //            },
+    //            (res: HttpErrorResponse) => this.onError(res.message)
+    //        );
+    ////        return;
     //    }
     //
-    //    trackActivityById( index: number, item: IActivity ) {
-    //        return item.id;
+    //    clear() {
+    //        this.page = 0;
+    //        this.bioSearchTerm = '';
+    //        this.genderSearchTerm = '';
+    //        this.civilStatusSearchTerm = '';
+    //        this.lookingForSearchTerm = '';
+    //        this.purposeSearchTerm = '';
+    //        this.physicalSearchTerm = '';
+    //        this.religionSearchTerm = '';
+    //        this.ethnicGroupSearchTerm = '';
+    //        this.studiesSearchTerm = '';
+    //        this.eyesSearchTerm = '';
+    //        this.smokerSearchTerm = '';
+    //        this.childrenSearchTerm = '';
+    //        this.futureChildrenSearchTerm = '';
+    //        this.petSearchTerm = false;
+    //        this.sibblingsSearchTerm = 0;
+    //        //        this.router.navigate([
+    //        //            '/uprofile',
+    //        //            {
+    //        //                page: this.page,
+    //        //                sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
+    //        //            }
+    //        //        ]);
     //    }
     //
-    //    trackCelebById( index: number, item: ICeleb ) {
-    //        return item.id;
+    //    //    private filterArray(posts) {
+    //    //        this.arrayAux = [];
+    //    //        this.arrayIds = [];
+    //    //        posts.map(x => {
+    //    //            if (this.arrayIds.length >= 1 && this.arrayIds.includes(x.id) === false) {
+    //    //                this.arrayAux.push(x);
+    //    //                this.arrayIds.push(x.id);
+    //    //            } else if (this.arrayIds.length === 0) {
+    //    //                this.arrayAux.push(x);
+    //    //                this.arrayIds.push(x.id);
+    //    //            }
+    //    //        });
+    //    //        //        console.log('CONSOLOG: M:filterInterests & O: this.follows : ', this.arrayIds, this.arrayAux);
+    //    //        return this.arrayAux;
+    //    //    }
+    //
+    //    bioSearch() {
+    //        console.log('CONSOLOG: M:loadAll & O: this.bioSearchTerm : ', this.bioSearchTerm);
+    //        if (this.bioSearchTerm) {
+    //            const query = {
+    //                //                page: this.page - 1,
+    //                //                size: this.itemsPerPage,
+    //                //                sort: this.sort()
+    //            };
+    //            query['bio.contains'] = this.bioSearchTerm;
+    //            this.uprofileService.query(query).subscribe(
+    //                (res: HttpResponse<IUprofile[]>) => {
+    //                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles : ', res.body);
+    //                    this.uprofiles = res.body;
+    //                },
+    //                (res: HttpErrorResponse) => this.onError(res.message)
+    //            );
+    ////            return;
+    //        }
     //    }
-
-    getSelected(selectedVals: Array<any>, option: any) {
-        if (selectedVals) {
-            for (let i = 0; i < selectedVals.length; i++) {
-                if (option.id === selectedVals[i].id) {
-                    return selectedVals[i];
-                }
-            }
-        }
-        return option;
-    }
-
-    get uprofile() {
-        return this._uprofile;
-    }
-
-    set uprofile(uprofile: IUprofile) {
-        this._uprofile = uprofile;
-        console.log('CONSOLOG: M:set & O: this._uprofile : ', this._uprofile);
-        //        this.creationDate = moment(uprofile.creationDate).format(DATE_TIME_FORMAT);
-    }
+    //
+    //    genderSearch() {
+    //        console.log('CONSOLOG: M:loadAll & O: this.currentSearch2 : ', this.genderSearchTerm);
+    //        if (this.genderSearchTerm) {
+    //            const query = {};
+    //            query['gender.equals'] = this.genderSearchTerm;
+    //            this.uprofileService.query(query).subscribe(
+    //                (res: HttpResponse<IUprofile[]>) => {
+    //                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+    //                    this.uprofiles = res.body;
+    //                },
+    //                (res: HttpErrorResponse) => this.onError(res.message)
+    //            );
+    ////            return;
+    //        }
+    //    }
+    //
+    //    civilStatusSearch() {
+    //        console.log('CONSOLOG: M:loadAll & O: this.civilStatusSearch : ', this.civilStatusSearchTerm);
+    //        if (this.civilStatusSearchTerm) {
+    //            const query = {};
+    //            query['civilStatus.equals'] = this.civilStatusSearchTerm;
+    //            this.uprofileService.query(query).subscribe(
+    //                (res: HttpResponse<IUprofile[]>) => {
+    //                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+    //                    this.uprofiles = res.body;
+    //                },
+    //                (res: HttpErrorResponse) => this.onError(res.message)
+    //            );
+    ////            return;
+    //        }
+    //    }
+    //
+    //    lookingForSearch() {
+    //        console.log('CONSOLOG: M:loadAll & O: this.civilStatusSearch : ', this.lookingForSearchTerm);
+    //        if (this.lookingForSearchTerm) {
+    //            const query = {};
+    //            query['lookingFor.equals'] = this.lookingForSearchTerm;
+    //            this.uprofileService.query(query).subscribe(
+    //                (res: HttpResponse<IUprofile[]>) => {
+    //                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+    //                    this.uprofiles = res.body;
+    //                },
+    //                (res: HttpErrorResponse) => this.onError(res.message)
+    //            );
+    ////            return;
+    //        }
+    //    }
+    //
+    //    purposeSearch() {
+    //        console.log('CONSOLOG: M:loadAll & O: this.purposeSearchTerm : ', this.purposeSearchTerm);
+    //        if (this.purposeSearchTerm) {
+    //            const query = {};
+    //            query['purpose.equals'] = this.purposeSearchTerm;
+    //            this.uprofileService.query(query).subscribe(
+    //                (res: HttpResponse<IUprofile[]>) => {
+    //                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+    //                    this.uprofiles = res.body;
+    //                },
+    //                (res: HttpErrorResponse) => this.onError(res.message)
+    //            );
+    ////            return;
+    //        }
+    //    }
+    //
+    //    physicalSearch() {
+    //        console.log('CONSOLOG: M:loadAll & O: this.physicalSearchTerm : ', this.physicalSearchTerm);
+    //        if (this.physicalSearchTerm) {
+    //            const query = {};
+    //            query['physical.equals'] = this.physicalSearchTerm;
+    //            this.uprofileService.query(query).subscribe(
+    //                (res: HttpResponse<IUprofile[]>) => {
+    //                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+    //                    this.uprofiles = res.body;
+    //                },
+    //                (res: HttpErrorResponse) => this.onError(res.message)
+    //            );
+    ////            return;
+    //        }
+    //    }
+    //
+    //    religionSearch() {
+    //        console.log('CONSOLOG: M:loadAll & O: this.religionSearchTerm : ', this.religionSearchTerm);
+    //        if (this.religionSearchTerm) {
+    //            const query = {};
+    //            query['religion.equals'] = this.religionSearchTerm;
+    //            this.uprofileService.query(query).subscribe(
+    //                (res: HttpResponse<IUprofile[]>) => {
+    //                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+    //                    this.uprofiles = res.body;
+    //                },
+    //                (res: HttpErrorResponse) => this.onError(res.message)
+    //            );
+    ////            return;
+    //        }
+    //    }
+    //
+    //    ethnicGroupSearch() {
+    //        console.log('CONSOLOG: M:loadAll & O: this.ethnicGroupSearchTerm : ', this.ethnicGroupSearchTerm);
+    //        if (this.ethnicGroupSearchTerm) {
+    //            const query = {};
+    //            query['ethnicGroup.equals'] = this.ethnicGroupSearchTerm;
+    //            this.uprofileService.query(query).subscribe(
+    //                (res: HttpResponse<IUprofile[]>) => {
+    //                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+    //                    this.uprofiles = res.body;
+    //                },
+    //                (res: HttpErrorResponse) => this.onError(res.message)
+    //            );
+    ////            return;
+    //        }
+    //    }
+    //
+    //    studiesSearch() {
+    //        console.log('CONSOLOG: M:loadAll & O: this.studiesSearchTerm : ', this.studiesSearchTerm);
+    //        if (this.studiesSearchTerm) {
+    //            const query = {};
+    //            query['studies.equals'] = this.studiesSearchTerm;
+    //            this.uprofileService.query(query).subscribe(
+    //                (res: HttpResponse<IUprofile[]>) => {
+    //                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+    //                    this.uprofiles = res.body;
+    //                },
+    //                (res: HttpErrorResponse) => this.onError(res.message)
+    //            );
+    ////            return;
+    //        }
+    //    }
+    //
+    //    eyesSearch() {
+    //        console.log('CONSOLOG: M:loadAll & O: this.eyesSearchTerm : ', this.eyesSearchTerm);
+    //        if (this.eyesSearchTerm) {
+    //            const query = {};
+    //            query['eyes.equals'] = this.eyesSearchTerm;
+    //            this.uprofileService.query(query).subscribe(
+    //                (res: HttpResponse<IUprofile[]>) => {
+    //                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+    //                    this.uprofiles = res.body;
+    //                },
+    //                (res: HttpErrorResponse) => this.onError(res.message)
+    //            );
+    ////            return;
+    //        }
+    //    }
+    //
+    //    smokerSearch() {
+    //        console.log('CONSOLOG: M:loadAll & O: this.smokerSearchTerm : ', this.smokerSearchTerm);
+    //        if (this.smokerSearchTerm) {
+    //            const query = {};
+    //            query['smoker.equals'] = this.smokerSearchTerm;
+    //            this.uprofileService.query(query).subscribe(
+    //                (res: HttpResponse<IUprofile[]>) => {
+    //                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+    //                    this.uprofiles = res.body;
+    //                },
+    //                (res: HttpErrorResponse) => this.onError(res.message)
+    //            );
+    ////            return;
+    //        }
+    //    }
+    //
+    //    childrenSearch() {
+    //        console.log('CONSOLOG: M:loadAll & O: this.childrenSearchTerm : ', this.childrenSearchTerm);
+    //        if (this.childrenSearchTerm) {
+    //            const query = {};
+    //            query['children.equals'] = this.childrenSearchTerm;
+    //            this.uprofileService.query(query).subscribe(
+    //                (res: HttpResponse<IUprofile[]>) => {
+    //                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+    //                    this.uprofiles = res.body;
+    //                },
+    //                (res: HttpErrorResponse) => this.onError(res.message)
+    //            );
+    ////            return;
+    //        }
+    //    }
+    //
+    //    futureChildrenSearch() {
+    //        console.log('CONSOLOG: M:loadAll & O: this.futureChildrenSearchTerm : ', this.futureChildrenSearchTerm);
+    //        if (this.futureChildrenSearchTerm) {
+    //            const query = {};
+    //            query['futureChildren.equals'] = this.futureChildrenSearchTerm;
+    //            this.uprofileService.query(query).subscribe(
+    //                (res: HttpResponse<IUprofile[]>) => {
+    //                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+    //                    this.uprofiles = res.body;
+    //                },
+    //                (res: HttpErrorResponse) => this.onError(res.message)
+    //            );
+    ////            return;
+    //        }
+    //    }
+    //
+    //    petSearch() {
+    //        console.log('CONSOLOG: M:loadAll & O: this.petSearchTerm : ', this.petSearchTerm);
+    //        if (this.petSearchTerm) {
+    //            const query = {};
+    //            query['pet.equals'] = this.petSearchTerm;
+    //            this.uprofileService.query(query).subscribe(
+    //                (res: HttpResponse<IUprofile[]>) => {
+    //                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+    //                    this.uprofiles = res.body;
+    //                },
+    //                (res: HttpErrorResponse) => this.onError(res.message)
+    //            );
+    ////            return;
+    //        }
+    //    }
+    //
+    //    sibblingsSearch() {
+    //        console.log('CONSOLOG: M:loadAll & O: this.sibblingsSearchTerm : ', this.sibblingsSearchTerm);
+    //        if (this.sibblingsSearchTerm) {
+    //            const query = {};
+    //            query['sibblings.equals'] = this.sibblingsSearchTerm;
+    //            this.uprofileService.query(query).subscribe(
+    //                (res: HttpResponse<IUprofile[]>) => {
+    //                    console.log('CONSOLOG: M:loadAll & O: res.body uprofiles2 : ', res.body);
+    //                    this.uprofiles = res.body;
+    //                },
+    //                (res: HttpErrorResponse) => this.onError(res.message)
+    //            );
+    ////            return;
+    //        }
+    //    }
+    //
+    ////    byteSize(field) {
+    ////        return this.dataUtils.byteSize(field);
+    ////    }
+    //
+    ////    openFile(contentType, field) {
+    ////        return this.dataUtils.openFile(contentType, field);
+    ////    }
+    //
+    ////    setFileData(event, entity, field, isImage) {
+    ////        this.dataUtils.setFileData(event, entity, field, isImage);
+    ////    }
+    //
+    ////    clearInputImage(field: string, fieldContentType: string, idInput: string) {
+    ////        this.dataUtils.clearInputImage(this.uprofile, this.elementRef, field, fieldContentType, idInput);
+    ////    }
+    //
+    //    previousState() {
+    //        window.history.back();
+    //    }
+    //
+    //    save() {
+    //        this.isSaving = true;
+    //        this.uprofile.creationDate = this.creationDate != null ? moment(this.creationDate, DATE_TIME_FORMAT) : null;
+    //        this.uprofile.birthdate = this.birthdate != null ? moment(this.birthdate, DATE_TIME_FORMAT) : null;
+    //        if (this.uprofile.id !== undefined) {
+    //            this.subscribeToSaveResponse(this.uprofileService.update(this.uprofile));
+    //        } else {
+    //            this.subscribeToSaveResponse(this.uprofileService.create(this.uprofile));
+    //        }
+    //    }
+    //
+    //    sort() {
+    //        const result = [this.predicate + ',' + (this.reverse ? 'asc' : 'desc')];
+    //        if (this.predicate !== 'id') {
+    //            result.push('id');
+    //        }
+    ////        return result;
+    //    }
+    //
+    //    protected subscribeToSaveResponse(result: Observable<HttpResponse<IUprofile>>) {
+    //        result.subscribe((res: HttpResponse<IUprofile>) => this.onSaveSuccess(), (res: HttpErrorResponse) => this.onSaveError());
+    //    }
+    //
+    //    protected onSaveSuccess() {
+    //        this.isSaving = false;
+    //        this.previousState();
+    //    }
+    //
+    //    protected onSaveError() {
+    //        this.isSaving = false;
+    //    }
+    //
+    //    protected onError(errorMessage: string) {
+    //        this.jhiAlertService.error(errorMessage, null, null);
+    //    }
+    //
+    ////    trackId(index: number, item: IUprofile) {
+    ////        return item.id;
+    ////    }
+    //
+    //    //    trackInterestById( index: number, item: IInterest ) {
+    //    //        return item.id;
+    //    //    }
+    //    //
+    //    //    trackActivityById( index: number, item: IActivity ) {
+    //    //        return item.id;
+    //    //    }
+    //    //
+    //    //    trackCelebById( index: number, item: ICeleb ) {
+    //    //        return item.id;
+    //    //    }
+    //
+    ////    getSelected(selectedVals: Array<any>, option: any) {
+    ////        if (selectedVals) {
+    ////            for (let i = 0; i < selectedVals.length; i++) {
+    ////                if (option.id === selectedVals[i].id) {
+    ////                    return selectedVals[i];
+    ////                }
+    ////            }
+    ////        }
+    ////        return option;
+    ////    }
+    //
+    //    get uprofile() {
+    //        return this._uprofile;
+    //    }
+    //
+    //    set uprofile(uprofile: IUprofile) {
+    //        this._uprofile = uprofile;
+    //        console.log('CONSOLOG: M:set & O: this._uprofile : ', this._uprofile);
+    //        //        this.creationDate = moment(uprofile.creationDate).format(DATE_TIME_FORMAT);
+    //    }
 }

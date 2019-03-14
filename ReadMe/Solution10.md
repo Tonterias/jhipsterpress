@@ -1,5 +1,8 @@
 # Problem 10: Connecting PGAdmin4 to Heroku
 
+
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 May be you need to use PGAdmin to load the database with test data as in our InsertsInPOSTGRESQLDatabaseV8BLANK.txt
 
 You can either see this video: https://www.youtube.com/watch?v=GAHsl0AfK-0 or follow the steps:

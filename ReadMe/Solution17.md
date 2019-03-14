@@ -1,5 +1,8 @@
 # Problem 16: How to avoid unauthorized calls to the API
 
+
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 CASE 1: THE ENTITY IS DIRECTLY RELATED WITH THE USER ENTITY:
 
 In the example at /src/main/java/com/raro/web/web/rest/ProfileResource.java we used the SecurityUtils within the IF to if (!SecurityUtils.isCurrentUserInRole(AuthoritiesConstants.ADMIN)) to return a not authorized alert.

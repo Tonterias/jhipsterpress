@@ -1,6 +1,8 @@
 # Problem 36: * How to get dates automatically inserted in your forms:
 
 
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 Most of the Entities in the JHipsterPressp have Creation Dates in their entity-update.component.ts forms. How can you make the system to automatically load the system date into the input tag:
 
 

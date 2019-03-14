@@ -1,5 +1,7 @@
 # Problem 24: How to combine two entities together: Post and Comments (create and read).
 
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 You have a good example of how to combine the PostDetailComponent with the list of comments (comment.component.ts) in the post-detail.component.ts:
 
 As you see, we added the IComment and CommentService adding what you can find in the comment.component.ts such as: paging variables (including constructor initialization), loadPage(), loadAll(), transition(), clear(), trackId(), registerChangeInComments(), sort() and paginateComments() methods, so basically it is a mix of the logic of both the post and comment components.

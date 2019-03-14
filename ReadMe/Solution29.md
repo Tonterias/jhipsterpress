@@ -1,6 +1,8 @@
 # Problem 29: How to allow access to content for visitors in some pages like the home
 
 
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 Let's say that you have a homepage like JHipsterPress that shows the content from the Post entities in the home page or in the detail component of the Post Entity. How can you allow user to see them even without registering at your site.
 
 First, you will have to open your SecurityConfiguration and make some changes:

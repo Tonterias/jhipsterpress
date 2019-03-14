@@ -1,6 +1,8 @@
 # Problem 27: How to add static pages to the project:
 
 
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 First, create the component you want to add in the folder you need. I created an ABOUT page in the static folder: /src/main/webapp/app/static/about/about.component.ts
 
 

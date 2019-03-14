@@ -1,6 +1,8 @@
 # Problem 35: * Many-to-Many: How the order of factors DOES alter the product:
 
 
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 As is explained in: https://www.jhipster.tech/managing-relationships/ there are two possibilities in a Many 2 Many relationship:
 
 A Driver can drive many cars, but a Car can also have many drivers.

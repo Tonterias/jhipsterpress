@@ -1,5 +1,8 @@
 # Problem 19: How to change DTOs to load attributes of other entities
 
+
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 Let's make a Comment to have its post.headline and the post.id with it. Add a @Mapping within the /src/main/java/com/jhipsterpress/web/service/dto/CommentDTO.java: Comment toDto(Comment comment) who is the responsible of converting Comment en CommentDTO
 
 	@Mapper(componentModel = "spring", uses = {PostMapper.class})

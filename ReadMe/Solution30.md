@@ -1,6 +1,8 @@
 # Problem 30: How to manually add relationships to the User Entity.
 
 
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 This is the problem. I need to include in my FollowMapper the image of the User's Profile, but this can not be accessed directly since they are not directly related: Follow -- User -- Profile.
 
 How to solve it? Creating the relationship manually in the User Entity like this:

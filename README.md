@@ -1,12 +1,12 @@
-# http://www.jhipsterpress.com/ LEARNING PROJECT:
+# LEARNING PROJECT: http://www.spingular.com/ (formerly jhipsterpress)
 
-First, I would like to thank Jon Rudell (https://github.com/ruddell). Without his help, http://www.jhipsterpress.com/ would not have been possible! Note that it takes +30 seconds to wake up http://www.jhipsterpress.com/ in Heroku free account.
+First, I would like to thank Jon Rudell (https://github.com/ruddell). Without his help, http://www.spingular.com/ would not have been possible! Note that it takes +30 seconds to wake up http://www.spingular.com/ in Heroku free account.
 
 ![](ReadMe/homepage.png)
 
 When I started, I wanted to make an App that helped me (and hopefully others) to learn Jhipster and, at the same time, that would become an interesting project that could grow over time with different parts. This project is a live example of the solutions that are difficult to find elsewhere and you can see them in a working App. Check the Starting Point for a list of examples.
 
-I thought about it as a collaborative project that should be interesting for other developers to join, at any point (you can mail me at jhipsterpress@gmail.com), either because you wanted to learn how we have done it (beginners) or propose new ideas to make it grow and excel. Moreover, you can download the App and create your own Website if you wish to do so.
+I thought about it as a collaborative project that should be interesting for other developers to join, at any point (you can mail me at spingular@gmail.com), either because you wanted to learn how we have done it (beginners) or propose new ideas to make it grow and excel. Moreover, you can download the App and create your own Website if you wish to do so.
 
 The App is the combination of several sub-apps or parts: a newspaper with a blog and a meeting site (or grouping site). Let's start with a brief description of each part:
 
@@ -66,7 +66,7 @@ INTERMEDIATE:
 -   [How to change DTOs with MapStruct:](ReadMe/Solution6.md)
 -   [How to use Filtering to show user's data only:](ReadMe/Solution3.md)
 -   [How to create completely new component pages on the frontend: Follows and BlockedUser case:](ReadMe/Solution21.md)
--   [How to create the FrontPage for JHipsterPress:](ReadMe/Solution22.md)
+-   [How to create the FrontPage for spingular:](ReadMe/Solution22.md)
 -   [How to combine two entities together: Post and Comments:](ReadMe/Solution24.md)
 -   [Cascade deletion:](ReadMe/Solution28.md)
 -   [Cascade deletion in Many2Many relationships:](ReadMe/Solution33.md)
@@ -93,7 +93,7 @@ Once you download and follow the JHipster instructions, you will need to fill th
 
 # REGULAR JHIPSTER INFO
 
-## Jhipster Version: jhipsterpress
+## Jhipster Version: spingular
 
 This application was generated using JHipster 5.7.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v5.7.0](https://www.jhipster.tech/documentation-archive/v5.7.0).
 
@@ -105,7 +105,7 @@ For further instructions on how to develop with JHipster, have a look at [Using 
 
 ### Using angular-cli
 
-You can also use [Angular CLI][] to generate some custom client code.
+You can also use [Angular CLI] to generate some custom client code.
 
 For example, the following command:
 
@@ -119,7 +119,7 @@ will generate few files:
 
 ## Building for production
 
-To optimize the jhipsterpress application for production, run:
+To optimize the spingular application for production, run:
 
 To ensure everything worked, run:
 

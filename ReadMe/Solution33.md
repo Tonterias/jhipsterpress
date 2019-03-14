@@ -1,6 +1,8 @@
 # Problem 33: Cascade deletion in Many2Many relationships
 
 
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 Probably you have found trouble trying to delete a Post entity when you have many Tags and Topic entities that are shared by other Posts in a Many2Many relationship. You have found a database reference error. This is how I proceed: I modified the delete method in the PostServiceImpl. First, I've found the Post we want to delete, to create a new Array and iterate through it to delete its Tags or Topics before deleting. Then, save the post changes and delete.
 
 NOTE that we are doing a tag.removePost(post); so other Post can still have the tag, not a post.removeTag(tag); that would remove the tag from all the Posts alltogether.

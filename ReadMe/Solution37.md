@@ -1,6 +1,8 @@
 # Problem 37: * How search for different items simultaneously using Swagger:
 
 
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 How would you search for a text, let's say Microservices, into the post headline, the post bodytext and the conclusion and show the results of the 3 searches simultaneously? Let's do it and ask for the 3 searches:
 
     loadAll() {

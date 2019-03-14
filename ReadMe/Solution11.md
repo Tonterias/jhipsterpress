@@ -1,5 +1,8 @@
 # Problem 11: Configuring the confirmation email in Heroku
 
+
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 Follow this instructions which are more detailed than the config you will get from config/application-dev.yml & config/application-prod.yml :
 
 https://www.jhipster.tech/tips/011_tip_configuring_email_in_jhipster.html

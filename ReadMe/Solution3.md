@@ -1,5 +1,8 @@
 # Problem 3: FILTERING: Show only user’s data:
 
+
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 Before start, make sure that your entities use filters https://www.jhipster.tech/entities-filtering/:
 
 	entity Post { }

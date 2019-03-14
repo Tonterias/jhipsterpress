@@ -1,5 +1,8 @@
 # Problem 8: Entity with double relation to another entity
 
+
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 Let's imagine you want to register the user who are following (and who is followed) by another user:
 
 You will end up with a OneToMany relationship similar to this:

@@ -1,5 +1,8 @@
 # Problem 12: Importing your project in STS Maven - Gradle
 
+
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 For the very begginer, you should start by downloading the project from GitHub 
 
 ![](images/sol12image2.png) 

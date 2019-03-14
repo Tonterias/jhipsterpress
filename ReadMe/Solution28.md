@@ -1,6 +1,8 @@
 # Problem 28: Cascade deletion
 
 
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 You will have to the cascade = CascadeType.REMOVE in your annotation to delete a foreign key when you delete an entity. For example, once you delete a Post you will like to delete its comments too, right? Otherwise, you will get an Internal Server Error. Here's an example and you can find more in the other entities like Community (or User).
 
 	package com.jhipsterpress.web.domain;

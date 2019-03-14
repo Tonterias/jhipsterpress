@@ -1,6 +1,8 @@
 # Problem 38: * Configurations and Open Source incompatibilities:
 
 
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 I can not share with you the email configuration from www.sendinblue.com (which I recommend to use). To avoid having an incomplete download I copied the files with an outdated configuration password into the /jhipsterpress/miscelanea/config
 
 Where you will find a working copy of:

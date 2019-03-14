@@ -1,6 +1,8 @@
 # Problem 34: How to sanitize Youtube links in Angular 7: DomSanitizer
 
 
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 This issue is quite specific, but if you want to use YouTube videos in the homepage brought from the database, you will have to modify the [src]="saveUrl(frontPageConfig.recentVideos1.linkURL)":
 
 

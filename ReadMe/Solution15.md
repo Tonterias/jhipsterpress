@@ -1,5 +1,8 @@
 # Problem 15: How to allow HTML code inside a text field
 
+
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 You  may need to let HTML work inside the body of your post with a [innerHTML]="post.bodytext" tag as opposed to the regular tag {{post.quote}} that will not display it. You have an example in /src/main/webapp/app/entities/post/post-detail.component.html
 
 	<p class="g-color-gray-dark-v2" [innerHTML]="post.bodytext"></p>                

@@ -1,5 +1,8 @@
 # Problem 22: How to create the FrontPage
 
+
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 We needed to modify the Homepage to load all the Post that made the FrontPage as it is defined in /src/main/java/com/jhipsterpress/web/service/dto/CustomFrontpageconfigDTO.java. So we will have to create a new model object to populate those Post, as is: /src/main/webapp/app/shared/model/customfrontpageconfig.model.ts
 
 	import { Moment } from 'moment';

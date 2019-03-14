@@ -1,6 +1,8 @@
 # Problem 26: How to add a new font-awesome icon
 
 
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 First, go to https://fontawesome.com/icons?d=gallery&q=message&s=solid and choose the one you need. In this case, we are going to add comment and envelope to the navbar.
 
 Then, go and add them to the /src/main/webapp/app/vendor.ts file like this: faEnvelope & faComment

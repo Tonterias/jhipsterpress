@@ -1,5 +1,8 @@
 # Problem 9: Create a new Authority
 
+
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 Let's say that you need a new authority besides the given ones of ADMIN and USER.
 
 Modify /src/main/java/com/jhipsterpress/web/security/AuthoritiesConstants.java file to include your new authorities:

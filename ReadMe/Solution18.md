@@ -1,5 +1,8 @@
 # Problem 18: How to change DTOs to load entities
 
+
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 Let's say that you want to get the Posts (child) when you fetch a Blog (parent). First, you will have to change the @Cache to .NONE in the entities involved: Blog in the case for Posts or Posts in the case for Comments
 
 

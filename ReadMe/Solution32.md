@@ -1,6 +1,8 @@
 # Problem 32: How to omit a dropbox when not needed in the forms
 
 
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 Sometimes you do not need to have a dropbox in a form, like in the case of the community http://localhost:9000/#/community/new 
 where only the user that is logged can create one. Initially, you will have something like this:
 

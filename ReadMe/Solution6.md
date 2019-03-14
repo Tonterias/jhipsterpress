@@ -1,5 +1,8 @@
 # Problem 6: Modify DTOs with MapStruct
 
+
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 FrontPageConfig is the object that has all the Post that should appear on the HomePage. Creating relationships in JDL lead to database exhaustion, so we had to include the PostID and then modify the call to bring the Posts with the DTOs using MapStruct.
 
 First, we change the FrontpageconfigResource that resolves the call with the frontpageconfig ID ("/frontpageconfigs/{id}/posts") by calling the frontpageconfigService.findOneIncludingPosts(id)

@@ -1,5 +1,8 @@
 # Problem 7: Translations: NOTE: Beware of UTF-8! 
 
+
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 You can translate:
 
 1) Text that appears in an Entity as the name of the Entity. Let's use the User Management entity.

@@ -1,5 +1,8 @@
 # Problem 5: Change H2 Database from In-memory to Disk
 
+
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 Jon solved this problem and it is explained here: https://stackoverflow.com/questions/50833979/how-to-reset-h2-database-to-the-original-state-after-jhipster-jdl-generation/50837891#50837891
 
 First, go to your File Explorer and change the properties of your databaseName as you need and comment the other option:

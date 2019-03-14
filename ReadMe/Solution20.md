@@ -1,6 +1,8 @@
 # Problem 20: How to change DTOs to load attributes of not related entities
 
 
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 We have a comment (Comment  Profile  User) that is not an Entity directly related to the User Entity and we need to know who is the author (userId) of that comment. So we can not get directly to the userID. 
 
 Create an attribute userId in the /src/main/java/com/jhipsterpress/web/service/dto/CommentDTO.java

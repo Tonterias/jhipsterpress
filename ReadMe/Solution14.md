@@ -1,5 +1,8 @@
 # Problem 14: Importing a template like UNIFY in your project
 
+
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 Using a template like UNIFY can save you tons of hours:
 
 1.	Copy the listed CSS files from (:> Unify-v2.5\html\assets\css) to :>/src/main/webapp/content/css/     folder.

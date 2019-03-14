@@ -1,6 +1,8 @@
 # Problem 21: How to use create new component pages on the frontend: Follows and BlockedUser case
 
 
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 The regular Follow (and BlockUser) entities had to be duplicated into Following and Followers pages (and Blocking and Blocked Users pages).
 
 ![](images/sol21image1.png)

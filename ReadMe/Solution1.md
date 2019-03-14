@@ -1,5 +1,8 @@
 # Problem 1: Open access to the REST Api
 
+
+NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apologize for the inconvinience
+
 Let's open the HomePage to anyone so we can show it like a newspaper (Post object). The FrontPageConfig object has the Posts that we want to show in the Homepage.
 
 TEST THE IDEA:

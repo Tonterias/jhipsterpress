@@ -1,6 +1,6 @@
 # LEARNING PROJECT: http://www.spingular.com/ (formerly jhipsterpress)
 
-First, I would like to thank Jon Rudell (https://github.com/ruddell). Without his help, http://www.spingular.com/ would not have been possible! Note that it takes +30 seconds to wake up http://www.spingular.com/ in Heroku free account.
+First, I would like to thank Jon Rudell (https://github.com/ruddell). Without his help, http://www.spingular.com/ would not have been possible! **Note that it takes +30 seconds to wake up http://www.spingular.com/ in Heroku free account**.
 
 ![](ReadMe/homepage.png)
 

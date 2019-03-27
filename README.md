@@ -21,7 +21,7 @@ The App is the combination of several sub-apps or parts: a newspaper with a blog
 
 I'm not a programmer (actually I have a BA degree but always fascinated by computers), so I have the point of view of the inexperienced.
 
-I learned Spring (thanks to a great teacher: John Purcell https://caveofprogramming.com/) and Angular (with a course from Maximilian Schwarzmüller: https://www.udemy.com/the-complete-guide-to-angular-2/). Then I learned Jhipster with these books:
+I learned Spring (thanks to a great teacher: John Purcell https://caveofprogramming.com/) and Angular (with a course from Maximilian Schwarzm�ller: https://www.udemy.com/the-complete-guide-to-angular-2/). Then I learned Jhipster with these books:
 
 -   The JHipster Mini-Book 4.5 by Matt Raible. Now with a chapter on microservices!
 -   Full Stack Development with JHipster by Deepu K Sasidharan and Sendil Kumar. Get it on Packt and Amazon. https://www.safaribooksonline.com/library/view/full-stack-development/9781788476317/ A must read cause I'm going to explain things that are not fully enough covered there.
@@ -41,7 +41,7 @@ STARTERS:
 -   [How to add static pages to the project:](ReadMe/Solution27.md)
 -   [How to show/hide information in the frontend depending on the user Role:](ReadMe/Solution16.md)
 -   [How to open access to the REST Api:](ReadMe/Solution1.md)
--   [List screen shows only user’s data:](ReadMe/Solution2.md)
+-   [List screen shows only user�s data:](ReadMe/Solution2.md)
 -   [Create a new Authority:](ReadMe/Solution9.md)
 -   [How to connect PGAdmin4 to Heroku:](ReadMe/Solution10.md)
 -   [How to configure the confirmation email in Heroku:](ReadMe/Solution11.md)

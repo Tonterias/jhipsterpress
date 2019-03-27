@@ -35,6 +35,16 @@
         "nativeLanguage": "en",
         "languages": ["en", "es"],
         "herokuAppName": "jhipsterpress",
-        "herokuDeployType": "jar"
+        "herokuDeployType": "jar",
+        "appsFolders": ["jhipsterpress"],
+        "directoryPath": "../",
+        "jwtSecretKey": "OGQ5YzMwYTQxZDZhOWU3YjFiNThhMTlhYTc1OTEwNjMwNThlM2Q1NjYxYTM3ZTZmMzIyNmFmNzRmOGY1ZmNmY2Q1YWJlZTVjZWE5ODVhMGQ2ZmRiZWExYjc1MDgyM2FhYWIzYg==",
+        "dockerRepositoryName": "galore",
+        "dockerPushCommand": "docker push",
+        "kubernetesNamespace": "default",
+        "kubernetesServiceType": "LoadBalancer",
+        "monitoring": "no",
+        "istio": "no",
+        "istioRoute": false
     }
 }

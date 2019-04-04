@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jhipsterpress
+  namespace: default
+  labels:
+    app: jhipsterpress
+spec:
+  selector:
+    app: jhipsterpress
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 8080

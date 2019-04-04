@@ -7,7 +7,7 @@ metadata:
     app: jhipsterpress-postgresql
 type: Opaque
 data:
-  postgres-password: OTZvM2M2MmE=
+  postgres-password: NjY0NXJxd24=
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment

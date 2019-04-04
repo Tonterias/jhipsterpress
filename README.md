@@ -21,10 +21,12 @@ The App is the combination of several sub-apps or parts: a newspaper with a blog
 
 I'm not a programmer (actually I have a BA degree but always fascinated by computers), so I have the point of view of the inexperienced.
 
-I learned Spring (thanks to a great teacher: John Purcell https://caveofprogramming.com/) and Angular (with a course from Maximilian Schwarzm�ller: https://www.udemy.com/the-complete-guide-to-angular-2/). Then I learned Jhipster with these books:
+I learned Spring (thanks to a great teacher: John Purcell https://caveofprogramming.com/) and Angular (with a course from Maximilian Schwarzmuller: https://www.udemy.com/the-complete-guide-to-angular-2/). Then I learned Jhipster with these books:
 
 -   The JHipster Mini-Book 4.5 by Matt Raible. Now with a chapter on microservices!
 -   Full Stack Development with JHipster by Deepu K Sasidharan and Sendil Kumar. Get it on Packt and Amazon. https://www.safaribooksonline.com/library/view/full-stack-development/9781788476317/ A must read cause I'm going to explain things that are not fully enough covered there.
+
+Finally, I learned kubernetes with this great course created by Richard Chesterwood https://www.udemy.com/kubernetes-microservices
 
 So this is the first step of the staircase. Anyone who reads these books should have, at least, the same level as I have. We should offer examples and solutions for the problems that are not covered in the books or the courses.
 

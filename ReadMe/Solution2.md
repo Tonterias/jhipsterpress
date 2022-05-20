@@ -5,7 +5,7 @@ NOTE: JhipsterPress is changing its name to Springular, so be aware of it! I apo
 
 Let's see how to show only the user's data in the component.PROFILE.html screen (list):
 
-1.- We create and IF to see if the user is an ADMIN (show everything) or a USER (profileService.findByUserIsCurrentUser(pageable);) 
+1.- We create an IF to see if the user is an ADMIN (show everything) or a USER (profileService.findByUserIsCurrentUser(pageable);) 
  
 	src/main/java/com/raro/webh2memoryin/web/rest/ProfileResource.java
 	
